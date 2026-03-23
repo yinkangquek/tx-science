@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P5 Electrical System - Complete Learning Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #e65100;
+            --pri-light: #ff6f00;
+            --pri-dark: #c41c00;
+            --secondary: #4caf50;
+            --accent: #2196f3;
+            --warning: #ff9800;
+            --success: #4caf50;
+            --bg: #f5f5f5;
+            --text: #212121;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 20px 0 10px 0;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .theme-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--pri);
+            font-size: 1.8em;
+            margin: 30px 0 20px 0;
+            border-left: 5px solid var(--pri);
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: var(--accent);
+            font-size: 1.3em;
+            margin: 20px 0 12px 0;
+        }
+
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 15px 0;
+            margin-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .outcome-card {
+            background: linear-gradient(135deg, rgba(230, 81, 0, 0.1) 0%, rgba(255, 111, 0, 0.05) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .outcome-card strong {
+            color: var(--pri);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, rgba(66, 165, 245, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%);
+            padding: 15px;
+            border-left: 4px solid var(--accent);
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .key-concept strong {
+            color: var(--accent);
+        }
+
+        .did-you-know {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+            padding: 15px;
+            border-left: 4px solid var(--secondary);
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .did-you-know strong {
+            color: var(--secondary);
+        }
+
+        .think-about {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
+            padding: 15px;
+            border-left: 4px solid var(--warning);
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .think-about strong {
+            color: var(--warning);
+        }
+
+        .circuit-diagram {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .comparison-table th {
+            background: var(--pri);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: rgba(230, 81, 0, 0.02);
+        }
+
+        .interactive-section {
+            background: linear-gradient(135deg, rgba(230, 81, 0, 0.05) 0%, rgba(255, 111, 0, 0.03) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .questions-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .question {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 4px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .question-title {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin: 10px 0;
+        }
+
+        .option {
+            padding: 8px;
+            margin: 5px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .option:hover {
+            background: rgba(230, 81, 0, 0.1);
+        }
+
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .answer-explanation {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            display: none;
+        }
+
+        .answer-explanation.show {
+            display: block;
+        }
+
+        .answer-explanation strong {
+            color: var(--secondary);
+        }
+
+        .values-box {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .values-box h3 {
+            color: var(--warning);
+            margin-top: 0;
+        }
+
+        .values-box ul {
+            margin-left: 20px;
+        }
+
+        .values-box li {
+            margin: 8px 0;
+        }
+
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: var(--pri);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: var(--pri-dark);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="subtitle">Primary 5 • Theme: Energy</div>
+        <h1>⚡ Electrical System</h1>
+        <div class="theme-tag">Complete Learning Guide</div>
+    </header>
+
+    <div class="container">
+        <!-- Learning Outcomes -->
+        <div class="section">
+            <h2>Learning Outcomes</h2>
+            <p>By the end of this unit, you will be able to:</p>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <strong>LO1: Circuit Components</strong>
+                    Identify the components needed to make a complete circuit (battery/cell, wires, switch, bulb/buzzer/motor)
+                </div>
+                <div class="outcome-card">
+                    <strong>LO2: Complete Path</strong>
+                    Describe an electric circuit as a complete path (closed circuit) through which electricity can flow
+                </div>
+                <div class="outcome-card">
+                    <strong>LO3: Open vs Closed</strong>
+                    Distinguish between open and closed circuits
+                </div>
+                <div class="outcome-card">
+                    <strong>LO4: Conductors & Insulators</strong>
+                    Identify conductors and insulators of electricity
+                </div>
+                <div class="outcome-card">
+                    <strong>LO5: Series & Parallel</strong>
+                    Describe series and parallel circuits and compare their properties
+                </div>
+            </div>
+        </div>
+
+        <!-- What Is Electricity? -->
+        <div class="section">
+            <h2>What Is Electricity?</h2>
+            <p>Electricity is a form of energy that can be transferred from one place to another through conductors (materials that allow electricity to flow). Just like heat energy can warm our homes or mechanical energy can move objects, electrical energy can make things work.</p>
+
+            <h3>Sources of Electricity</h3>
+            <p><strong>Batteries and Cells:</strong> These are portable sources of electrical energy. A battery (often called a cell in science) stores chemical energy and converts it into electrical energy when connected in a circuit. Common examples include the AA batteries in a torch or the 9V batteries in alarms.</p>
+
+            <p><strong>Mains Electricity:</strong> This is the electricity supplied to our homes and schools through power lines. It comes from power stations where energy (from coal, water, wind, or solar) is converted into electrical energy and distributed through a network of cables.</p>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Electricity is the flow of tiny particles called electrons through a material. These electrons are negatively charged and move from the negative terminal (-) of a battery through a circuit to the positive terminal (+).
+            </div>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> Lightning is a form of electricity! During a thunderstorm, electrical energy builds up in clouds and is released as a massive electrical discharge that we see as lightning.
+            </div>
+        </div>
+
+        <!-- Components of a Circuit -->
+        <div class="section">
+            <h2>Components of an Electrical Circuit</h2>
+            <p>To make electricity do useful work, we need to create a circuit. A circuit requires several key components to function properly:</p>
+
+            <h3>1. Battery (or Cell)</h3>
+            <p>The battery is the energy source of the circuit. It provides the electrical energy needed to make components work. A battery has two terminals: the positive terminal (+) marked on one end and the negative terminal (-) marked on the other. The difference in electrical potential between these terminals pushes electrons through the circuit.</p>
+            <ul>
+                <li><strong>Single Cell:</strong> A single battery unit (like a AA battery)</li>
+                <li><strong>Battery Pack:</strong> Multiple cells connected together to provide more electrical energy</li>
+            </ul>
+
+            <h3>2. Wires (Conductors)</h3>
+            <p>Wires are made from metals like copper that allow electricity to flow easily. Wires connect the battery to other components and create the path for electricity. The wires have an insulating coating (usually plastic) to prevent electricity from flowing where it shouldn't and to protect us from electric shock.</p>
+
+            <h3>3. Switch</h3>
+            <p>A switch controls whether the circuit is complete or broken. When the switch is closed (ON), the circuit is complete and electricity can flow. When the switch is open (OFF), the circuit is broken and electricity cannot flow. Without a switch, you wouldn't be able to turn electrical devices on and off.</p>
+
+            <h3>4. Load (Bulb, Buzzer, Motor, or Other Device)</h3>
+            <p>The load is the component that uses electrical energy to do something useful:</p>
+            <ul>
+                <li><strong>Bulb (Light Bulb):</strong> Converts electrical energy into light and heat energy</li>
+                <li><strong>Buzzer:</strong> Converts electrical energy into sound energy</li>
+                <li><strong>Motor:</strong> Converts electrical energy into mechanical energy (movement)</li>
+                <li><strong>Heater:</strong> Converts electrical energy into heat energy</li>
+            </ul>
+
+            <h3>Circuit Symbols</h3>
+            <p>In science, we use standard symbols to represent circuit components. These symbols are understood worldwide:</p>
+            <div class="circuit-diagram">
+                <svg width="300" height="200" viewBox="0 0 300 200">
+                    <g transform="translate(20, 20)">
+                        <line x1="0" y1="0" x2="20" y2="0" stroke="black" stroke-width="2"/>
+                        <line x1="5" y1="5" x2="5" y2="35" stroke="black" stroke-width="3"/>
+                        <line x1="15" y1="5" x2="15" y2="35" stroke="black" stroke-width="1"/>
+                        <line x1="10" y1="40" x2="10" y2="60" stroke="black" stroke-width="2"/>
+                        <text x="-5" y="80" font-size="12">Cell</text>
+                    </g>
+                    <g transform="translate(80, 20)">
+                        <line x1="0" y1="0" x2="40" y2="0" stroke="black" stroke-width="2"/>
+                        <text x="-5" y="30" font-size="12">Wire</text>
+                    </g>
+                    <g transform="translate(160, 20)">
+                        <line x1="0" y1="20" x2="15" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="15" y1="20" x2="30" y2="10" stroke="black" stroke-width="2"/>
+                        <circle cx="30" cy="10" r="3" fill="none" stroke="black" stroke-width="1"/>
+                        <text x="-5" y="50" font-size="12">Switch</text>
+                    </g>
+                    <g transform="translate(20, 120)">
+                        <circle cx="10" cy="10" r="8" fill="none" stroke="black" stroke-width="2"/>
+                        <line x1="10" y1="18" x2="10" y2="25" stroke="black" stroke-width="2"/>
+                        <line x1="5" y1="25" x2="15" y2="25" stroke="black" stroke-width="2"/>
+                        <text x="-8" y="50" font-size="12">Bulb</text>
+                    </g>
+                    <g transform="translate(100, 120)">
+                        <rect x="3" y="3" width="14" height="14" fill="none" stroke="black" stroke-width="2"/>
+                        <text x="5" y="15" font-size="10" font-weight="bold">S</text>
+                        <text x="-5" y="50" font-size="12">Buzzer</text>
+                    </g>
+                    <g transform="translate(180, 120)">
+                        <circle cx="10" cy="10" r="8" fill="none" stroke="black" stroke-width="2"/>
+                        <text x="5" y="15" font-size="10" font-weight="bold">M</text>
+                        <text x="-5" y="50" font-size="12">Motor</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="think-about">
+                <strong>Think About It:</strong> What do you think would happen if one of the wires broke? Would the bulb still light up? Why or why not?
+            </div>
+        </div>
+
+        <!-- Open and Closed Circuits -->
+        <div class="section">
+            <h2>Open and Closed Circuits</h2>
+
+            <h3>Closed Circuit (Complete Path)</h3>
+            <p>A closed circuit is a complete, unbroken path through which electricity can flow. When a circuit is closed:</p>
+            <ul>
+                <li>All components are properly connected</li>
+                <li>The switch is ON (closed)</li>
+                <li>Electricity flows from the battery through the circuit and back to the battery</li>
+                <li>Components like bulbs light up, buzzers make sound, and motors spin</li>
+            </ul>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="150" viewBox="0 0 400 150">
+                    <line x1="30" y1="30" x2="40" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="35" y1="25" x2="35" y2="35" stroke="black" stroke-width="3"/>
+                    <line x1="45" y1="25" x2="45" y2="35" stroke="black" stroke-width="1"/>
+                    <line x1="50" y1="30" x2="80" y2="30" stroke="black" stroke-width="2"/>
+                    <text x="15" y="50" font-size="12">Battery</text>
+                    <line x1="80" y1="30" x2="120" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="120" y1="30" x2="150" y2="30" stroke="black" stroke-width="2"/>
+                    <circle cx="150" cy="30" r="3" fill="black"/>
+                    <text x="135" y="55" font-size="12">Switch ON</text>
+                    <line x1="150" y1="30" x2="180" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="30" x2="180" y2="100" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="120" r="8" fill="none" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="108" x2="180" y2="130" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="120" r="6" fill="yellow" opacity="0.7"/>
+                    <text x="165" y="150" font-size="12">Bulb ON</text>
+                    <line x1="180" y1="130" x2="180" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="140" x2="50" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="50" y1="140" x2="50" y2="30" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <h3>Open Circuit (Broken Path)</h3>
+            <p>An open circuit is a broken path through which electricity cannot flow. When a circuit is open:</p>
+            <ul>
+                <li>There is a break or gap in the circuit path</li>
+                <li>The switch is OFF (open)</li>
+                <li>Electricity cannot flow from the battery</li>
+                <li>Components like bulbs do not light up</li>
+            </ul>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="150" viewBox="0 0 400 150">
+                    <line x1="30" y1="30" x2="40" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="35" y1="25" x2="35" y2="35" stroke="black" stroke-width="3"/>
+                    <line x1="45" y1="25" x2="45" y2="35" stroke="black" stroke-width="1"/>
+                    <line x1="50" y1="30" x2="80" y2="30" stroke="black" stroke-width="2"/>
+                    <text x="15" y="50" font-size="12">Battery</text>
+                    <line x1="80" y1="30" x2="120" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="120" y1="30" x2="130" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="140" y1="15" x2="160" y2="30" stroke="black" stroke-width="2"/>
+                    <circle cx="160" cy="30" r="3" fill="black"/>
+                    <text x="125" y="55" font-size="12">Switch OFF</text>
+                    <line x1="160" y1="30" x2="180" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="30" x2="180" y2="100" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="120" r="8" fill="none" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="108" x2="180" y2="130" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="120" r="6" fill="gray" opacity="0.3"/>
+                    <text x="165" y="150" font-size="12">Bulb OFF</text>
+                    <line x1="180" y1="130" x2="180" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="140" x2="50" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="50" y1="140" x2="50" y2="30" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> A complete circuit is like a complete circle or loop. Electricity must be able to flow all the way around and back to where it started. If there's any break in the loop, the electricity cannot flow.
+            </div>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> When you flip a light switch at home, you're either opening or closing a circuit. The switch breaks or completes the path between the battery/power source and the light bulb.
+            </div>
+        </div>
+
+        <!-- Conductors and Insulators -->
+        <div class="section">
+            <h2>Conductors and Insulators</h2>
+
+            <h3>What Are Conductors?</h3>
+            <p>Conductors are materials that allow electricity to flow through them easily. Most metals are good conductors of electricity. The electrons in these materials can move freely, allowing electrical energy to pass through.</p>
+
+            <p><strong>Common Conductors:</strong></p>
+            <ul>
+                <li><strong>Copper:</strong> Most common in wires due to excellent conductivity and affordability</li>
+                <li><strong>Silver:</strong> Even better conductor than copper but more expensive</li>
+                <li><strong>Aluminum:</strong> Good conductor, used in some electrical applications</li>
+                <li><strong>Water:</strong> Pure water is a poor conductor, but water with dissolved minerals conducts electricity</li>
+                <li><strong>Graphite:</strong> A form of carbon that conducts electricity</li>
+            </ul>
+
+            <h3>What Are Insulators?</h3>
+            <p>Insulators are materials that do NOT allow electricity to flow through them easily. The electrons in these materials are tightly bound and cannot move freely. Insulators are used to protect us from electrical shock and to direct electricity along the desired path.</p>
+
+            <p><strong>Common Insulators:</strong></p>
+            <ul>
+                <li><strong>Plastic:</strong> Used to coat wires and cables</li>
+                <li><strong>Rubber:</strong> Used in electric plugs and flexible cables</li>
+                <li><strong>Wood:</strong> Used in telegraph poles and some electrical equipment</li>
+                <li><strong>Glass:</strong> Used in insulators for power lines</li>
+                <li><strong>Ceramic:</strong> Used in electrical insulators</li>
+                <li><strong>Air:</strong> Acts as an insulator under normal conditions</li>
+            </ul>
+
+            <h3>Why Wires Have Plastic Coating</h3>
+            <p>Wires used in circuits have a copper or metal core (the conductor) surrounded by a plastic or rubber coating (the insulator). This design serves two purposes:</p>
+            <ol>
+                <li><strong>Safety:</strong> The insulating coating prevents electricity from flowing through you if you touch the wire. This protects you from electric shock.</li>
+                <li><strong>Control:</strong> The coating directs electricity to flow only through the conductor wire and prevents it from jumping to other nearby conductors.</li>
+            </ol>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Conductors let electricity through; insulators block electricity. Every electrical device uses both: the conductor (like copper wire) carries electricity, while the insulator (like plastic coating) protects us from it.
+            </div>
+
+            <div class="think-about">
+                <strong>Think About It:</strong> Why do you think power line workers wear rubber gloves? How do insulators help keep them safe?
+            </div>
+        </div>
+
+        <!-- Series Circuits -->
+        <div class="section">
+            <h2>Series Circuits</h2>
+
+            <h3>What Is a Series Circuit?</h3>
+            <p>A series circuit is a circuit where all components are connected in a single path, one after another. Electricity flows from the battery through the first component, then the second, then the third, and so on, before returning to the battery. There is only ONE path for electricity to follow.</p>
+
+            <h3>Properties of Series Circuits</h3>
+
+            <p><strong>1. Single Path:</strong> Electricity has only one route through the circuit. All components are in line with each other.</p>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="120" viewBox="0 0 400 120">
+                    <line x1="20" y1="30" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="25" y1="25" x2="25" y2="35" stroke="black" stroke-width="3"/>
+                    <line x1="35" y1="25" x2="35" y2="35" stroke="black" stroke-width="1"/>
+                    <line x1="40" y1="30" x2="70" y2="30" stroke="black" stroke-width="2"/>
+                    <text x="10" y="55" font-size="11">Battery</text>
+                    <line x1="70" y1="30" x2="90" y2="30" stroke="black" stroke-width="2"/>
+                    <circle cx="100" cy="30" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="100" cy="30" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="90" y="50" font-size="11">Bulb A</text>
+                    <line x1="106" y1="30" x2="130" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="130" y1="30" x2="150" y2="30" stroke="black" stroke-width="2"/>
+                    <circle cx="160" cy="30" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="160" cy="30" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="150" y="50" font-size="11">Bulb B</text>
+                    <line x1="166" y1="30" x2="190" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="190" y1="30" x2="190" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="190" y1="80" x2="20" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="80" x2="20" y2="30" stroke="black" stroke-width="2"/>
+                    <path d="M 100 15 L 105 18 L 100 20" fill="red" stroke="red" stroke-width="1"/>
+                    <text x="85" y="12" font-size="10" fill="red">Current</text>
+                </svg>
+            </div>
+
+            <p><strong>2. Same Current Everywhere:</strong> The same electric current flows through all components. The current doesn't split or divide; it's the same everywhere in the series circuit.</p>
+
+            <p><strong>3. Brightness Decreases With More Bulbs:</strong> If you add more bulbs to a series circuit, each bulb will be dimmer than before. This is because the electrical energy from the battery is divided among all the bulbs. More bulbs = less energy for each bulb = dimmer light.</p>
+
+            <p><strong>4. One Failure Breaks the Whole Circuit:</strong> This is a major property of series circuits. If ANY component breaks or is removed, the entire circuit stops working. If one bulb blows out, all the other bulbs go dark because the circuit is broken.</p>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="120" viewBox="0 0 400 120">
+                    <line x1="20" y1="30" x2="30" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="25" y1="25" x2="25" y2="35" stroke="black" stroke-width="3"/>
+                    <line x1="35" y1="25" x2="35" y2="35" stroke="black" stroke-width="1"/>
+                    <line x1="40" y1="30" x2="70" y2="30" stroke="black" stroke-width="2"/>
+                    <text x="10" y="55" font-size="11">Battery</text>
+                    <line x1="70" y1="30" x2="90" y2="30" stroke="black" stroke-width="2"/>
+                    <circle cx="100" cy="30" r="6" fill="none" stroke="red" stroke-width="2"/>
+                    <line x1="95" y1="25" x2="105" y2="35" stroke="red" stroke-width="1"/>
+                    <text x="87" y="50" font-size="11">Bulb A</text>
+                    <text x="90" y="65" font-size="9" fill="red">(Broken)</text>
+                    <line x1="106" y1="30" x2="128" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="132" y1="30" x2="150" y2="30" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+                    <circle cx="160" cy="30" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="160" cy="30" r="4" fill="gray" opacity="0.3"/>
+                    <text x="150" y="50" font-size="11">Bulb B</text>
+                    <text x="147" y="65" font-size="9">(OFF)</text>
+                    <line x1="166" y1="30" x2="190" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="190" y1="30" x2="190" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="190" y1="80" x2="20" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="80" x2="20" y2="30" stroke="black" stroke-width="2"/>
+                    <text x="220" y="35" font-size="11" fill="red">No current!</text>
+                </svg>
+            </div>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Series circuits are like a chain: if one link breaks, the entire chain is broken. All components must work for the circuit to work.
+            </div>
+        </div>
+
+        <!-- Parallel Circuits -->
+        <div class="section">
+            <h2>Parallel Circuits</h2>
+
+            <h3>What Is a Parallel Circuit?</h3>
+            <p>A parallel circuit is a circuit where components are connected in SEPARATE branches. Each component has its own path from the battery. The electricity can split and flow through different branches simultaneously, then rejoin before returning to the battery. There are MULTIPLE paths for electricity to follow.</p>
+
+            <h3>Properties of Parallel Circuits</h3>
+
+            <p><strong>1. Multiple Paths:</strong> Electricity can flow through several different routes. If one branch is blocked, electricity can still flow through the other branches.</p>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="180" viewBox="0 0 400 180">
+                    <line x1="20" y1="40" x2="30" y2="40" stroke="black" stroke-width="2"/>
+                    <line x1="25" y1="35" x2="25" y2="45" stroke="black" stroke-width="3"/>
+                    <line x1="35" y1="35" x2="35" y2="45" stroke="black" stroke-width="1"/>
+                    <line x1="40" y1="40" x2="60" y2="40" stroke="black" stroke-width="2"/>
+                    <text x="10" y="60" font-size="11">Battery</text>
+                    <circle cx="60" cy="40" r="2" fill="black"/>
+                    <line x1="60" y1="40" x2="120" y2="40" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="40" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="40" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="128" y="60" font-size="11">Bulb A</text>
+                    <line x1="146" y1="40" x2="180" y2="40" stroke="black" stroke-width="2"/>
+                    <line x1="60" y1="40" x2="120" y2="100" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="100" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="100" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="128" y="120" font-size="11">Bulb B</text>
+                    <line x1="146" y1="100" x2="180" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="60" y1="40" x2="120" y2="160" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="128" y="180" font-size="11">Bulb C</text>
+                    <line x1="146" y1="160" x2="180" y2="160" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="100" r="2" fill="black"/>
+                    <line x1="180" y1="40" x2="180" y2="80" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="100" x2="180" y2="120" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="160" x2="180" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="200" y1="100" x2="200" y2="150" stroke="black" stroke-width="2"/>
+                    <line x1="200" y1="150" x2="20" y2="150" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="150" x2="20" y2="40" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <p><strong>2. Different Currents in Different Branches:</strong> The total current from the battery splits among the branches. Each branch carries some of the current, but the total current returning to the battery equals the sum of all branch currents.</p>
+
+            <p><strong>3. Brightness Remains Constant:</strong> In a parallel circuit, each bulb receives the full voltage from the battery. Therefore, all bulbs shine with the same brightness regardless of how many bulbs are connected. Adding more bulbs doesn't make the existing bulbs dimmer.</p>
+
+            <p><strong>4. One Failure Does NOT Break the Whole Circuit:</strong> This is the major advantage of parallel circuits. If one bulb blows out, the circuit in that branch is broken, BUT electricity can still flow through the other branches. The other bulbs continue to work normally.</p>
+
+            <div class="circuit-diagram">
+                <svg width="400" height="180" viewBox="0 0 400 180">
+                    <line x1="20" y1="40" x2="30" y2="40" stroke="black" stroke-width="2"/>
+                    <line x1="25" y1="35" x2="25" y2="45" stroke="black" stroke-width="3"/>
+                    <line x1="35" y1="35" x2="35" y2="45" stroke="black" stroke-width="1"/>
+                    <line x1="40" y1="40" x2="60" y2="40" stroke="black" stroke-width="2"/>
+                    <text x="10" y="60" font-size="11">Battery</text>
+                    <circle cx="60" cy="40" r="2" fill="black"/>
+                    <line x1="60" y1="40" x2="120" y2="40" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="40" r="6" fill="none" stroke="red" stroke-width="2"/>
+                    <line x1="135" y1="35" x2="145" y2="45" stroke="red" stroke-width="1"/>
+                    <text x="128" y="60" font-size="11">Bulb A</text>
+                    <text x="128" y="73" font-size="9" fill="red">(Blown)</text>
+                    <line x1="146" y1="40" x2="180" y2="40" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="60" y1="40" x2="120" y2="100" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="100" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="100" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="128" y="120" font-size="11">Bulb B</text>
+                    <text x="120" y="133" font-size="9" fill="green">(Still ON)</text>
+                    <line x1="146" y1="100" x2="180" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="60" y1="40" x2="120" y2="160" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="6" fill="none" stroke="black" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="4" fill="yellow" opacity="0.7"/>
+                    <text x="128" y="180" font-size="11">Bulb C</text>
+                    <line x1="146" y1="160" x2="180" y2="160" stroke="black" stroke-width="2"/>
+                    <circle cx="180" cy="100" r="2" fill="black"/>
+                    <line x1="180" y1="40" x2="180" y2="80" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+                    <line x1="180" y1="100" x2="180" y2="120" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="160" x2="180" y2="140" stroke="black" stroke-width="2"/>
+                    <line x1="180" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="200" y1="100" x2="200" y2="150" stroke="black" stroke-width="2"/>
+                    <line x1="200" y1="150" x2="20" y2="150" stroke="black" stroke-width="2"/>
+                    <line x1="20" y1="150" x2="20" y2="40" stroke="black" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Parallel circuits are like separate paths: if one path is blocked, you can still travel through the other paths. All branches work independently of each other.
+            </div>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> The electricity in your home is wired in parallel! This is why you can turn off one light without affecting others, and why multiple appliances can run at the same time from different outlets.
+            </div>
+        </div>
+
+        <!-- Series vs Parallel Comparison -->
+        <div class="section">
+            <h2>Comparing Series and Parallel Circuits</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Series Circuit</th>
+                        <th>Parallel Circuit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Number of Paths</strong></td>
+                        <td>One path for electricity</td>
+                        <td>Multiple paths for electricity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Current Flow</strong></td>
+                        <td>Same current throughout</td>
+                        <td>Current splits in branches</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brightness of Bulbs</strong></td>
+                        <td>Dimmer with more bulbs</td>
+                        <td>Same brightness always</td>
+                    </tr>
+                    <tr>
+                        <td><strong>If One Component Fails</strong></td>
+                        <td>Entire circuit stops working</td>
+                        <td>Other branches still work</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voltage per Component</strong></td>
+                        <td>Voltage is divided</td>
+                        <td>Each component gets full voltage</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Real-Life Example</strong></td>
+                        <td>String of old Christmas lights</td>
+                        <td>Household electrical outlets</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>When to Use Each Type</h3>
+
+            <p><strong>Series Circuits:</strong> Series circuits are useful when you need:</p>
+            <ul>
+                <li>Simple circuits with few components</li>
+                <li>All components to be controlled together</li>
+                <li>A way to make sure current cannot exceed a certain level (using a series resistor)</li>
+            </ul>
+
+            <p><strong>Parallel Circuits:</strong> Parallel circuits are preferred when you need:</p>
+            <ul>
+                <li>Multiple components to work independently</li>
+                <li>Each component to maintain full brightness or function</li>
+                <li>Failure of one component not to affect others (like household wiring)</li>
+                <li>Flexibility to add or remove components easily</li>
+            </ul>
+        </div>
+
+        <!-- Interactive Activities -->
+        <div class="section">
+            <h2>Interactive Learning Activities</h2>
+
+            <h3>Activity 1: Is the Circuit Open or Closed?</h3>
+            <div class="interactive-section">
+                <p>Look at each circuit diagram and determine if it is open or closed.</p>
+
+                <div style="margin: 20px 0;">
+                    <strong>Circuit 1:</strong>
+                    <div class="circuit-diagram" style="margin-top: 10px;">
+                        <svg width="300" height="120" viewBox="0 0 300 120">
+                            <line x1="20" y1="40" x2="30" y2="40" stroke="black" stroke-width="2"/>
+                            <line x1="25" y1="35" x2="25" y2="45" stroke="black" stroke-width="3"/>
+                            <line x1="35" y1="35" x2="35" y2="45" stroke="black" stroke-width="1"/>
+                            <line x1="40" y1="40" x2="80" y2="40" stroke="black" stroke-width="2"/>
+                            <circle cx="95" cy="40" r="6" fill="none" stroke="black" stroke-width="2"/>
+                            <circle cx="95" cy="40" r="4" fill="yellow" opacity="0.7"/>
+                            <line x1="101" y1="40" x2="140" y2="40" stroke="black" stroke-width="2"/>
+                            <line x1="140" y1="40" x2="140" y2="90" stroke="black" stroke-width="2"/>
+                            <circle cx="140" cy="90" r="3" fill="black"/>
+                            <line x1="140" y1="90" x2="20" y2="90" stroke="black" stroke-width="2"/>
+                            <line x1="20" y1="90" x2="20" y2="40" stroke="black" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p>Answer: <strong style="color: green;">Closed (The bulb is lit because the circuit is complete)</strong></p>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <strong>Circuit 2:</strong>
+                    <div class="circuit-diagram" style="margin-top: 10px;">
+                        <svg width="300" height="120" viewBox="0 0 300 120">
+                            <line x1="20" y1="40" x2="30" y2="40" stroke="black" stroke-width="2"/>
+                            <line x1="25" y1="35" x2="25" y2="45" stroke="black" stroke-width="3"/>
+                            <line x1="35" y1="35" x2="35" y2="45" stroke="black" stroke-width="1"/>
+                            <line x1="40" y1="40" x2="80" y2="40" stroke="black" stroke-width="2"/>
+                            <circle cx="95" cy="40" r="6" fill="none" stroke="black" stroke-width="2"/>
+                            <circle cx="95" cy="40" r="4" fill="gray" opacity="0.3"/>
+                            <line x1="101" y1="40" x2="140" y2="40" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+                            <line x1="140" y1="40" x2="140" y2="90" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+                            <line x1="140" y1="90" x2="20" y2="90" stroke="black" stroke-width="2"/>
+                            <line x1="20" y1="90" x2="20" y2="40" stroke="black" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <p>Answer: <strong style="color: green;">Open (The bulb is not lit and there's a break in the circuit)</strong></p>
+                </div>
+            </div>
+
+            <h3>Activity 2: Series vs Parallel Scenarios</h3>
+            <div class="interactive-section">
+                <p><strong>Scenario A - Series Circuit:</strong> Two bulbs are connected in series. If Bulb A blows out, what happens?</p>
+                <p style="padding: 10px; background: rgba(230, 81, 0, 0.1); border-radius: 4px; margin: 10px 0;">
+                    <strong>Answer:</strong> Bulb B goes out because the circuit is broken. In a series circuit, all components must work for any of them to work.
+                </p>
+
+                <p style="margin-top: 20px;"><strong>Scenario B - Parallel Circuit:</strong> Two bulbs are connected in parallel. If Bulb A blows out, what happens?</p>
+                <p style="padding: 10px; background: rgba(76, 175, 80, 0.1); border-radius: 4px; margin: 10px 0;">
+                    <strong>Answer:</strong> Bulb B continues to shine normally because it has its own separate path. In a parallel circuit, each component works independently.
+                </p>
+            </div>
+        </div>
+
+        <!-- Values Box -->
+        <div class="values-box">
+            <h3>Electrical Safety</h3>
+            <p>Electricity is very useful but also very dangerous if not handled properly. Always remember these safety rules:</p>
+            <ul>
+                <li>Never play with power outlets or electrical wires</li>
+                <li>Never stick objects into electrical sockets</li>
+                <li>Keep water away from electrical appliances and sockets</li>
+                <li>Always ask an adult before using electrical equipment</li>
+                <li>If someone is electrocuted, DO NOT touch them. Call for help immediately</li>
+                <li>Never touch downed power lines</li>
+                <li>Be careful with electrical cords - don't pull them or damage them</li>
+                <li>Use properly grounded electrical equipment with three-pin plugs in wet areas</li>
+            </ul>
+        </div>
+
+        <!-- PSLE-Style Questions -->
+        <div class="questions-section">
+            <h2>PSLE-Style Practice Questions</h2>
+
+            <h3>Section A: Multiple Choice Questions (1 mark each)</h3>
+
+            <div class="question">
+                <div class="question-title">Question 1: Circuit Components</div>
+                <p>Which of the following is NOT a component of a simple electrical circuit?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q1" value="a"> A) Battery
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="b"> B) Water
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="c"> C) Wire
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q1" value="d"> D) Bulb
+                    </label>
+                </div>
+                <button onclick="checkQ1()">Show Answer</button>
+                <div id="q1-ans" class="answer-explanation">
+                    <strong>Correct Answer: B) Water</strong><br>
+                    Water is not a component of an electrical circuit. A simple circuit needs: battery (energy source), wire (conductor), switch (control), and a load like a bulb.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 2: Open vs Closed Circuit</div>
+                <p>When the switch in a circuit is ON, the circuit is said to be:</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q2" value="a"> A) Open
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="b"> B) Closed
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="c"> C) Broken
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q2" value="d"> D) Incomplete
+                    </label>
+                </div>
+                <button onclick="checkQ2()">Show Answer</button>
+                <div id="q2-ans" class="answer-explanation">
+                    <strong>Correct Answer: B) Closed</strong><br>
+                    When the switch is ON, it completes the circuit path, making it a closed circuit. Electricity can flow through the complete path and reach the load.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 3: Conductors</div>
+                <p>Which of the following is the BEST conductor of electricity?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q3" value="a"> A) Rubber
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="b"> B) Plastic
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="c"> C) Copper
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q3" value="d"> D) Wood
+                    </label>
+                </div>
+                <button onclick="checkQ3()">Show Answer</button>
+                <div id="q3-ans" class="answer-explanation">
+                    <strong>Correct Answer: C) Copper</strong><br>
+                    Copper is a metal and an excellent conductor of electricity. It's commonly used in wires. Rubber, plastic, and wood are all insulators.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 4: Series Circuit Property</div>
+                <p>In a series circuit, if one bulb blows out:</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q4" value="a"> A) Other bulbs shine brighter
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="b"> B) Other bulbs continue to shine normally
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="c"> C) All bulbs go out
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q4" value="d"> D) The battery shuts down
+                    </label>
+                </div>
+                <button onclick="checkQ4()">Show Answer</button>
+                <div id="q4-ans" class="answer-explanation">
+                    <strong>Correct Answer: C) All bulbs go out</strong><br>
+                    In a series circuit, there is only one path. If one bulb breaks, the circuit is broken and electricity cannot flow, so all bulbs go out.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 5: Parallel Circuit Advantage</div>
+                <p>Which statement about parallel circuits is TRUE?</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q5" value="a"> A) All components share the same current
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="b"> B) Failure of one component stops the whole circuit
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="c"> C) Each component has its own separate path
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q5" value="d"> D) Components become dimmer when more are added
+                    </label>
+                </div>
+                <button onclick="checkQ5()">Show Answer</button>
+                <div id="q5-ans" class="answer-explanation">
+                    <strong>Correct Answer: C) Each component has its own separate path</strong><br>
+                    In a parallel circuit, components are connected in separate branches. This is why one component can fail without affecting others, and why household wiring uses parallel circuits.
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Section B: Open-Ended Questions (2-3 marks each)</h3>
+
+            <div class="question">
+                <div class="question-title">Question 6: Explaining Open Circuits</div>
+                <p>Explain why a light bulb does not light up when there is a break in the wire connecting it to the battery.</p>
+                <button onclick="toggleAns('q6')">Show Model Answer</button>
+                <div id="q6-ans" class="answer-explanation">
+                    <strong>Model Answer:</strong><br>
+                    A light bulb needs electricity to flow through it to light up. The electricity flows in a closed circuit (complete path). When there is a break in the wire, the circuit becomes open (incomplete). Without a complete path, electricity cannot flow from the battery to the bulb. Therefore, the bulb does not light up.
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 7: Series Circuit Problem</div>
+                <p>In a circuit, Bulb A and Bulb B are connected in series. If Bulb A blows, what will happen to Bulb B? Explain your answer.</p>
+                <button onclick="toggleAns('q7')">Show Model Answer</button>
+                <div id="q7-ans" class="answer-explanation">
+                    <strong>Model Answer:</strong><br>
+                    Bulb B will go out. In a series circuit, there is only one path for electricity. All components are connected one after another. If Bulb A blows, it creates a break in this single path. This stops electricity from flowing through the entire circuit. Since electricity cannot reach Bulb B, it will not light up (it will go out).
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-title">Question 8: Parallel Circuit Advantage</div>
+                <p>Explain why parallel circuits are better than series circuits for household electrical wiring.</p>
+                <button onclick="toggleAns('q8')">Show Model Answer</button>
+                <div id="q8-ans" class="answer-explanation">
+                    <strong>Model Answer:</strong><br>
+                    Parallel circuits are better for household wiring because: (1) Each appliance has its own separate branch, so you can control each one independently. You can turn off one light without affecting others. (2) If one appliance fails, the others continue to work because electricity can still flow through other branches. (3) Each appliance receives the full voltage from the power source, so they all work at full strength. In a series circuit, if one appliance breaks, all stop working, which is inconvenient for a home.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright 2026 Singapore MOE Primary 5 Science | Electrical System Learning Module</p>
+        <p>For Safety: Always follow electrical safety rules and consult an adult when handling electrical equipment.</p>
+    </footer>
+
+    <script>
+        function checkQ1() {
+            const ans = document.querySelector('input[name="q1"]:checked');
+            if (ans && ans.value === 'b') {
+                document.getElementById('q1-ans').classList.add('show');
+            } else {
+                alert('Please select B) Water');
+            }
+        }
+
+        function checkQ2() {
+            const ans = document.querySelector('input[name="q2"]:checked');
+            if (ans && ans.value === 'b') {
+                document.getElementById('q2-ans').classList.add('show');
+            } else {
+                alert('Please select B) Closed');
+            }
+        }
+
+        function checkQ3() {
+            const ans = document.querySelector('input[name="q3"]:checked');
+            if (ans && ans.value === 'c') {
+                document.getElementById('q3-ans').classList.add('show');
+            } else {
+                alert('Please select C) Copper');
+            }
+        }
+
+        function checkQ4() {
+            const ans = document.querySelector('input[name="q4"]:checked');
+            if (ans && ans.value === 'c') {
+                document.getElementById('q4-ans').classList.add('show');
+            } else {
+                alert('Please select C) All bulbs go out');
+            }
+        }
+
+        function checkQ5() {
+            const ans = document.querySelector('input[name="q5"]:checked');
+            if (ans && ans.value === 'c') {
+                document.getElementById('q5-ans').classList.add('show');
+            } else {
+                alert('Please select C) Each component has its own separate path');
+            }
+        }
+
+        function toggleAns(id) {
+            document.getElementById(id + '-ans').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

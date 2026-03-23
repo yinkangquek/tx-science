@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 6 Science: Photosynthesis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #6a1b9a;
+            --light: #9c27b0;
+            --lighter: #e1bee7;
+            --accent: #00bcd4;
+            --success: #4caf50;
+            --danger: #f44336;
+            --dark: #1a1a1a;
+            --gray: #757575;
+            --light-gray: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light-gray);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--light) 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '🌿';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* ===== CONTAINER & SECTIONS ===== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--lighter);
+            padding-bottom: 0.5rem;
+        }
+
+        section h3 {
+            color: var(--light);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== LEARNING OUTCOMES ===== */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .outcome-card {
+            background: linear-gradient(135deg, var(--lighter) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--pri);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .outcome-card strong {
+            color: var(--pri);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        /* ===== CONTENT BOXES ===== */
+        .key-concept, .did-you-know, .think-about {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .key-concept {
+            background-color: #f3e5f5;
+            border-color: var(--pri);
+        }
+
+        .key-concept strong {
+            color: var(--pri);
+        }
+
+        .did-you-know {
+            background-color: #e0f2f1;
+            border-color: var(--accent);
+        }
+
+        .did-you-know strong {
+            color: var(--accent);
+        }
+
+        .think-about {
+            background-color: #fff3e0;
+            border-color: #ff9800;
+        }
+
+        .think-about strong {
+            color: #ff9800;
+        }
+
+        /* ===== EQUATION DIAGRAM ===== */
+        .equation-container {
+            background: #f9f9f9;
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .equation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .equation-box {
+            background: white;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--pri);
+            border-radius: 6px;
+            text-align: center;
+            min-width: 120px;
+            font-weight: 600;
+            color: var(--pri);
+        }
+
+        .equation-arrow {
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .equation-condition {
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-style: italic;
+            text-align: center;
+            position: relative;
+            top: -8px;
+        }
+
+        /* ===== LEAF DIAGRAM ===== */
+        .leaf-section {
+            margin: 2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .leaf-diagram {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .leaf-description {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .leaf-layer {
+            background: #f5f5f5;
+            padding: 1rem;
+            margin: 0.8rem 0;
+            border-left: 3px solid var(--light);
+            border-radius: 4px;
+        }
+
+        .leaf-layer strong {
+            color: var(--pri);
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        /* ===== INTERACTIVE APPLETS ===== */
+        .applet {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 2px solid var(--lighter);
+        }
+
+        .applet h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Equation Builder */
+        .equation-builder {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .builder-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .builder-section h5 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .drag-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            min-height: 60px;
+            align-items: flex-start;
+        }
+
+        .drag-item {
+            background: linear-gradient(135deg, var(--lighter), var(--light));
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            cursor: move;
+            user-select: none;
+            border: 2px solid var(--pri);
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .drag-item:hover {
+            transform: scale(1.05);
+        }
+
+        .drag-item.placed {
+            opacity: 0.5;
+        }
+
+        .drop-zone {
+            background: white;
+            border: 2px dashed var(--light);
+            border-radius: 6px;
+            padding: 1.5rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .drop-zone.active {
+            background: #f3e5f5;
+            border-color: var(--pri);
+        }
+
+        .builder-item {
+            background: linear-gradient(135deg, var(--accent), #0097a7);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .builder-feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .builder-feedback.success {
+            background: #c8e6c9;
+            color: var(--success);
+            display: block;
+        }
+
+        .builder-feedback.error {
+            background: #ffcdd2;
+            color: var(--danger);
+            display: block;
+        }
+
+        /* Requirements Checker */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .requirement-toggle {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .requirement-toggle.active {
+            background: linear-gradient(135deg, var(--lighter), var(--light));
+            color: white;
+            border-color: var(--pri);
+        }
+
+        .requirement-toggle input {
+            display: none;
+        }
+
+        .requirement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .requirement-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .result-message {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-message.success {
+            background: #c8e6c9;
+            color: var(--success);
+            display: block;
+        }
+
+        .result-message.incomplete {
+            background: #fff3cd;
+            color: #856404;
+            display: block;
+        }
+
+        /* Label the Leaf */
+        .leaf-label-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            align-items: flex-start;
+        }
+
+        .leaf-svg-container {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+        }
+
+        .leaf-labels {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .label-item {
+            background: linear-gradient(135deg, var(--lighter), var(--light));
+            color: white;
+            padding: 0.8rem 1.2rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            cursor: move;
+            user-select: none;
+            border: 2px solid var(--pri);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .label-item:hover {
+            transform: translateX(5px);
+        }
+
+        .label-item.placed {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Starch Test Simulator */
+        .starch-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .leaf-test {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .leaf-test.uncovered {
+            border-color: var(--success);
+        }
+
+        .leaf-test.covered {
+            border-color: var(--danger);
+        }
+
+        .leaf-visual {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        .test-description {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .test-button {
+            background: linear-gradient(135deg, var(--accent), #0097a7);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .test-button:hover {
+            transform: scale(1.05);
+        }
+
+        .test-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .test-result {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .test-result.blue-black {
+            background: #e3f2fd;
+            color: #1565c0;
+            display: block;
+        }
+
+        .test-result.brown {
+            background: #fff3e0;
+            color: #e65100;
+            display: block;
+        }
+
+        /* ===== QUESTIONS SECTION ===== */
+        .questions-section {
+            background: white;
+        }
+
+        .question-block {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .question-number {
+            background: var(--pri);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .question-text {
+            margin: 1rem 0;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .option {
+            background: white;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background: var(--lighter);
+            border-color: var(--pri);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 0.8rem;
+        }
+
+        .answer-section {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .answer-section.show {
+            display: block;
+        }
+
+        .answer-section strong {
+            color: var(--pri);
+        }
+
+        .toggle-answer {
+            background: var(--accent);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .toggle-answer:hover {
+            background: #0097a7;
+        }
+
+        /* ===== VALUES BOX ===== */
+        .values-box {
+            background: linear-gradient(135deg, var(--lighter) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--pri);
+        }
+
+        .values-box h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .value-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .value-item strong {
+            display: block;
+            color: var(--pri);
+            margin-bottom: 0.3rem;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--pri);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .equation {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .leaf-section {
+                flex-direction: column;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .starch-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        button {
+            transition: all 0.3s ease;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-subtitle">Primary 6 • Theme: Cycles</div>
+        <h1>Photosynthesis</h1>
+        <p>The amazing process by which green plants make their own food using sunlight, water, and carbon dioxide</p>
+    </div>
+
+    <div class="container">
+        <!-- LEARNING OUTCOMES -->
+        <section>
+            <h2>Learning Outcomes</h2>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <strong>LO1</strong>
+                    <p>Describe photosynthesis as the process by which plants make food using sunlight, water, and carbon dioxide</p>
+                </div>
+                <div class="outcome-card">
+                    <strong>LO2</strong>
+                    <p>Identify the products of photosynthesis (glucose/food and oxygen)</p>
+                </div>
+                <div class="outcome-card">
+                    <strong>LO3</strong>
+                    <p>Describe the conditions necessary for photosynthesis (sunlight, water, carbon dioxide, chlorophyll)</p>
+                </div>
+                <div class="outcome-card">
+                    <strong>LO4</strong>
+                    <p>Recognise that photosynthesis occurs mainly in the leaves</p>
+                </div>
+                <div class="outcome-card">
+                    <strong>LO5</strong>
+                    <p>Relate the structure of the leaf to its function in photosynthesis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHING CONTENT -->
+        <section>
+            <h2>What Is Photosynthesis?</h2>
+
+            <p>Photosynthesis is the process by which green plants make their own food. The word "photosynthesis" comes from two Greek words: "photo" meaning light, and "synthesis" meaning to make or put together. So photosynthesis literally means "making with light"!</p>
+
+            <p>Plants use energy from sunlight to convert water and carbon dioxide into glucose (a type of sugar that serves as food) and oxygen. This is one of the most important processes on Earth because it provides food and oxygen for nearly all living things.</p>
+
+            <div class="equation-container">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <strong style="font-size: 1.05rem; color: var(--pri);">The Photosynthesis Equation</strong>
+                </div>
+                <div class="equation">
+                    <div class="equation-box">Carbon Dioxide + Water</div>
+                    <div class="equation-arrow">→</div>
+                    <div class="equation-box">Glucose + Oxygen</div>
+                </div>
+                <div class="equation-condition">Sunlight + Chlorophyll (energy source)</div>
+            </div>
+
+            <div class="key-concept">
+                <strong>🔑 Key Concept:</strong> Photosynthesis is a process where plants trap energy from sunlight and use it to manufacture glucose (sugar) from carbon dioxide and water. Oxygen is released as a by-product.
+            </div>
+
+            <h3>Why Is Photosynthesis Important?</h3>
+
+            <p><strong>1. Food Production:</strong> Photosynthesis is the primary way plants produce their own food. Plants use the glucose they make to grow, repair themselves, and store energy. Without photosynthesis, plants would have no food source and could not survive. Since many animals eat plants, photosynthesis indirectly provides food for animals as well, including humans.</p>
+
+            <p><strong>2. Oxygen Production:</strong> As a by-product of photosynthesis, plants release oxygen into the atmosphere. All aerobic organisms (organisms that need oxygen to live) depend on this oxygen for respiration. Every breath we take contains oxygen produced by plants through photosynthesis.</p>
+
+            <p><strong>3. Carbon Dioxide Removal:</strong> Plants absorb carbon dioxide (a greenhouse gas) from the atmosphere during photosynthesis. This helps reduce the amount of carbon dioxide in the air, which is important for controlling climate change and maintaining a healthy atmosphere.</p>
+
+            <p><strong>4. Energy Flow:</strong> Photosynthesis is the foundation of nearly all food chains and food webs on Earth. The energy from the sun is captured by plants and made available to all other organisms.</p>
+
+            <div class="did-you-know">
+                <strong>💡 Did You Know?</strong> Plants produce enough oxygen in a day to sustain millions of people. A large tree can produce about 120 kg of oxygen per year!
+            </div>
+
+            <h3>Requirements for Photosynthesis</h3>
+
+            <p>For photosynthesis to occur, plants need four essential requirements:</p>
+
+            <p><strong>1. Sunlight (Energy Source)</strong><br>
+            Sunlight provides the energy needed to power the photosynthesis reaction. Without light, photosynthesis cannot happen. This is why photosynthesis only occurs during the day and why plants grow better in sunny locations. Different colours of light have different amounts of energy, and plants use different wavelengths of light for different purposes.</p>
+
+            <p><strong>2. Water (H₂O)</strong><br>
+            Water is one of the raw materials for photosynthesis. Plants absorb water through their roots from the soil. The water travels up through the stem in tiny tubes called xylem vessels and reaches the leaves. Water provides the hydrogen atoms needed to make glucose.</p>
+
+            <p><strong>3. Carbon Dioxide (CO₂)</strong><br>
+            Carbon dioxide is another raw material for photosynthesis. Plants obtain carbon dioxide from the air through tiny pores called stomata on the underside of their leaves. Carbon dioxide provides the carbon atoms needed to make glucose. The more carbon dioxide available (up to a certain point), the faster photosynthesis can occur.</p>
+
+            <p><strong>4. Chlorophyll (Green Pigment)</strong><br>
+            Chlorophyll is a green pigment found in plant cells that absorbs light energy. It is located in structures called chloroplasts, which are found mainly in the leaf cells. Chlorophyll is essential because it captures the light energy needed to power the photosynthesis reaction. Without chlorophyll, plants cannot carry out photosynthesis, which is why only green plants can photosynthesize.</p>
+
+            <div class="think-about">
+                <strong>🤔 Think About It:</strong> If you place a plant in a dark cupboard for several days, what do you think will happen to the plant's ability to photosynthesize? Why?
+            </div>
+
+            <h3>Where Does Photosynthesis Happen?</h3>
+
+            <p>Photosynthesis occurs mainly in the leaves of plants, although it can also occur in other green parts like green stems. But why are leaves the main site of photosynthesis? It's because leaves have special features that make them perfectly adapted for this process:</p>
+
+            <p><strong>Large Surface Area:</strong> Leaves are flat and broad, which provides a large surface area to capture as much sunlight as possible. The greater the light-capturing surface, the more photosynthesis can occur.</p>
+
+            <p><strong>Thinness:</strong> Leaves are thin, which means carbon dioxide from the air doesn't have far to travel to reach the cells inside the leaf. This also allows light to penetrate all the way through the leaf to reach the photosynthetic cells.</p>
+
+            <p><strong>Green Colour:</strong> Leaves contain chlorophyll in their cells, which makes them green. This chlorophyll absorbs light energy needed for photosynthesis.</p>
+
+            <p><strong>Stomata:</strong> The underside of leaves has tiny pores called stomata (singular: stoma). These allow carbon dioxide from the air to enter the leaf and oxygen to exit. Stomata are usually found on the lower surface of the leaf to reduce water loss.</p>
+
+            <p><strong>Veins:</strong> Leaves have veins that carry water from the roots to the leaf (through xylem vessels) and carry the glucose produced by photosynthesis away from the leaf to the rest of the plant (through phloem vessels).</p>
+
+            <div class="key-concept">
+                <strong>🔑 Key Concept:</strong> Leaves are perfectly designed for photosynthesis. Their flat shape, thinness, green colour, stomata, and veins all work together to make photosynthesis efficient.
+            </div>
+
+            <h3>Leaf Structure and Photosynthesis</h3>
+
+            <p>To understand how leaves function in photosynthesis, we need to look at their internal structure. A cross-section of a leaf reveals several distinct layers, each with a specific role:</p>
+
+            <div class="leaf-section">
+                <div class="leaf-description">
+                    <div class="leaf-layer">
+                        <strong>Upper Epidermis</strong>
+                        A single layer of transparent cells that protects the leaf and allows light to pass through. These cells have no chloroplasts.
+                    </div>
+                    <div class="leaf-layer">
+                        <strong>Palisade Mesophyll</strong>
+                        A layer of tightly packed cylindrical cells containing many chloroplasts. This is where most photosynthesis takes place because the cells are packed with chloroplasts to capture light energy efficiently.
+                    </div>
+                    <div class="leaf-layer">
+                        <strong>Spongy Mesophyll</strong>
+                        A layer with loosely packed cells and large air spaces. These air spaces allow gas exchange (carbon dioxide in, oxygen out). The cells contain chloroplasts but less densely than palisade cells.
+                    </div>
+                    <div class="leaf-layer">
+                        <strong>Lower Epidermis</strong>
+                        Similar to the upper epidermis but contains stomata for gas exchange. Guard cells surrounding each stoma control whether it opens or closes.
+                    </div>
+                    <div class="leaf-layer">
+                        <strong>Veins</strong>
+                        Contain xylem (brings water) and phloem (carries away glucose). Provide support and transport.
+                    </div>
+                </div>
+                <div class="leaf-diagram">
+                    <svg viewBox="0 0 300 400" width="280" height="400">
+                        <!-- Leaf outline -->
+                        <ellipse cx="150" cy="200" rx="80" ry="150" fill="none" stroke="#2d5016" stroke-width="2"/>
+
+                        <!-- Upper epidermis -->
+                        <rect x="70" y="100" width="160" height="20" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+                        <text x="150" y="118" text-anchor="middle" font-size="11" fill="#2e7d32" font-weight="bold">Upper Epidermis</text>
+
+                        <!-- Palisade mesophyll -->
+                        <rect x="70" y="120" width="160" height="80" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5"/>
+                        <circle cx="95" cy="140" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="95" cy="165" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="120" cy="135" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="120" cy="155" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="145" cy="140" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="145" cy="165" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="170" cy="135" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="170" cy="160" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="195" cy="145" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <circle cx="195" cy="170" r="6" fill="#6a1b9a" opacity="0.7"/>
+                        <text x="150" y="198" text-anchor="middle" font-size="11" fill="#2e7d32" font-weight="bold">Palisade Mesophyll</text>
+                        <text x="230" y="160" font-size="9" fill="#6a1b9a">● Chloroplasts</text>
+
+                        <!-- Spongy mesophyll -->
+                        <rect x="70" y="200" width="160" height="70" fill="#a5d6a7" stroke="#81c784" stroke-width="1.5"/>
+                        <circle cx="90" cy="220" r="4" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="130" cy="210" r="5" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="170" cy="225" r="4" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="200" cy="215" r="4" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="100" cy="250" r="5" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="150" cy="245" r="4" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="200" cy="255" r="5" fill="#ffffff" opacity="0.6"/>
+                        <circle cx="110" cy="225" r="3" fill="#6a1b9a" opacity="0.5"/>
+                        <circle cx="155" cy="235" r="3" fill="#6a1b9a" opacity="0.5"/>
+                        <circle cx="185" cy="240" r="3" fill="#6a1b9a" opacity="0.5"/>
+                        <text x="150" y="254" text-anchor="middle" font-size="11" fill="#2e7d32" font-weight="bold">Spongy Mesophyll</text>
+
+                        <!-- Lower epidermis -->
+                        <rect x="70" y="270" width="160" height="20" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+
+                        <!-- Stomata -->
+                        <ellipse cx="100" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+                        <ellipse cx="150" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+                        <ellipse cx="200" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+                        <text x="150" y="298" text-anchor="middle" font-size="11" fill="#2e7d32" font-weight="bold">Lower Epidermis with Stomata</text>
+
+                        <!-- Vein -->
+                        <rect x="145" y="150" width="10" height="120" fill="#ffeb3b" stroke="#f57f17" stroke-width="1"/>
+                        <text x="155" y="240" text-anchor="start" font-size="10" fill="#f57f17" font-weight="bold">Vein</text>
+
+                        <!-- Title -->
+                        <text x="150" y="30" text-anchor="middle" font-size="14" fill="#6a1b9a" font-weight="bold">Leaf Cross-Section</text>
+
+                        <!-- Light arrows -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#ffeb3b"/>
+                            </marker>
+                        </defs>
+                        <line x1="20" y1="140" x2="50" y2="140" stroke="#ffeb3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <line x1="20" y1="160" x2="50" y2="160" stroke="#ffeb3b" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="25" y="110" font-size="9" fill="#fbc02d" font-weight="bold">Light</text>
+
+                        <!-- CO2 arrow -->
+                        <line x1="250" y1="280" x2="230" y2="280" stroke="#00bcd4" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <text x="245" y="265" font-size="9" fill="#00bcd4" font-weight="bold">CO₂ in</text>
+                    </svg>
+                </div>
+            </div>
+
+            <h3>Products of Photosynthesis</h3>
+
+            <p>Photosynthesis produces two main products: glucose and oxygen.</p>
+
+            <p><strong>Glucose (Food):</strong> This is a simple sugar that serves as food for the plant. The plant uses glucose for several purposes:</p>
+            <ul>
+                <li><strong>Energy:</strong> The plant breaks down glucose through respiration to release energy for growth and other life processes.</li>
+                <li><strong>Growth:</strong> Glucose is used to build new plant tissues like leaves, stems, and roots.</li>
+                <li><strong>Storage:</strong> Plants convert excess glucose into starch, which is stored in cells like potato tubers and grains. Starch serves as an energy reserve that the plant can use when sunlight is not available (such as at night).</li>
+            </ul>
+
+            <p><strong>Oxygen:</strong> This is released as a by-product of photosynthesis. The oxygen escapes through the stomata into the atmosphere, where it becomes available for other organisms to use in respiration.</p>
+
+            <div class="key-concept">
+                <strong>🔑 Key Concept:</strong> Glucose is the food made by photosynthesis. Plants use it for energy and growth. Excess glucose is stored as starch. Oxygen is released as a waste product but is essential for most life on Earth.
+            </div>
+
+            <h3>Testing for Starch (Iodine Test)</h3>
+
+            <p>Since glucose is quickly used or converted to starch, we can test for the presence of starch to confirm that photosynthesis has occurred. The test uses iodine solution, which is blue-black in colour.</p>
+
+            <p><strong>How the Test Works:</strong></p>
+            <ol>
+                <li>A leaf is removed from a plant (usually after several hours of sunlight).</li>
+                <li>The leaf is boiled in water to stop any chemical reactions and soften it.</li>
+                <li>The leaf is then soaked in ethanol (or methylated spirits) to remove the chlorophyll, making it pale or colourless.</li>
+                <li>The leaf is rinsed with water and placed on a white tile.</li>
+                <li>A few drops of iodine solution are added to the leaf.</li>
+                <li>If starch is present, the iodine will turn the area blue-black. If no starch is present, the iodine will remain brown or yellow.</li>
+            </ol>
+
+            <p><strong>What the Results Tell Us:</strong></p>
+            <ul>
+                <li><strong>Blue-Black Color:</strong> Starch is present, which means photosynthesis has occurred.</li>
+                <li><strong>Brown/Yellow Color:</strong> No starch is present, which means photosynthesis did not occur (perhaps due to lack of light, water, or carbon dioxide).</li>
+            </ul>
+
+            <div class="did-you-know">
+                <strong>💡 Did You Know?</strong> If you cover part of a leaf with foil for a few days and then test it with iodine, the covered part will not turn blue-black, proving that photosynthesis requires light!
+            </div>
+        </section>
+
+        <!-- INTERACTIVE APPLETS -->
+        <section>
+            <h2>Interactive Learning Tools</h2>
+
+            <!-- Photosynthesis Equation Builder -->
+            <h3>Photosynthesis Equation Builder</h3>
+            <div class="applet">
+                <h4>Drag the correct reactants and products to build the photosynthesis equation</h4>
+                <div class="equation-builder">
+                    <div class="builder-section">
+                        <h5>Available Items</h5>
+                        <div class="drag-items" id="availableItems">
+                            <div class="drag-item" draggable="true" data-item="carbon-dioxide">Carbon Dioxide</div>
+                            <div class="drag-item" draggable="true" data-item="water">Water</div>
+                            <div class="drag-item" draggable="true" data-item="glucose">Glucose</div>
+                            <div class="drag-item" draggable="true" data-item="oxygen">Oxygen</div>
+                            <div class="drag-item" draggable="true" data-item="sunlight">Sunlight</div>
+                            <div class="drag-item" draggable="true" data-item="chlorophyll">Chlorophyll</div>
+                        </div>
+                    </div>
+                    <div class="builder-section">
+                        <h5>Reactants (What Goes In)</h5>
+                        <div class="drop-zone" id="reactants-zone" data-zone="reactants"></div>
+                    </div>
+                    <div class="builder-section">
+                        <h5>Products (What Comes Out)</h5>
+                        <div class="drop-zone" id="products-zone" data-zone="products"></div>
+                    </div>
+                    <div class="builder-section">
+                        <h5>Energy Source & Catalyst</h5>
+                        <div class="drop-zone" id="energy-zone" data-zone="energy"></div>
+                    </div>
+                    <div class="builder-feedback" id="builder-feedback"></div>
+                </div>
+            </div>
+
+            <!-- Requirements Checker -->
+            <h3>Requirements Checker</h3>
+            <div class="applet">
+                <h4>Toggle each requirement on or off to see if photosynthesis can occur</h4>
+                <div class="requirements-grid" id="requirementsGrid">
+                    <label class="requirement-toggle">
+                        <input type="checkbox" class="requirement" value="sunlight">
+                        <div class="requirement-icon">☀️</div>
+                        <div class="requirement-label">Sunlight</div>
+                    </label>
+                    <label class="requirement-toggle">
+                        <input type="checkbox" class="requirement" value="water">
+                        <div class="requirement-icon">💧</div>
+                        <div class="requirement-label">Water</div>
+                    </label>
+                    <label class="requirement-toggle">
+                        <input type="checkbox" class="requirement" value="carbon-dioxide">
+                        <div class="requirement-icon">💨</div>
+                        <div class="requirement-label">Carbon Dioxide</div>
+                    </label>
+                    <label class="requirement-toggle">
+                        <input type="checkbox" class="requirement" value="chlorophyll">
+                        <div class="requirement-icon">💚</div>
+                        <div class="requirement-label">Chlorophyll</div>
+                    </label>
+                </div>
+                <div class="result-message" id="resultMessage"></div>
+            </div>
+
+            <!-- Label the Leaf -->
+            <h3>Label the Leaf Structure</h3>
+            <div class="applet">
+                <h4>Drag the labels to the correct parts of the leaf cross-section</h4>
+                <div class="leaf-label-container">
+                    <div class="leaf-svg-container">
+                        <svg viewBox="0 0 300 400" width="260" height="400" id="leafLabelSvg">
+                            <!-- Leaf outline -->
+                            <ellipse cx="150" cy="200" rx="80" ry="150" fill="none" stroke="#2d5016" stroke-width="2"/>
+
+                            <!-- Upper epidermis -->
+                            <rect id="upper-ep" x="70" y="100" width="160" height="20" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+
+                            <!-- Palisade mesophyll -->
+                            <rect id="palisade" x="70" y="120" width="160" height="80" fill="#c8e6c9" stroke="#81c784" stroke-width="1.5"/>
+                            <circle cx="95" cy="140" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="95" cy="165" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="120" cy="135" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="120" cy="155" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="145" cy="140" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="145" cy="165" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="170" cy="135" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="170" cy="160" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="195" cy="145" r="6" fill="#6a1b9a" opacity="0.7"/>
+                            <circle cx="195" cy="170" r="6" fill="#6a1b9a" opacity="0.7"/>
+
+                            <!-- Spongy mesophyll -->
+                            <rect id="spongy" x="70" y="200" width="160" height="70" fill="#a5d6a7" stroke="#81c784" stroke-width="1.5"/>
+
+                            <!-- Lower epidermis -->
+                            <rect id="lower-ep" x="70" y="270" width="160" height="20" fill="#e8f5e9" stroke="#81c784" stroke-width="1.5"/>
+
+                            <!-- Stomata -->
+                            <ellipse cx="100" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+                            <ellipse id="stoma" cx="150" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+                            <ellipse cx="200" cy="280" rx="3" ry="6" fill="none" stroke="#00695c" stroke-width="1.5"/>
+
+                            <!-- Vein -->
+                            <rect id="vein" x="145" y="150" width="10" height="120" fill="#ffeb3b" stroke="#f57f17" stroke-width="1"/>
+
+                            <!-- Chloroplast -->
+                            <circle id="chloroplast" cx="120" cy="150" r="4" fill="#6a1b9a" opacity="0.8"/>
+                            <circle id="chloroplast2" cx="170" cy="220" r="4" fill="#6a1b9a" opacity="0.8"/>
+
+                            <!-- Title -->
+                            <text x="150" y="30" text-anchor="middle" font-size="14" fill="#6a1b9a" font-weight="bold">Click labels below to place them</text>
+                        </svg>
+                    </div>
+                    <div class="leaf-labels" id="leafLabelsList">
+                        <div class="label-item" draggable="true" data-label="upper-epidermis" data-target="upper-ep">Upper Epidermis</div>
+                        <div class="label-item" draggable="true" data-label="palisade-mesophyll" data-target="palisade">Palisade Mesophyll</div>
+                        <div class="label-item" draggable="true" data-label="spongy-mesophyll" data-target="spongy">Spongy Mesophyll</div>
+                        <div class="label-item" draggable="true" data-label="lower-epidermis" data-target="lower-ep">Lower Epidermis</div>
+                        <div class="label-item" draggable="true" data-label="stoma" data-target="stoma">Stoma</div>
+                        <div class="label-item" draggable="true" data-label="vein" data-target="vein">Vein</div>
+                        <div class="label-item" draggable="true" data-label="chloroplast" data-target="chloroplast">Chloroplast</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Starch Test Simulator -->
+            <h3>Starch Test Simulator</h3>
+            <div class="applet">
+                <h4>Click "Add Iodine" to test different leaves for the presence of starch</h4>
+                <div class="starch-container">
+                    <div class="leaf-test uncovered">
+                        <div class="test-description"><strong>Leaf A:</strong> Exposed to sunlight for 3 days</div>
+                        <div class="leaf-visual">🍃</div>
+                        <button class="test-button" onclick="testStarch('uncovered')">Add Iodine</button>
+                        <div class="test-result blue-black" id="result-uncovered">
+                            ✓ Blue-black colour appears<br>
+                            <strong>Starch Present!</strong><br>
+                            Photosynthesis occurred.
+                        </div>
+                    </div>
+                    <div class="leaf-test covered">
+                        <div class="test-description"><strong>Leaf B:</strong> Covered with foil for 3 days</div>
+                        <div class="leaf-visual">🍂</div>
+                        <button class="test-button" onclick="testStarch('covered')">Add Iodine</button>
+                        <div class="test-result brown" id="result-covered">
+                            ✓ Brown/yellow colour (no change)<br>
+                            <strong>No Starch!</strong><br>
+                            No photosynthesis without light.
+                        </div>
+                    </div>
+                    <div class="leaf-test">
+                        <div class="test-description"><strong>Leaf C:</strong> Variegated (green and white parts)</div>
+                        <div class="leaf-visual">🍃 ⚪</div>
+                        <button class="test-button" onclick="testStarch('variegated')">Add Iodine</button>
+                        <div class="test-result blue-black" id="result-variegated">
+                            ✓ Blue-black on green parts<br>
+                            ✓ Brown on white parts<br>
+                            <strong>Chlorophyll is needed!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASSESSMENT QUESTIONS -->
+        <section class="questions-section">
+            <h2>Assessment Questions</h2>
+
+            <div style="margin-top: 2rem;">
+                <h3 style="color: var(--pri); margin-bottom: 1.5rem;">Section A: Multiple Choice Questions (Choose one correct answer)</h3>
+
+                <!-- MCQ 1 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">1</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">Which of the following is the correct word equation for photosynthesis?</div>
+                            <div>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="a"> A) Glucose + Oxygen → Carbon Dioxide + Water
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="b"> B) Carbon Dioxide + Water → Glucose + Oxygen
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="c"> C) Sunlight + Chlorophyll → Carbon Dioxide + Glucose
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q1" value="d"> D) Water + Oxygen → Carbon Dioxide + Glucose
+                                </label>
+                            </div>
+                            <button class="toggle-answer" onclick="toggleAnswer('ans1')">Show Answer</button>
+                            <div class="answer-section" id="ans1">
+                                <strong>Correct Answer: B</strong><br>
+                                Carbon dioxide and water are the reactants (raw materials) that are converted into glucose and oxygen. The other options show incorrect relationships between these substances.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ 2 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">2</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">Which part of the leaf has the most chloroplasts and is responsible for most of the photosynthesis?</div>
+                            <div>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="a"> A) Upper epidermis
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="b"> B) Palisade mesophyll
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="c"> C) Spongy mesophyll
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q2" value="d"> D) Vein
+                                </label>
+                            </div>
+                            <button class="toggle-answer" onclick="toggleAnswer('ans2')">Show Answer</button>
+                            <div class="answer-section" id="ans2">
+                                <strong>Correct Answer: B</strong><br>
+                                The palisade mesophyll consists of tightly packed cells filled with chloroplasts, making it the primary site of photosynthesis. Its columnar shape is arranged to maximize light absorption.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ 3 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">3</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">What would happen to a plant placed in complete darkness for several days?</div>
+                            <div>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="a"> A) It would produce more glucose because it doesn't lose energy to light
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="b"> B) It would stop photosynthesis and gradually weaken because it cannot produce food
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="c"> C) Its leaves would turn yellow to absorb more carbon dioxide
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q3" value="d"> D) It would absorb more water from the soil to compensate
+                                </label>
+                            </div>
+                            <button class="toggle-answer" onclick="toggleAnswer('ans3')">Show Answer</button>
+                            <div class="answer-section" id="ans3">
+                                <strong>Correct Answer: B</strong><br>
+                                Sunlight is essential for photosynthesis. Without light, the plant cannot make glucose and will use up its stored energy reserves, eventually weakening and dying.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ 4 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">4</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">When testing a leaf with iodine solution, a blue-black colour indicates:</div>
+                            <div>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="a"> A) The presence of chlorophyll
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="b"> B) The presence of water in the leaf
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="c"> C) The presence of starch (proving photosynthesis occurred)
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q4" value="d"> D) The presence of carbon dioxide
+                                </label>
+                            </div>
+                            <button class="toggle-answer" onclick="toggleAnswer('ans4')">Show Answer</button>
+                            <div class="answer-section" id="ans4">
+                                <strong>Correct Answer: C</strong><br>
+                                Iodine solution turns blue-black in the presence of starch. Starch is made from glucose during photosynthesis, so a positive test indicates photosynthesis has occurred.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ 5 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">5</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">Why are stomata usually found on the lower surface of leaves rather than the upper surface?</div>
+                            <div>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="a"> A) To protect them from being damaged by rain
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="b"> B) To reduce water loss while still allowing gas exchange
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="c"> C) To allow more sunlight to reach the palisade cells
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="q5" value="d"> D) To increase the rate of photosynthesis
+                                </label>
+                            </div>
+                            <button class="toggle-answer" onclick="toggleAnswer('ans5')">Show Answer</button>
+                            <div class="answer-section" id="ans5">
+                                <strong>Correct Answer: B</strong><br>
+                                The lower surface is shaded and cooler, which reduces water loss from transpiration. This is an adaptation that balances the need for gas exchange with water conservation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B -->
+            <div style="margin-top: 3rem;">
+                <h3 style="color: var(--pri); margin-bottom: 1.5rem;">Section B: Open-Ended Questions</h3>
+
+                <!-- Open-Ended 1 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">1</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">A student covered one half of a leaf with aluminium foil for three days while leaving the other half exposed to sunlight. After three days, the student removed the foil and tested both halves of the leaf with iodine solution. Predict the results and explain why the results would be different.</div>
+                            <button class="toggle-answer" onclick="toggleAnswer('openans1')">Show Model Answer</button>
+                            <div class="answer-section" id="openans1">
+                                <strong>Model Answer:</strong><br><br>
+                                <strong>Prediction:</strong> The exposed half would turn blue-black with iodine, while the covered half would remain brown/yellow.<br><br>
+                                <strong>Explanation:</strong> Photosynthesis requires sunlight as an energy source. The exposed half of the leaf received sunlight and was able to carry out photosynthesis, producing glucose which was converted to starch and stored. When tested with iodine, the starch turned blue-black. The covered half did not receive sunlight, so photosynthesis could not occur. Without photosynthesis, no glucose or starch was produced, so the iodine solution did not change colour. This experiment proves that sunlight is essential for photosynthesis.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open-Ended 2 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">2</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">Explain why leaves are flat and thin, and how these features help them to photosynthesize efficiently.</div>
+                            <button class="toggle-answer" onclick="toggleAnswer('openans2')">Show Model Answer</button>
+                            <div class="answer-section" id="openans2">
+                                <strong>Model Answer:</strong><br><br>
+                                <strong>Flat shape:</strong> A flat, broad leaf presents a large surface area that is exposed to sunlight. This allows the leaf to capture the maximum amount of light energy needed to power photosynthesis. A larger surface area means more leaf cells can be exposed to light, increasing the rate of photosynthesis.<br><br>
+                                <strong>Thinness:</strong> A thin leaf allows light to penetrate all the way through to the lower layers of photosynthetic cells. It also means that carbon dioxide from the air does not have far to travel to reach the cells inside the leaf, making gas exchange more efficient. Additionally, the thinness reduces the distance oxygen needs to travel to exit the leaf.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open-Ended 3 -->
+                <div class="question-block">
+                    <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                        <div class="question-number">3</div>
+                        <div style="flex: 1;">
+                            <div class="question-text">A green plant and a non-green (white) plant are placed side by side in a greenhouse with plenty of sunlight, water, and carbon dioxide. Explain which plant would be able to photosynthesize and why only one plant can carry out this process.</div>
+                            <button class="toggle-answer" onclick="toggleAnswer('openans3')">Show Model Answer</button>
+                            <div class="answer-section" id="openans3">
+                                <strong>Model Answer:</strong><br><br>
+                                <strong>Answer:</strong> Only the green plant would be able to photosynthesize.<br><br>
+                                <strong>Explanation:</strong> Chlorophyll is the green pigment found in plant cells that is essential for photosynthesis. Chlorophyll absorbs light energy from the sun and converts it into chemical energy that powers the photosynthesis reaction. The green plant contains chlorophyll in its cells, which appears as the green colour. The white (non-green) plant lacks chlorophyll or has very little of it. Without chlorophyll, the plant cannot absorb light energy, so photosynthesis cannot occur. Even though the white plant has all the other requirements (sunlight, water, and carbon dioxide), it cannot make food because it cannot harvest the light energy needed for the process. This demonstrates that chlorophyll is an essential requirement for photosynthesis.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUES BOX -->
+        <section>
+            <h2>Values & Reflection</h2>
+            <div class="values-box">
+                <h4>What Can We Learn from Photosynthesis?</h4>
+                <div class="values-list">
+                    <div class="value-item">
+                        <strong>Sustainability</strong>
+                        <p>Photosynthesis shows how nature continuously recycles resources to create food and oxygen.</p>
+                    </div>
+                    <div class="value-item">
+                        <strong>Interdependence</strong>
+                        <p>Plants and animals depend on each other. Plants give us oxygen; we give them carbon dioxide.</p>
+                    </div>
+                    <div class="value-item">
+                        <strong>Energy Flow</strong>
+                        <p>All energy on Earth ultimately comes from the sun, captured by plants through photosynthesis.</p>
+                    </div>
+                    <div class="value-item">
+                        <strong>Adaptability</strong>
+                        <p>Leaves are perfectly designed for their function, showing how structure and function are related.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Singapore MOE Primary 6 Science</strong> • Theme: Cycles</p>
+        <p>Topic 17: Photosynthesis • Learning Outcomes 1-5</p>
+        <p style="font-size: 0.8rem; margin-top: 1.5rem;">This resource is designed to support student learning about photosynthesis, from basic concepts to assessment-level questions.</p>
+    </footer>
+
+    <script>
+        // ===== DRAG AND DROP FUNCTIONALITY =====
+        let draggedItem = null;
+
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.classList.contains('drag-item') || e.target.classList.contains('label-item')) {
+                draggedItem = e.target;
+                e.dataTransfer.effectAllowed = 'move';
+            }
+        });
+
+        document.addEventListener('dragover', function(e) {
+            if (e.target.classList.contains('drop-zone')) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                e.target.classList.add('active');
+            }
+        });
+
+        document.addEventListener('dragleave', function(e) {
+            if (e.target.classList.contains('drop-zone')) {
+                e.target.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            if (e.target.classList.contains('drop-zone') && draggedItem) {
+                const zone = e.target.dataset.zone;
+                const item = draggedItem.dataset.item;
+
+                if (draggedItem.classList.contains('drag-item')) {
+                    const newItem = document.createElement('div');
+                    newItem.className = 'builder-item';
+                    newItem.textContent = draggedItem.textContent;
+                    e.target.appendChild(newItem);
+                    draggedItem.classList.add('placed');
+                }
+
+                e.target.classList.remove('active');
+                checkEquation();
+            }
+            draggedItem = null;
+        });
+
+        // Check equation
+        function checkEquation() {
+            const reactants = document.getElementById('reactants-zone');
+            const products = document.getElementById('products-zone');
+            const energy = document.getElementById('energy-zone');
+            const feedback = document.getElementById('builder-feedback');
+
+            const reactantItems = Array.from(reactants.children).map(el => el.textContent.toLowerCase());
+            const productItems = Array.from(products.children).map(el => el.textContent.toLowerCase());
+            const energyItems = Array.from(energy.children).map(el => el.textContent.toLowerCase());
+
+            const hasCorrectReactants = reactantItems.includes('carbon dioxide') && reactantItems.includes('water');
+            const hasCorrectProducts = productItems.includes('glucose') && productItems.includes('oxygen');
+            const hasCorrectEnergy = energyItems.includes('sunlight') && energyItems.includes('chlorophyll');
+
+            if (hasCorrectReactants && hasCorrectProducts && hasCorrectEnergy) {
+                feedback.className = 'builder-feedback success';
+                feedback.textContent = '✓ Excellent! You have correctly built the photosynthesis equation!';
+            } else if (reactantItems.length > 0 || productItems.length > 0 || energyItems.length > 0) {
+                feedback.className = 'builder-feedback error';
+                feedback.textContent = '✗ Not quite right. Check that all reactants, products, and energy sources are correctly placed.';
+            }
+        }
+
+        // ===== REQUIREMENTS CHECKER =====
+        document.querySelectorAll('.requirement').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parent = this.closest('.requirement-toggle');
+                if (this.checked) {
+                    parent.classList.add('active');
+                } else {
+                    parent.classList.remove('active');
+                }
+                checkRequirements();
+            });
+        });
+
+        function checkRequirements() {
+            const requirements = document.querySelectorAll('.requirement');
+            const allMet = Array.from(requirements).every(r => r.checked);
+            const someMet = Array.from(requirements).some(r => r.checked);
+            const resultMessage = document.getElementById('resultMessage');
+
+            if (allMet) {
+                resultMessage.className = 'result-message success';
+                resultMessage.textContent = '✓ Photosynthesis CAN occur! All four requirements are present.';
+            } else if (someMet) {
+                resultMessage.className = 'result-message incomplete';
+                resultMessage.textContent = '⚠ Photosynthesis CANNOT occur. Some requirements are missing. All four (sunlight, water, carbon dioxide, and chlorophyll) are needed!';
+            } else {
+                resultMessage.className = 'result-message';
+            }
+        }
+
+        // ===== STARCH TEST SIMULATOR =====
+        function testStarch(type) {
+            const resultId = 'result-' + type;
+            const resultElement = document.getElementById(resultId);
+            resultElement.style.display = 'block';
+        }
+
+        // ===== TOGGLE ANSWERS =====
+        function toggleAnswer(ansId) {
+            const ansElement = document.getElementById(ansId);
+            ansElement.classList.toggle('show');
+        }
+
+        // ===== LEAF LABELING =====
+        document.querySelectorAll('.label-item').forEach(label => {
+            label.addEventListener('dragstart', function(e) {
+                draggedItem = this;
+                e.dataTransfer.effectAllowed = 'copy';
+            });
+        });
+
+        // Handle SVG click for labeling (alternative to drag)
+        document.querySelectorAll('#leafLabelSvg rect, #leafLabelSvg circle').forEach(element => {
+            element.addEventListener('click', function() {
+                const targetId = this.id;
+                const label = document.querySelector(`[data-target="${targetId}"]`);
+                if (label && !label.classList.contains('placed')) {
+                    label.classList.add('placed');
+                    console.log('Labeled: ' + label.textContent);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

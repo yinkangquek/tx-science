@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 3 Science: Diversity of Materials</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #2e7d32;
+            --accent: #ff8f00;
+            --dark: #1b5e20;
+            --light: #e8f5e9;
+            --light-acc: #fff3e0;
+            --text: #212121;
+            --border: #bdbdbd;
+            --success: #4caf50;
+            --warning: #ffc107;
+            --info: #2196f3;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, #388e3c 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+        }
+
+        .section { margin-bottom: 50px; }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 30px;
+            background: var(--accent);
+            margin-right: 15px;
+            border-radius: 3px;
+        }
+
+        .lo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .lo-card {
+            background: white;
+            border-left: 5px solid var(--pri);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .lo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .lo-card h3 {
+            color: var(--pri);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .lo-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .notes-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+        }
+
+        .notes-subsection { margin-bottom: 40px; }
+
+        .notes-subsection h3 {
+            font-size: 1.5rem;
+            color: var(--pri);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .notes-content {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .notes-content p { margin-bottom: 15px; }
+        .notes-content ul { margin-left: 25px; margin-bottom: 15px; }
+        .notes-content li { margin-bottom: 10px; }
+
+        .key-concept, .did-you-know, .think-about-it {
+            border-left: 5px solid var(--pri);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .key-concept { background: var(--light); }
+        .did-you-know { background: var(--light-acc); border-left-color: var(--accent); }
+        .think-about-it { background: #e3f2fd; border-left-color: var(--info); }
+
+        .comparison-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: var(--pri);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table tbody tr:nth-child(odd) { background: #fafafa; }
+
+        .expandable-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            background: #f5f5f5;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+            font-weight: 600;
+            color: var(--pri);
+        }
+
+        .expandable-header:hover { background: #e8f5e9; }
+
+        .expandable-icon {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .expandable-section.expanded .expandable-icon { transform: rotate(180deg); }
+
+        .expandable-content {
+            display: none;
+            padding: 20px;
+            background: #fafafa;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expandable-section.expanded .expandable-content {
+            display: block;
+            max-height: 1000px;
+        }
+
+        .flashcard {
+            perspective: 1000px;
+            height: 200px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .flashcard-front { background: var(--accent); color: white; }
+        .flashcard-back { background: var(--pri); color: white; transform: rotateY(180deg); }
+
+        .applet-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .applet-title {
+            font-size: 1.4rem;
+            color: var(--pri);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .challenge-scenario {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--info);
+        }
+
+        .challenge-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .challenge-option {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .challenge-option:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .challenge-option.selected {
+            background: var(--light-acc);
+            border-color: var(--accent);
+        }
+
+        .challenge-feedback {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .challenge-feedback.show { display: block; }
+        .challenge-feedback.correct { background: #c8e6c9; border-left: 5px solid var(--success); color: #1b5e20; }
+        .challenge-feedback.incorrect { background: #ffccbc; border-left: 5px solid #e64a19; color: #bf360c; }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .game-card {
+            background: white;
+            border: 2px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .game-card:hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
+        .game-card.answered { pointer-events: none; opacity: 0.7; }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn.secondary { background: var(--accent); }
+        .btn.secondary:hover { background: #f57c00; }
+        .btn.small { padding: 8px 16px; font-size: 0.9rem; }
+
+        .quiz-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .quiz-section { margin-bottom: 40px; }
+
+        .quiz-section-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--pri);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .question-box {
+            background: #f5f5f5;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--pri);
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        .mcq-option {
+            background: white;
+            border: 2px solid #e0e0e0;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .mcq-option:hover {
+            border-color: var(--pri);
+            background: #f5f5f5;
+        }
+
+        .mcq-option input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .mcq-option.selected {
+            background: #e8f5e9;
+            border-color: var(--pri);
+        }
+
+        .open-answer {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .open-answer:focus {
+            outline: none;
+            border-color: var(--pri);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .model-answer {
+            background: #e8f5e9;
+            border-left: 5px solid var(--pri);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .model-answer.show { display: block; }
+
+        .values-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
+            border: 2px solid var(--pri);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .values-box h3 {
+            color: var(--pri);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .values-box ul { margin-left: 25px; }
+        .values-box li { margin-bottom: 12px; color: #555; }
+
+        footer {
+            background: var(--pri);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+
+        .success-message { background: #c8e6c9; border-left: 5px solid var(--success); color: #1b5e20; }
+        .error-message { background: #ffccbc; border-left: 5px solid #e64a19; color: #bf360c; }
+        .info-message { background: #bbdefb; border-left: 5px solid var(--info); color: #0d47a1; }
+
+        .success-message, .error-message, .info-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.5rem; }
+            .notes-section { padding: 20px; }
+            .applet-container { padding: 20px; }
+            .quiz-container { padding: 20px; }
+            .comparison-table { font-size: 0.9rem; }
+            .comparison-table th, .comparison-table td { padding: 10px; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section, .applet-container, .quiz-container {
+            animation: slideIn 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <div class="hero-label">Primary 3 • Theme: Diversity</div>
+            <h1>Diversity of Materials</h1>
+            <p>Discover the amazing materials that make up everything around us, from the clothes we wear to the buildings we live in.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Learning Outcomes</h2>
+            <div class="lo-grid">
+                <div class="lo-card">
+                    <h3>LO1: Identify Materials</h3>
+                    <p>Learn to recognize and identify the different materials that make up everyday objects in your environment.</p>
+                </div>
+                <div class="lo-card">
+                    <h3>LO2: Describe Properties</h3>
+                    <p>Understand key properties of materials like flexibility, waterproofness, strength, transparency, and magnetism.</p>
+                </div>
+                <div class="lo-card">
+                    <h3>LO3: Relate Properties to Uses</h3>
+                    <p>Connect material properties to the practical reasons why certain materials are chosen for specific objects.</p>
+                </div>
+                <div class="lo-card">
+                    <h3>LO4: Natural vs Man-Made</h3>
+                    <p>Distinguish between materials from nature (cotton, wood) and materials that are manufactured (plastic, glass).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Interactive Notes</h2>
+            <div class="notes-section">
+                <div class="notes-subsection">
+                    <h3>What Are Materials?</h3>
+                    <div class="notes-content">
+                        <p>Everything around us is made of materials. A material is a substance that things are made of. Materials can be:</p>
+                        <ul>
+                            <li><strong>Solid</strong> - has a fixed shape (wood, plastic, metal)</li>
+                            <li><strong>Liquid</strong> - takes the shape of its container (water, oil)</li>
+                            <li><strong>Gas</strong> - spreads to fill the space available (air, oxygen)</li>
+                        </ul>
+                        <div class="key-concept">
+                            <strong>Key Concept:</strong> Most objects around us are made of one or more materials. For example, a pencil is made of wood, graphite (lead), and metal.
+                        </div>
+                        <p>Different materials have different properties. Let's think about cups:</p>
+                        <ul>
+                            <li>A <strong>ceramic cup</strong> is hard and breaks easily, but keeps drinks hot</li>
+                            <li>A <strong>glass cup</strong> is transparent so we can see inside, but also breaks easily</li>
+                            <li>A <strong>plastic cup</strong> is flexible, lightweight, and doesn't break easily</li>
+                            <li>A <strong>metal cup</strong> is very strong and conducts heat quickly</li>
+                        </ul>
+                        <div class="did-you-know">
+                            <strong>Did You Know?</strong> The same object can be made from many different materials! Engineers and designers choose materials based on what properties are needed for that specific object.
+                        </div>
+                        <div class="think-about-it">
+                            <strong>Think About It:</strong> Look around your classroom right now. Can you identify at least 5 different materials? What are they used to make?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-subsection">
+                    <h3>Properties of Materials</h3>
+                    <div class="notes-content">
+                        <p>A property is a characteristic or feature of a material. Understanding material properties helps us choose the right material for the right job.</p>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Flexibility: Can It Bend?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Flexibility</strong> means a material can bend or flex without breaking.</p>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Flexible Materials</th>
+                                            <th>Non-Flexible Materials</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Rubber band (stretches easily)</td>
+                                            <td>Glass (breaks when bent)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Paper (folds without breaking)</td>
+                                            <td>Ceramic (cracks when bent)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fabric (bends with clothing)</td>
+                                            <td>Hard plastic (can crack)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Metal wire (can be bent into shapes)</td>
+                                            <td>Chalk (breaks easily)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Rubber bands are used for bundling things because they're flexible. They stretch and then return to their original shape without breaking.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Waterproofness: Does It Keep Water Out?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Waterproofness</strong> means a material does not allow water to pass through it.</p>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Waterproof Materials</th>
+                                            <th>Non-Waterproof Materials</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Plastic (repels water)</td>
+                                            <td>Paper (absorbs water)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rubber (used for raincoats)</td>
+                                            <td>Cotton (fabric absorbs water)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Metal (water doesn't soak through)</td>
+                                            <td>Leather (absorbs water)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Glass (water sits on surface)</td>
+                                            <td>Wood (absorbs and swells)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Umbrellas are made of waterproof materials like nylon or polyester because they need to keep rain from getting through.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Strength: How Strong Is It?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Strength</strong> means a material can support heavy loads or resist breaking under pressure.</p>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Strong Materials</th>
+                                            <th>Weak Materials</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Steel (used for buildings, cars)</td>
+                                            <td>Tissue paper (tears easily)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Concrete (supports heavy weight)</td>
+                                            <td>Foam (crushes under weight)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aluminum (strong but light)</td>
+                                            <td>Cardboard (can be crushed)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Titanium (used in aircraft)</td>
+                                            <td>Thin plastic (tears or bends)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Bridges are built from steel and concrete because these materials are very strong and can support the weight of cars and people crossing the bridge.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Transparency: Can You See Through It?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Transparency</strong> describes how much light passes through a material:</p>
+                                <ul>
+                                    <li><strong>Transparent</strong> - You can see clearly through it (clear glass, clear plastic)</li>
+                                    <li><strong>Translucent</strong> - Light passes through but you can't see clearly (frosted glass, paper)</li>
+                                    <li><strong>Opaque</strong> - No light passes through (metal, wood, most plastics)</li>
+                                </ul>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Transparent</th>
+                                            <th>Translucent</th>
+                                            <th>Opaque</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Clear glass</td>
+                                            <td>Frosted glass</td>
+                                            <td>Wood</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Clear plastic sheet</td>
+                                            <td>Tracing paper</td>
+                                            <td>Metal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pure water</td>
+                                            <td>Wax paper</td>
+                                            <td>Concrete</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Diamond</td>
+                                            <td>Thin cloth</td>
+                                            <td>Plastic bag (colored)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Windows in houses are made of transparent glass because we want to see outside while keeping the wind and rain out.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Float or Sink: Does It Float in Water?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Buoyancy</strong> is the ability of a material to float or sink in water. This depends on the density of the material.</p>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Materials That Float</th>
+                                            <th>Materials That Sink</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Wood (less dense than water)</td>
+                                            <td>Metal (denser than water)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cork (very light)</td>
+                                            <td>Glass (denser than water)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Foam (air pockets make it light)</td>
+                                            <td>Stone (very dense)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Some plastics (depends on density)</td>
+                                            <td>Ceramic (hard and dense)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Boats are made of steel (which normally sinks), but they float because of their shape, which contains air pockets that reduce the overall density.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Magnetic: Is It Attracted to Magnets?</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p><strong>Magnetism</strong> is the property that describes whether a material is attracted to magnets.</p>
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Magnetic Materials</th>
+                                            <th>Non-Magnetic Materials</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Iron (attracts magnets strongly)</td>
+                                            <td>Plastic (no attraction)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Steel (contains iron)</td>
+                                            <td>Wood (no attraction)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nickel (attracts magnets)</td>
+                                            <td>Glass (no attraction)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cobalt (attracts magnets)</td>
+                                            <td>Rubber (no attraction)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="did-you-know">
+                                    <strong>Example:</strong> Paper clips are made of steel because they need to be picked up by magnets. If they were made of plastic, magnets couldn't pick them up.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-subsection">
+                    <h3>Natural vs Man-Made Materials</h3>
+                    <div class="notes-content">
+                        <p>Materials come from two sources: nature and factories. Understanding the difference helps us appreciate the resources we use.</p>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Natural Materials</th>
+                                    <th>Man-Made Materials</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Source:</strong> Come from nature directly</td>
+                                    <td><strong>Source:</strong> Made by people in factories</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Examples:</strong> Cotton, wool, wood, leather, rubber, silk, stone</td>
+                                    <td><strong>Examples:</strong> Plastic, glass, metal alloys, nylon, polyester, concrete</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Processing:</strong> Minimal processing needed</td>
+                                    <td><strong>Processing:</strong> Complex manufacturing required</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Biodegradable:</strong> Most decompose naturally</td>
+                                    <td><strong>Biodegradable:</strong> Many take hundreds of years to decompose</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="key-concept">
+                            <strong>Natural Materials Examples:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Cotton</strong> - comes from cotton plants, used for clothes and sheets</li>
+                                <li><strong>Wood</strong> - from trees, used for furniture, houses, and paper</li>
+                                <li><strong>Rubber</strong> - from rubber trees, used for erasers, tires, and shoes</li>
+                                <li><strong>Wool</strong> - from sheep, used for sweaters and blankets</li>
+                                <li><strong>Leather</strong> - from animal hides, used for shoes and belts</li>
+                                <li><strong>Silk</strong> - from silkworm cocoons, used for luxury fabrics</li>
+                            </ul>
+                        </div>
+                        <div class="key-concept">
+                            <strong>Man-Made Materials Examples:</strong>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Plastic</strong> - made from crude oil, used for bags, bottles, and toys</li>
+                                <li><strong>Glass</strong> - made from melted sand, used for windows and bottles</li>
+                                <li><strong>Nylon</strong> - synthetic fiber, used for stockings and ropes</li>
+                                <li><strong>Polyester</strong> - synthetic fiber, used for clothing</li>
+                                <li><strong>Concrete</strong> - made from cement and stone, used for buildings</li>
+                                <li><strong>Aluminum</strong> - extracted from bauxite ore, used for cans and aircraft</li>
+                            </ul>
+                        </div>
+                        <div class="did-you-know">
+                            <strong>Did You Know?</strong> Scientists are creating new "bio-based" materials made from plants! For example, some plastics are now made from corn starch instead of crude oil. These are more sustainable for our planet.
+                        </div>
+                        <div class="think-about-it">
+                            <strong>Think About It:</strong> Natural materials are renewable (we can grow more cotton and trees), but man-made materials like plastic are made from non-renewable resources. How can we use fewer plastic products in our daily lives?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="notes-subsection">
+                    <h3>Choosing the Right Material</h3>
+                    <div class="notes-content">
+                        <p>Engineers, designers, and manufacturers must choose the best material for each object based on what properties are needed. Let's look at some real examples:</p>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Example 1: Raincoat Material</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p>What properties does a raincoat need?</p>
+                                <ul>
+                                    <li>✓ <strong>Waterproof</strong> - must keep water out</li>
+                                    <li>✓ <strong>Flexible</strong> - must bend when we move</li>
+                                    <li>✓ <strong>Durable</strong> - must last a long time</li>
+                                    <li>✓ <strong>Light</strong> - shouldn't be too heavy</li>
+                                </ul>
+                                <p><strong>Best material: Rubber or synthetic waterproof fabric (nylon, polyester)</strong></p>
+                                <p>❌ Not suitable: Cotton (absorbs water), glass (can't bend), paper (tears easily)</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Example 2: Window Material</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p>What properties does a window need?</p>
+                                <ul>
+                                    <li>✓ <strong>Transparent</strong> - must let light through</li>
+                                    <li>✓ <strong>Strong</strong> - must not break easily</li>
+                                    <li>✓ <strong>Rigid</strong> - must keep its shape</li>
+                                    <li>✓ <strong>Waterproof</strong> - must keep rain out</li>
+                                </ul>
+                                <p><strong>Best material: Glass or clear plastic</strong></p>
+                                <p>❌ Not suitable: Wood (opaque), paper (tears), rubber (not transparent)</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Example 3: Bridge Material</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p>What properties does a bridge need?</p>
+                                <ul>
+                                    <li>✓ <strong>Very Strong</strong> - must support heavy cars and trucks</li>
+                                    <li>✓ <strong>Rigid</strong> - must not bend or flex</li>
+                                    <li>✓ <strong>Durable</strong> - must last for many years</li>
+                                    <li>✓ <strong>Weather-resistant</strong> - must withstand rain and sun</li>
+                                </ul>
+                                <p><strong>Best materials: Steel and concrete</strong></p>
+                                <p>❌ Not suitable: Plastic (not strong enough), wood (rots over time), rubber (too flexible)</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable-section">
+                            <div class="expandable-header">
+                                <span>Example 4: Toy Ball Material</span>
+                                <span class="expandable-icon">▼</span>
+                            </div>
+                            <div class="expandable-content">
+                                <p>What properties does a toy ball need?</p>
+                                <ul>
+                                    <li>✓ <strong>Flexible/Bouncy</strong> - must bounce when thrown</li>
+                                    <li>✓ <strong>Lightweight</strong> - easy to throw</li>
+                                    <li>✓ <strong>Durable</strong> - must survive lots of use</li>
+                                    <li>✓ <strong>Safe</strong> - must not be toxic</li>
+                                </ul>
+                                <p><strong>Best materials: Rubber or plastic</strong></p>
+                                <p>❌ Not suitable: Glass (breaks and dangerous), metal (too heavy), ceramic (breaks)</p>
+                            </div>
+                        </div>
+
+                        <div class="key-concept">
+                            <strong>Key Concept:</strong> The best material for a job depends on:
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>What properties are needed</li>
+                                <li>How long it needs to last</li>
+                                <li>How much it costs</li>
+                                <li>How much it weighs</li>
+                                <li>Environmental impact</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Quick Review: Key Terms Flashcards</h2>
+            <div class="applet-container">
+                <p style="margin-bottom: 20px; color: #555;">Click on each card to flip and see the definition. Try to remember the answer before flipping!</p>
+                <div id="flashcardsContainer"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Interactive Learning Activities</h2>
+
+            <div class="applet-container">
+                <div class="applet-title">Design Challenge: Choose the Best Material for the Job</div>
+                <div id="challengeContainer"></div>
+            </div>
+
+            <div class="applet-container">
+                <div class="applet-title">Prediction Game: Will It Float or Sink?</div>
+                <p style="margin-bottom: 20px; color: #666;">Predict whether each object will float or sink in water. Click to make your choice, then reveal the answer!</p>
+                <div id="gameContainer"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Assessment: PSLE-Style Questions</h2>
+            <div class="quiz-container">
+                <div class="quiz-section">
+                    <div class="quiz-section-header">Section A: Multiple Choice Questions (Choose 1 answer)</div>
+
+                    <div class="question-box">
+                        <div class="question-text">1. Which of the following is a natural material?</div>
+                        <div class="mcq-option"><input type="radio" name="q1" value="a"><label>(A) Plastic</label></div>
+                        <div class="mcq-option"><input type="radio" name="q1" value="b"><label>(B) Cotton</label></div>
+                        <div class="mcq-option"><input type="radio" name="q1" value="c"><label>(C) Nylon</label></div>
+                        <div class="mcq-option"><input type="radio" name="q1" value="d"><label>(D) Glass</label></div>
+                        <button class="btn small" onclick="showMCQAnswer('q1', 'b', 'Cotton comes from cotton plants - it is a natural material. Plastic, nylon, and glass are man-made materials.')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-q1"></div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">2. Sarah wants to make an umbrella. Which material would be most suitable?</div>
+                        <div class="mcq-option"><input type="radio" name="q2" value="a"><label>(A) Paper (waterproof when special coating added)</label></div>
+                        <div class="mcq-option"><input type="radio" name="q2" value="b"><label>(B) Cotton fabric (soft and comfortable)</label></div>
+                        <div class="mcq-option"><input type="radio" name="q2" value="c"><label>(C) Nylon or polyester (waterproof and durable)</label></div>
+                        <div class="mcq-option"><input type="radio" name="q2" value="d"><label>(D) Leather (expensive and flexible)</label></div>
+                        <button class="btn small" onclick="showMCQAnswer('q2', 'c', 'Nylon and polyester are waterproof (keep rain out) and durable. An umbrella needs to protect from water, making these synthetic materials ideal.')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-q2"></div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">3. Which material property allows a rubber band to stretch and return to its original shape?</div>
+                        <div class="mcq-option"><input type="radio" name="q3" value="a"><label>(A) Transparency</label></div>
+                        <div class="mcq-option"><input type="radio" name="q3" value="b"><label>(B) Flexibility</label></div>
+                        <div class="mcq-option"><input type="radio" name="q3" value="c"><label>(C) Magnetism</label></div>
+                        <div class="mcq-option"><input type="radio" name="q3" value="d"><label>(D) Waterproofness</label></div>
+                        <button class="btn small" onclick="showMCQAnswer('q3', 'b', 'Flexibility is the property that allows materials to bend without breaking. A rubber band can stretch (flex) and return to its shape because of its flexibility.')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-q3"></div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">4. A glass window is made of glass instead of plastic because glass is needed for which property?</div>
+                        <div class="mcq-option"><input type="radio" name="q4" value="a"><label>(A) Flexibility to bend without breaking</label></div>
+                        <div class="mcq-option"><input type="radio" name="q4" value="b"><label>(B) Transparency to allow light to pass through clearly</label></div>
+                        <div class="mcq-option"><input type="radio" name="q4" value="c"><label>(C) Magnetism to be attracted to metal frames</label></div>
+                        <div class="mcq-option"><input type="radio" name="q4" value="d"><label>(D) Lightness to make windows easy to carry</label></div>
+                        <button class="btn small" onclick="showMCQAnswer('q4', 'b', 'Glass is chosen for windows because it is transparent - it allows us to see outside clearly. Clear plastic could also work, but glass is preferred for its clarity and durability.')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-q4"></div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">5. Which statement about materials is TRUE?</div>
+                        <div class="mcq-option"><input type="radio" name="q5" value="a"><label>(A) All materials come from nature</label></div>
+                        <div class="mcq-option"><input type="radio" name="q5" value="b"><label>(B) All materials are made by people in factories</label></div>
+                        <div class="mcq-option"><input type="radio" name="q5" value="c"><label>(C) Some materials come from nature and some are made by people</label></div>
+                        <div class="mcq-option"><input type="radio" name="q5" value="d"><label>(D) It doesn't matter which material we use for any object</label></div>
+                        <button class="btn small" onclick="showMCQAnswer('q5', 'c', 'Some materials like wood, cotton, and rubber come from nature. Other materials like plastic, nylon, and glass are made in factories by people. We need both types.')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-q5"></div>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-section-header">Section B: Open-Ended Questions (Write Your Answer)</div>
+
+                    <div class="question-box">
+                        <div class="question-text">6. Sarah wants to build a bridge for her toy cars. She has three materials to choose from: cardboard, wooden sticks, and steel. Which material should she choose and why? Explain using the properties of materials.</div>
+                        <textarea class="open-answer" id="openQ1" placeholder="Write your answer here..."></textarea>
+                        <button class="btn small" onclick="showOpenAnswer('openQ1', 'answer-openQ1')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-openQ1">
+                            <strong>Model Answer:</strong> Sarah should choose steel. Steel is the most suitable material because:
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>It is very strong and can support heavy loads (the toy cars)</li>
+                                <li>It is rigid and will not bend or break under weight</li>
+                                <li>It is durable and will last a long time</li>
+                                <li>Cardboard is weak and will collapse. Wooden sticks are stronger but still not strong enough for a bridge that needs to support repeated weight</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">7. Look at the materials: rubber, glass, and wood. For each material, give ONE example of an object it could be used for and explain WHY that material is suitable for that object (use material properties).</div>
+                        <textarea class="open-answer" id="openQ2" placeholder="Write your answer here..."></textarea>
+                        <button class="btn small" onclick="showOpenAnswer('openQ2', 'answer-openQ2')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-openQ2">
+                            <strong>Model Answer:</strong>
+                            <ul style="margin-left: 20px;">
+                                <li><strong>Rubber:</strong> Used for shoe soles because rubber is flexible (bends when we walk) and has grip</li>
+                                <li><strong>Glass:</strong> Used for drinking glasses because glass is transparent (we can see the drink) and waterproof (it holds liquid without leaking)</li>
+                                <li><strong>Wood:</strong> Used for chairs and tables because wood is strong (can support weight), rigid (keeps its shape), and durable (lasts a long time)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="question-box">
+                        <div class="question-text">8. Your family wants to reduce plastic use and protect the environment. Suggest how you could replace plastic bags with a natural material. Explain why this natural material would be suitable.</div>
+                        <textarea class="open-answer" id="openQ3" placeholder="Write your answer here..."></textarea>
+                        <button class="btn small" onclick="showOpenAnswer('openQ3', 'answer-openQ3')">Show Model Answer</button>
+                        <div class="model-answer" id="answer-openQ3">
+                            <strong>Model Answer:</strong> We could use cotton bags instead of plastic bags because:
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Cotton is a natural material that comes from plants</li>
+                                <li>It is strong enough to carry items without tearing</li>
+                                <li>It is flexible and can be folded for storage</li>
+                                <li>Cotton is biodegradable - it decomposes naturally and doesn't pollute the environment like plastic</li>
+                                <li>Cotton bags can be washed and reused many times</li>
+                            </ul>
+                            <p style="margin-top: 10px;"><strong>Note:</strong> Other acceptable answers could include: linen bags, paper bags, or reusable plastic bags (though less ideal for the environment).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="values-box">
+                <h3>Values, Ethics & Attitudes: Responsible Material Use</h3>
+                <p style="margin-bottom: 15px;">Materials are valuable resources. Many come from our environment, and we have a responsibility to use them wisely.</p>
+                <ul>
+                    <li><strong>Recycling:</strong> Materials like plastic, glass, aluminum, and paper can be recycled. Recycling means we can use these materials again instead of throwing them away.</li>
+                    <li><strong>Reusing:</strong> Before throwing away an object, think if it can be reused for something else. Old plastic bags can be storage. Old containers can hold things.</li>
+                    <li><strong>Reducing:</strong> Use less material. Choose products with minimal packaging. Use reusable bags and water bottles instead of single-use items.</li>
+                    <li><strong>Choosing Sustainable Materials:</strong> When possible, choose natural and biodegradable materials. Look for products made from recycled materials.</li>
+                    <li><strong>Caring for Our Planet:</strong> Non-biodegradable materials like plastic can damage ecosystems and harm wildlife. By being mindful of our material choices, we protect the environment for future generations.</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Challenge Yourself:</strong> For one week, track all the materials you use. How many items could be replaced with more sustainable alternatives?</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Myko Education • Primary 3 Science • Based on Singapore MOE 2023 Primary Science Syllabus</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.9;">Learn • Understand • Apply • Reflect</p>
+    </footer>
+
+    <script>
+        const flashcardsData = [
+            { term: "Material", definition: "A substance that things are made of (e.g., wood, plastic, metal)" },
+            { term: "Flexibility", definition: "The ability of a material to bend without breaking" },
+            { term: "Waterproof", definition: "A material that does not allow water to pass through it" },
+            { term: "Strength", definition: "The ability of a material to support heavy loads without breaking" },
+            { term: "Transparent", definition: "A material that you can see clearly through" },
+            { term: "Translucent", definition: "A material that lets light through but you cannot see clearly" },
+            { term: "Opaque", definition: "A material that does not let light pass through" },
+            { term: "Float", definition: "To stay on the surface of water or another liquid" },
+            { term: "Sink", definition: "To go down and stay below the surface of water or liquid" },
+            { term: "Magnetic", definition: "Attracted to a magnet (e.g., iron, steel, nickel)" },
+            { term: "Natural Material", definition: "A material that comes from nature (e.g., wood, cotton, rubber)" },
+            { term: "Man-Made Material", definition: "A material that is made by people in factories (e.g., plastic, nylon)" }
+        ];
+
+        function initFlashcards() {
+            const container = document.getElementById('flashcardsContainer');
+            flashcardsData.forEach((card) => {
+                container.innerHTML += `
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">${card.term}</div>
+                            <div class="flashcard-back">${card.definition}</div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function toggleFlashcard(element) {
+            element.classList.toggle('flipped');
+        }
+
+        const challengeScenarios = [
+            {
+                id: 1,
+                scenario: "You need to make a raincoat. Which material is best?",
+                options: [
+                    { text: "Cotton fabric", correct: false, explanation: "Cotton absorbs water. It would get soggy and wouldn't keep you dry." },
+                    { text: "Nylon or waterproof fabric", correct: true, explanation: "Perfect! Nylon is waterproof (keeps water out) and flexible (moves with you)." },
+                    { text: "Glass", correct: false, explanation: "Glass is transparent but not flexible. You couldn't wear it, and it would break!" }
+                ]
+            },
+            {
+                id: 2,
+                scenario: "You're designing a toy ball for kids. What's the best material?",
+                options: [
+                    { text: "Rubber or plastic", correct: true, explanation: "Great choice! These materials are flexible (bouncy), durable, and safe." },
+                    { text: "Glass", correct: false, explanation: "Glass breaks easily and is dangerous for toys. Kids could get hurt!" },
+                    { text: "Wood", correct: false, explanation: "Wood is hard and doesn't bounce well. It's too heavy for a toy ball." }
+                ]
+            },
+            {
+                id: 3,
+                scenario: "A painter needs a waterproof container to hold water and paint. Which works best?",
+                options: [
+                    { text: "Paper cup", correct: false, explanation: "Paper absorbs water. The paint would seep through the bottom." },
+                    { text: "Plastic or glass bucket", correct: true, explanation: "Excellent! Both are waterproof and can hold liquid without leaking." },
+                    { text: "Cardboard box", correct: false, explanation: "Cardboard is made of paper. Water would soak through it." }
+                ]
+            }
+        ];
+
+        function initChallenges() {
+            const container = document.getElementById('challengeContainer');
+            challengeScenarios.forEach(scenario => {
+                container.innerHTML += `
+                    <div style="margin-bottom: 30px;">
+                        <div class="challenge-scenario"><strong>Scenario:</strong> ${scenario.scenario}</div>
+                        <div class="challenge-options" id="challenge-${scenario.id}">
+                            ${scenario.options.map((opt, idx) => `
+                                <div class="challenge-option" onclick="selectChallenge(${scenario.id}, ${idx}, this)">${opt.text}</div>
+                            `).join('')}
+                        </div>
+                        <div class="challenge-feedback" id="feedback-${scenario.id}"></div>
+                    </div>
+                `;
+            });
+        }
+
+        function selectChallenge(scenarioId, optionIdx, element) {
+            const scenario = challengeScenarios.find(s => s.id === scenarioId);
+            const option = scenario.options[optionIdx];
+            const feedbackDiv = document.getElementById(`feedback-${scenarioId}`);
+
+            if (option.correct) {
+                feedbackDiv.className = 'challenge-feedback show correct';
+                feedbackDiv.innerHTML = `<strong>✓ Correct!</strong> ${option.explanation}`;
+                element.classList.add('selected');
+            } else {
+                feedbackDiv.className = 'challenge-feedback show incorrect';
+                feedbackDiv.innerHTML = `<strong>✗ Not quite.</strong> ${option.explanation}`;
+            }
+        }
+
+        const floatSinkItems = [
+            { name: "Wood", float: true },
+            { name: "Metal", float: false },
+            { name: "Cork", float: true },
+            { name: "Glass", float: false },
+            { name: "Stone", float: false },
+            { name: "Foam", float: true },
+            { name: "Plastic (solid)", float: false },
+            { name: "Rubber duck", float: true }
+        ];
+
+        function initFloatSinkGame() {
+            const container = document.getElementById('gameContainer');
+            let gameHTML = '<div class="game-grid">';
+            floatSinkItems.forEach((item, idx) => {
+                gameHTML += `
+                    <div class="game-card" id="game-${idx}">
+                        <div style="font-size: 1.3rem; margin-bottom: 10px;">${item.name}</div>
+                        <div class="button-group" style="gap: 5px;">
+                            <button class="btn small" style="flex: 1;" onclick="revealFloatSink(${idx}, true, ${item.float})">Float</button>
+                            <button class="btn secondary small" style="flex: 1;" onclick="revealFloatSink(${idx}, false, ${item.float})">Sink</button>
+                        </div>
+                        <div id="answer-${idx}" style="margin-top: 10px; display: none; padding: 10px; background: #e8f5e9; border-radius: 5px; color: var(--pri); font-weight: 600;"></div>
+                    </div>
+                `;
+            });
+            gameHTML += '</div>';
+            container.innerHTML = gameHTML;
+        }
+
+        function revealFloatSink(idx, playerGuess, correct) {
+            const card = document.getElementById(`game-${idx}`);
+            const answerDiv = document.getElementById(`answer-${idx}`);
+            const isCorrect = playerGuess === correct;
+
+            answerDiv.style.display = 'block';
+            answerDiv.innerHTML = isCorrect
+                ? `<span style="color: var(--success);">✓ Correct! It ${correct ? 'floats' : 'sinks'}.</span>`
+                : `<span style="color: #d32f2f;">✗ Wrong! It ${correct ? 'floats' : 'sinks'}.</span>`;
+
+            card.classList.add('answered');
+        }
+
+        function showMCQAnswer(questionName, correctAnswer, explanation) {
+            const correctRadio = document.querySelector(`input[name="${questionName}"][value="${correctAnswer}"]`);
+            if (correctRadio) {
+                correctRadio.checked = true;
+                correctRadio.parentElement.classList.add('selected');
+            }
+            const answerDiv = document.getElementById(`answer-${questionName}`);
+            answerDiv.classList.add('show');
+            answerDiv.innerHTML = `<strong>Correct Answer (${correctAnswer.toUpperCase()}):</strong> ${explanation}`;
+        }
+
+        function showOpenAnswer(questionId, answerId) {
+            const answerDiv = document.getElementById(answerId);
+            answerDiv.classList.add('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandableHeaders = document.querySelectorAll('.expandable-header');
+            expandableHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const section = this.parentElement;
+                    section.classList.toggle('expanded');
+                });
+            });
+
+            initFlashcards();
+            initChallenges();
+            initFloatSinkGame();
+        });
+    </script>
+</body>
+</html>

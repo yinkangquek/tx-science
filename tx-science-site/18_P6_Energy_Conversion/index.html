@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6 Energy Conversion | Singapore MOE Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #6a1b9a;
+            --pri-light: #9c27b0;
+            --pri-dark: #4a0e69;
+            --accent: #ff6f00;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --info: #2196f3;
+            --text: #212121;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: white;
+        }
+
+        /* Header & Hero */
+        header {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Learning Outcomes */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .outcome-card {
+            background: white;
+            border-left: 4px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Interactive Notes Section */
+        .notes-section {
+            background: var(--bg-light);
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .notes-section h2 {
+            color: var(--pri);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .note-subsection {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .note-subsection h3 {
+            color: var(--pri);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .note-subsection > p,
+        .note-subsection > ul,
+        .note-subsection > ol {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .note-subsection ul, .note-subsection ol {
+            margin-left: 1.5rem;
+        }
+
+        .note-subsection li {
+            margin-bottom: 0.8rem;
+        }
+
+        .concept-box {
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%);
+            border-left: 4px solid var(--pri);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .concept-box strong {
+            color: var(--pri);
+        }
+
+        .did-you-know {
+            background: linear-gradient(135deg, rgba(255, 111, 0, 0.05) 0%, rgba(255, 152, 0, 0.05) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .did-you-know strong {
+            color: var(--accent);
+        }
+
+        .think-about {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.05) 0%, rgba(33, 150, 243, 0.05) 100%);
+            border-left: 4px solid var(--info);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .think-about strong {
+            color: var(--info);
+        }
+
+        .energy-diagram {
+            background: white;
+            border: 2px solid var(--pri);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--pri);
+        }
+
+        .energy-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .energy-box {
+            background: var(--pri);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            color: var(--pri);
+            font-size: 1.2rem;
+        }
+
+        /* Interactive Applets */
+        .applets-section {
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .applet-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .applet-container h3 {
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Energy Form Identifier */
+        .scenario-card {
+            background: var(--bg-light);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .scenario-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Build Energy Conversion */
+        .drag-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .drag-source, .drag-target {
+            padding: 1rem;
+            border: 2px dashed var(--pri);
+            border-radius: 4px;
+            min-height: 200px;
+        }
+
+        .drag-source h4, .drag-target h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+        }
+
+        .energy-chip {
+            background: var(--pri);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 20px;
+            cursor: move;
+            display: inline-block;
+            user-select: none;
+        }
+
+        .energy-chip.placed {
+            background: var(--success);
+        }
+
+        .appliance-item {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .appliance-item:hover {
+            border-color: var(--pri);
+            box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);
+        }
+
+        .appliance-item.selected {
+            background: rgba(106, 27, 154, 0.1);
+            border-color: var(--pri);
+        }
+
+        .conversion-display {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .conversion-display.show {
+            display: block;
+        }
+
+        /* Room Explorer */
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .room-item {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .room-item:hover {
+            background: white;
+            border-color: var(--pri);
+            box-shadow: 0 2px 8px rgba(106, 27, 154, 0.2);
+        }
+
+        .room-item.explored {
+            background: rgba(76, 175, 80, 0.1);
+            border-color: var(--success);
+        }
+
+        .room-item-text {
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .room-item-name {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .energy-details {
+            background: white;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--pri);
+            display: none;
+        }
+
+        .energy-details.show {
+            display: block;
+        }
+
+        /* PSLE Questions */
+        .questions-section {
+            background: var(--bg-light);
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+        }
+
+        .questions-section h2 {
+            color: var(--pri);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .question-group {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .question-group h3 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+        }
+
+        .question-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .question-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .option-label {
+            display: block;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s;
+        }
+
+        .option-label:hover {
+            background: var(--bg-light);
+        }
+
+        .option-label input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        .model-answer {
+            background: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-answer h4 {
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .answer-btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .answer-btn:hover {
+            background: var(--pri-dark);
+        }
+
+        /* Values Box */
+        .values-box {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .values-box h3 {
+            margin-bottom: 1rem;
+        }
+
+        .values-box ul {
+            margin-left: 1.5rem;
+        }
+
+        .values-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .drag-container {
+                grid-template-columns: 1fr;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .room-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <span>Singapore MOE Primary 6 Science</span>
+            <span>Theme: Energy</span>
+        </div>
+        <div class="hero">
+            <h1>⚡ Energy Conversion</h1>
+            <p>Understanding how energy changes from one form to another in everyday life</p>
+        </div>
+    </header>
+
+    <!-- Learning Outcomes -->
+    <div class="container">
+        <h2 style="color: var(--pri); margin: 2rem 0; font-size: 1.8rem;">Learning Outcomes</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <h3>LO1: Forms of Energy</h3>
+                <p>Identify the different forms of energy: light, heat, sound, kinetic, potential, and electrical.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO2: Energy Conversion</h3>
+                <p>Recognise that energy can be converted from one form to another.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO3: Real-World Applications</h3>
+                <p>Describe energy conversions in everyday appliances and situations.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO4: Conservation of Energy</h3>
+                <p>Relate energy conversion to the idea that energy cannot be created or destroyed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Notes Section -->
+    <section class="notes-section">
+        <div class="container">
+            <h2>📚 Interactive Teaching Notes</h2>
+
+            <!-- What Is Energy? -->
+            <div class="note-subsection">
+                <h3>🔋 What Is Energy?</h3>
+                <p><strong>Energy</strong> is the ability to do work. It is needed for all activities in the world, from the tiniest movements to the largest transformations. Without energy, nothing can move, grow, or change.</p>
+
+                <p>Think of energy as the "power" that makes things happen:</p>
+                <ul>
+                    <li>Plants need energy from the Sun to grow</li>
+                    <li>Your body needs energy from food to move and think</li>
+                    <li>Light bulbs need energy from electricity to produce light</li>
+                    <li>Wind turbines need energy from moving air to generate electricity</li>
+                </ul>
+
+                <div class="concept-box">
+                    <strong>Key Concept:</strong> Energy is not something we can see, taste, or touch directly. However, we can observe its effects—light, heat, movement, and sound are all evidence of energy at work.
+                </div>
+
+                <p>Energy is present everywhere and in everything. A piece of food contains energy, a stretched rubber band contains energy, a falling ball contains energy, and electricity contains energy. The key idea is that <strong>energy can change form</strong>—this is called energy conversion.</p>
+            </div>
+
+            <!-- Forms of Energy -->
+            <div class="note-subsection">
+                <h3>⚡ Forms of Energy</h3>
+                <p>Energy exists in six main forms. Each form is important in our everyday lives. Let's explore each one:</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">1. Light Energy</h4>
+                <p><strong>Light energy</strong> is energy that we can see. It travels in straight lines and allows us to see objects.</p>
+                <ul>
+                    <li><strong>From the Sun:</strong> The Sun produces light energy through nuclear reactions. This light travels 150 million km to reach Earth in about 8 minutes and 20 seconds.</li>
+                    <li><strong>From light bulbs:</strong> Light bulbs convert electrical energy into light energy (and heat energy too).</li>
+                    <li><strong>From screens:</strong> Phone screens, computer monitors, and televisions all produce light energy.</li>
+                    <li><strong>From fire:</strong> When things burn, they release light energy along with heat energy.</li>
+                </ul>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">2. Heat Energy</h4>
+                <p><strong>Heat energy</strong> is energy that we feel as warmth. It is produced when particles in an object vibrate (move back and forth) rapidly.</p>
+                <ul>
+                    <li><strong>From the Sun:</strong> The Sun's heat warms the Earth and enables life to exist.</li>
+                    <li><strong>From fire:</strong> Burning wood, candles, or fuel releases heat energy into the surroundings.</li>
+                    <li><strong>From friction:</strong> When two objects rub against each other, friction creates heat. Rubbing your hands together makes them warm.</li>
+                    <li><strong>From electrical appliances:</strong> Electric kettles, toasters, and ovens convert electrical energy into heat energy.</li>
+                    <li><strong>From engines:</strong> Car engines and generators produce heat as they work.</li>
+                </ul>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> The temperature of the Sun's core is about 15 million degrees Celsius! Even though the Sun is so far away, its heat and light are powerful enough to travel all that distance and warm our entire planet.
+                </div>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">3. Sound Energy</h4>
+                <p><strong>Sound energy</strong> is produced by vibrations. When something vibrates, it creates sound waves that travel through air, water, or solids to reach our ears.</p>
+                <ul>
+                    <li><strong>From vibrating strings:</strong> Musical instruments like guitars and violins produce sound when their strings vibrate.</li>
+                    <li><strong>From speakers:</strong> Speakers vibrate to create sound energy, allowing us to hear music and voices.</li>
+                    <li><strong>From voices:</strong> Your vocal cords vibrate when you speak, producing sound waves.</li>
+                    <li><strong>From impacts:</strong> When you clap, bang a drum, or drop something, the impact creates vibrations and sound.</li>
+                    <li><strong>From moving objects:</strong> A whistle, siren, or wind moving through trees all produce sound energy.</li>
+                </ul>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">4. Kinetic Energy (Movement Energy)</h4>
+                <p><strong>Kinetic energy</strong> is the energy of moving objects. Any object that is moving possesses kinetic energy.</p>
+                <ul>
+                    <li><strong>A moving car:</strong> A car traveling at high speed has lots of kinetic energy. The faster it moves, the more kinetic energy it has.</li>
+                    <li><strong>A flowing river:</strong> Water flowing downhill has kinetic energy. This energy can be used to power water wheels and hydroelectric dams.</li>
+                    <li><strong>Wind:</strong> Moving air has kinetic energy. Wind turbines capture this energy and convert it to electricity.</li>
+                    <li><strong>A spinning fan:</strong> The blades of a fan moving in circles have kinetic energy.</li>
+                    <li><strong>A person running:</strong> When you run, your body has kinetic energy.</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Why does a fast-moving ball cause more damage than a slow-moving ball? Because the fast-moving ball has more kinetic energy, which is transferred to the object it hits.
+                </div>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">5. Potential Energy (Stored Energy)</h4>
+                <p><strong>Potential energy</strong> is stored energy—energy that is ready to be released. There are three main types of potential energy:</p>
+
+                <p><strong>a) Gravitational Potential Energy:</strong> Energy stored in objects because of their position (height).</p>
+                <ul>
+                    <li>A book sitting on a high shelf has gravitational potential energy. If it falls, this potential energy converts to kinetic energy.</li>
+                    <li>Water held behind a dam has gravitational potential energy. When released, it flows down and powers turbines.</li>
+                    <li>A person standing at the top of stairs has gravitational potential energy relative to the bottom.</li>
+                </ul>
+
+                <p><strong>b) Elastic Potential Energy:</strong> Energy stored in stretched or compressed objects.</p>
+                <ul>
+                    <li>A stretched rubber band has elastic potential energy. When released, it snaps back and the energy converts to kinetic energy.</li>
+                    <li>A compressed spring in a toy has elastic potential energy.</li>
+                    <li>A bow with an arrow pulled back has elastic potential energy. When released, the arrow flies forward with kinetic energy.</li>
+                </ul>
+
+                <p><strong>c) Chemical Potential Energy:</strong> Energy stored in chemical bonds within substances.</p>
+                <ul>
+                    <li>Food contains chemical potential energy. When we digest and metabolize it, our bodies release this energy for movement and warmth.</li>
+                    <li>A battery stores chemical potential energy. When connected in a circuit, this energy is converted to electrical energy.</li>
+                    <li>Petrol (gasoline) contains chemical potential energy. Burning it in an engine releases energy for movement.</li>
+                    <li>Coal and natural gas are fuels that store chemical potential energy from plants and organisms that lived millions of years ago.</li>
+                </ul>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">6. Electrical Energy</h4>
+                <p><strong>Electrical energy</strong> is the energy carried by moving electrons (electrical charges) through wires and circuits.</p>
+                <ul>
+                    <li><strong>From power stations:</strong> Coal, gas, or nuclear power plants generate electrical energy that is transmitted through power lines to homes and schools.</li>
+                    <li><strong>From batteries:</strong> Batteries contain chemical potential energy that is converted to electrical energy when connected in a circuit.</li>
+                    <li><strong>From solar cells:</strong> Solar panels (photovoltaic cells) convert light energy from the Sun directly into electrical energy.</li>
+                    <li><strong>From generators:</strong> Wind turbines and hydroelectric dams use kinetic energy to rotate generators that produce electrical energy.</li>
+                    <li><strong>From alternators:</strong> Car engines have alternators that convert mechanical energy to electrical energy, charging the car's battery.</li>
+                </ul>
+            </div>
+
+            <!-- Energy Conversion -->
+            <div class="note-subsection">
+                <h3>🔄 Energy Conversion</h3>
+                <p>One of the most important ideas in science is that <strong>energy can be converted from one form to another</strong>. This happens constantly in nature and in everyday appliances.</p>
+
+                <p>When energy converts from one form to another, we often see multiple energy forms produced. Let's look at common examples:</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Light Bulb: Electrical → Light + Heat</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Electrical</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Light</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Heat</div>
+                </div>
+                <p>A light bulb converts electrical energy into light energy (which we want) and heat energy (which is wasted). This is why light bulbs feel hot when you touch them. LED bulbs are more efficient because they convert more electrical energy into light and waste less as heat.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Electric Fan: Electrical → Kinetic + Sound</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Electrical</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Kinetic</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Sound</div>
+                </div>
+                <p>Electrical energy from the wall socket is converted into kinetic energy (the spinning motion of the blades) and a small amount of sound energy (the noise the fan makes). The faster the fan spins, the more kinetic energy it has.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Car Engine: Chemical → Kinetic + Heat + Sound</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Chemical (Petrol)</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Kinetic</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Heat</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Sound</div>
+                </div>
+                <p>Petrol contains chemical potential energy. When burned in the engine, this energy is converted into kinetic energy (movement of the car), heat energy (the engine gets hot), and sound energy (engine noise). The hot gases from burning petrol push pistons, creating movement.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Solar Panel: Light → Electrical</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Light (from Sun)</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Electrical</div>
+                </div>
+                <p>Solar panels contain special materials (semiconductors) that convert light energy directly into electrical energy. This is called the photovoltaic effect. Solar panels are increasingly used to generate clean, renewable electricity.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Photosynthesis: Light → Chemical</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Light (from Sun)</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Chemical (in Glucose)</div>
+                </div>
+                <p>Plants capture light energy from the Sun and convert it into chemical energy stored in glucose (sugar). This is how plants grow. When we eat plants or eat animals that eat plants, we are consuming this stored chemical energy!</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Eating Food: Chemical → Kinetic + Heat</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Chemical (Food)</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Kinetic</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Heat</div>
+                </div>
+                <p>Food contains chemical potential energy. When we eat and digest food, our bodies break down the chemical bonds and release this energy. Some converts to kinetic energy (allowing us to move and exercise) and some converts to heat energy (keeping our body warm at 37°C).</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Burning Candle: Chemical → Light + Heat</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Chemical (Wax)</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Light</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Heat</div>
+                </div>
+                <p>Candle wax contains chemical potential energy. When burned, this chemical energy is released as light energy (the flame) and heat energy (which warms the surroundings).</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Electric Kettle: Electrical → Heat</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Electrical</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Heat</div>
+                </div>
+                <p>Electrical energy is converted directly into heat energy, which boils water. This is a very efficient conversion because most of the electrical energy becomes heat.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Speaker: Electrical → Sound + Heat</h4>
+                <div class="energy-flow">
+                    <div class="energy-box">Electrical</div>
+                    <span class="arrow">→</span>
+                    <div class="energy-box">Sound</div>
+                    <span class="arrow">+</span>
+                    <div class="energy-box">Heat</div>
+                </div>
+                <p>Electrical signals are converted into vibrations of the speaker cone, creating sound energy. Some electrical energy is also wasted as heat in the speaker wires.</p>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> Whenever energy is converted, some of it is usually lost as heat energy. This is why light bulbs feel hot, why your computer fan needs to run, and why we need cooling systems in power plants. This "waste heat" is a natural consequence of energy conversion.
+                </div>
+            </div>
+
+            <!-- Conservation of Energy -->
+            <div class="note-subsection">
+                <h3>♾️ Conservation of Energy</h3>
+                <p><strong>The Law of Conservation of Energy states that energy cannot be created or destroyed. Energy can only be converted from one form to another.</strong> This is one of the most important principles in all of science.</p>
+
+                <p>What this means:</p>
+                <ul>
+                    <li><strong>Energy cannot appear from nothing:</strong> If something moves, there must be energy from somewhere—from food, electricity, fuel, or a previous storage of energy.</li>
+                    <li><strong>Energy cannot disappear:</strong> When energy seems to "disappear," it has actually been converted to another form, usually heat.</li>
+                    <li><strong>The total amount of energy stays the same:</strong> In any closed system, if you add up all the energy in all its forms before a process and after a process, you get the same total.</li>
+                </ul>
+
+                <div class="concept-box">
+                    <strong>Key Concept:</strong> Energy is never lost—it is transformed. Every time we use energy, we are converting it from one form to another, but the total amount of energy in the universe remains constant.
+                </div>
+
+                <p><strong>Example: A Falling Ball</strong></p>
+                <p>A ball held at the top of a building has gravitational potential energy. When released:</p>
+                <ol>
+                    <li>As it falls, potential energy converts to kinetic energy</li>
+                    <li>Faster fall = more kinetic energy, less potential energy</li>
+                    <li>Just before hitting ground: almost all potential energy has become kinetic energy</li>
+                    <li>Upon impact: kinetic energy converts to heat energy and sound energy (the bang!)</li>
+                </ol>
+                <p>The energy didn't disappear—it just changed forms!</p>
+
+                <p><strong>Example: Riding a Bicycle</strong></p>
+                <ol>
+                    <li>You eat food containing chemical potential energy</li>
+                    <li>Your muscles convert this to kinetic energy (pedaling and movement)</li>
+                    <li>Friction between tires and ground converts some kinetic energy to heat</li>
+                    <li>Air resistance converts some kinetic energy to heat</li>
+                    <li>Your body converts energy to heat to maintain body temperature</li>
+                </ol>
+                <p>All the chemical energy from food was accounted for—as kinetic energy, heat, and sound!</p>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Why do we get tired after exercise? Because our bodies have converted chemical energy from food into kinetic energy (movement), heat energy, and sound energy. We've "used up" the available chemical energy!
+                </div>
+            </div>
+
+            <!-- Energy Conversion Chains -->
+            <div class="note-subsection">
+                <h3>🔗 Energy Conversion Chains</h3>
+                <p>Energy often goes through multiple conversions in a sequence. We call this a "conversion chain." Understanding these chains helps us see how energy flows through the world.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Chain 1: From Sun to Your Movement</h4>
+                <div class="energy-diagram">
+                    Light Energy (Sun) → Chemical Energy (Plant Food) → Chemical Energy (Human Body) → Kinetic Energy (Running)
+                </div>
+                <p>This explains why we ultimately depend on the Sun for our energy! The energy that powers your movement comes from the Sun's light, captured by plants through photosynthesis, passed to you through eating, and then released as movement in your muscles.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Chain 2: From Coal to Light</h4>
+                <div class="energy-diagram">
+                    Chemical Energy (Coal) → Heat Energy → Kinetic Energy (Spinning Turbine) → Electrical Energy → Light Energy (Bulb)
+                </div>
+                <p>Coal formed from plants that died millions of years ago contains stored chemical energy. Power plants burn coal to produce heat, which creates steam that spins turbines (kinetic), generating electricity, which finally produces light in a bulb.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Chain 3: From Wind to Computer</h4>
+                <div class="energy-diagram">
+                    Kinetic Energy (Wind) → Kinetic Energy (Spinning Turbine) → Electrical Energy → Electrical Energy (Computer) → Light Energy (Screen) + Heat Energy
+                </div>
+                <p>Wind has kinetic energy. Wind turbines convert this to spinning motion (more kinetic energy), which generators convert to electrical energy, which your computer uses to produce light and heat.</p>
+
+                <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Chain 4: From Food to Sound</h4>
+                <div class="energy-diagram">
+                    Chemical Energy (Food) → Kinetic Energy (Vocal Cords Vibrating) → Sound Energy
+                </div>
+                <p>When you speak, the chemical energy in food is used to move your vocal cords, making them vibrate, which creates sound energy that travels through the air to listeners' ears.</p>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> Long energy conversion chains are less efficient because some energy is lost as heat at each step. This is why eating plants directly (vegetarian diet) is more efficient than eating animals that ate plants—fewer conversion steps means less wasted energy!
+                </div>
+            </div>
+
+            <div class="think-about">
+                <strong>Summary:</strong> Energy constantly flows and transforms around us. By understanding different energy forms, energy conversions, conservation of energy, and conversion chains, you can explain how almost everything in the world works—from your body to power plants to space exploration!
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Applets -->
+    <section class="applets-section">
+        <div class="container">
+            <h2 style="color: var(--pri); margin-bottom: 2rem; font-size: 2rem;">🎮 Interactive Learning Tools</h2>
+
+            <!-- Applet 1: Energy Form Identifier -->
+            <div class="applet-container">
+                <h3>1️⃣ Energy Form Identifier</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">Read each scenario and identify which energy forms are involved. Click all that apply.</p>
+
+                <div class="scenario-card">
+                    <p><strong>Scenario 1:</strong> A person turns on a desk lamp to read a book.</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Electrical</label>
+                        <label><input type="checkbox"> Light</label>
+                        <label><input type="checkbox"> Heat</label>
+                        <label><input type="checkbox"> Sound</label>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <p><strong>Scenario 2:</strong> A microwave heats up food inside.</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Electrical</label>
+                        <label><input type="checkbox"> Heat</label>
+                        <label><input type="checkbox"> Light</label>
+                        <label><input type="checkbox"> Kinetic</label>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <p><strong>Scenario 3:</strong> A boy kicks a soccer ball across a field, and it rolls into the goal with a loud bang.</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Kinetic</label>
+                        <label><input type="checkbox"> Sound</label>
+                        <label><input type="checkbox"> Heat</label>
+                        <label><input type="checkbox"> Chemical</label>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <p><strong>Scenario 4:</strong> A smartphone charges overnight using a power outlet.</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Electrical</label>
+                        <label><input type="checkbox"> Chemical (stored in battery)</label>
+                        <label><input type="checkbox"> Light</label>
+                        <label><input type="checkbox"> Kinetic</label>
+                    </div>
+                </div>
+
+                <div class="scenario-card">
+                    <p><strong>Scenario 5:</strong> A wind turbine generates electricity on a windy day.</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox"> Kinetic (wind)</label>
+                        <label><input type="checkbox"> Kinetic (spinning blades)</label>
+                        <label><input type="checkbox"> Electrical</label>
+                        <label><input type="checkbox"> Chemical</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applet 2: Build an Energy Conversion Chain -->
+            <div class="applet-container">
+                <h3>2️⃣ Build an Energy Conversion Chain</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">For each device, drag the energy forms in the correct order to show how energy is converted.</p>
+
+                <div style="margin-bottom: 2rem; padding: 1rem; background: var(--bg-light); border-radius: 4px;">
+                    <p><strong>Example: Electric Fan</strong></p>
+                    <div class="energy-flow">
+                        <div class="energy-box">Electrical</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Kinetic</div>
+                        <span class="arrow">+</span>
+                        <div class="energy-box">Sound</div>
+                    </div>
+                </div>
+
+                <p style="margin-bottom: 1rem;"><strong>Your turn!</strong> Try to build the energy conversion chain for these devices. (Answer key provided below)</p>
+
+                <div class="appliance-item" onclick="showConversion(this, 'bulb')">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">💡</p>
+                    <p><strong>Light Bulb</strong></p>
+                </div>
+
+                <div class="appliance-item" onclick="showConversion(this, 'car')">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🚗</p>
+                    <p><strong>Car Engine</strong></p>
+                </div>
+
+                <div class="appliance-item" onclick="showConversion(this, 'solar')">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">☀️</p>
+                    <p><strong>Solar Panel</strong></p>
+                </div>
+
+                <div class="appliance-item" onclick="showConversion(this, 'kettle')">
+                    <p style="font-size: 1.5rem; margin-bottom: 0.5rem;">🫖</p>
+                    <p><strong>Electric Kettle</strong></p>
+                </div>
+
+                <div class="conversion-display" id="bulb-conversion">
+                    <strong>Light Bulb Conversion:</strong>
+                    <div class="energy-flow">
+                        <div class="energy-box">Electrical</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Light</div>
+                        <span class="arrow">+</span>
+                        <div class="energy-box">Heat</div>
+                    </div>
+                </div>
+
+                <div class="conversion-display" id="car-conversion">
+                    <strong>Car Engine Conversion:</strong>
+                    <div class="energy-flow">
+                        <div class="energy-box">Chemical (Petrol)</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Heat</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Kinetic</div>
+                        <span class="arrow">+</span>
+                        <div class="energy-box">Sound</div>
+                    </div>
+                </div>
+
+                <div class="conversion-display" id="solar-conversion">
+                    <strong>Solar Panel Conversion:</strong>
+                    <div class="energy-flow">
+                        <div class="energy-box">Light (from Sun)</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Electrical</div>
+                    </div>
+                </div>
+
+                <div class="conversion-display" id="kettle-conversion">
+                    <strong>Electric Kettle Conversion:</strong>
+                    <div class="energy-flow">
+                        <div class="energy-box">Electrical</div>
+                        <span class="arrow">→</span>
+                        <div class="energy-box">Heat</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applet 3: Energy Detective - Room Explorer -->
+            <div class="applet-container">
+                <h3>🔍 Energy Detective: Explore the Classroom</h3>
+                <p style="color: var(--text-light); margin-bottom: 1rem;">Click on each item in the classroom to discover the energy conversions happening. See if you can find all the energy conversions!</p>
+
+                <div class="room-grid">
+                    <div class="room-item" onclick="exploreItem(this, 'laptop')">
+                        <div class="room-item-text">💻</div>
+                        <div class="room-item-name">Laptop</div>
+                    </div>
+                    <div class="room-item" onclick="exploreItem(this, 'projector')">
+                        <div class="room-item-text">📽️</div>
+                        <div class="room-item-name">Projector</div>
+                    </div>
+                    <div class="room-item" onclick="exploreItem(this, 'ceiling-fan')">
+                        <div class="room-item-text">🌬️</div>
+                        <div class="room-item-name">Ceiling Fan</div>
+                    </div>
+                    <div class="room-item" onclick="exploreItem(this, 'lights')">
+                        <div class="room-item-text">💡</div>
+                        <div class="room-item-name">Lights</div>
+                    </div>
+                    <div class="room-item" onclick="exploreItem(this, 'speaker')">
+                        <div class="room-item-text">🔊</div>
+                        <div class="room-item-name">Speaker</div>
+                    </div>
+                    <div class="room-item" onclick="exploreItem(this, 'student')">
+                        <div class="room-item-text">👨‍🎓</div>
+                        <div class="room-item-name">Student</div>
+                    </div>
+                </div>
+
+                <div id="laptop-details" class="energy-details">
+                    <h4>💻 Laptop</h4>
+                    <p><strong>Energy Input:</strong> Electrical energy (from power outlet or battery)</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Electrical → Light (screen display)</li>
+                        <li>Electrical → Sound (speakers)</li>
+                        <li>Electrical → Heat (from processor and components)</li>
+                        <li>Electrical → Kinetic (fan spinning to cool the device)</li>
+                    </ul>
+                </div>
+
+                <div id="projector-details" class="energy-details">
+                    <h4>📽️ Projector</h4>
+                    <p><strong>Energy Input:</strong> Electrical energy</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Electrical → Light (projecting images on screen)</li>
+                        <li>Electrical → Heat (the projector gets very hot!)</li>
+                        <li>Electrical → Kinetic (cooling fan)</li>
+                    </ul>
+                </div>
+
+                <div id="ceiling-fan-details" class="energy-details">
+                    <h4>🌬️ Ceiling Fan</h4>
+                    <p><strong>Energy Input:</strong> Electrical energy</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Electrical → Kinetic (spinning blades)</li>
+                        <li>Electrical → Sound (motor noise)</li>
+                        <li>Kinetic → Heat (friction in the motor)</li>
+                    </ul>
+                </div>
+
+                <div id="lights-details" class="energy-details">
+                    <h4>💡 Lights</h4>
+                    <p><strong>Energy Input:</strong> Electrical energy</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Electrical → Light (illuminating the room)</li>
+                        <li>Electrical → Heat (from the bulb filament or LED)</li>
+                    </ul>
+                </div>
+
+                <div id="speaker-details" class="energy-details">
+                    <h4>🔊 Speaker</h4>
+                    <p><strong>Energy Input:</strong> Electrical energy</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Electrical → Sound (vibrating speaker cone)</li>
+                        <li>Electrical → Heat (internal components)</li>
+                    </ul>
+                </div>
+
+                <div id="student-details" class="energy-details">
+                    <h4>👨‍🎓 Student</h4>
+                    <p><strong>Energy Input:</strong> Chemical energy (from food/breakfast)</p>
+                    <p><strong>Energy Conversions:</strong></p>
+                    <ul>
+                        <li>Chemical → Kinetic (moving, writing, gesturing)</li>
+                        <li>Chemical → Heat (maintaining body temperature at 37°C)</li>
+                        <li>Chemical → Sound (speaking and making sounds)</li>
+                        <li>Chemical → Electrical (nerve signals in the brain)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PSLE Questions -->
+    <section class="questions-section">
+        <div class="container">
+            <h2>✏️ PSLE-Style Questions</h2>
+
+            <!-- Section A: MCQ -->
+            <div class="question-group">
+                <h3>Section A: Multiple Choice Questions (Choose 1 answer)</h3>
+
+                <div class="question-item">
+                    <p class="question-text">1. Which of the following is an example of electrical energy being converted to heat energy?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q1"> A. A light bulb glowing
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1"> B. An electric kettle boiling water
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1"> C. A solar panel generating electricity
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1"> D. A computer screen displaying images
+                    </label>
+                    <button class="answer-btn" onclick="toggleAnswer('ans1')">Show Answer</button>
+                    <div class="model-answer" id="ans1">
+                        <h4>✓ Correct Answer: B</h4>
+                        <p>An electric kettle is designed to convert electrical energy into heat energy to boil water. While other options involve energy conversion, they are not primarily converting electrical energy to heat.</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">2. A girl eats rice for lunch and then plays netball. Which energy conversion best describes this?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q2"> A. Light → Heat
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2"> B. Chemical → Kinetic + Heat
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2"> C. Kinetic → Chemical
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2"> D. Heat → Kinetic
+                    </label>
+                    <button class="answer-btn" onclick="toggleAnswer('ans2')">Show Answer</button>
+                    <div class="model-answer" id="ans2">
+                        <h4>✓ Correct Answer: B</h4>
+                        <p>Rice contains chemical energy (from the Sun via photosynthesis). When the girl eats it and plays netball, the chemical energy converts to kinetic energy (her movement) and heat energy (keeping her body warm). This is the correct conversion sequence.</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">3. Which statement about conservation of energy is TRUE?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q3"> A. Energy can be created when we burn coal
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3"> B. Energy can be destroyed when friction occurs
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3"> C. Energy cannot be created or destroyed, only converted
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3"> D. Some energy disappears when a ball falls
+                    </label>
+                    <button class="answer-btn" onclick="toggleAnswer('ans3')">Show Answer</button>
+                    <div class="model-answer" id="ans3">
+                        <h4>✓ Correct Answer: C</h4>
+                        <p>This is the Law of Conservation of Energy. Energy cannot be created or destroyed—it can only change from one form to another. Energy never disappears; it is just converted to different forms.</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">4. A wind turbine converts the kinetic energy of wind into electrical energy. What happens to some of the electrical energy in the wires?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q4"> A. It disappears completely
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4"> B. It is converted to heat energy due to resistance
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4"> C. It becomes light energy
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4"> D. It is converted back to kinetic energy
+                    </label>
+                    <button class="answer-btn" onclick="toggleAnswer('ans4')">Show Answer</button>
+                    <div class="model-answer" id="ans4">
+                        <h4>✓ Correct Answer: B</h4>
+                        <p>Electrical resistance in wires causes some electrical energy to convert to heat energy. This is why power transmission wires and electrical devices sometimes feel warm. This is an example of energy conversion and wasted energy in systems.</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">5. Which of the following shows a complete energy conversion chain starting from the Sun?</p>
+                    <label class="option-label">
+                        <input type="radio" name="q5"> A. Sun → Animal → Human → Heat
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5"> B. Light → Chemical → Kinetic → Heat
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5"> C. Sun → Electrical → Light → Heat
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5"> D. Heat → Light → Kinetic → Chemical
+                    </label>
+                    <button class="answer-btn" onclick="toggleAnswer('ans5')">Show Answer</button>
+                    <div class="model-answer" id="ans5">
+                        <h4>✓ Correct Answer: B</h4>
+                        <p>This represents: Light from Sun → Chemical energy in plants → Kinetic energy when animals move → Heat energy released. This is how energy flows from the Sun to living things and is ultimately released as heat.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section B: Open-Ended -->
+            <div class="question-group">
+                <h3>Section B: Open-Ended Questions (Write detailed answers)</h3>
+
+                <div class="question-item">
+                    <p class="question-text">6. Describe the energy conversions that take place when a person eats food and then rides a bicycle uphill. Use the correct energy terms in your answer. (4 marks)</p>
+                    <button class="answer-btn" onclick="toggleAnswer('ans6')">Show Model Answer</button>
+                    <div class="model-answer" id="ans6">
+                        <h4>📝 Model Answer (4 marks):</h4>
+                        <p><strong>First part (eating food) - 2 marks:</strong></p>
+                        <p>The food contains chemical potential energy (stored energy). When the person eats the food, their body digests it and releases this chemical energy (1 mark). The chemical energy is converted into kinetic energy (to move the legs while cycling) and heat energy (to maintain body temperature at 37°C) (1 mark).</p>
+                        <p><strong>Second part (riding uphill) - 2 marks:</strong></p>
+                        <p>As the person cycles uphill, the kinetic energy from the moving bicycle and rider is converted into gravitational potential energy (stored energy due to height gained) (1 mark). Some kinetic energy is also converted into heat energy due to friction between the tires and the ground and air resistance (1 mark).</p>
+                        <p><strong>Key terms used:</strong> Chemical potential energy, kinetic energy, heat energy, gravitational potential energy, friction</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">7. A solar panel receives light energy from the Sun and converts it to electrical energy. Explain why, according to the law of conservation of energy, the electrical energy produced cannot be greater than the light energy received by the panel. (3 marks)</p>
+                    <button class="answer-btn" onclick="toggleAnswer('ans7')">Show Model Answer</button>
+                    <div class="model-answer" id="ans7">
+                        <h4>📝 Model Answer (3 marks):</h4>
+                        <p>The law of conservation of energy states that energy cannot be created or destroyed, only converted from one form to another (1 mark). Therefore, when the solar panel converts light energy into electrical energy, the total energy produced cannot exceed the original light energy input (1 mark). Some of the light energy is also converted to heat energy (due to the inefficiency of the conversion process), so the electrical energy output must be less than the light energy input (1 mark).</p>
+                    </div>
+                </div>
+
+                <div class="question-item">
+                    <p class="question-text">8. Compare and contrast the energy conversions in a light bulb and a microwave oven. How are they similar? How are they different? (4 marks)</p>
+                    <button class="answer-btn" onclick="toggleAnswer('ans8')">Show Model Answer</button>
+                    <div class="model-answer" id="ans8">
+                        <h4>📝 Model Answer (4 marks):</h4>
+                        <p><strong>Similarities (2 marks):</strong></p>
+                        <p>Both convert electrical energy into other forms of energy (1 mark). Both produce heat energy as one of their output energies (1 mark).</p>
+                        <p><strong>Differences (2 marks):</strong></p>
+                        <p>A light bulb converts electrical energy into light energy and heat energy, with light being the desired output (1 mark). A microwave converts electrical energy primarily into heat energy, with the goal of heating food, and does not produce visible light (1 mark).</p>
+                        <p><strong>Or alternatively:</strong> A light bulb is designed mainly to produce light (useful) and heat (wasteful). A microwave is designed mainly to produce heat (useful).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Box -->
+    <section class="values-box">
+        <div class="container">
+            <h3>🌍 Values: Energy, Sustainability & Our World</h3>
+            <p style="margin-bottom: 1rem;">Understanding energy conversion helps us make better choices for our environment:</p>
+            <ul>
+                <li><strong>Conservation:</strong> Saving energy means fewer resources are needed and less energy is wasted as heat.</li>
+                <li><strong>Sustainability:</strong> Renewable energy sources like solar and wind power use natural resources that don't run out.</li>
+                <li><strong>Responsibility:</strong> Using energy wisely (turning off lights, using efficient appliances) helps protect our planet for future generations.</li>
+                <li><strong>Innovation:</strong> Scientists work to create more efficient devices that lose less energy as waste heat.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Primary 6 Energy Conversion</strong></p>
+        <p>Singapore MOE Science Curriculum | Theme: Energy</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">Last Updated: March 2026 | Learning Outcomes: Identify, Recognise, Describe, Relate</p>
+    </footer>
+
+    <script>
+        // Applet Functions
+        function showConversion(element, device) {
+            // Remove active state from all items
+            document.querySelectorAll('.appliance-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+
+            // Add active state to clicked item
+            element.classList.add('selected');
+
+            // Hide all conversion displays
+            document.querySelectorAll('.conversion-display').forEach(display => {
+                display.classList.remove('show');
+            });
+
+            // Show the relevant conversion
+            const displayId = device + '-conversion';
+            const display = document.getElementById(displayId);
+            if (display) {
+                display.classList.add('show');
+            }
+        }
+
+        function exploreItem(element, item) {
+            // Toggle explored state
+            element.classList.toggle('explored');
+
+            // Hide all details
+            document.querySelectorAll('.energy-details').forEach(detail => {
+                detail.classList.remove('show');
+            });
+
+            // Show the relevant details
+            const detailsId = item + '-details';
+            const details = document.getElementById(detailsId);
+            if (details) {
+                details.classList.add('show');
+                // Scroll to details
+                details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleAnswer(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.toggle('show');
+            }
+        }
+    </script>
+</body>
+</html>

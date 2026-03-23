@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic 12: Human Respiratory and Circulatory Systems | Primary 5 Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #e65100;
+            --pri-light: #ff6f00;
+            --pri-dark: #bf360c;
+            --bg-light: #fff3e0;
+            --bg-white: #ffffff;
+            --text-dark: #212121;
+            --text-light: #666666;
+            --accent-green: #2e7d32;
+            --accent-blue: #1565c0;
+            --accent-red: #c62828;
+            --border-light: #ffe0b2;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f5f5f5;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Learning Outcomes */
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--pri);
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--pri);
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .outcome-card {
+            background: var(--bg-white);
+            border-left: 5px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--bg-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--pri);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection {
+            margin-bottom: 2rem;
+        }
+
+        .subsection h3 {
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .subsection p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+            border-left: 5px solid;
+        }
+
+        .key-concept {
+            background: #e3f2fd;
+            border-left-color: var(--accent-blue);
+        }
+
+        .key-concept strong {
+            color: var(--accent-blue);
+        }
+
+        .did-you-know {
+            background: #f3e5f5;
+            border-left-color: #7b1fa2;
+        }
+
+        .did-you-know strong {
+            color: #7b1fa2;
+        }
+
+        .think-about {
+            background: #e8f5e9;
+            border-left-color: var(--accent-green);
+        }
+
+        .think-about strong {
+            color: var(--accent-green);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: var(--pri);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* Diagrams (CSS) */
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .label {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Interactive Apps */
+        .app-container {
+            background: var(--bg-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .app-title {
+            font-size: 1.4rem;
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Breathing Simulator */
+        .simulator-controls {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .sim-button {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            background: var(--pri);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .sim-button:hover {
+            background: var(--pri-dark);
+            transform: scale(1.05);
+        }
+
+        .sim-button:active {
+            transform: scale(0.98);
+        }
+
+        .sim-display {
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* Blood Flow Path */
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .flow-step {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            border: 2px solid var(--pri);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .flow-step:hover {
+            background: var(--border-light);
+            transform: scale(1.05);
+        }
+
+        .flow-step.active {
+            background: var(--pri);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Matching Game */
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .match-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .match-item {
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .match-item:hover {
+            border-color: var(--pri);
+            background: #f5f5f5;
+        }
+
+        .match-item.selected {
+            background: var(--bg-light);
+            border-color: var(--pri);
+            font-weight: 600;
+        }
+
+        .match-item.correct {
+            background: #e8f5e9;
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .match-feedback {
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 600;
+            min-height: 1.5rem;
+        }
+
+        .match-feedback.success {
+            color: var(--accent-green);
+        }
+
+        .match-feedback.error {
+            color: var(--accent-red);
+        }
+
+        /* Questions Section */
+        .questions-section {
+            background: var(--bg-white);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+
+        .question-block {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-child {
+            border-bottom: none;
+        }
+
+        .question-num {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .option {
+            margin: 0.5rem 0;
+            padding: 0.7rem 1rem;
+            background: #f9f9f9;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background: #f0f0f0;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .answer-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--pri);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .answer-button:hover {
+            background: var(--pri-dark);
+        }
+
+        .answer-display {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-left: 5px solid var(--accent-green);
+            border-radius: 4px;
+            display: none;
+        }
+
+        .answer-display.show {
+            display: block;
+        }
+
+        .answer-label {
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .model-answer {
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
+        /* Values Box */
+        .values-box {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .values-box p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <div class="hero-badge">Primary 5 • Theme: Systems</div>
+        <h1>Human Respiratory and Circulatory Systems</h1>
+        <p>Discover how your body breathes and circulates blood</p>
+    </div>
+
+    <div class="container">
+        <!-- Learning Outcomes -->
+        <h2 class="section-title">Learning Outcomes</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <h3>LO1: Respiratory System</h3>
+                <p>Describe the parts of the respiratory system (nose, windpipe, lungs, diaphragm) and their functions.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO2: How We Breathe</h3>
+                <p>Explain what happens during inhalation and exhalation, and how the diaphragm controls breathing.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO3: Circulatory System</h3>
+                <p>Describe the parts of the circulatory system (heart, blood vessels, blood) and their functions.</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO4: Systems Working Together</h3>
+                <p>Explain how the respiratory and circulatory systems work together to transport oxygen and remove carbon dioxide.</p>
+            </div>
+        </div>
+
+        <!-- Teaching Content: Respiratory System -->
+        <div class="content-section">
+            <h2>⚙️ The Respiratory System</h2>
+
+            <div class="subsection">
+                <h3>What is the Respiratory System?</h3>
+                <p>The respiratory system is a group of organs that helps your body take in oxygen from the air and get rid of carbon dioxide (a waste gas). Every time you breathe, you are using your respiratory system to keep your body healthy and your cells alive.</p>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> Breathing brings fresh oxygen into your body and removes waste carbon dioxide. This happens automatically, but you can also control your breathing when needed.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Parts of the Respiratory System</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Part</th>
+                            <th>Location</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nose</strong></td>
+                            <td>Front of face</td>
+                            <td>Filters dust and germs from air; warms and moistens the air before it enters the lungs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windpipe (Trachea)</strong></td>
+                            <td>In the neck</td>
+                            <td>A tube that carries air from the nose down to the lungs; has rings of cartilage to keep it open</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lungs</strong></td>
+                            <td>Inside the chest cavity</td>
+                            <td>Spongy organs where oxygen enters the blood and carbon dioxide leaves the blood; there are two lungs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Diaphragm</strong></td>
+                            <td>Below the lungs</td>
+                            <td>A muscle that contracts and relaxes to help pull air in and push air out of the lungs</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="diagram-container">
+                    <svg viewBox="0 0 200 300" width="250" height="350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Head -->
+                        <circle cx="100" cy="50" r="20" fill="none" stroke="#333" stroke-width="2"/>
+                        <!-- Nose -->
+                        <ellipse cx="100" cy="45" rx="5" ry="8" fill="none" stroke="#e65100" stroke-width="2"/>
+                        <text x="120" y="45" class="label" fill="#e65100">Nose</text>
+                        <!-- Windpipe -->
+                        <rect x="95" y="75" width="10" height="40" fill="none" stroke="#1565c0" stroke-width="2"/>
+                        <text x="115" y="100" class="label" fill="#1565c0">Windpipe</text>
+                        <!-- Chest -->
+                        <rect x="60" y="120" width="80" height="60" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                        <!-- Left Lung -->
+                        <ellipse cx="75" cy="150" rx="18" ry="35" fill="none" stroke="#2e7d32" stroke-width="2"/>
+                        <text x="55" y="155" class="label" fill="#2e7d32">Left Lung</text>
+                        <!-- Right Lung -->
+                        <ellipse cx="125" cy="150" rx="18" ry="35" fill="none" stroke="#2e7d32" stroke-width="2"/>
+                        <text x="130" y="155" class="label" fill="#2e7d32">Right Lung</text>
+                        <!-- Diaphragm -->
+                        <path d="M 60 195 Q 100 210 140 195" fill="none" stroke="#c62828" stroke-width="3"/>
+                        <text x="100" y="230" text-anchor="middle" class="label" fill="#c62828">Diaphragm</text>
+                    </svg>
+                </div>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> Your lungs are covered with tiny air sacs called alveoli. There are about 300 million of them! This huge surface area allows oxygen and carbon dioxide to be exchanged efficiently.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>How Breathing Works: Inhalation vs Exhalation</h3>
+
+                <p><strong>Inhalation (Breathing In):</strong></p>
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li>The diaphragm contracts (tightens) and moves downward</li>
+                    <li>The ribcage expands (gets larger) and moves upward and outward</li>
+                    <li>This makes the space inside the lungs bigger</li>
+                    <li>Air rushes in through your nose into the lungs to fill the space</li>
+                    <li>This is called negative pressure breathing</li>
+                </ul>
+
+                <p><strong>Exhalation (Breathing Out):</strong></p>
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li>The diaphragm relaxes and moves upward</li>
+                    <li>The ribcage contracts (gets smaller) and moves downward and inward</li>
+                    <li>This makes the space inside the lungs smaller</li>
+                    <li>Air is pushed out of the lungs through your nose or mouth</li>
+                    <li>This air contains waste carbon dioxide that your body wants to get rid of</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Try this activity: Place your hand on your ribcage. Now take a deep breath in. Can you feel your ribcage expand? When you breathe out, you should feel it contract. Your diaphragm is moving too, but it's hidden inside your body!
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Gas Exchange in the Lungs</h3>
+
+                <p>The key job of the lungs is to swap gases between the air you breathe and your blood. Inside the lungs:</p>
+
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li><strong>Oxygen (O₂)</strong> from the air in your lungs passes through the thin walls of the alveoli into tiny blood vessels called capillaries</li>
+                    <li><strong>Carbon dioxide (CO₂)</strong> waste from your blood passes through the capillary walls into the alveoli so it can be breathed out</li>
+                    <li>This exchange happens continuously, even when you're sleeping</li>
+                </ul>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> Gas exchange is like a trade: your blood gives carbon dioxide to the lungs, and the lungs give oxygen to your blood in return.
+                </div>
+            </div>
+        </div>
+
+        <!-- Teaching Content: Circulatory System -->
+        <div class="content-section">
+            <h2>Heart: The Circulatory System</h2>
+
+            <div class="subsection">
+                <h3>What is the Circulatory System?</h3>
+                <p>The circulatory system is made up of your heart, blood vessels, and blood. It works like a delivery network for your body. It carries oxygen and nutrients to all your cells and picks up waste products to get rid of them. Your circulatory system never stops working—it keeps running even while you sleep!</p>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> Your circulatory system is your body's transportation system. The heart is the engine, blood vessels are the roads, and blood is the delivery truck.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Parts of the Circulatory System</h3>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Part</th>
+                            <th>Type & Location</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Heart</strong></td>
+                            <td>Muscular organ, left side of chest</td>
+                            <td>Pumps blood to all parts of the body; beats about 70 times per minute at rest (faster after exercise)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Arteries</strong></td>
+                            <td>Blood vessels with thick, muscular walls</td>
+                            <td>Carry oxygen-rich blood away from the heart to all body cells</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Veins</strong></td>
+                            <td>Blood vessels with thinner walls</td>
+                            <td>Carry oxygen-poor blood and waste products back to the heart</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capillaries</strong></td>
+                            <td>Tiny blood vessels, just one cell thick</td>
+                            <td>Allow oxygen, nutrients, and waste to be exchanged between blood and body cells</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blood</strong></td>
+                            <td>Red liquid tissue</td>
+                            <td>Carries oxygen and nutrients; removes waste carbon dioxide; fights infections; helps blood clotting</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="diagram-container">
+                    <svg viewBox="0 0 220 300" width="250" height="350" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Body outline -->
+                        <rect x="40" y="50" width="140" height="200" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+                        <!-- Heart -->
+                        <ellipse cx="110" cy="100" rx="20" ry="25" fill="none" stroke="#c62828" stroke-width="3"/>
+                        <text x="110" y="105" text-anchor="middle" class="label" fill="#c62828" font-weight="bold">Heart</text>
+                        <!-- Arteries (red, thick) -->
+                        <line x1="130" y1="100" x2="170" y2="80" stroke="#c62828" stroke-width="3"/>
+                        <text x="175" y="75" class="label" fill="#c62828">Artery</text>
+                        <line x1="130" y1="100" x2="170" y2="120" stroke="#c62828" stroke-width="3"/>
+                        <!-- Veins (blue, thin) -->
+                        <line x1="90" y1="100" x2="50" y2="80" stroke="#1565c0" stroke-width="2"/>
+                        <text x="30" y="75" class="label" fill="#1565c0">Vein</text>
+                        <line x1="90" y1="100" x2="50" y2="120" stroke="#1565c0" stroke-width="2"/>
+                        <!-- Capillaries -->
+                        <circle cx="180" cy="100" r="8" fill="none" stroke="#ff6f00" stroke-width="2"/>
+                        <text x="190" y="105" class="label" fill="#ff6f00">Capillaries</text>
+                    </svg>
+                </div>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> If you stretched out all the blood vessels in your body, they would wrap around Earth about 2.5 times! There are about 60,000 miles of blood vessels in an adult human body.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>The Heart: Your Body's Pump</h3>
+
+                <p>The heart is about the size of your fist and is one of the most important organs in your body. Here's what makes it special:</p>
+
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li>It's a <strong>muscular organ</strong> that pumps blood continuously</li>
+                    <li>A healthy heart at rest beats about <strong>60-70 times per minute</strong></li>
+                    <li>After exercise, your heart rate speeds up to pump more oxygenated blood to working muscles</li>
+                    <li>The left side of the heart pumps oxygen-rich blood to the body; the right side pumps oxygen-poor blood to the lungs</li>
+                    <li>You can feel your heart beating by taking your pulse at your wrist or neck</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Place two fingers gently on the side of your neck (just below your jaw) or on the inside of your wrist. You should feel your pulse—the rhythmic beating of your heart pumping blood through the arteries. Count how many beats you feel in 60 seconds. That's your resting heart rate!
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Blood: The Delivery Liquid</h3>
+
+                <p>Blood is a liquid tissue that does much more than just flow through your body. It has several important jobs:</p>
+
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li><strong>Transports oxygen:</strong> Picks up oxygen from the lungs and delivers it to every cell in your body</li>
+                    <li><strong>Transports nutrients:</strong> Carries food nutrients from your digestive system to body cells for energy</li>
+                    <li><strong>Removes waste:</strong> Picks up carbon dioxide from cells and carries it to the lungs to be breathed out</li>
+                    <li><strong>Fights infection:</strong> Contains white blood cells that defend your body against germs</li>
+                    <li><strong>Helps healing:</strong> When you get a cut, blood clots to stop the bleeding and platelets help it heal</li>
+                    <li><strong>Regulates temperature:</strong> Blood helps keep your body at the right temperature</li>
+                </ul>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> Blood is red because of a protein called hemoglobin that carries oxygen. When blood loses oxygen, it becomes darker red or bluish—but it's still red blood, not blue!
+                </div>
+            </div>
+        </div>
+
+        <!-- Teaching Content: Systems Working Together -->
+        <div class="content-section">
+            <h2>Cycling: How They Work Together</h2>
+
+            <div class="subsection">
+                <h3>The Connection Between Two Systems</h3>
+
+                <p>The respiratory and circulatory systems are deeply connected. They work together like teammates to keep your body healthy and full of energy. Neither system can do its job properly without the other.</p>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> The respiratory system brings oxygen into your body, and the circulatory system delivers that oxygen to every cell. They work in perfect harmony.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>The Journey of Oxygen: Step by Step</h3>
+
+                <p>Follow the complete path that oxygen takes through your body:</p>
+
+                <ol style="margin: 1rem 0 1rem 2rem; line-height: 1.9; font-size: 1.05rem;">
+                    <li><strong>Inhalation:</strong> You breathe in air through your nose or mouth</li>
+                    <li><strong>To the lungs:</strong> Air travels down the windpipe (trachea) into your lungs</li>
+                    <li><strong>Gas exchange in lungs:</strong> Oxygen from the air passes through the thin alveoli walls into the capillaries in your lungs</li>
+                    <li><strong>Heart receives oxygen-rich blood:</strong> Blood carrying fresh oxygen returns to the right side of the heart from the lungs</li>
+                    <li><strong>Heart pumps out:</strong> The heart pumps this oxygen-rich blood out through arteries to all parts of your body</li>
+                    <li><strong>Oxygen to cells:</strong> As blood travels through capillaries, oxygen passes out into the cells around them</li>
+                    <li><strong>Cells use oxygen:</strong> Your cells use oxygen for energy, creating carbon dioxide as a waste product</li>
+                    <li><strong>Blood picks up CO₂:</strong> Blood in the capillaries picks up carbon dioxide from the cells</li>
+                    <li><strong>Blood returns to heart:</strong> Oxygen-poor blood travels back to the heart through the veins</li>
+                    <li><strong>To the lungs:</strong> The heart pumps this oxygen-poor blood to the lungs</li>
+                    <li><strong>Gas exchange again:</strong> Carbon dioxide leaves the blood and enters the alveoli in the lungs</li>
+                    <li><strong>Exhalation:</strong> You breathe out, getting rid of the carbon dioxide waste</li>
+                    <li><strong>Cycle repeats:</strong> The whole process starts again!</li>
+                </ol>
+
+                <div class="diagram-container">
+                    <svg viewBox="0 0 300 200" width="100%" height="250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lungs -->
+                        <circle cx="50" cy="100" r="30" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+                        <text x="50" y="105" text-anchor="middle" font-weight="bold" font-size="14">Lungs</text>
+                        <!-- Heart -->
+                        <circle cx="150" cy="100" r="30" fill="#ffebee" stroke="#c62828" stroke-width="2"/>
+                        <text x="150" y="105" text-anchor="middle" font-weight="bold" font-size="14">Heart</text>
+                        <!-- Body Cells -->
+                        <circle cx="250" cy="100" r="30" fill="#fff3e0" stroke="#e65100" stroke-width="2"/>
+                        <text x="250" y="105" text-anchor="middle" font-weight="bold" font-size="14">Cells</text>
+                        <!-- Arrows: O2 (red) -->
+                        <path d="M 80 70 L 120 70" fill="none" stroke="#c62828" stroke-width="3" marker-end="url(#arrowred)"/>
+                        <text x="100" y="65" text-anchor="middle" font-size="12" fill="#c62828">O2</text>
+                        <!-- Arrows: O2 (red) -->
+                        <path d="M 180 70 L 220 70" fill="none" stroke="#c62828" stroke-width="3" marker-end="url(#arrowred)"/>
+                        <!-- Arrows: CO2 (blue) -->
+                        <path d="M 220 130 L 180 130" fill="none" stroke="#1565c0" stroke-width="3" marker-end="url(#arrowblue)"/>
+                        <text x="200" y="150" text-anchor="middle" font-size="12" fill="#1565c0">CO2</text>
+                        <!-- Arrows: CO2 (blue) -->
+                        <path d="M 120 130 L 80 130" fill="none" stroke="#1565c0" stroke-width="3" marker-end="url(#arrowblue)"/>
+                        <!-- Arrow definitions -->
+                        <defs>
+                            <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#c62828"/>
+                            </marker>
+                            <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                                <path d="M0,0 L0,6 L9,3 z" fill="#1565c0"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>What Happens When You Exercise?</h3>
+
+                <p>Your muscles need extra oxygen when you're active. Watch what happens:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>At Rest</th>
+                            <th>During Exercise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Heart beats 60-70 times per minute</td>
+                            <td>Heart beats 100+ times per minute</td>
+                        </tr>
+                        <tr>
+                            <td>You breathe 12-20 times per minute</td>
+                            <td>You breathe 30+ times per minute</td>
+                        </tr>
+                        <tr>
+                            <td>Breathing is shallow and calm</td>
+                            <td>Breathing is deep and fast</td>
+                        </tr>
+                        <tr>
+                            <td>Less blood flows to muscles</td>
+                            <td>More blood flows to active muscles</td>
+                        </tr>
+                        <tr>
+                            <td>Muscles produce little waste CO₂</td>
+                            <td>Muscles produce lots of waste CO₂</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> During intense exercise, your breathing can increase from 12 breaths per minute to over 60 breaths per minute! This allows your lungs to pull in more oxygen and remove more carbon dioxide waste.
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Why Both Systems Must Work Together</h3>
+
+                <p>If either system stopped working, your body would be in serious trouble:</p>
+
+                <ul style="margin: 1rem 0 1rem 2rem; line-height: 1.8;">
+                    <li><strong>Without breathing:</strong> Oxygen wouldn't enter your blood, and carbon dioxide wouldn't be removed. Your cells would quickly run out of energy and die.</li>
+                    <li><strong>Without circulation:</strong> Oxygen would enter your lungs but wouldn't reach your cells. It would be like filling a gas tank but not being able to use the fuel.</li>
+                    <li><strong>Together:</strong> The respiratory system is the supplier, and the circulatory system is the delivery driver. They create a perfect teamwork system!</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Your body is like a business. The respiratory system is the supplier that gets raw materials (oxygen), and the circulatory system is the delivery company that takes those materials to all the different departments (cells). Without either one, the business falls apart!
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Apps -->
+        <h2 class="section-title">Interactive Activities</h2>
+
+        <!-- Breathing Simulator -->
+        <div class="app-container">
+            <div class="app-title">Breathing Simulator</div>
+            <p>Watch how your diaphragm moves as you breathe in and out. Click the buttons to control your breathing.</p>
+            <div class="simulator-controls">
+                <button class="sim-button" onclick="breatheIn()">Inhale</button>
+                <button class="sim-button" onclick="breatheOut()">Exhale</button>
+                <button class="sim-button" onclick="resetBreathing()">Reset</button>
+            </div>
+            <div class="sim-display" id="breathingStatus">Ready to breathe!</div>
+            <div class="diagram-container">
+                <svg viewBox="0 0 280 300" width="300" height="350" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Body outline -->
+                    <rect x="40" y="50" width="200" height="180" fill="none" stroke="#333" stroke-width="2"/>
+                    <!-- Lungs (will change size) -->
+                    <ellipse id="leftLung" cx="100" cy="130" rx="20" ry="50" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+                    <ellipse id="rightLung" cx="180" cy="130" rx="20" ry="50" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2"/>
+                    <text x="100" y="135" text-anchor="middle" font-size="14" fill="#2e7d32">Lungs</text>
+                    <!-- Diaphragm (will move) -->
+                    <path id="diaphragm" d="M 50 220 Q 140 210 230 220" fill="none" stroke="#c62828" stroke-width="4"/>
+                    <text x="140" y="250" text-anchor="middle" class="label" fill="#c62828">Diaphragm</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Blood Flow Path -->
+        <div class="app-container">
+            <div class="app-title">Follow the Blood Flow</div>
+            <p>Click each step in order to trace the journey of oxygen-rich blood through your body.</p>
+            <div class="flow-steps">
+                <div class="flow-step" onclick="stepBloodFlow(1)">1. Lungs<br>(O₂ picked up)</div>
+                <div class="flow-step" onclick="stepBloodFlow(2)">2. Heart<br>(pumps blood)</div>
+                <div class="flow-step" onclick="stepBloodFlow(3)">3. Arteries<br>(carry O₂)</div>
+                <div class="flow-step" onclick="stepBloodFlow(4)">4. Capillaries<br>(O₂ to cells)</div>
+                <div class="flow-step" onclick="stepBloodFlow(5)">5. Veins<br>(pick up CO₂)</div>
+                <div class="flow-step" onclick="stepBloodFlow(6)">6. Lungs<br>(exhale CO₂)</div>
+            </div>
+            <div id="flowFeedback" style="text-align: center; margin-top: 1.5rem; font-weight: 600; min-height: 1.5rem; color: var(--accent-green);"></div>
+        </div>
+
+        <!-- Matching Game -->
+        <div class="app-container">
+            <div class="app-title">Match Organs to Functions</div>
+            <p>Click a body part on the left, then click its function on the right to make a match.</p>
+            <div class="matching-container">
+                <div class="match-column">
+                    <div class="match-item" onclick="selectOrgan(this, 'nose')">Nose</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'trachea')">Windpipe (Trachea)</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'lungs')">Lungs</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'diaphragm')">Diaphragm</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'heart')">Heart</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'arteries')">Arteries</div>
+                    <div class="match-item" onclick="selectOrgan(this, 'veins')">Veins</div>
+                </div>
+                <div class="match-column">
+                    <div class="match-item" onclick="selectFunction(this, 'veins')">Carry oxygen-poor blood back to heart</div>
+                    <div class="match-item" onclick="selectFunction(this, 'nose')">Filter, warm, and moisten air</div>
+                    <div class="match-item" onclick="selectFunction(this, 'lungs')">Gas exchange (O₂ in, CO₂ out)</div>
+                    <div class="match-item" onclick="selectFunction(this, 'diaphragm')">Muscle that controls breathing</div>
+                    <div class="match-item" onclick="selectFunction(this, 'heart')">Pump that moves blood</div>
+                    <div class="match-item" onclick="selectFunction(this, 'arteries')">Carry oxygen-rich blood to body</div>
+                    <div class="match-item" onclick="selectFunction(this, 'trachea')">Tube that carries air to lungs</div>
+                </div>
+            </div>
+            <div class="match-feedback" id="matchFeedback"></div>
+            <div style="text-align: center; margin-top: 1rem;">
+                <button class="sim-button" onclick="resetMatching()">Reset Game</button>
+            </div>
+        </div>
+
+        <!-- Questions Section -->
+        <h2 class="section-title">PSLE-Style Practice Questions</h2>
+
+        <div class="questions-section">
+            <!-- Section A: MCQs -->
+            <h3 style="color: var(--pri); margin-bottom: 1.5rem;">Section A: Multiple Choice Questions (1 mark each)</h3>
+
+            <!-- MCQ 1 -->
+            <div class="question-block">
+                <div class="question-num">Q1.</div>
+                <div class="question-text">Which part of the respiratory system filters and warms air before it enters the lungs?</div>
+                <div style="margin-left: 1rem;">
+                    <div class="option">
+                        <input type="radio" name="q1" value="A" id="q1a">
+                        <label for="q1a">A) Windpipe</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="B" id="q1b">
+                        <label for="q1b">B) Nose</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="C" id="q1c">
+                        <label for="q1c">C) Lungs</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="D" id="q1d">
+                        <label for="q1d">D) Diaphragm</label>
+                    </div>
+                </div>
+                <button class="answer-button" onclick="showAnswer('q1', 'B')">Check Answer</button>
+                <div class="answer-display" id="q1-answer">
+                    <div class="answer-label">Correct Answer: B</div>
+                    <div class="model-answer">The nose is responsible for filtering dust and germs from the air, and warming and moistening it before it enters the lungs.</div>
+                </div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div class="question-block">
+                <div class="question-num">Q2.</div>
+                <div class="question-text">What happens to the diaphragm when you inhale (breathe in)?</div>
+                <div style="margin-left: 1rem;">
+                    <div class="option">
+                        <input type="radio" name="q2" value="A" id="q2a">
+                        <label for="q2a">A) It relaxes and moves upward</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="B" id="q2b">
+                        <label for="q2b">B) It contracts and moves downward</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="C" id="q2c">
+                        <label for="q2c">C) It stays in the same position</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="D" id="q2d">
+                        <label for="q2d">D) It moves sideways</label>
+                    </div>
+                </div>
+                <button class="answer-button" onclick="showAnswer('q2', 'B')">Check Answer</button>
+                <div class="answer-display" id="q2-answer">
+                    <div class="answer-label">Correct Answer: B</div>
+                    <div class="model-answer">During inhalation, the diaphragm contracts (tightens) and moves downward. This increases the space in the lungs, causing air to rush in.</div>
+                </div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="question-block">
+                <div class="question-num">Q3.</div>
+                <div class="question-text">Which type of blood vessel carries oxygen-poor blood back to the heart?</div>
+                <div style="margin-left: 1rem;">
+                    <div class="option">
+                        <input type="radio" name="q3" value="A" id="q3a">
+                        <label for="q3a">A) Artery</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="B" id="q3b">
+                        <label for="q3b">B) Vein</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="C" id="q3c">
+                        <label for="q3c">C) Capillary</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="D" id="q3d">
+                        <label for="q3d">D) Trachea</label>
+                    </div>
+                </div>
+                <button class="answer-button" onclick="showAnswer('q3', 'B')">Check Answer</button>
+                <div class="answer-display" id="q3-answer">
+                    <div class="answer-label">Correct Answer: B</div>
+                    <div class="model-answer">Veins carry oxygen-poor blood and waste products back to the heart. Arteries carry oxygen-rich blood away from the heart.</div>
+                </div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div class="question-block">
+                <div class="question-num">Q4.</div>
+                <div class="question-text">Where does gas exchange (oxygen in, carbon dioxide out) happen in the lungs?</div>
+                <div style="margin-left: 1rem;">
+                    <div class="option">
+                        <input type="radio" name="q4" value="A" id="q4a">
+                        <label for="q4a">A) In the windpipe</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="B" id="q4b">
+                        <label for="q4b">B) In the alveoli (tiny air sacs)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="C" id="q4c">
+                        <label for="q4c">C) In the diaphragm</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="D" id="q4d">
+                        <label for="q4d">D) In the heart</label>
+                    </div>
+                </div>
+                <button class="answer-button" onclick="showAnswer('q4', 'B')">Check Answer</button>
+                <div class="answer-display" id="q4-answer">
+                    <div class="answer-label">Correct Answer: B</div>
+                    <div class="model-answer">Gas exchange happens in the alveoli—tiny air sacs in the lungs. Oxygen passes into the blood, and carbon dioxide passes out.</div>
+                </div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div class="question-block">
+                <div class="question-num">Q5.</div>
+                <div class="question-text">What is the main job of the heart?</div>
+                <div style="margin-left: 1rem;">
+                    <div class="option">
+                        <input type="radio" name="q5" value="A" id="q5a">
+                        <label for="q5a">A) To filter air</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="B" id="q5b">
+                        <label for="q5b">B) To produce energy</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="C" id="q5c">
+                        <label for="q5c">C) To pump blood throughout the body</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="D" id="q5d">
+                        <label for="q5d">D) To store oxygen</label>
+                    </div>
+                </div>
+                <button class="answer-button" onclick="showAnswer('q5', 'C')">Check Answer</button>
+                <div class="answer-display" id="q5-answer">
+                    <div class="answer-label">Correct Answer: C</div>
+                    <div class="model-answer">The heart is a muscular organ that pumps blood throughout the body, delivering oxygen and nutrients to all cells.</div>
+                </div>
+            </div>
+
+            <!-- Section B: Open-ended -->
+            <h3 style="color: var(--pri); margin: 2rem 0 1.5rem 0; padding-top: 2rem; border-top: 2px solid var(--pri);">Section B: Open-Ended Questions (2-3 marks each)</h3>
+
+            <!-- OE1 -->
+            <div class="question-block">
+                <div class="question-num">Q6.</div>
+                <div class="question-text">Describe what happens to your breathing and heart rate when you run. Why do these changes occur? (2 marks)</div>
+                <button class="answer-button" onclick="showAnswer('q6', null, true)">Show Model Answer</button>
+                <div class="answer-display" id="q6-answer">
+                    <div class="answer-label">Model Answer (2 marks):</div>
+                    <div class="model-answer">
+                        When you run, your breathing becomes faster and deeper, and your heart rate increases (beats faster). <br><br>
+                        <strong>Why this happens:</strong> Your muscles are working hard and need more oxygen. Your respiratory system breathes faster to get more oxygen into your blood, and your circulatory system pumps faster to deliver this oxygen-rich blood to your muscles quickly. Your muscles also produce more carbon dioxide waste, which your systems must remove faster.
+                    </div>
+                </div>
+            </div>
+
+            <!-- OE2 -->
+            <div class="question-block">
+                <div class="question-num">Q7.</div>
+                <div class="question-text">Explain how oxygen travels from the air you breathe to a muscle cell in your leg. Name at least 4 body parts in your answer. (3 marks)</div>
+                <button class="answer-button" onclick="showAnswer('q7', null, true)">Show Model Answer</button>
+                <div class="answer-display" id="q7-answer">
+                    <div class="answer-label">Model Answer (3 marks):</div>
+                    <div class="model-answer">
+                        1. Air enters your <strong>nose</strong>, which filters and warms it. (1 mark)<br><br>
+                        2. Air travels down the <strong>windpipe (trachea)</strong> into the <strong>lungs</strong>. (1 mark)<br><br>
+                        3. In the lungs, oxygen passes through the alveoli into tiny blood vessels (capillaries). The blood carries oxygen to the <strong>heart</strong>, which pumps it out through arteries. (1 mark)<br><br>
+                        4. The arteries branch into capillaries around your leg muscle cells, where oxygen passes out of the blood into the muscle cells.
+                    </div>
+                </div>
+            </div>
+
+            <!-- OE3 -->
+            <div class="question-block">
+                <div class="question-num">Q8.</div>
+                <div class="question-text">After running, Mei noticed she was breathing faster and her heart was beating faster. Explain why both the respiratory and circulatory systems had to work harder. (3 marks)</div>
+                <button class="answer-button" onclick="showAnswer('q8', null, true)">Show Model Answer</button>
+                <div class="answer-display" id="q8-answer">
+                    <div class="answer-label">Model Answer (3 marks):</div>
+                    <div class="model-answer">
+                        <strong>Why breathing became faster:</strong> Mei's muscles were working hard and needed much more oxygen. Her respiratory system had to breathe faster to pull in more oxygen from the air into her lungs. She also produced more carbon dioxide waste that needed to be removed. (1 mark)<br><br>
+                        <strong>Why her heart beat faster:</strong> Her heart had to pump faster to deliver the extra oxygen-rich blood to her hardworking muscles quickly. It also had to pick up carbon dioxide waste from the muscles and carry it back to the lungs. (1 mark)<br><br>
+                        <strong>How they work together:</strong> The respiratory and circulatory systems work as a team. The faster breathing gets more oxygen into the blood, and the faster heartbeat delivers this oxygen to the muscles that need it. Without both systems working harder together, her muscles wouldn't get enough oxygen. (1 mark)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values Box -->
+        <div class="values-box">
+            <h3>Values in Science Learning</h3>
+            <p><strong>Curiosity:</strong> Ask questions about how your body works and stay curious about science.</p>
+            <p><strong>Responsibility:</strong> Take care of your respiratory and circulatory health by exercising and eating well.</p>
+            <p><strong>Wonder:</strong> Marvel at how your body's systems work together perfectly to keep you alive and healthy.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Primary 5 Science | Topic 12: Human Respiratory and Circulatory Systems</strong></p>
+        <p>Singapore Ministry of Education (MOE) Primary 5 Curriculum</p>
+        <p>Last updated: March 2026</p>
+    </footer>
+
+    <script>
+        // Breathing Simulator
+        let isBreathing = false;
+
+        function breatheIn() {
+            if (isBreathing) return;
+            isBreathing = true;
+            const status = document.getElementById('breathingStatus');
+            const lungs = document.querySelectorAll('ellipse[id*="Lung"]');
+
+            status.textContent = 'Inhaling... diaphragm moves DOWN, lungs expand';
+
+            lungs.forEach(lung => {
+                lung.style.transition = 'all 1s ease-in';
+                lung.setAttribute('ry', '70');
+                lung.style.fill = '#c8e6c9';
+            });
+
+            const diaphragm = document.getElementById('diaphragm');
+            diaphragm.style.transition = 'all 1s ease-in';
+            diaphragm.setAttribute('d', 'M 50 240 Q 140 230 230 240');
+
+            setTimeout(() => { isBreathing = false; }, 1000);
+        }
+
+        function breatheOut() {
+            if (isBreathing) return;
+            isBreathing = true;
+            const status = document.getElementById('breathingStatus');
+            const lungs = document.querySelectorAll('ellipse[id*="Lung"]');
+
+            status.textContent = 'Exhaling... diaphragm moves UP, lungs contract';
+
+            lungs.forEach(lung => {
+                lung.style.transition = 'all 1s ease-out';
+                lung.setAttribute('ry', '30');
+                lung.style.fill = '#ffccbc';
+            });
+
+            const diaphragm = document.getElementById('diaphragm');
+            diaphragm.style.transition = 'all 1s ease-out';
+            diaphragm.setAttribute('d', 'M 50 220 Q 140 210 230 220');
+
+            setTimeout(() => { isBreathing = false; }, 1000);
+        }
+
+        function resetBreathing() {
+            const status = document.getElementById('breathingStatus');
+            const lungs = document.querySelectorAll('ellipse[id*="Lung"]');
+            const diaphragm = document.getElementById('diaphragm');
+
+            lungs.forEach(lung => {
+                lung.setAttribute('ry', '50');
+                lung.style.fill = '#e8f5e9';
+                lung.style.transition = 'all 0.5s ease';
+            });
+
+            diaphragm.setAttribute('d', 'M 50 220 Q 140 210 230 220');
+            diaphragm.style.transition = 'all 0.5s ease';
+            status.textContent = 'Ready to breathe!';
+            isBreathing = false;
+        }
+
+        // Blood Flow Path
+        let bloodFlowStep = 0;
+
+        function stepBloodFlow(step) {
+            const steps = document.querySelectorAll('.flow-step');
+            const feedback = document.getElementById('flowFeedback');
+
+            if (step === bloodFlowStep + 1) {
+                bloodFlowStep = step;
+                steps.forEach(s => s.classList.remove('active'));
+                steps[step - 1].classList.add('active');
+
+                const messages = [
+                    'Great! Blood picks up oxygen in the lungs.',
+                    'Excellent! The heart pumps oxygen-rich blood out.',
+                    'Good! Arteries carry blood to all body parts.',
+                    'Perfect! Capillaries deliver oxygen to cells.',
+                    'Well done! Veins collect oxygen-poor blood.',
+                    'Complete! The cycle repeats as blood returns to lungs.'
+                ];
+
+                feedback.textContent = messages[step - 1];
+                feedback.style.color = 'var(--accent-green)';
+
+                if (step === 6) {
+                    setTimeout(() => {
+                        feedback.textContent = 'The blood flow cycle is complete! Click step 1 to start again.';
+                        bloodFlowStep = 0;
+                        steps.forEach(s => s.classList.remove('active'));
+                    }, 2000);
+                }
+            } else {
+                feedback.textContent = 'Please click the steps in order!';
+                feedback.style.color = 'var(--accent-red)';
+                setTimeout(() => feedback.textContent = '', 2000);
+            }
+        }
+
+        // Matching Game
+        let selectedOrgan = null;
+
+        function selectOrgan(element, organ) {
+            const organs = document.querySelectorAll('.match-column:first-child .match-item');
+            organs.forEach(o => o.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedOrgan = organ;
+        }
+
+        function selectFunction(element, func) {
+            if (!selectedOrgan) {
+                document.getElementById('matchFeedback').textContent = 'Please select an organ first!';
+                document.getElementById('matchFeedback').classList.add('error');
+                return;
+            }
+
+            if (selectedOrgan === func) {
+                element.classList.add('correct');
+                document.getElementById('matchFeedback').textContent = 'Great match!';
+                document.getElementById('matchFeedback').classList.remove('error');
+                document.getElementById('matchFeedback').classList.add('success');
+                selectedOrgan = null;
+            } else {
+                document.getElementById('matchFeedback').textContent = 'Not quite right. Try again!';
+                document.getElementById('matchFeedback').classList.remove('success');
+                document.getElementById('matchFeedback').classList.add('error');
+            }
+        }
+
+        function resetMatching() {
+            document.querySelectorAll('.match-item').forEach(item => {
+                item.classList.remove('selected', 'correct');
+            });
+            document.getElementById('matchFeedback').textContent = '';
+            selectedOrgan = null;
+        }
+
+        // Question Answers
+        function showAnswer(questionId, correctAnswer, isOpenEnded = false) {
+            const answerDiv = document.getElementById(questionId + '-answer');
+
+            if (isOpenEnded) {
+                answerDiv.classList.add('show');
+                answerDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } else {
+                const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+
+                if (!selected) {
+                    alert('Please select an answer first!');
+                    return;
+                }
+
+                answerDiv.classList.add('show');
+                answerDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+    </script>
+</body>
+</html>

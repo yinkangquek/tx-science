@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P6 Interactions within the Environment | Singapore MOE Science</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #6a1b9a;
+            --sec: #8e24aa;
+            --light: #f3e5f5;
+            --dark: #1a1a1a;
+            --success: #2e7d32;
+            --warn: #e65100;
+            --info: #01579b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f9f9f9;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--sec) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-tag {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 3rem 1.5rem; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Learning Outcomes */
+        .learning-outcomes {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .learning-outcomes h2 {
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .outcome-card {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Teaching Content */
+        .content-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--pri);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--pri);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--sec);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.7rem;
+        }
+
+        /* Info Boxes */
+        .concept-box, .did-you-know, .think-about {
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .concept-box {
+            background: #e3f2fd;
+            border-left-color: var(--info);
+        }
+
+        .concept-box strong {
+            color: var(--info);
+        }
+
+        .did-you-know {
+            background: #fff3e0;
+            border-left-color: var(--warn);
+        }
+
+        .did-you-know strong {
+            color: var(--warn);
+        }
+
+        .think-about {
+            background: #f1f8e9;
+            border-left-color: var(--success);
+        }
+
+        .think-about strong {
+            color: var(--success);
+        }
+
+        /* Diagrams */
+        .diagram-container {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+
+        .diagram-container h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .food-chain {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .chain-item {
+            background: var(--light);
+            border: 2px solid var(--pri);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .chain-item.producer {
+            background: #c8e6c9;
+            border-color: var(--success);
+        }
+
+        .chain-item.primary {
+            background: #fff9c4;
+            border-color: #f9a825;
+        }
+
+        .chain-item.secondary {
+            background: #ffccbc;
+            border-color: #d84315;
+        }
+
+        .chain-item.tertiary {
+            background: #f8bbd0;
+            border-color: #c2185b;
+        }
+
+        .chain-arrow {
+            font-size: 1.5rem;
+            color: var(--pri);
+            margin: 0 0.5rem;
+        }
+
+        /* Interactive Section */
+        .interactive-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .interactive-section h2 {
+            color: var(--pri);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--pri);
+            padding-bottom: 0.5rem;
+        }
+
+        .applet {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+
+        .applet h3 {
+            color: var(--sec);
+            margin-bottom: 1rem;
+        }
+
+        /* Draggable elements */
+        .drag-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .drag-zone {
+            border: 2px dashed var(--pri);
+            padding: 1.5rem;
+            border-radius: 6px;
+            min-height: 200px;
+            background: #f9f9f9;
+        }
+
+        .drag-zone h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .draggable {
+            background: white;
+            border: 2px solid var(--pri);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            cursor: move;
+            user-select: none;
+            transition: all 0.2s;
+        }
+
+        .draggable:hover {
+            background: var(--light);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        .draggable.placed {
+            background: var(--light);
+            border-color: var(--success);
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .drop-zone {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 6px;
+            min-height: 150px;
+            margin-top: 0.5rem;
+        }
+
+        .drop-zone.active {
+            background: #e8f5e9;
+            border-color: var(--success);
+        }
+
+        /* Sorting Grid */
+        .sort-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .sort-column {
+            border: 2px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: #f9f9f9;
+            min-height: 200px;
+        }
+
+        .sort-column h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .sort-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-item:hover {
+            background: var(--light);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sort-item.correct {
+            background: #c8e6c9;
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        /* Questions Section */
+        .questions-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .questions-section h2 {
+            color: var(--pri);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--pri);
+            padding-bottom: 0.5rem;
+        }
+
+        .question-set {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            background: var(--light);
+            padding: 1rem 1.5rem;
+            border-left: 4px solid var(--pri);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--pri);
+        }
+
+        .question {
+            background: #fafafa;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--sec);
+        }
+
+        .question-num {
+            color: var(--pri);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .option {
+            background: white;
+            padding: 0.8rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            background: var(--light);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .answer-explanation {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--info);
+            display: none;
+        }
+
+        .answer-explanation.show {
+            display: block;
+        }
+
+        .answer-explanation strong {
+            color: var(--info);
+        }
+
+        .reveal-btn, .check-btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .reveal-btn:hover, .check-btn:hover {
+            background: var(--sec);
+        }
+
+        .reset-btn {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: background 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #444;
+        }
+
+        /* Values Box */
+        .values-box {
+            background: linear-gradient(135deg, var(--pri), var(--sec));
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .values-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .values-box p {
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        footer .footer-tag {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .drag-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sort-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .food-chain {
+                flex-direction: column;
+            }
+
+            .chain-arrow {
+                transform: rotate(90deg);
+            }
+
+            .content-section, .interactive-section, .questions-section {
+                padding: 1.5rem;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility */
+        .hidden {
+            display: none;
+        }
+
+        .success-msg {
+            background: #c8e6c9;
+            color: var(--success);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .success-msg.show {
+            display: block;
+        }
+
+        /* Food Web Diagram */
+        .web-diagram {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 2rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .organism {
+            background: var(--light);
+            border: 2px solid var(--pri);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .organism:hover {
+            background: var(--pri);
+            color: white;
+            box-shadow: 0 4px 12px rgba(106, 27, 154, 0.3);
+        }
+
+        .web-info {
+            background: #f1f8e9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border-left: 4px solid var(--success);
+            display: none;
+            width: 100%;
+        }
+
+        .web-info.show {
+            display: block;
+        }
+
+        /* Population Slider */
+        .slider-group {
+            margin: 1.5rem 0;
+        }
+
+        .slider-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--pri);
+        }
+
+        .slider-group input[type="range"] {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .slider-value {
+            display: inline-block;
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            margin-left: 1rem;
+            color: var(--pri);
+            font-weight: 600;
+        }
+
+        .population-result {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--info);
+            display: none;
+        }
+
+        .population-result.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <div class="hero-tag">Primary 6 • Theme: Interactions</div>
+        <h1>Interactions within the Environment</h1>
+        <p>Understanding ecosystems, food chains, and our impact on nature</p>
+    </div>
+
+    <div class="container">
+        <!-- Learning Outcomes -->
+        <section class="learning-outcomes">
+            <h2>Learning Outcomes</h2>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <h3>LO1: Ecosystem Components</h3>
+                    <p>Identify living (biotic) and non-living (abiotic) components of an ecosystem</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO2: Interdependence</h3>
+                    <p>Describe how organisms depend on each other through food chains and webs</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO3: Food Chains & Webs</h3>
+                    <p>Construct and analyse food chains and food webs in different ecosystems</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO4: Organism Roles</h3>
+                    <p>Explain roles of producers, consumers, and decomposers in ecosystems</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO5: Population Effects</h3>
+                    <p>Predict how changes in one organism affect others in a food web</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO6: Human Impact</h3>
+                    <p>Explain how human activities affect ecosystems and the importance of conservation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Content -->
+        <section class="content-section">
+            <h2>Extensive Learning Notes</h2>
+
+            <!-- What is an Ecosystem? -->
+            <h3>What Is an Ecosystem?</h3>
+            <p>
+                An <strong>ecosystem</strong> is a community of living organisms (animals, plants, and microorganisms) interacting with their physical environment (soil, water, air, light, and temperature). Every ecosystem is unique and contains countless relationships between organisms and their surroundings.
+            </p>
+
+            <p>
+                Think of an ecosystem as a complex web where everything is connected. A forest ecosystem is very different from a pond ecosystem, yet both follow similar principles of energy flow and nutrient cycling.
+            </p>
+
+            <div class="concept-box">
+                <strong>Key Concept:</strong> An ecosystem consists of <strong>biotic components</strong> (all living things) and <strong>abiotic components</strong> (non-living physical factors). Both work together to maintain balance.
+            </div>
+
+            <h4>Living Components (Biotic)</h4>
+            <ul>
+                <li><strong>Plants:</strong> Provide food and oxygen. Examples: flowers, trees, grass, algae</li>
+                <li><strong>Animals:</strong> Eat plants or other animals. Examples: insects, birds, fish, mammals</li>
+                <li><strong>Microorganisms:</strong> Break down dead matter. Examples: bacteria, fungi</li>
+            </ul>
+
+            <h4>Non-Living Components (Abiotic)</h4>
+            <ul>
+                <li><strong>Air:</strong> Contains oxygen, carbon dioxide, and nitrogen needed by organisms</li>
+                <li><strong>Water:</strong> Essential for all life; transports nutrients</li>
+                <li><strong>Light:</strong> Energy source for plants through photosynthesis</li>
+                <li><strong>Temperature:</strong> Affects organism metabolism and activity</li>
+                <li><strong>Soil:</strong> Provides nutrients and minerals for plant growth</li>
+            </ul>
+
+            <h4>Examples of Ecosystems</h4>
+            <p><strong>Pond Ecosystem:</strong> Water plants, fish, frogs, insects, algae. Abiotic: water, sunlight, temperature, dissolved oxygen, pond sediment.</p>
+            <p><strong>Forest Ecosystem:</strong> Trees, shrubs, birds, mammals, insects, fungi, soil organisms. Abiotic: sunlight, rainfall, temperature, soil nutrients, decomposing leaves.</p>
+            <p><strong>Garden Ecosystem:</strong> Flowers, vegetables, soil organisms, insects, birds. Abiotic: sunlight, water from rain/irrigation, garden soil, air.</p>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> Microorganisms are invisible to the naked eye, but they are the most important decomposers in any ecosystem. A single gram of soil can contain billions of bacteria!
+            </div>
+
+            <!-- Organisms and Their Roles -->
+            <h3>Organisms and Their Roles in an Ecosystem</h3>
+            <p>
+                Every organism in an ecosystem has a specific role or <strong>niche</strong>. Understanding these roles helps us see how energy flows through nature and how organisms depend on each other.
+            </p>
+
+            <h4>Producers</h4>
+            <p>
+                <strong>Producers are plants and other organisms that make their own food using energy from the sun.</strong> They use a process called <strong>photosynthesis</strong> to convert sunlight into chemical energy stored in food (glucose). All ecosystems start with producers because they capture the sun's energy.
+            </p>
+            <ul>
+                <li><strong>Green plants:</strong> Use sunlight, water, and carbon dioxide to make glucose</li>
+                <li><strong>Algae:</strong> Single-celled or simple aquatic plants that also photosynthesise</li>
+                <li><strong>Cyanobacteria:</strong> Bacteria that can photosynthesise</li>
+            </ul>
+            <p><strong>Equation for photosynthesis:</strong> Carbon dioxide + Water + Light energy → Glucose + Oxygen</p>
+
+            <h4>Consumers</h4>
+            <p>
+                <strong>Consumers are organisms that eat other organisms to get energy.</strong> They cannot make their own food and must eat producers or other consumers. Consumers are classified by what they eat:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Primary Consumers (Herbivores):</strong> Eat only plants. They convert plant energy into animal tissue.
+                    <br>Examples: Rabbits, deer, caterpillars, grasshoppers, cows
+                </li>
+                <li>
+                    <strong>Secondary Consumers (Carnivores/Omnivores):</strong> Eat primary consumers. Some may also eat plants.
+                    <br>Examples: Frogs (eat insects), snakes (eat frogs), cats (eat mice), bears (eat fish and berries)
+                </li>
+                <li>
+                    <strong>Tertiary Consumers (Top Carnivores):</strong> Eat secondary consumers and are rarely eaten by other animals.
+                    <br>Examples: Eagles (eat snakes and frogs), lions (eat antelopes), sharks (eat fish)
+                </li>
+            </ul>
+
+            <div class="concept-box">
+                <strong>Key Concept:</strong> Energy transfers from one organism to another, but <strong>only about 10% of energy is passed to the next level</strong>. The rest is used for growth, movement, and heat. This is why there are fewer predators than prey!
+            </div>
+
+            <h4>Decomposers</h4>
+            <p>
+                <strong>Decomposers break down dead organic matter and waste products, releasing nutrients back into the soil.</strong> Without decomposers, dead organisms would pile up and nutrients would be locked away. Decomposers complete the cycle of life.
+            </p>
+            <ul>
+                <li><strong>Bacteria:</strong> Microscopic decomposers found in soil and water</li>
+                <li><strong>Fungi (mushrooms, moulds):</strong> Feed on dead wood, leaves, and organic matter</li>
+                <li><strong>Earthworms:</strong> Burrow through soil, breaking down organic material and aerating soil</li>
+                <li><strong>Millipedes and beetles:</strong> Help break down dead leaves and plant material</li>
+            </ul>
+
+            <!-- Food Chains -->
+            <h3>Food Chains: Energy Flow in Ecosystems</h3>
+            <p>
+                A <strong>food chain</strong> is a sequence showing how energy passes from one organism to another. It starts with a producer and shows the flow of energy through consumers to decomposers. The arrows in a food chain point in the direction of energy flow, not the direction of eating!
+            </p>
+
+            <h4>How to Read and Draw a Food Chain</h4>
+            <p>
+                In a food chain, the arrow (→) means "is eaten by" or "provides energy to". The energy flows FROM left TO right. Each organism depends on the organism(s) to its left for energy.
+            </p>
+
+            <div class="diagram-container">
+                <h4>Example 1: Pond Food Chain</h4>
+                <div class="food-chain">
+                    <div class="chain-item producer">Plants (Algae)</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item primary">Insects</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item secondary">Fish</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item tertiary">Eagle</div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">The eagle gets only about 0.1% of the energy the plants captured!</p>
+            </div>
+
+            <div class="diagram-container">
+                <h4>Example 2: Garden Food Chain</h4>
+                <div class="food-chain">
+                    <div class="chain-item producer">Flower Plant</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item primary">Caterpillar</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item secondary">Bird</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item tertiary">Cat</div>
+                </div>
+            </div>
+
+            <div class="diagram-container">
+                <h4>Example 3: Forest Food Chain</h4>
+                <div class="food-chain">
+                    <div class="chain-item producer">Tree (Leaves)</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item primary">Deer</div>
+                    <div class="chain-arrow">→</div>
+                    <div class="chain-item secondary">Wolf</div>
+                </div>
+            </div>
+
+            <h4>Understanding Energy Loss</h4>
+            <p>
+                When a plant captures 10,000 units of sun energy, only about 1,000 units become plant tissue. When an insect eats the plant, it only retains about 100 units (10% of what it ate). When a bird eats the insect, it keeps only 10 units. This is why:
+            </p>
+            <ul>
+                <li>There are many more plants than herbivores</li>
+                <li>There are many more herbivores than carnivores</li>
+                <li>The food chain is usually only 3-5 levels long</li>
+            </ul>
+
+            <div class="think-about">
+                <strong>Think About It:</strong> Why would a carnivore that only eats meat need more territory (space) than a vegetarian herbivore eating the same type of plant? Think about the energy transfer!
+            </div>
+
+            <!-- Food Webs -->
+            <h3>Food Webs: Multiple Interconnected Chains</h3>
+            <p>
+                In reality, ecosystems are more complex than simple food chains. <strong>Food webs</strong> show multiple food chains interconnected, because most organisms eat more than one type of food, and are eaten by multiple predators. A food web gives a much more realistic picture of feeding relationships in an ecosystem.
+            </p>
+
+            <h4>Why Food Webs Matter</h4>
+            <ul>
+                <li><strong>Most organisms have multiple food sources:</strong> A bird may eat seeds, insects, and berries</li>
+                <li><strong>Multiple predators:</strong> A mouse is eaten by snakes, owls, and foxes</li>
+                <li><strong>Shows ecosystem stability:</strong> If one food source disappears, an organism can switch to another</li>
+                <li><strong>Reveals energy pathways:</strong> Shows all possible routes energy can take</li>
+            </ul>
+
+            <div class="diagram-container">
+                <h4>Example Pond Food Web</h4>
+                <div style="text-align: center; margin: 2rem 0;">
+                    <p style="margin-bottom: 1rem;"><strong>Producers:</strong> Plants (algae, water weeds) → Capture sun's energy</p>
+                    <p style="margin-bottom: 1rem;"><strong>Primary Consumers:</strong> Water insects, small fish, tadpoles → Eat plants</p>
+                    <p style="margin-bottom: 1rem;"><strong>Secondary Consumers:</strong> Frogs, larger fish → Eat insects and smaller fish</p>
+                    <p style="margin-bottom: 1rem;"><strong>Tertiary Consumers:</strong> Herons, eagles → Eat frogs and fish</p>
+                    <p style="font-size: 0.9rem; color: #666;"><em>Plants eaten by insects, tadpoles, small fish; eaten by frogs, larger fish; eaten by herons, eagles</em></p>
+                    <p style="font-size: 0.9rem; color: #666;"><em>All dead matter goes to decomposers (bacteria, fungi) which return nutrients to soil</em></p>
+                </div>
+            </div>
+
+            <h4>Decomposers in Every Web</h4>
+            <p>
+                Don't forget that <strong>decomposers are part of every food web</strong>! Dead organisms, fallen leaves, and animal waste feed decomposers. They break down this material and return nutrients to the soil, where plants can use them. Without decomposers, nutrient cycling would stop.
+            </p>
+
+            <!-- Population Changes -->
+            <h3>Population Changes: Ripple Effects in Ecosystems</h3>
+            <p>
+                Ecosystems are balanced systems. When the population of one organism changes, it creates ripple effects throughout the entire food web. Understanding these relationships helps us predict what happens to an ecosystem when conditions change.
+            </p>
+
+            <h4>If a Producer Increases (More Plants)</h4>
+            <p>
+                <strong>Effect:</strong> Primary consumers have more food available.
+                <br>
+                <strong>Result:</strong>
+            </p>
+            <ul>
+                <li>Herbivore populations increase (they have plenty to eat)</li>
+                <li>More herbivores available for predators to eat</li>
+                <li>Predator populations may increase</li>
+            </ul>
+
+            <h4>If a Producer Decreases (Fewer Plants - e.g., drought)</h4>
+            <p>
+                <strong>Effect:</strong> Primary consumers have less food.
+                <br>
+                <strong>Result:</strong>
+            </p>
+            <ul>
+                <li>Herbivore populations decrease (starving)</li>
+                <li>Fewer prey available for carnivores</li>
+                <li>Carnivore populations decrease (less food)</li>
+                <li>This continues up the food chain</li>
+            </ul>
+
+            <h4>If a Primary Consumer Increases (More Herbivores)</h4>
+            <p>
+                <strong>Effect:</strong> More predators get fed, and more plants are eaten.
+                <br>
+                <strong>Result:</strong>
+            </p>
+            <ul>
+                <li>Predator populations increase (abundant food)</li>
+                <li>Plant populations decrease (more being eaten)</li>
+            </ul>
+
+            <h4>If a Predator Increases (More Carnivores)</h4>
+            <p>
+                <strong>Effect:</strong> More prey are eaten.
+                <br>
+                <strong>Result:</strong>
+            </p>
+            <ul>
+                <li>Prey populations decrease</li>
+                <li>Predator populations may eventually decrease (not enough food)</li>
+                <li>This creates a predator-prey cycle</li>
+            </ul>
+
+            <div class="concept-box">
+                <strong>Key Concept:</strong> Ecosystems seek <strong>equilibrium</strong> or balance. When one population increases, it checks another, preventing any single organism from taking over completely.
+            </div>
+
+            <!-- Adaptations -->
+            <h3>How Organisms Are Adapted to Their Environment</h3>
+            <p>
+                Organisms have special features and behaviours (called <strong>adaptations</strong>) that help them survive in their specific ecosystem. Adaptations allow organisms to find food, avoid predators, survive climate, and reproduce.
+            </p>
+
+            <h4>Physical Adaptations (Body Features)</h4>
+            <ul>
+                <li><strong>Plant adaptations:</strong> Waxy leaves to reduce water loss, deep roots to find water, thorns to protect from herbivores</li>
+                <li><strong>Animal predator adaptations:</strong> Sharp claws and teeth for hunting, keen eyesight, silent movement</li>
+                <li><strong>Animal prey adaptations:</strong> Camouflage to hide, fast running speed, spines or shells for protection</li>
+                <li><strong>Climate adaptations:</strong> Thick fur in cold areas, light colours in hot deserts, webbed feet for water animals</li>
+            </ul>
+
+            <h4>Behavioural Adaptations (Actions)</h4>
+            <ul>
+                <li><strong>Migration:</strong> Animals move to new areas seasonally for food or breeding</li>
+                <li><strong>Hibernation:</strong> Animals enter deep sleep during harsh winters</li>
+                <li><strong>Nocturnal behaviour:</strong> Animals are active at night to avoid daytime heat or predators</li>
+                <li><strong>Hunting strategies:</strong> Lions hunt in packs, spiders build webs to trap prey</li>
+            </ul>
+
+            <!-- Human Impact -->
+            <h3>Human Activities and Environmental Impact</h3>
+            <p>
+                Humans have enormous power to change ecosystems. Many human activities disrupt the balance of nature and harm both organisms and the ecosystem services we depend on. Understanding these impacts is crucial for conservation and sustainable living.
+            </p>
+
+            <h4>Major Human Impacts on the Environment</h4>
+
+            <h5>1. Deforestation and Habitat Loss</h5>
+            <p>
+                <strong>What happens:</strong> Trees are cut down for timber, farming, or development.
+                <br>
+                <strong>Impact on ecosystem:</strong>
+            </p>
+            <ul>
+                <li>Habitat destroyed → organisms lose homes</li>
+                <li>Producer (trees) removed → food chain breaks</li>
+                <li>Animal populations decrease or go extinct</li>
+                <li>Soil erosion occurs (trees hold soil in place)</li>
+                <li>Carbon dioxide increases (trees absorb CO2)</li>
+            </ul>
+
+            <h5>2. Pollution</h5>
+            <p>
+                <strong>Air pollution:</strong> Gases from vehicles and factories harm breathing, reduce photosynthesis
+                <br>
+                <strong>Water pollution:</strong> Chemicals in rivers kill fish and aquatic plants
+                <br>
+                <strong>Soil pollution:</strong> Pesticides and heavy metals poison organisms and crop plants
+            </p>
+
+            <h5>3. Overfishing</h5>
+            <p>
+                <strong>What happens:</strong> More fish are caught than can be naturally replaced.
+                <br>
+                <strong>Impact:</strong> Fish populations collapse → seabirds and marine mammals starve → entire ocean ecosystems collapse
+            </p>
+
+            <h5>4. Climate Change</h5>
+            <p>
+                <strong>Rising temperatures:</strong> Plants bloom at wrong times, animals can't find food
+                <br>
+                <strong>Changing rainfall:</strong> Droughts kill plants, floods destroy habitats
+                <br>
+                <strong>Rising sea levels:</strong> Coastal habitats disappear
+            </p>
+
+            <h5>5. Introduction of Invasive Species</h5>
+            <p>
+                <strong>What happens:</strong> Non-native organisms are introduced (accidentally or on purpose).
+                <br>
+                <strong>Impact:</strong> Invasive species compete with native species, eat them, or introduce diseases. Native organisms go extinct.
+            </p>
+
+            <h4>Conservation and Solutions</h4>
+            <p>
+                We can reduce our impact and protect ecosystems:
+            </p>
+            <ul>
+                <li><strong>Protected areas:</strong> National parks and nature reserves preserve habitats</li>
+                <li><strong>Sustainable fishing:</strong> Catch limits and protected breeding areas</li>
+                <li><strong>Reforestation:</strong> Plant new trees to restore forests</li>
+                <li><strong>Renewable energy:</strong> Solar and wind instead of fossil fuels</li>
+                <li><strong>Reduce, reuse, recycle:</strong> Less waste to landfills and oceans</li>
+                <li><strong>Education:</strong> Learning about ecosystems helps people make better choices</li>
+            </ul>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> Bees are responsible for pollinating about 75% of global food crops. If bee populations collapse due to habitat loss and pesticides, we lose a critical link in our food webs!
+            </div>
+        </section>
+
+        <!-- Interactive Applets -->
+        <section class="interactive-section">
+            <h2>Interactive Learning Activities</h2>
+
+            <!-- Activity 1: Build a Food Chain -->
+            <div class="applet">
+                <h3>Activity 1: Build a Food Chain</h3>
+                <p>Drag organisms into the correct order to build a valid food chain. Start with a producer, then primary consumer, then secondary consumer.</p>
+
+                <div class="drag-container">
+                    <div>
+                        <h4>Available Organisms</h4>
+                        <div id="sourceZone">
+                            <div class="draggable" draggable="true" data-organism="Sun Plant" data-type="producer">Plant (Producer)</div>
+                            <div class="draggable" draggable="true" data-organism="Grasshopper" data-type="primary">Grasshopper (Primary)</div>
+                            <div class="draggable" draggable="true" data-organism="Bird" data-type="secondary">Bird (Secondary)</div>
+                            <div class="draggable" draggable="true" data-organism="Hawk" data-type="tertiary">Hawk (Tertiary)</div>
+                            <div class="draggable" draggable="true" data-organism="Soil Bacteria" data-type="decomposer">Soil Bacteria (Decomposer)</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Your Food Chain</h4>
+                        <div class="drop-zone" id="dropZone">Drop organisms here in correct order</div>
+                        <button class="check-btn" onclick="checkFoodChain()">Check Chain</button>
+                        <button class="reset-btn" onclick="resetFoodChain()">Reset</button>
+                        <div id="chainFeedback" class="success-msg"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity 2: Ecosystem Components Sorting -->
+            <div class="applet">
+                <h3>Activity 2: Sort Ecosystem Components</h3>
+                <p>Click on each item to identify it as "Living (Biotic)" or "Non-Living (Abiotic)". Items will fade when correctly identified.</p>
+
+                <div style="margin-top: 1.5rem;">
+                    <h4>Items to Sort:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                        <div class="sort-item" onclick="identifyComponent(this, 'living')">Tree</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'living')">Butterfly</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'nonliving')">Water</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'nonliving')">Sunlight</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'living')">Mushroom</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'nonliving')">Soil</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'living')">Ant</div>
+                        <div class="sort-item" onclick="identifyComponent(this, 'nonliving')">Temperature</div>
+                    </div>
+                </div>
+                <button class="reset-btn" onclick="resetComponents()" style="margin-top: 1rem;">Reset All</button>
+            </div>
+
+            <!-- Activity 3: Food Web Explorer -->
+            <div class="applet">
+                <h3>Activity 3: Food Web Explorer</h3>
+                <p>Click on any organism to see what it eats and what eats it.</p>
+
+                <div class="web-diagram" id="webDiagram">
+                    <div class="organism" onclick="exploreOrganism(this, 'Plants', 'eats: Sunlight (producer)', 'eaten by: Rabbits, Insects')">Plants</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Insects', 'eats: Plants', 'eaten by: Frogs, Birds')">Insects</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Rabbit', 'eats: Plants, Clover', 'eaten by: Foxes, Hawks')">Rabbit</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Frog', 'eats: Insects', 'eaten by: Snakes, Herons')">Frog</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Bird', 'eats: Insects, Seeds', 'eaten by: Hawks, Snakes')">Bird</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Snake', 'eats: Frogs, Birds', 'eaten by: Hawks')">Snake</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Fox', 'eats: Rabbits, Birds', 'eaten by: (top predator)')">Fox</div>
+                    <div class="organism" onclick="exploreOrganism(this, 'Hawk', 'eats: Birds, Snakes, Rabbits', 'eaten by: (top predator)')">Hawk</div>
+                </div>
+
+                <div class="web-info" id="webInfo">
+                    <strong id="webOrganism"></strong><br>
+                    <span id="webEats"></span><br>
+                    <span id="webEatenBy"></span>
+                </div>
+            </div>
+
+            <!-- Activity 4: Population Predictor -->
+            <div class="applet">
+                <h3>Activity 4: Population Predictor</h3>
+                <p>Use the sliders to change the population of organisms and see how it affects others in the food chain.</p>
+
+                <p style="margin-bottom: 1.5rem;"><strong>Scenario: Pond Food Chain</strong><br>Plants → Water Insects → Fish → Herons</p>
+
+                <div class="slider-group">
+                    <label for="plantSlider">Plant Population (Algae)</label>
+                    <input type="range" id="plantSlider" min="1" max="100" value="50" onchange="predictPopulation()">
+                    <span class="slider-value" id="plantValue">50%</span>
+                </div>
+
+                <div class="slider-group">
+                    <label for="insectSlider">Water Insect Population</label>
+                    <input type="range" id="insectSlider" min="1" max="100" value="50" onchange="predictPopulation()">
+                    <span class="slider-value" id="insectValue">50%</span>
+                </div>
+
+                <div class="slider-group">
+                    <label for="fishSlider">Fish Population</label>
+                    <input type="range" id="fishSlider" min="1" max="100" value="50" onchange="predictPopulation()">
+                    <span class="slider-value" id="fishValue">50%</span>
+                </div>
+
+                <div class="slider-group">
+                    <label for="heronSlider">Heron Population</label>
+                    <input type="range" id="heronSlider" min="1" max="100" value="50" onchange="predictPopulation()">
+                    <span class="slider-value" id="heronValue">50%</span>
+                </div>
+
+                <button class="check-btn" onclick="analyzePopulation()">Analyze Impact</button>
+                <div class="population-result" id="populationResult"></div>
+            </div>
+        </section>
+
+        <!-- Questions Section -->
+        <section class="questions-section">
+            <h2>PSLE-Style Practice Questions</h2>
+
+            <!-- Section A: Multiple Choice -->
+            <div class="question-set">
+                <div class="section-title">Section A: Multiple Choice Questions (1 mark each)</div>
+
+                <div class="question">
+                    <div class="question-num">Question 1</div>
+                    <div class="question-text">
+                        Which of the following is an abiotic component of a forest ecosystem?
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="a"> (A) Trees and shrubs
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="b"> (B) Birds and insects
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="c"> (C) Rainfall and temperature
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="d"> (D) Fungi and bacteria
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q1', 'c', 'Correct! Rainfall and temperature are non-living (abiotic) components. Trees, birds, fungi, and bacteria are all living (biotic) components.')">Show Answer</button>
+                    <div id="q1-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 2</div>
+                    <div class="question-text">
+                        In a food chain: Grass → Rabbit → Fox, the rabbit is a _____.
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="a"> (A) Producer
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="b"> (B) Primary consumer
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="c"> (C) Secondary consumer
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="d"> (D) Decomposer
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q2', 'b', 'Correct! The rabbit eats the grass (a producer), making the rabbit a primary consumer. The fox eats the rabbit, making the fox a secondary consumer.')">Show Answer</button>
+                    <div id="q2-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 3</div>
+                    <div class="question-text">
+                        What is the role of decomposers in an ecosystem?
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="a"> (A) To hunt and eat primary consumers
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="b"> (B) To produce food using sunlight
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="c"> (C) To break down dead matter and return nutrients to soil
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="d"> (D) To control the population of herbivores
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q3', 'c', 'Correct! Decomposers like bacteria and fungi break down dead organisms and waste, releasing nutrients back into the soil for plants to use. This completes the nutrient cycle.')">Show Answer</button>
+                    <div id="q3-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 4</div>
+                    <div class="question-text">
+                        If the population of insects in a food web suddenly decreases, which organisms would be directly affected?
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="a"> (A) Only the plants
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="b"> (B) Only the insects that eat plants
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="c"> (C) Organisms that eat insects and the insects themselves
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="d"> (D) Only the top predators like eagles
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q4', 'c', 'Correct! Fewer insects means (1) fewer insects available for predators to eat, and (2) insects that ate plants now have the same constraint. Both populations are directly affected.')">Show Answer</button>
+                    <div id="q4-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 5</div>
+                    <div class="question-text">
+                        Which human activity is most likely to destroy habitat and cause extinction of organisms?
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="a"> (A) Using renewable energy sources
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="b"> (B) Deforestation for agriculture and development
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="c"> (C) Protecting wildlife in national parks
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="d"> (D) Planting trees in empty areas
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q5', 'b', 'Correct! Deforestation removes habitats where organisms live. Without homes and food sources, populations collapse and species may become extinct. Other options are conservation efforts.')">Show Answer</button>
+                    <div id="q5-answer" class="answer-explanation"></div>
+                </div>
+            </div>
+
+            <!-- Section B: Open-Ended -->
+            <div class="question-set">
+                <div class="section-title">Section B: Open-Ended Questions (3-4 marks each)</div>
+
+                <div class="question">
+                    <div class="question-num">Question 6</div>
+                    <div class="question-text">
+                        A pond ecosystem is affected by a sudden drop in temperature due to an unusually cold winter. Using your knowledge of food chains and ecosystems, explain:
+                        <br>(a) Why would the population of water plants be affected? (1 mark)
+                        <br>(b) How would this affect the water insects that eat the plants? (1 mark)
+                        <br>(c) What would happen to the fish population that depends on insects for food? (1 mark)
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q6', null, 'Model Answer:<br><br>(a) Water plants are affected because photosynthesis (the process they use to make food) slows down in cold temperatures. Plants grow more slowly or stop growing.<br><br>(b) Water insects would be affected because there are fewer plants available for them to eat. The insect population would decrease as they starve or migrate away.<br><br>(c) With fewer insects available, fish that depend on them would have less food. The fish population would also decrease. Eventually, birds and other predators that eat fish would also be affected.')">Show Answer</button>
+                    <div id="q6-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 7</div>
+                    <div class="question-text">
+                        Describe the role of decomposers in maintaining the balance of an ecosystem. In your answer, explain what would happen if decomposers suddenly disappeared. (4 marks)
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q7', null, 'Model Answer (4 marks):<br><br>Decomposers (bacteria, fungi) are important because they break down dead organisms, fallen leaves, and animal waste (feces). This process is called decomposition. During decomposition, nutrients trapped in dead matter (nitrogen, phosphorus, etc.) are released back into the soil.<br><br>If decomposers disappeared:<br>1. Dead organisms and waste would accumulate and pile up everywhere<br>2. Nutrients would not be recycled back to soil<br>3. Plants would lose a critical source of nutrients from soil<br>4. Plant growth would slow down or stop<br>5. Herbivores would starve from lack of food<br>6. Entire food chains and webs would collapse<br>7. The ecosystem would become unable to support life<br><br>This shows decomposers are essential for nutrient cycling and ecosystem survival.')">Show Answer</button>
+                    <div id="q7-answer" class="answer-explanation"></div>
+                </div>
+
+                <div class="question">
+                    <div class="question-num">Question 8</div>
+                    <div class="question-text">
+                        In a pond ecosystem, the number of frogs suddenly decreased due to a disease. Predict and explain what would happen to:
+                        <br>(a) The population of insects in the pond (2 marks)
+                        <br>(b) The population of snakes that hunt frogs (2 marks)
+                    </div>
+                    <button class="reveal-btn" onclick="revealAnswer('q8', null, 'Model Answer (4 marks):<br><br>(a) Insect population would INCREASE because:<br>- Frogs eat many insects (they are primary consumers eating insects)<br>- With fewer frogs alive, fewer insects are eaten<br>- Insects can reproduce without being hunted as heavily<br>- Insect population grows<br><br>(b) Snake population would DECREASE because:<br>- Snakes are secondary consumers that eat frogs as prey<br>- With fewer frogs available, snakes have less food to hunt<br>- Snakes may starve or migrate away<br>- Snake population drops significantly<br>- Eventually, predators of snakes (like hawks) would also decrease<br><br>This demonstrates the ripple effect in food webs: changes to one organism affect many others.')">Show Answer</button>
+                    <div id="q8-answer" class="answer-explanation"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Box -->
+        <section class="values-box">
+            <h3>Environmental Stewardship</h3>
+            <p>
+                Understanding ecosystems teaches us that all living things are connected. Every organism—from the tiniest bacteria to the mightiest animal—plays a role. Our actions as humans have far-reaching consequences. By learning about food chains, ecosystems, and how environments work, we become empowered to make choices that protect nature for future generations. Conservation is everyone's responsibility.
+            </p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Primary 6 Science: Topic 16 - Interactions within the Environment</strong></p>
+        <p>Singapore MOE Science Curriculum</p>
+        <p class="footer-tag">Last Updated: 2026 | Interactive Learning Resource</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Food Chain Activity
+        let chainItems = [];
+
+        function setupDragDrop() {
+            const draggables = document.querySelectorAll('#sourceZone .draggable');
+            const dropZone = document.getElementById('dropZone');
+
+            draggables.forEach(item => {
+                item.addEventListener('dragstart', dragStart);
+            });
+
+            dropZone.addEventListener('dragover', dragOver);
+            dropZone.addEventListener('drop', drop);
+        }
+
+        function dragStart(e) {
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', e.target.innerHTML);
+            e.dataTransfer.setData('type', e.target.dataset.type);
+            e.dataTransfer.setData('organism', e.target.dataset.organism);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            e.target.classList.add('active');
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            const type = e.dataTransfer.getData('type');
+            const organism = e.dataTransfer.getData('organism');
+
+            chainItems.push({ type, organism });
+            updateDropZone();
+            document.getElementById('sourceZone').querySelectorAll('.draggable').forEach(item => {
+                if (item.dataset.organism === organism) {
+                    item.classList.add('placed');
+                }
+            });
+        }
+
+        function updateDropZone() {
+            const dropZone = document.getElementById('dropZone');
+            if (chainItems.length === 0) {
+                dropZone.innerHTML = 'Drop organisms here in correct order';
+                return;
+            }
+            dropZone.innerHTML = chainItems.map(item =>
+                '<div class="chain-item" style="display:inline-block; margin:0.5rem;">' + item.organism + '</div>'
+            ).join(' → ');
+        }
+
+        function checkFoodChain() {
+            const expectedOrder = ['producer', 'primary', 'secondary', 'tertiary'];
+            const actualOrder = chainItems.map(item => item.type);
+
+            const feedback = document.getElementById('chainFeedback');
+
+            if (JSON.stringify(actualOrder) === JSON.stringify(expectedOrder)) {
+                feedback.innerHTML = 'Correct! Energy flows from the sun through the food chain!';
+                feedback.classList.add('show');
+            } else {
+                feedback.innerHTML = 'Not quite right. Remember: Producer → Primary Consumer → Secondary Consumer → Tertiary Consumer';
+                feedback.classList.add('show');
+            }
+        }
+
+        function resetFoodChain() {
+            chainItems = [];
+            updateDropZone();
+            document.getElementById('chainFeedback').classList.remove('show');
+            document.getElementById('sourceZone').querySelectorAll('.draggable').forEach(item => {
+                item.classList.remove('placed');
+            });
+        }
+
+        // Ecosystem Components Sorting
+        function identifyComponent(element, type) {
+            element.classList.add('correct');
+            setTimeout(() => {
+                element.style.display = 'none';
+            }, 500);
+        }
+
+        function resetComponents() {
+            document.querySelectorAll('.sort-item').forEach(item => {
+                item.classList.remove('correct');
+                item.style.display = 'block';
+            });
+        }
+
+        // Food Web Explorer
+        function exploreOrganism(element, name, eats, eatenBy) {
+            document.getElementById('webOrganism').textContent = name;
+            document.getElementById('webEats').textContent = '- ' + eats;
+            document.getElementById('webEatenBy').textContent = '- ' + eatenBy;
+            document.getElementById('webInfo').classList.add('show');
+
+            document.querySelectorAll('.organism').forEach(org => {
+                org.style.background = 'var(--light)';
+                org.style.borderColor = 'var(--pri)';
+            });
+            element.style.background = 'var(--pri)';
+            element.style.color = 'white';
+        }
+
+        // Population Predictor
+        function predictPopulation() {
+            const plantVal = document.getElementById('plantSlider').value;
+            const insectVal = document.getElementById('insectSlider').value;
+            const fishVal = document.getElementById('fishSlider').value;
+            const heronVal = document.getElementById('heronSlider').value;
+
+            document.getElementById('plantValue').textContent = plantVal + '%';
+            document.getElementById('insectValue').textContent = insectVal + '%';
+            document.getElementById('fishValue').textContent = fishVal + '%';
+            document.getElementById('heronValue').textContent = heronVal + '%';
+        }
+
+        function analyzePopulation() {
+            const plants = parseInt(document.getElementById('plantSlider').value);
+            const insects = parseInt(document.getElementById('insectSlider').value);
+            const fish = parseInt(document.getElementById('fishSlider').value);
+            const herons = parseInt(document.getElementById('heronSlider').value);
+
+            let analysis = '<strong>Population Analysis:</strong><br>';
+
+            if (plants > 70) {
+                analysis += 'Plants are abundant - Insects have plenty to eat<br>';
+            } else if (plants < 30) {
+                analysis += 'Plants are scarce - Insects struggle to find food<br>';
+            }
+
+            if (insects > 70) {
+                analysis += 'Many insects - Fish have plenty to eat, but plants heavily eaten<br>';
+            } else if (insects < 30) {
+                analysis += 'Few insects - Fish struggle to find food<br>';
+            }
+
+            if (fish > 70) {
+                analysis += 'Many fish - Herons have plenty to eat<br>';
+            } else if (fish < 30) {
+                analysis += 'Few fish - Herons struggle to find food<br>';
+            }
+
+            analysis += '<br><strong>Ecosystem Balance:</strong> ';
+            const avgPopulation = (plants + insects + fish + herons) / 4;
+            if (avgPopulation > 60) {
+                analysis += 'Ecosystem is thriving!';
+            } else if (avgPopulation > 40) {
+                analysis += 'Ecosystem is balanced.';
+            } else {
+                analysis += 'Ecosystem is in decline - populations too low!';
+            }
+
+            document.getElementById('populationResult').innerHTML = analysis;
+            document.getElementById('populationResult').classList.add('show');
+        }
+
+        // Answer Reveal
+        function revealAnswer(questionId, correctAnswer, explanation) {
+            const answerDiv = document.getElementById(questionId + '-answer');
+            answerDiv.innerHTML = '<strong>Answer:</strong> ' + explanation;
+            answerDiv.classList.add('show');
+
+            if (correctAnswer) {
+                const radios = document.querySelectorAll('input[name="' + questionId + '"]');
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswer) {
+                        radio.checked = true;
+                    }
+                });
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', setupDragDrop);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 4: Human Digestive System | Singapore MOE Science</title>
+    <style>
+        :root {
+            --primary: #1565c0;
+            --primary-dark: #0d47a1;
+            --primary-light: #42a5f5;
+            --accent: #ff6f00;
+            --success: #2e7d32;
+            --danger: #c62828;
+            --warning: #f57f17;
+            --bg-light: #f5f5f5;
+            --text-dark: #212121;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fafafa;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0d47a1 100%);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        /* LEARNING OUTCOMES */
+        .learning-outcomes {
+            max-width: 1200px;
+            margin: -3rem auto 2rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .outcome-number {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .outcome-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary-light);
+        }
+
+        section h3 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* INFO BOXES */
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .key-concept {
+            background: #fff3e0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .did-you-know {
+            background: #f3e5f5;
+            border-left: 4px solid #7b1fa2;
+        }
+
+        .think-about {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+        }
+
+        .info-box strong {
+            display: block;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* ORGAN CARDS */
+        .organs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .organ-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .organ-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .organ-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .organ-content {
+            padding: 1.25rem;
+        }
+
+        .organ-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .organ-content p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .function-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .function-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .function-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* DIGESTIVE SYSTEM DIAGRAM */
+        .diagram-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem auto;
+        }
+
+        /* INTERACTIVE SECTIONS */
+        .interactive-container {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .interactive-container h3 {
+            margin-top: 0;
+        }
+
+        /* LABELING GAME */
+        .label-area {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            min-height: 400px;
+            position: relative;
+            text-align: center;
+        }
+
+        .body-diagram {
+            max-width: 250px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .draggable-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.25rem;
+            cursor: move;
+            user-select: none;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .draggable-label:hover {
+            background: var(--primary-dark);
+        }
+
+        .drop-zone {
+            position: absolute;
+            background: rgba(21, 101, 192, 0.1);
+            border: 2px dashed var(--primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .label-bank {
+            margin: 1.5rem 0;
+            text-align: center;
+            min-height: 60px;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+            border: 2px dashed var(--border);
+        }
+
+        .placed-label {
+            background: var(--success) !important;
+        }
+
+        /* JOURNEY GAME */
+        .journey-step {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .journey-step.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .journey-step h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-counter {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .journey-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        /* MATCHING GAME */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .matching-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .matching-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .matching-item:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .matching-item.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+
+        .matching-item.matched {
+            background: var(--success);
+            color: white;
+            cursor: default;
+        }
+
+        /* SEQUENCER */
+        .sequence-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .sequence-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            border: 2px solid var(--border);
+            cursor: move;
+            user-select: none;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .sequence-item:hover {
+            background: var(--primary-light);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .sequence-item.dragging {
+            opacity: 0.5;
+        }
+
+        .correct-sequence {
+            background: white;
+            border: 2px solid var(--success);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .correct-sequence h4 {
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .sequence-list {
+            list-style: none;
+        }
+
+        .sequence-list li {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: var(--bg-light);
+            border-left: 4px solid var(--success);
+            padding-left: 1rem;
+        }
+
+        /* ASSESSMENT */
+        .assessment-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .question-block {
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .mcq-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mcq-option:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .mcq-option input[type="radio"] {
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
+
+        .mcq-option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .answer-feedback {
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .answer-feedback.show {
+            display: block;
+        }
+
+        .answer-feedback.correct {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+            color: var(--success);
+        }
+
+        .answer-feedback.incorrect {
+            background: #ffebee;
+            border-left: 4px solid var(--danger);
+            color: var(--danger);
+        }
+
+        .model-answer {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--primary);
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-answer h5 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* VALUES BOX */
+        .values-box {
+            background: linear-gradient(135deg, #fff9c4 0%, #ffe082 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .values-box h3 {
+            color: var(--warning);
+            margin-top: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* BUTTONS */
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* FLASHCARDS */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 1.5rem 0;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 2px solid var(--primary-light);
+        }
+
+        .flashcard:hover {
+            transform: translateY(-4px);
+        }
+
+        .flashcard-term {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .flashcard-definition {
+            font-size: 1rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .flashcard.flipped .flashcard-term {
+            display: none;
+        }
+
+        .flashcard.flipped .flashcard-definition {
+            display: block;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-links {
+                gap: 0.75rem;
+                font-size: 0.85rem;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .organs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .matching-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .sequence-items {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 0 0.75rem;
+            }
+
+            section h2 {
+                font-size: 1.4rem;
+            }
+
+            .hero {
+                padding: 2rem 0.75rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <nav>
+            <div class="nav-brand">Singapore MOE • Primary 4</div>
+            <ul class="nav-links">
+                <li><a href="#learning-outcomes">Outcomes</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#interactive">Interactive</a></li>
+                <li><a href="#assessment">Assessment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Primary 4 • Theme: Systems</p>
+            <h1>Human Digestive System</h1>
+            <p>Understanding how our body processes food for energy and growth</p>
+        </div>
+    </section>
+
+    <!-- LEARNING OUTCOMES -->
+    <section class="learning-outcomes" id="learning-outcomes">
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <div class="outcome-number">1</div>
+                <h3>Energy & Growth</h3>
+                <p>Recognise that we need food for energy, growth and repair of body parts</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-number">2</div>
+                <h3>System Overview</h3>
+                <p>Describe the main parts of the human digestive system and their locations</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-number">3</div>
+                <h3>Organ Functions</h3>
+                <p>Describe the specific functions of each part of the digestive system</p>
+            </div>
+            <div class="outcome-card">
+                <div class="outcome-number">4</div>
+                <h3>Nutrient Use</h3>
+                <p>Describe how digested food is used by the body for various purposes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main id="content">
+
+        <!-- SECTION 1: WHY DO WE NEED FOOD -->
+        <section>
+            <h2>Why Do We Need Food?</h2>
+
+            <p>Every day, our bodies are constantly working. Whether we are playing, studying, running, or even sleeping, we need energy to keep our bodies going. This energy comes from the food we eat. But food does more than just give us energy—it helps our bodies grow, repair damaged parts, and stay healthy.</p>
+
+            <h3>Energy for Daily Activities</h3>
+            <p>Think about all the activities you do in a day. You walk to school, play during physical education, run around with friends, and think hard during lessons. All of these activities require energy. When we eat food, our bodies break it down and release the energy stored in it. Without food, we would not have the energy to do all these activities.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept: Why We Eat</strong>
+                We eat food for three main reasons: (1) to provide energy for daily activities, (2) to support growth and development, and (3) to repair and maintain our body parts.
+            </div>
+
+            <h3>Growth and Development</h3>
+            <p>You have probably noticed that you are getting taller and bigger every year. This happens because your body needs nutrients to grow. Young people like you need more nutrients for growth compared to adults. Your bones need calcium and other minerals to grow strong. Your muscles need protein to develop. All these nutrients come from the food we eat.</p>
+
+            <p>Growth is not just about getting taller. Your body is also developing internally. Your organs are growing, your brain is developing, and your body systems are becoming more sophisticated. All of this requires proper nutrition.</p>
+
+            <h3>Repair and Maintenance</h3>
+            <p>Your body is constantly repairing itself. When you cut your finger or have a small wound, your body works to heal it. This healing process requires nutrients. Even without visible injuries, your cells are being replaced all the time. Old cells die and new cells are made to take their place. This process also requires nutrients from food.</p>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong>
+                Your body replaces about 300 billion cells every single day! All these new cells need materials to be built, and these materials come from the food you eat.
+            </div>
+
+            <h3>Types of Nutrients in Food</h3>
+            <p>Food contains different types of nutrients, and each type has a special job in our body:</p>
+
+            <ul class="function-list">
+                <li><strong>Carbohydrates:</strong> Found in rice, bread, pasta, and fruits. They provide energy for our daily activities.</li>
+                <li><strong>Proteins:</strong> Found in meat, fish, eggs, beans, and milk. They help build and repair muscles and body tissues.</li>
+                <li><strong>Fats:</strong> Found in oils, nuts, and fatty foods. They store energy and help our body absorb certain vitamins.</li>
+                <li><strong>Vitamins:</strong> Found in fruits and vegetables. They help our body fight diseases and stay healthy.</li>
+                <li><strong>Minerals:</strong> Found in milk, fish, leafy vegetables. They help build strong bones and teeth.</li>
+                <li><strong>Fibre:</strong> Found in vegetables, fruits, and whole grains. It helps our digestive system work properly.</li>
+                <li><strong>Water:</strong> Essential for all body functions. It makes up a large part of our blood and helps transport nutrients.</li>
+            </ul>
+
+            <div class="info-box think-about">
+                <strong>Think About It</strong>
+                Why do you think athletes and active children might need more food than children who don't exercise much? What types of nutrients do you think would be most important for them?
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE DIGESTIVE SYSTEM OVERVIEW -->
+        <section>
+            <h2>The Human Digestive System</h2>
+
+            <p>The digestive system is like a long tube that goes through your body. It starts at your mouth and ends at your bottom (anus). Along the way, it includes several important organs that work together to break down food into smaller pieces and absorb the nutrients your body needs.</p>
+
+            <h3>The Journey of Food</h3>
+            <p>When you eat a piece of bread or an apple, you probably don't think about what happens next. But inside your body, an amazing journey is about to begin! Food goes through a series of steps as it moves through your digestive system. Some of these steps break the food into smaller and smaller pieces. Other steps extract the nutrients from the food so your body can use them.</p>
+
+            <p>Let's follow the journey of a bite of your lunch as it travels through your digestive system:</p>
+
+            <ol style="margin-left: 1.5rem; line-height: 2;">
+                <li><strong>Mouth:</strong> Chewing begins to break down food physically</li>
+                <li><strong>Oesophagus:</strong> Food is pushed down toward the stomach</li>
+                <li><strong>Stomach:</strong> Food is churned and mixed with digestive juices</li>
+                <li><strong>Small Intestine:</strong> Digested food is absorbed into the bloodstream</li>
+                <li><strong>Large Intestine:</strong> Water is absorbed, waste is prepared for removal</li>
+                <li><strong>Anus:</strong> Undigested waste (faeces) leaves the body</li>
+            </ol>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept: Two Types of Digestion</strong>
+                <strong>Physical digestion:</strong> Breaking food into smaller pieces using teeth and muscle contractions (no chemical change to the food)<br>
+                <strong>Chemical digestion:</strong> Using digestive juices to break down food molecules into nutrients that the body can absorb (the food structure actually changes)
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE MOUTH -->
+        <section>
+            <h2>The Mouth: Where Digestion Begins</h2>
+
+            <h3>Location and Structure</h3>
+            <p>The mouth is the opening to the digestive system. It contains several important structures that work together to begin the process of digestion: teeth, saliva glands, and the tongue.</p>
+
+            <h3>Physical Digestion in the Mouth</h3>
+            <p>When you bite into food, your teeth immediately start breaking it into smaller pieces. This is called physical digestion. Your front teeth (incisors) are good for cutting food. Your back teeth (molars) are strong and flat, perfect for crushing and grinding. By the time you swallow, your food should be broken into small pieces.</p>
+
+            <p>The tongue also helps with physical digestion by moving food around your mouth and pushing it against your teeth. After chewing, the tongue forms the food into a ball shape, which makes it easier to swallow.</p>
+
+            <div class="info-box think-about">
+                <strong>Think About It</strong>
+                What would happen if you swallowed food without chewing it? Would your stomach be able to digest it as easily? Why or why not?
+            </div>
+
+            <h3>Saliva and Chemical Digestion</h3>
+            <p>While you are chewing, your mouth produces a special liquid called saliva. Saliva does several important jobs:</p>
+
+            <ul class="function-list">
+                <li><strong>Softens food:</strong> Saliva makes food wet and soft, making it easier to swallow</li>
+                <li><strong>Starts breaking down starch:</strong> Saliva contains an enzyme (a special protein) that begins to break down starch in carbohydrates into simpler sugars</li>
+                <li><strong>Provides lubrication:</strong> Saliva helps food slide down your throat smoothly</li>
+                <li><strong>Helps with taste:</strong> Saliva helps dissolve food so your taste buds can sense the flavours</li>
+            </ul>
+
+            <div class="organ-card" style="max-width: 100%; margin: 1.5rem 0;">
+                <div class="organ-header">Mouth: A Quick Summary</div>
+                <div class="organ-content">
+                    <h4>Main Functions</h4>
+                    <ul class="function-list">
+                        <li>Physical digestion: Breaking food into smaller pieces with teeth</li>
+                        <li>Chemical digestion: Saliva begins breaking down carbohydrates</li>
+                        <li>Mixing and moistening: Tongue moves food and saliva moistens it</li>
+                        <li>Forming a bolus: Tongue shapes food into a ball for swallowing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: THE OESOPHAGUS -->
+        <section>
+            <h2>The Oesophagus (Gullet): The Food Tube</h2>
+
+            <h3>Location and Structure</h3>
+            <p>The oesophagus is a muscular tube about 25 centimetres long that connects your mouth to your stomach. It is located behind your windpipe (the tube you breathe through) and passes through your chest and into your abdomen.</p>
+
+            <h3>How the Oesophagus Works</h3>
+            <p>After you swallow, food doesn't just fall down to your stomach like you might think. Instead, the muscles in the wall of the oesophagus contract in a special way to push the food down. This muscular squeezing action is called peristalsis.</p>
+
+            <p>Peristalsis works like this: The muscle above the food contracts (squeezes), pushing it down. At the same time, the muscle below the food relaxes, making room for it to move into. This creates a wave-like motion that pushes food downward. This process happens whether you are standing up, lying down, or even hanging upside down! Gravity doesn't do the work—the muscles of the oesophagus do.</p>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong>
+                Astronauts can eat and drink in space even though there is no gravity! This is because peristalsis in the oesophagus pushes food down using muscle contractions, not gravity.
+            </div>
+
+            <h3>No Digestion in the Oesophagus</h3>
+            <p>Unlike the mouth and stomach, the oesophagus does not contain any digestive juices. It simply acts as a transport tube. By the time food reaches the end of the oesophagus, it is still the same food you swallowed—just pushed along by muscle contractions.</p>
+
+            <div class="organ-card" style="max-width: 100%; margin: 1.5rem 0;">
+                <div class="organ-header">Oesophagus: A Quick Summary</div>
+                <div class="organ-content">
+                    <h4>Main Functions</h4>
+                    <ul class="function-list">
+                        <li>Transport: Moves food from mouth to stomach</li>
+                        <li>Muscular action: Uses peristalsis to push food downward</li>
+                        <li>No digestion: Does not break down food</li>
+                        <li>Protection: Prevents food from entering the windpipe</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: THE STOMACH -->
+        <section>
+            <h2>The Stomach: The Churning Chamber</h2>
+
+            <h3>Location and Structure</h3>
+            <p>The stomach is a large, muscular pouch located below your left rib cage. When it is empty, the stomach is quite small—about the size of your fist. But when you eat a big meal, it can expand to hold up to 4 litres of food!</p>
+
+            <h3>Physical Digestion in the Stomach</h3>
+            <p>The walls of the stomach are made of strong muscles. When food enters the stomach, these muscles start to contract. They squeeze and churn the food, mixing it with other fluids. This churning action breaks the food into even smaller pieces than your teeth did. The food becomes a creamy mixture.</p>
+
+            <h3>Chemical Digestion in the Stomach</h3>
+            <p>The stomach also produces special digestive juices called gastric juices. These juices contain:</p>
+
+            <ul class="function-list">
+                <li><strong>Hydrochloric acid:</strong> A strong acid that helps break down food and kills harmful bacteria</li>
+                <li><strong>Pepsin:</strong> An enzyme that breaks down proteins into smaller pieces</li>
+                <li><strong>Mucus:</strong> A slimy coating that protects the stomach lining from the strong acid</li>
+            </ul>
+
+            <p>The combination of physical churning and chemical digestion in the stomach is very powerful. A piece of meat that took your teeth several seconds to chew can be broken down into a creamy liquid in the stomach within a few hours.</p>
+
+            <h3>How Long Does Food Stay in the Stomach?</h3>
+            <p>Food typically stays in the stomach for 2-4 hours, depending on what you have eaten. Fatty foods and large meals stay longer because they take more time to digest. When the stomach has finished its work, it gradually releases the partially digested food (now called chyme) into the small intestine in small portions.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept: The Stomach's Work</strong>
+                The stomach is not just a storage pouch—it is an active digestive organ. It physically churns food and chemically breaks it down using digestive juices. By the time food leaves the stomach, it has been transformed from solid pieces into a semi-liquid pulp.
+            </div>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong>
+                Your stomach produces about 2 litres of gastric juice every day! This juice is extremely acidic—so acidic that it could dissolve some metals. However, the stomach is protected by a thick layer of mucus that prevents the acid from damaging the stomach lining.
+            </div>
+
+            <div class="organ-card" style="max-width: 100%; margin: 1.5rem 0;">
+                <div class="organ-header">Stomach: A Quick Summary</div>
+                <div class="organ-content">
+                    <h4>Main Functions</h4>
+                    <ul class="function-list">
+                        <li>Storage: Holds food temporarily</li>
+                        <li>Physical digestion: Churns food into smaller pieces</li>
+                        <li>Chemical digestion: Uses gastric juices to break down proteins</li>
+                        <li>Mixing: Mixes food with digestive juices</li>
+                        <li>Controlled release: Gradually releases partially digested food to small intestine</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: THE SMALL INTESTINE -->
+        <section>
+            <h2>The Small Intestine: The Nutrient Absorber</h2>
+
+            <h3>Location and Structure</h3>
+            <p>The small intestine is a long, thin tube that begins at the stomach and winds through your abdomen. Don't let the name fool you—the small intestine is actually very long, about 6 metres (20 feet)! It is called "small" because it is narrow, not because it is short. If you stretched it out, it would be much longer than a school bus!</p>
+
+            <h3>How the Small Intestine Works</h3>
+            <p>The small intestine is where most of the real work of digestion happens. When partially digested food arrives from the stomach, the small intestine finishes breaking it down and absorbs the nutrients.</p>
+
+            <p>Several things help the small intestine do its job:</p>
+
+            <ul class="function-list">
+                <li><strong>Pancreatic juices:</strong> The pancreas releases juices containing enzymes that break down carbohydrates, proteins, and fats</li>
+                <li><strong>Bile:</strong> The liver produces bile, which is stored in the gallbladder and helps break down fats into smaller droplets</li>
+                <li><strong>Intestinal juices:</strong> The small intestine produces its own digestive juices to complete the digestion</li>
+                <li><strong>Muscular contractions:</strong> Peristalsis continues to move food through the small intestine</li>
+            </ul>
+
+            <h3>Absorption in the Small Intestine</h3>
+            <p>Once food is broken down into very small pieces, the nutrients can be absorbed. But how does the small intestine absorb so much? The answer is in its special structure.</p>
+
+            <p>The inside wall of the small intestine is not smooth. Instead, it is covered with millions of tiny finger-like projections called villi (singular: villus). Each villus is about 1 millimetre long. These villi greatly increase the surface area of the small intestine, allowing it to absorb much more nutrients.</p>
+
+            <p>Inside each villus are tiny blood vessels. Nutrients pass through the thin walls of the villi and into these blood vessels. The blood then carries the nutrients throughout your body to where they are needed.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept: Villi - Nature's Design for Absorption</strong>
+                If the small intestine wall were completely smooth, it would have an area of about 0.5 square metres. But with villi, the surface area increases to about 30 square metres—the size of a classroom! This huge surface area is why the small intestine is so good at absorbing nutrients.
+            </div>
+
+            <div class="info-box think-about">
+                <strong>Think About It</strong>
+                Why do you think the small intestine is so long? If digestion and absorption happened in a short tube, what might happen? How does the length give food more time for digestion and absorption?
+            </div>
+
+            <div class="organ-card" style="max-width: 100%; margin: 1.5rem 0;">
+                <div class="organ-header">Small Intestine: A Quick Summary</div>
+                <div class="organ-content">
+                    <h4>Main Functions</h4>
+                    <ul class="function-list">
+                        <li>Finishing digestion: Completes the breakdown of carbohydrates, proteins, and fats</li>
+                        <li>Absorption: Absorbs digested nutrients into the bloodstream</li>
+                        <li>Transport: Continues moving food with peristalsis</li>
+                        <li>Nutrient uptake: Villi provide huge surface area for absorption</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: THE LARGE INTESTINE -->
+        <section>
+            <h2>The Large Intestine: The Final Station</h2>
+
+            <h3>Location and Structure</h3>
+            <p>The large intestine is the last stop for food in your digestive system. It is wider than the small intestine (which is why it's called "large") but much shorter—only about 1.5 metres long. It frames the sides of your abdomen, going up the right side, across the top, and down the left side.</p>
+
+            <h3>What Reaches the Large Intestine?</h3>
+            <p>By the time food reaches the large intestine, most of the nutrients have already been absorbed by the small intestine. What enters the large intestine is mostly water, minerals, and undigested food (mainly fibre). This mixture is still quite wet and liquid.</p>
+
+            <h3>Absorption of Water</h3>
+            <p>The main job of the large intestine is to absorb water. Your body needs to keep water inside so it can maintain proper hydration. As water is absorbed through the walls of the large intestine, the remaining material becomes thicker and more solid. It forms into faeces (stool), which is the waste that your body gets rid of.</p>
+
+            <h3>Bacteria in the Large Intestine</h3>
+            <p>Your large intestine is home to billions of bacteria! These are not harmful bacteria—they are helpful bacteria that live in your intestines. These bacteria:</p>
+
+            <ul class="function-list">
+                <li><strong>Help digest fibre:</strong> They break down plant fibre that your digestive system cannot digest</li>
+                <li><strong>Produce vitamins:</strong> Some bacteria produce B vitamins and vitamin K, which your body absorbs</li>
+                <li><strong>Protect your health:</strong> They prevent harmful bacteria from taking over</li>
+            </ul>
+
+            <h3>Faeces Formation and Removal</h3>
+            <p>As water is absorbed and the remaining material gets pushed along by peristalsis, faeces gradually form. This waste product is stored in the rectum (the last part of the large intestine) until it is ready to be removed from the body through the anus. This process is called defecation or passing stool.</p>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong>
+                The bacteria in your large intestine are so important that scientists consider them almost like an organ! They weigh as much as your brain (about 1.5 kilogrammes) and do important work for your health.
+            </div>
+
+            <div class="organ-card" style="max-width: 100%; margin: 1.5rem 0;">
+                <div class="organ-header">Large Intestine: A Quick Summary</div>
+                <div class="organ-content">
+                    <h4>Main Functions</h4>
+                    <ul class="function-list">
+                        <li>Water absorption: Removes water from undigested food</li>
+                        <li>Faeces formation: Remaining material becomes solid waste</li>
+                        <li>Bacterial activity: Houses helpful bacteria that aid digestion</li>
+                        <li>Storage and removal: Stores faeces until defecation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: WHAT HAPPENS TO DIGESTED FOOD -->
+        <section>
+            <h2>What Happens to Digested Food?</h2>
+
+            <p>After food is digested and nutrients are absorbed in the small intestine, what happens next? The nutrients don't stay in the blood forever—they need to reach the cells of your body where they are used.</p>
+
+            <h3>Nutrients Travel in the Blood</h3>
+            <p>Absorbed nutrients enter the blood vessels in the villi of the small intestine. The blood carries these nutrients throughout your body. The nutrients travel to every cell that needs them.</p>
+
+            <h3>What Different Nutrients Do</h3>
+            <p>Once nutrients reach your cells, they are used for different purposes:</p>
+
+            <ul class="function-list">
+                <li><strong>Carbohydrates:</strong> Broken down into glucose, which cells use for energy. The liver stores extra glucose for later use.</li>
+                <li><strong>Proteins:</strong> Used to build and repair muscles, bones, organs, skin, and other body parts. They are also used to make enzymes and hormones.</li>
+                <li><strong>Fats:</strong> Stored as energy reserves, used to make cell membranes, and used to absorb fat-soluble vitamins.</li>
+                <li><strong>Vitamins:</strong> Used for various functions like boosting immunity, helping bone growth, and protecting cells.</li>
+                <li><strong>Minerals:</strong> Used to build strong bones and teeth, regulate muscle contractions, and maintain proper blood composition.</li>
+            </ul>
+
+            <h3>Energy Release</h3>
+            <p>The main reason we digest food is to get energy. When cells use carbohydrates and fats, they release the energy stored in these molecules. This energy is used for everything your body does—moving, thinking, maintaining body temperature, and growing.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept: The Complete Cycle</strong>
+                Food → Digestion → Absorption → Transportation in blood → Use by cells → Energy release and body functions
+            </div>
+
+            <div class="info-box think-about">
+                <strong>Think About It</strong>
+                Why is it important to eat a balanced diet with many different types of nutrients? What would happen if someone only ate carbohydrates and no protein?
+            </div>
+        </section>
+
+        <!-- SECTION 9: DIGESTIVE SYSTEM DIAGRAM -->
+        <section>
+            <h2>The Digestive System: A Visual Guide</h2>
+
+            <div class="diagram-container">
+                <svg width="300" height="500" viewBox="0 0 300 500">
+                    <!-- Body outline -->
+                    <ellipse cx="150" cy="150" rx="50" ry="70" fill="none" stroke="#ccc" stroke-width="2"/>
+                    <path d="M 100 200 L 80 400" stroke="#ccc" stroke-width="2" fill="none"/>
+                    <path d="M 200 200 L 220 400" stroke="#ccc" stroke-width="2" fill="none"/>
+
+                    <!-- Mouth -->
+                    <circle cx="150" cy="80" r="18" fill="#1565c0" opacity="0.7"/>
+                    <text x="150" y="85" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Mouth</text>
+
+                    <!-- Oesophagus -->
+                    <path d="M 150 100 L 150 150" stroke="#42a5f5" stroke-width="12"/>
+                    <text x="170" y="125" fill="#1565c0" font-size="11" font-weight="bold">Oesophagus</text>
+
+                    <!-- Stomach -->
+                    <ellipse cx="140" cy="200" rx="35" ry="50" fill="#ff6f00" opacity="0.7"/>
+                    <text x="140" y="205" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Stomach</text>
+
+                    <!-- Small Intestine (coiled) -->
+                    <path d="M 140 250 Q 120 280 140 310 Q 160 340 140 370" stroke="#2e7d32" stroke-width="10" fill="none"/>
+                    <text x="100" y="310" fill="#2e7d32" font-size="10" font-weight="bold">Small</text>
+                    <text x="95" y="325" fill="#2e7d32" font-size="10" font-weight="bold">Intestine</text>
+
+                    <!-- Large Intestine -->
+                    <path d="M 140 370 L 140 430" stroke="#7b1fa2" stroke-width="16" fill="none"/>
+                    <text x="170" y="400" fill="#7b1fa2" font-size="10" font-weight="bold">Large</text>
+                    <text x="175" y="415" fill="#7b1fa2" font-size="10" font-weight="bold">Intestine</text>
+
+                    <!-- Liver (simplified) -->
+                    <ellipse cx="220" cy="220" rx="30" ry="20" fill="#c62828" opacity="0.6"/>
+                    <text x="220" y="223" text-anchor="middle" fill="white" font-size="10" font-weight="bold">Liver</text>
+
+                    <!-- Pancreas (simplified) -->
+                    <rect x="180" y="270" width="30" height="15" fill="#f57f17" opacity="0.7"/>
+                    <text x="195" y="280" text-anchor="middle" fill="white" font-size="9" font-weight="bold">Pancreas</text>
+
+                    <!-- Arrow showing direction -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#666"/>
+                        </marker>
+                    </defs>
+                    <path d="M 250 100 L 270 100" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <text x="275" y="105" fill="#666" font-size="10">Direction</text>
+                    <text x="265" y="120" fill="#666" font-size="10">of food</text>
+                </svg>
+
+                <p><em>A simplified diagram of the human digestive system showing the path food takes through your body</em></p>
+            </div>
+        </section>
+
+        <!-- SECTION 10: ORGAN FUNCTION SUMMARY -->
+        <section>
+            <h2>Summary: Functions of Each Organ</h2>
+
+            <div class="organs-grid">
+                <div class="organ-card">
+                    <div class="organ-header">Mouth</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Chewing breaks food into smaller pieces. Saliva softens food and starts breaking down starch.</p>
+                    </div>
+                </div>
+
+                <div class="organ-card">
+                    <div class="organ-header">Oesophagus</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Muscular tube that pushes food down to the stomach using peristalsis.</p>
+                    </div>
+                </div>
+
+                <div class="organ-card">
+                    <div class="organ-header">Stomach</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Churns and mixes food. Produces gastric juices that break down proteins. Gradually releases food to small intestine.</p>
+                    </div>
+                </div>
+
+                <div class="organ-card">
+                    <div class="organ-header">Small Intestine</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Completes digestion. Absorbs most nutrients into blood. Villi increase surface area for absorption.</p>
+                    </div>
+                </div>
+
+                <div class="organ-card">
+                    <div class="organ-header">Large Intestine</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Absorbs water from waste. Forms faeces. Hosts helpful bacteria.</p>
+                    </div>
+                </div>
+
+                <div class="organ-card">
+                    <div class="organ-header">Liver & Pancreas</div>
+                    <div class="organ-content">
+                        <h4>Functions</h4>
+                        <p>Liver produces bile to help digest fats. Pancreas produces enzymes to break down carbohydrates, proteins, and fats.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VALUES BOX -->
+        <div class="values-box">
+            <h3>Learn to Make Healthy Choices</h3>
+            <p>Understanding how your digestive system works helps you appreciate the importance of healthy eating. Eating balanced meals with a variety of nutrients keeps your digestive system healthy and your body strong. Remember to chew your food well, drink plenty of water, and include fibre-rich foods like fruits and vegetables in your diet!</p>
+        </div>
+    </main>
+
+    <!-- INTERACTIVE SECTION -->
+    <section class="interactive-container" id="interactive">
+        <h2 style="color: var(--primary); margin-top: 0;">Interactive Learning Activities</h2>
+
+        <!-- ACTIVITY 1: FLASHCARDS -->
+        <div class="interactive-container">
+            <h3>Activity 1: Digestive System Flashcards</h3>
+            <p>Click on each card to reveal the definition. Test yourself!</p>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Peristalsis</div>
+                    <div class="flashcard-definition">Wave-like muscle contractions that push food through the oesophagus and digestive system</div>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Villi</div>
+                    <div class="flashcard-definition">Tiny finger-like projections in the small intestine that increase surface area for nutrient absorption</div>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Enzyme</div>
+                    <div class="flashcard-definition">A protein that helps break down food molecules into smaller pieces during digestion</div>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Chyme</div>
+                    <div class="flashcard-definition">Semi-liquid mixture of partially digested food and gastric juices in the stomach</div>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Faeces</div>
+                    <div class="flashcard-definition">Solid waste material formed in the large intestine and removed from the body</div>
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-term">Gastric Juice</div>
+                    <div class="flashcard-definition">Digestive fluid produced in the stomach containing hydrochloric acid and pepsin</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 2: JOURNEY OF FOOD -->
+        <div class="interactive-container">
+            <h3>Activity 2: The Journey of Food Through Your Digestive System</h3>
+            <p>Click "Next Step" to follow what happens to your food as it travels through your body.</p>
+
+            <div class="journey-step active" id="step-1">
+                <div class="step-counter">Step 1 of 6</div>
+                <h4>In the Mouth</h4>
+                <p>You take a bite of bread and start chewing. Your teeth break the bread into smaller pieces. Saliva mixes with the bread, softening it and beginning to break down the starch. After about 30 seconds of chewing, the food is ready to swallow.</p>
+                <p><strong>What's happening:</strong> Physical digestion (breaking into pieces) and chemical digestion (saliva breaking down starch)</p>
+            </div>
+
+            <div class="journey-step" id="step-2">
+                <div class="step-counter">Step 2 of 6</div>
+                <h4>Down the Oesophagus</h4>
+                <p>You swallow. The chewed food, now called a bolus, enters the oesophagus. Muscles in the oesophagus contract, creating a wave-like motion (peristalsis) that pushes the food down toward your stomach. This journey takes only about 5-10 seconds.</p>
+                <p><strong>What's happening:</strong> Peristalsis is moving your food downward without you having to think about it</p>
+            </div>
+
+            <div class="journey-step" id="step-3">
+                <div class="step-counter">Step 3 of 6</div>
+                <h4>In the Stomach</h4>
+                <p>The food enters your stomach. The muscular stomach walls begin to churn and squeeze, mixing the food with gastric juices. The bread is broken down further and transformed into a creamy paste called chyme. This process takes 2-4 hours.</p>
+                <p><strong>What's happening:</strong> Both physical (churning) and chemical (gastric juices) digestion are breaking down the bread</p>
+            </div>
+
+            <div class="journey-step" id="step-4">
+                <div class="step-counter">Step 4 of 6</div>
+                <h4>In the Small Intestine</h4>
+                <p>Gradually, small amounts of the partially digested food move into the small intestine. Here, more digestive juices from the pancreas and liver help break the food down completely. The nutrients from the bread—mainly glucose (a type of sugar)—are ready to be absorbed. Millions of villi lining the small intestine's walls absorb the nutrients into the bloodstream.</p>
+                <p><strong>What's happening:</strong> Nutrients are being absorbed into your blood so they can be delivered to your cells</p>
+            </div>
+
+            <div class="journey-step" id="step-5">
+                <div class="step-counter">Step 5 of 6</div>
+                <h4>In the Large Intestine</h4>
+                <p>Whatever wasn't absorbed in the small intestine moves into the large intestine. This mostly includes fibre and water. The large intestine absorbs the water back into your body. What's left becomes faeces (solid waste).</p>
+                <p><strong>What's happening:</strong> Your body is recycling water and preparing the waste for removal</p>
+            </div>
+
+            <div class="journey-step" id="step-6">
+                <div class="step-counter">Step 6 of 6</div>
+                <h4>End of the Journey</h4>
+                <p>The faeces are stored in the rectum until you go to the toilet. When you defecate, the waste leaves your body through the anus. From the moment you swallowed the bread to now, about 24-72 hours have passed! The nutrients from that bread have long since been absorbed and distributed throughout your body.</p>
+                <p><strong>What's happening:</strong> Waste is being removed from your body, completing the digestive journey</p>
+            </div>
+
+            <div class="journey-controls">
+                <button onclick="previousStep()">← Previous</button>
+                <span id="step-indicator">Step 1 of 6</span>
+                <button onclick="nextStep()">Next →</button>
+            </div>
+        </div>
+
+        <!-- ACTIVITY 3: MATCHING GAME -->
+        <div class="interactive-container">
+            <h3>Activity 3: Match Organs to Their Functions</h3>
+            <p>Click on an organ on the left, then click on its function on the right. Correct matches will turn green.</p>
+
+            <div class="matching-grid">
+                <div class="matching-column">
+                    <h4>Organs</h4>
+                    <div class="matching-item" onclick="selectMatching(this, 'organ', 'mouth')">Mouth</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'organ', 'stomach')">Stomach</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'organ', 'small')">Small Intestine</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'organ', 'large')">Large Intestine</div>
+                </div>
+
+                <div class="matching-column">
+                    <h4>Functions</h4>
+                    <div class="matching-item" onclick="selectMatching(this, 'function', 'mouth')">Breaks food into smaller pieces with teeth</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'function', 'small')">Absorbs nutrients into the bloodstream</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'function', 'stomach')">Churns food and produces gastric juices</div>
+                    <div class="matching-item" onclick="selectMatching(this, 'function', 'large')">Absorbs water from waste</div>
+                </div>
+            </div>
+
+            <button onclick="resetActivity('matching')">Reset Activity</button>
+        </div>
+    </section>
+
+    <!-- ASSESSMENT SECTION -->
+    <section class="assessment-section" id="assessment">
+        <h2>Assessment: PSLE-Style Questions</h2>
+
+        <!-- SECTION A: MULTIPLE CHOICE -->
+        <div>
+            <h3>Section A: Multiple Choice Questions (1 mark each)</h3>
+            <p><em>Choose the best answer for each question.</em></p>
+
+            <!-- MCQ 1 -->
+            <div class="question-block">
+                <div class="question-text">1. Which of the following is NOT a function of the mouth in digestion?</div>
+                <div class="mcq-options">
+                    <label class="mcq-option">
+                        <input type="radio" name="q1" value="a">
+                        <span>A. Chewing breaks food into smaller pieces</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q1" value="b">
+                        <span>B. Saliva softens the food</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q1" value="c">
+                        <span>C. Absorbing nutrients into the bloodstream</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q1" value="d">
+                        <span>D. Breaking down starch in food</span>
+                    </label>
+                </div>
+                <div class="answer-feedback" id="feedback-q1"></div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div class="question-block">
+                <div class="question-text">2. What is the correct order of the digestive organs?</div>
+                <div class="mcq-options">
+                    <label class="mcq-option">
+                        <input type="radio" name="q2" value="a">
+                        <span>A. Mouth → Stomach → Oesophagus → Small Intestine</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q2" value="b">
+                        <span>B. Mouth → Oesophagus → Stomach → Small Intestine</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q2" value="c">
+                        <span>C. Stomach → Mouth → Oesophagus → Small Intestine</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q2" value="d">
+                        <span>D. Mouth → Oesophagus → Large Intestine → Stomach</span>
+                    </label>
+                </div>
+                <div class="answer-feedback" id="feedback-q2"></div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div class="question-block">
+                <div class="question-text">3. Which organ has villi that help absorb nutrients?</div>
+                <div class="mcq-options">
+                    <label class="mcq-option">
+                        <input type="radio" name="q3" value="a">
+                        <span>A. Mouth</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q3" value="b">
+                        <span>B. Stomach</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q3" value="c">
+                        <span>C. Small Intestine</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q3" value="d">
+                        <span>D. Oesophagus</span>
+                    </label>
+                </div>
+                <div class="answer-feedback" id="feedback-q3"></div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div class="question-block">
+                <div class="question-text">4. What is the main job of the large intestine?</div>
+                <div class="mcq-options">
+                    <label class="mcq-option">
+                        <input type="radio" name="q4" value="a">
+                        <span>A. To churn food and mix it with gastric juices</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q4" value="b">
+                        <span>B. To absorb water from undigested food and form faeces</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q4" value="c">
+                        <span>C. To absorb all nutrients from digested food</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q4" value="d">
+                        <span>D. To push food down from the mouth</span>
+                    </label>
+                </div>
+                <div class="answer-feedback" id="feedback-q4"></div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div class="question-block">
+                <div class="question-text">5. Why is digestion important for our bodies?</div>
+                <div class="mcq-options">
+                    <label class="mcq-option">
+                        <input type="radio" name="q5" value="a">
+                        <span>A. To get energy and materials for growth and repair</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q5" value="b">
+                        <span>B. To remove all food from the body</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q5" value="c">
+                        <span>C. To make food taste better</span>
+                    </label>
+                    <label class="mcq-option">
+                        <input type="radio" name="q5" value="d">
+                        <span>D. To slow down food movement</span>
+                    </label>
+                </div>
+                <div class="answer-feedback" id="feedback-q5"></div>
+            </div>
+
+            <button onclick="checkMCQ()">Check All Answers</button>
+            <button onclick="resetMCQ()">Reset Section A</button>
+        </div>
+
+        <!-- SECTION B: OPEN-ENDED QUESTIONS -->
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid var(--border);">
+            <h3>Section B: Open-Ended Questions</h3>
+            <p><em>Write your answer in complete sentences.</em></p>
+
+            <!-- OE Question 1 -->
+            <div class="question-block">
+                <div class="question-text">1. Explain why food needs to be broken down into smaller pieces before it can be used by the body. (3 marks)</div>
+
+                <textarea style="width: 100%; height: 120px; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; margin: 1rem 0; resize: vertical;" id="q6-answer" placeholder="Type your answer here..."></textarea>
+
+                <button onclick="toggleModelAnswer('q6')">Show Model Answer</button>
+                <div class="model-answer" id="q6-answer-box">
+                    <h5>Model Answer:</h5>
+                    <p>Food needs to be broken down into smaller pieces because:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Only small nutrient molecules can be absorbed through the walls of the small intestine into the bloodstream</li>
+                        <li>Breaking food into smaller pieces increases the surface area, making it easier for digestive juices and enzymes to reach and break down the food</li>
+                        <li>Our cells can only use the small nutrient molecules (like glucose), not whole pieces of food</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- OE Question 2 -->
+            <div class="question-block">
+                <div class="question-text">2. Describe the role of the stomach in the digestive system. Include both physical and chemical digestion. (3 marks)</div>
+
+                <textarea style="width: 100%; height: 120px; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; margin: 1rem 0; resize: vertical;" id="q7-answer" placeholder="Type your answer here..."></textarea>
+
+                <button onclick="toggleModelAnswer('q7')">Show Model Answer</button>
+                <div class="model-answer" id="q7-answer-box">
+                    <h5>Model Answer:</h5>
+                    <p>The stomach's role in digestion:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Physical digestion:</strong> The muscular walls of the stomach contract and churn the food, breaking it into even smaller pieces than the teeth could</li>
+                        <li><strong>Chemical digestion:</strong> The stomach produces gastric juices containing enzymes (like pepsin) and hydrochloric acid that break down proteins</li>
+                        <li>The food is transformed into a semi-liquid mixture called chyme</li>
+                        <li>The stomach gradually releases small amounts of chyme into the small intestine for further digestion and absorption</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- OE Question 3 -->
+            <div class="question-block">
+                <div class="question-text">3. The small intestine is about 6 metres long and has millions of villi. Explain why these features make the small intestine well-designed for its functions. (4 marks)</div>
+
+                <textarea style="width: 100%; height: 120px; padding: 0.75rem; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; margin: 1rem 0; resize: vertical;" id="q8-answer" placeholder="Type your answer here..."></textarea>
+
+                <button onclick="toggleModelAnswer('q8')">Show Model Answer</button>
+                <div class="model-answer" id="q8-answer-box">
+                    <h5>Model Answer:</h5>
+                    <p>Why the small intestine is well-designed:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Length:</strong> The long length (6 metres) gives food more time to be digested and nutrients more time to be absorbed. The longer food stays in the small intestine, the more nutrients can be extracted</li>
+                        <li><strong>Villi:</strong> The millions of finger-like villi greatly increase the surface area of the small intestine. If the wall were smooth, it would have about 0.5 m². With villi, it has about 30 m²—30 times larger!</li>
+                        <li><strong>Large surface area for absorption:</strong> With more surface area, more nutrient molecules can be absorbed into the blood at the same time</li>
+                        <li><strong>Efficient nutrient absorption:</strong> This design ensures that the body can absorb as many nutrients as possible from the food we eat</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button onclick="resetOpenEnded()">Reset Section B</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Primary 4 Science: Human Digestive System</strong></p>
+        <p>Singapore Ministry of Education (MOE) Curriculum</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">© 2026 Learning Content. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // NAVIGATION SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // JOURNEY GAME FUNCTIONALITY
+        let currentStep = 1;
+
+        function nextStep() {
+            if (currentStep < 6) {
+                document.getElementById(`step-${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step-${currentStep}`).classList.add('active');
+                document.getElementById('step-indicator').textContent = `Step ${currentStep} of 6`;
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step-${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step-${currentStep}`).classList.add('active');
+                document.getElementById('step-indicator').textContent = `Step ${currentStep} of 6`;
+            }
+        }
+
+        // MATCHING GAME FUNCTIONALITY
+        let selectedOrgan = null;
+        let selectedFunction = null;
+
+        function selectMatching(element, type, value) {
+            if (element.classList.contains('matched')) {
+                return;
+            }
+
+            const items = document.querySelectorAll('.matching-item');
+
+            if (type === 'organ') {
+                items.forEach(item => {
+                    if (item.getAttribute('onclick').includes('organ')) {
+                        item.classList.remove('selected');
+                    }
+                });
+                element.classList.add('selected');
+                selectedOrgan = { element: element, value: value };
+            } else {
+                items.forEach(item => {
+                    if (item.getAttribute('onclick').includes('function')) {
+                        item.classList.remove('selected');
+                    }
+                });
+                element.classList.add('selected');
+                selectedFunction = { element: element, value: value };
+            }
+
+            if (selectedOrgan && selectedFunction) {
+                if (selectedOrgan.value === selectedFunction.value) {
+                    selectedOrgan.element.classList.add('matched');
+                    selectedFunction.element.classList.add('matched');
+                } else {
+                    setTimeout(() => {
+                        selectedOrgan.element.classList.remove('selected');
+                        selectedFunction.element.classList.remove('selected');
+                    }, 500);
+                }
+                selectedOrgan = null;
+                selectedFunction = null;
+            }
+        }
+
+        // MCQ FUNCTIONALITY
+        const mcqAnswers = {
+            'q1': 'c',
+            'q2': 'b',
+            'q3': 'c',
+            'q4': 'b',
+            'q5': 'a'
+        };
+
+        function checkMCQ() {
+            let allAnswered = true;
+            for (let q = 1; q <= 5; q++) {
+                const answer = document.querySelector(`input[name="q${q}"]:checked`);
+                if (!answer) {
+                    allAnswered = false;
+                    continue;
+                }
+
+                const feedback = document.getElementById(`feedback-q${q}`);
+                const isCorrect = answer.value === mcqAnswers[`q${q}`];
+
+                feedback.classList.add('show');
+                feedback.classList.remove('incorrect');
+                feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+                if (isCorrect) {
+                    feedback.innerHTML = '<strong>✓ Correct!</strong> Well done!';
+                } else {
+                    feedback.innerHTML = `<strong>✗ Incorrect.</strong> The correct answer is <strong>${mcqAnswers[`q${q}`].toUpperCase()}</strong>.`;
+                }
+            }
+
+            if (!allAnswered) {
+                alert('Please answer all questions before checking.');
+            }
+        }
+
+        function resetMCQ() {
+            for (let q = 1; q <= 5; q++) {
+                document.querySelectorAll(`input[name="q${q}"]`).forEach(radio => {
+                    radio.checked = false;
+                });
+                document.getElementById(`feedback-q${q}`).classList.remove('show');
+            }
+        }
+
+        // MODEL ANSWER TOGGLE
+        function toggleModelAnswer(qId) {
+            const box = document.getElementById(`${qId}-answer-box`);
+            box.classList.toggle('show');
+        }
+
+        function resetOpenEnded() {
+            document.getElementById('q6-answer').value = '';
+            document.getElementById('q7-answer').value = '';
+            document.getElementById('q8-answer').value = '';
+            document.getElementById('q6-answer-box').classList.remove('show');
+            document.getElementById('q7-answer-box').classList.remove('show');
+            document.getElementById('q8-answer-box').classList.remove('show');
+        }
+
+        // RESET ACTIVITIES
+        function resetActivity(type) {
+            if (type === 'matching') {
+                document.querySelectorAll('.matching-item').forEach(item => {
+                    item.classList.remove('selected', 'matched');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

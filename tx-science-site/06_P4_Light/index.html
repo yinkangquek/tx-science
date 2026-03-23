@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 4 Science - Light</title>
+    <style>
+        :root {
+            --pri: #1565c0;
+            --pri-light: #42a5f5;
+            --pri-dark: #0d47a1;
+            --accent: #ff6f00;
+            --success: #2e7d32;
+            --warning: #f57c00;
+            --gray-light: #f5f5f5;
+            --gray-med: #e0e0e0;
+            --gray-dark: #424242;
+            --spacing: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 3rem var(--spacing);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tag {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 2rem var(--spacing);
+            }
+        }
+
+        /* GRID LAYOUTS */
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--pri);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--pri-light);
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--pri-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* EXPANDABLE SECTIONS */
+        .expandable {
+            background: white;
+            border-left: 4px solid var(--pri);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .expandable:hover {
+            background: var(--gray-light);
+        }
+
+        .expandable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--pri);
+        }
+
+        .expandable-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .expandable-content {
+            display: none;
+            margin-top: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .expandable.active .expandable-content {
+            display: block;
+        }
+
+        .expandable.active .expandable-icon {
+            transform: rotate(180deg);
+        }
+
+        /* INFO BOXES */
+        .info-box {
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+
+        .info-box.concept {
+            background: #e3f2fd;
+            border-left-color: var(--pri);
+        }
+
+        .info-box.concept-title {
+            font-weight: 700;
+            color: var(--pri-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box.did-you-know {
+            background: #fff8e1;
+            border-left-color: var(--warning);
+        }
+
+        .info-box.did-you-know-title {
+            font-weight: 700;
+            color: var(--warning);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box.think {
+            background: #f3e5f5;
+            border-left-color: #7b1fa2;
+        }
+
+        .info-box.think-title {
+            font-weight: 700;
+            color: #7b1fa2;
+            margin-bottom: 0.5rem;
+        }
+
+        /* INTERACTIVE TOOLS */
+        .tool {
+            background: white;
+            border: 2px solid var(--pri-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .tool-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            color: var(--pri-dark);
+        }
+
+        input[type="range"] {
+            width: 150px;
+        }
+
+        button {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        button:hover {
+            background: var(--pri-dark);
+        }
+
+        button.secondary {
+            background: var(--gray-med);
+            color: var(--gray-dark);
+        }
+
+        button.secondary:hover {
+            background: #bdbdbd;
+        }
+
+        /* SHADOW MAKER */
+        .shadow-scene {
+            background: linear-gradient(180deg, #e3f2fd 0%, #fff 100%);
+            border: 2px solid var(--pri-light);
+            border-radius: 8px;
+            padding: 2rem;
+            height: 300px;
+            position: relative;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+
+        .light-source {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ffeb3b 0%, #fbc02d 100%);
+            border-radius: 50%;
+            top: 30px;
+            left: 50px;
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.6);
+            z-index: 10;
+            transition: left 0.1s;
+        }
+
+        .object-box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff6f00;
+            border-radius: 4px;
+            bottom: 50px;
+            left: 200px;
+            z-index: 5;
+            transition: left 0.1s;
+        }
+
+        .screen {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: white;
+            bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .shadow-display {
+            position: absolute;
+            bottom: 45px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            left: 200px;
+            z-index: 3;
+            transition: left 0.1s, width 0.1s, height 0.1s;
+        }
+
+        /* QUIZ */
+        .quiz-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 1.5rem;
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-med);
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .mcq-option {
+            margin-bottom: 0.75rem;
+        }
+
+        .mcq-option input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .mcq-option label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .open-answer {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-med);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+        }
+
+        .open-answer:focus {
+            outline: none;
+            border-color: var(--pri);
+            box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+        }
+
+        .model-answer {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-answer-title {
+            font-weight: 700;
+            color: var(--success);
+            margin-bottom: 0.5rem;
+        }
+
+        .submit-button {
+            background: var(--success);
+        }
+
+        .submit-button:hover {
+            background: #1b5e20;
+        }
+
+        /* VALUES BOX */
+        .values-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border-left: 4px solid var(--pri);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .values-title {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 0.75rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .value-item {
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--pri-dark);
+            color: white;
+            padding: 2rem var(--spacing);
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* UTILITY */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .result-message {
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .result-message.show {
+            display: block;
+        }
+
+        .result-message.correct {
+            background: #c8e6c9;
+            color: var(--success);
+        }
+
+        .result-message.incorrect {
+            background: #ffccbc;
+            color: var(--warning);
+        }
+
+        /* MATERIAL CLASSIFIER */
+        .classifier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .material-card {
+            padding: 1rem;
+            border: 2px solid var(--gray-med);
+            border-radius: 4px;
+            text-align: center;
+            cursor: move;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .material-card:hover {
+            border-color: var(--pri);
+            background: #f5f5f5;
+        }
+
+        .material-card.correct {
+            border-color: var(--success);
+            background: #e8f5e9;
+        }
+
+        .category-box {
+            background: #f9f9f9;
+            border: 2px dashed var(--gray-med);
+            border-radius: 4px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            min-height: 100px;
+        }
+
+        .category-box.filled {
+            border-color: var(--pri);
+            background: #e3f2fd;
+        }
+
+        .category-label {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 0.5rem;
+        }
+
+        /* LIGHT SOURCE CHECKER */
+        .checker-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .checker-item {
+            padding: 1rem;
+            background: white;
+            border: 2px solid var(--gray-med);
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .checker-item input[type="radio"] {
+            margin: 0.5rem 0;
+        }
+
+        .checker-item label {
+            display: block;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .checker-item.correct {
+            border-color: var(--success);
+            background: #e8f5e9;
+        }
+
+        .checker-item.incorrect {
+            border-color: var(--warning);
+            background: #fff3e0;
+        }
+
+        /* LIGHT PATH TRACER */
+        .tracer-canvas {
+            border: 2px solid var(--gray-med);
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 1rem;
+            cursor: crosshair;
+            background: white;
+        }
+
+        .tracer-legend {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO BANNER -->
+<div class="hero">
+    <div class="hero-tag">PRIMARY 4 • THEME: ENERGY</div>
+    <h1 class="hero-title">🔦 Light</h1>
+    <p class="hero-desc">Discover how light helps us see the world, travels in straight lines, and creates shadows. Explore the properties of materials and how light interacts with them.</p>
+</div>
+
+<div class="container">
+
+    <!-- LEARNING OUTCOMES -->
+    <section>
+        <h2 class="section-title">Learning Outcomes</h2>
+        <div class="grid grid-2">
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <div class="card-title">LO1: Sources of Light</div>
+                <div class="card-text">Identify natural sources (Sun, stars, fireflies) and artificial sources (light bulbs, torches, candles, LEDs)</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">➡️</div>
+                <div class="card-title">LO2: Light Path</div>
+                <div class="card-text">Show that light travels in a straight line</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌑</div>
+                <div class="card-title">LO3: Shadow Formation</div>
+                <div class="card-text">Describe how shadows form when light is blocked by an opaque object</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">📏</div>
+                <div class="card-title">LO4: Shadow Changes</div>
+                <div class="card-text">Describe how shadow size and position change when light source or object position changes</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <div class="card-title">LO5: Material Properties</div>
+                <div class="card-text">Relate material properties (transparent, translucent, opaque) to light passage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTENSIVE NOTES -->
+    <section>
+        <h2 class="section-title">Interactive Learning Notes</h2>
+
+        <!-- WHAT IS LIGHT -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>What Is Light?</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <p>Light is a form of energy that allows us to see things. Without light, the world would be completely dark and we would not be able to see anything at all.</p>
+                <p style="margin-top: 1rem;"><strong>How do we see?</strong> Light enters our eyes from objects around us. Our brain then processes this information and creates the images we see. For example, when you look at this page, light is bouncing off the text and reaching your eyes, allowing you to read these words.</p>
+                <p style="margin-top: 1rem;"><strong>Light travels very fast.</strong> In fact, light is the fastest thing we know of in the universe! Light travels at about 299,792 kilometers per second. This is so fast that light can travel around the entire Earth about 7.5 times in just one second!</p>
+                <p style="margin-top: 1rem;"><strong>Where does light come from?</strong> Light comes from sources. Some objects produce light naturally (like the Sun and stars), while others produce light because we use them (like light bulbs). When light is produced, it travels outward in all directions until it hits something.</p>
+                <div class="info-box concept">
+                    <div class="info-box concept-title">Key Concept: What is Light?</div>
+                    Light is a form of energy that allows us to see. It travels very quickly in straight lines away from its source.
+                </div>
+            </div>
+        </div>
+
+        <!-- SOURCES OF LIGHT -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>Sources of Light</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Natural Light Sources</h4>
+                <p>Natural light sources are objects that produce light naturally without any human help:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li><strong>The Sun</strong> - The most important source of light for Earth. It provides light during the day and makes life possible.</li>
+                    <li><strong>Stars</strong> - Stars are huge balls of gas that produce their own light. They shine in the night sky.</li>
+                    <li><strong>Fireflies (Lightning Bugs)</strong> - These insects produce light through a chemical reaction in their bodies. This light helps them find mates in the dark.</li>
+                    <li><strong>Deep-Sea Creatures</strong> - Some fish and jellyfish that live very deep in the ocean produce their own light. This is called bioluminescence.</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--pri);">Artificial Light Sources</h4>
+                <p style="margin-top: 0.75rem;">Artificial light sources are created by humans and need energy to produce light:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li><strong>Light Bulbs (Incandescent)</strong> - These are traditional bulbs that use electricity to heat a filament until it glows and produces light.</li>
+                    <li><strong>Fluorescent Tubes</strong> - These are long tubes that produce light by passing electricity through gas. They are more energy-efficient than incandescent bulbs.</li>
+                    <li><strong>LED Lights</strong> - Light Emitting Diodes are very modern and energy-efficient. They last a very long time and use much less electricity than traditional bulbs.</li>
+                    <li><strong>Torches and Flashlights</strong> - These use batteries to power a light source. They are portable and useful when you need light on the go.</li>
+                    <li><strong>Candles</strong> - These produce light through a flame caused by burning wax. People have used candles for thousands of years.</li>
+                    <li><strong>Screens (Phones, Tablets, Computers)</strong> - These devices produce light to display images and text. They use electricity to create light on their screens.</li>
+                </ul>
+
+                <div class="info-box did-you-know">
+                    <div class="info-box did-you-know-title">Did You Know?</div>
+                    <p>The Moon is NOT a light source! Many people think the Moon produces its own light, but it doesn't. The Moon reflects light from the Sun. This is called reflection. Without the Sun, the Moon would be completely dark.</p>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Why do we need different types of light?</strong> Different light sources are useful for different purposes. Candles are nice for special dinners, flashlights are useful when the power goes out, and LED lights are best for saving energy at home.</p>
+            </div>
+        </div>
+
+        <!-- LIGHT TRAVELS IN STRAIGHT LINE -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>Light Travels in a Straight Line</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <p>One of the most important properties of light is that it always travels in straight lines. It doesn't curve, bounce randomly, or bend unless it hits something.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Evidence That Light Travels Straight</h4>
+                <p style="margin-top: 0.75rem;"><strong>1. Shadows have sharp edges</strong> - When light hits an opaque object (something it can't pass through), it creates a shadow. The shadow has sharp, clear edges because light travels in a straight line. If light bent around the object, shadows would be blurry and fuzzy.</p>
+
+                <p style="margin-top: 0.75rem;"><strong>2. We can't see around corners</strong> - If light bent around objects, you would be able to see around walls and corners. But you can't! Light travels straight, so objects block your view.</p>
+
+                <p style="margin-top: 0.75rem;"><strong>3. Laser beams travel in straight lines</strong> - Lasers produce a beam of concentrated light. When you point a laser, you can see the straight beam traveling through the air. It doesn't curve or spread out randomly.</p>
+
+                <p style="margin-top: 0.75rem;"><strong>4. Light through a keyhole</strong> - When light passes through a small hole, it continues in a straight line on the other side. This is why you see a small beam of light coming through the keyhole, not light spreading everywhere.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">A Simple Experiment</h4>
+                <p style="margin-top: 0.75rem;">You can prove that light travels in a straight line using three pieces of cardboard with holes in them:</p>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Cut a small hole in three pieces of cardboard</li>
+                    <li>Line them up so the holes are in a straight line</li>
+                    <li>Look through the first cardboard piece toward a light source (like a lamp)</li>
+                    <li>You can see the light because it travels straight through all three holes</li>
+                    <li>Now move one piece so the hole is out of line</li>
+                    <li>The light disappears! This proves light only travels in straight lines</li>
+                </ol>
+
+                <div class="info-box think">
+                    <div class="info-box think-title">Think About It:</div>
+                    Why do you think having sharp shadows is important for animals? Shadows help animals see where other animals are and whether danger is nearby. Blurry shadows wouldn't be as useful!
+                </div>
+            </div>
+        </div>
+
+        <!-- SHADOWS -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>How Shadows Are Formed</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <p>A shadow is a dark area that forms when light is blocked by an opaque object. Understanding how shadows form is important for understanding how light behaves.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">What Makes a Shadow?</h4>
+                <p style="margin-top: 0.75rem;">To create a shadow, you need three things:</p>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li><strong>A light source</strong> - This produces light (like the Sun, a lamp, or a torch)</li>
+                    <li><strong>An opaque object</strong> - This is something light cannot pass through (like your body, a book, or a ball)</li>
+                    <li><strong>A screen or surface</strong> - This is where the shadow appears (like the ground, a wall, or a piece of paper)</li>
+                </ol>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">How Does a Shadow Form?</h4>
+                <p style="margin-top: 0.75rem;">Light travels in straight lines from the light source. When it hits an opaque object, the object blocks the light. The blocked light cannot travel any further. Behind the object, there is an area where light cannot reach. This dark area is the shadow.</p>
+
+                <p style="margin-top: 0.75rem;"><strong>The shadow is always on the opposite side from the light source.</strong> If a light shines on the left side of your head, the shadow appears on the right side. If the light comes from above, the shadow appears below. The shadow always points away from the light.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Shadow vs Object</h4>
+                <p style="margin-top: 0.75rem;">It's important to understand the difference between the object and its shadow:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>The <strong>object</strong> is the real thing (like a ball or your hand)</li>
+                    <li>The <strong>shadow</strong> is the dark area caused by the object blocking light</li>
+                    <li>The shadow is a <strong>copy</strong> of the object's shape but it's not real - you can't pick it up!</li>
+                    <li>The shadow is usually <strong>darker</strong> than the object</li>
+                    <li>The shadow may be <strong>different in size</strong> from the object (bigger or smaller)</li>
+                </ul>
+
+                <div class="info-box concept">
+                    <div class="info-box concept-title">Key Concept: Shadow Formation</div>
+                    An opaque object blocks light. The area behind the object where light cannot reach is the shadow.
+                </div>
+            </div>
+        </div>
+
+        <!-- SHADOW SIZE AND POSITION -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>How Shadow Size and Position Change</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <p>Shadows are not always the same size and shape. They change when the light source moves or when the object moves. Understanding these changes helps us understand how light works.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">When the Light Source Moves Closer</h4>
+                <p style="margin-top: 0.75rem;">When you move a light source closer to an object:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>The shadow becomes <strong>BIGGER</strong></li>
+                    <li>The shadow becomes <strong>SOFTER</strong> around the edges (less sharp)</li>
+                    <li>Why? The light rays spread out more when the source is close, creating a larger shadow</li>
+                </ul>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">When the Light Source Moves Farther Away</h4>
+                <p style="margin-top: 0.75rem;">When you move a light source farther from an object:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>The shadow becomes <strong>SMALLER</strong></li>
+                    <li>The shadow becomes <strong>SHARPER</strong> and more clearly defined</li>
+                    <li>Why? When the light source is far away, the light rays are more parallel, creating a smaller, sharper shadow</li>
+                </ul>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">When the Object Moves Closer to the Screen</h4>
+                <p style="margin-top: 0.75rem;">When you move an object closer to the surface where the shadow appears:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>The shadow becomes <strong>SMALLER</strong></li>
+                    <li>The shadow becomes <strong>SHARPER</strong></li>
+                    <li>Why? The object is closer to where the shadow falls, so the shadow has less space to spread out</li>
+                </ul>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">When the Object Moves Away from the Screen</h4>
+                <p style="margin-top: 0.75rem;">When you move an object farther from the surface where the shadow appears:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>The shadow becomes <strong>BIGGER</strong></li>
+                    <li>The shadow becomes <strong>SOFTER</strong></li>
+                </ul>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Position Changes</h4>
+                <p style="margin-top: 0.75rem;">The <strong>position of the shadow always depends on the position of the light source:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>If light comes from the left, shadow appears to the right</li>
+                    <li>If light comes from above, shadow appears below</li>
+                    <li>If light comes from behind, shadow appears in front</li>
+                    <li>When the light source moves, the shadow moves too!</li>
+                </ul>
+
+                <div class="info-box did-you-know">
+                    <div class="info-box did-you-know-title">Did You Know?</div>
+                    The length of your shadow changes throughout the day! In the morning, when the Sun is low in the sky, your shadow is very long. At noon, when the Sun is high above, your shadow is very short. This is because the position of the light source (the Sun) changes.
+                </div>
+
+                <div class="info-box think">
+                    <div class="info-box think-title">Think About It:</div>
+                    <p>During a puppet show, if the light gets closer to the puppet, what happens to the shadow on the screen? The shadow gets bigger! This is why puppet shows carefully position the light source.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSPARENT, TRANSLUCENT, OPAQUE -->
+        <div class="expandable active">
+            <div class="expandable-header">
+                <span>Transparent, Translucent, and Opaque Materials</span>
+                <span class="expandable-icon">▼</span>
+            </div>
+            <div class="expandable-content">
+                <p>Different materials allow light to pass through them in different ways. Understanding these three types of materials is important for understanding how light interacts with the world around us.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Transparent Materials</h4>
+                <p style="margin-top: 0.75rem;"><strong>Transparent materials allow light to pass through completely.</strong> You can see clearly through them. All (or almost all) of the light goes straight through without being blocked or scattered.</p>
+                <p style="margin-top: 0.75rem;"><strong>Examples of transparent materials:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Clear glass (like windows, drinking glasses, or eyeglasses)</li>
+                    <li>Clean water (in a clear glass or fish tank)</li>
+                    <li>Cling wrap (plastic wrap used in kitchens)</li>
+                    <li>Clear plastic sheets</li>
+                    <li>Diamond (very clear gemstone)</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>What you see:</strong> Objects on the other side look clear, sharp, and detailed, just as if you were looking at them directly.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Translucent Materials</h4>
+                <p style="margin-top: 0.75rem;"><strong>Translucent materials allow some light to pass through, but not all of it.</strong> You can see shapes and light through them, but you cannot see clearly. Some light is blocked and scattered as it passes through.</p>
+                <p style="margin-top: 0.75rem;"><strong>Examples of translucent materials:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Frosted glass (textured glass used in bathrooms)</li>
+                    <li>Tissue paper (thin paper used for tissues)</li>
+                    <li>Tracing paper (special paper used in art)</li>
+                    <li>Some plastics and shower curtains</li>
+                    <li>Wax paper</li>
+                    <li>A frosted light bulb</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>What you see:</strong> You can see that something is there and sense the light, but you cannot make out details or shapes clearly. The image is blurry or hazy.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Opaque Materials</h4>
+                <p style="margin-top: 0.75rem;"><strong>Opaque materials do NOT allow light to pass through at all.</strong> Light is completely blocked. No light passes through the material, so you cannot see anything on the other side.</p>
+                <p style="margin-top: 0.75rem;"><strong>Examples of opaque materials:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Wood (tables, chairs, doors)</li>
+                    <li>Metal (iron, aluminum, copper)</li>
+                    <li>Cardboard and paper</li>
+                    <li>Cloth and fabric</li>
+                    <li>Brick and concrete</li>
+                    <li>Your body (skin, bones, organs)</li>
+                    <li>A painted wall</li>
+                    <li>Plastic bags (most opaque plastic)</li>
+                </ul>
+                <p style="margin-top: 0.75rem;"><strong>What you see:</strong> You cannot see through the material at all. Opaque materials create shadows because they block light completely.</p>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">Comparing the Three Types</h4>
+                <p style="margin-top: 0.75rem;">Here's how to remember the difference:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li><strong>TRANSPARENT:</strong> All light passes through → Can see clearly through it</li>
+                    <li><strong>TRANSLUCENT:</strong> Some light passes through → Can see light but not clearly</li>
+                    <li><strong>OPAQUE:</strong> No light passes through → Cannot see through it, creates shadows</li>
+                </ul>
+
+                <h4 style="margin-top: 1rem; margin-bottom: 0.75rem; color: var(--pri);">How to Test Materials</h4>
+                <p style="margin-top: 0.75rem;">You can test any material to see if it's transparent, translucent, or opaque:</p>
+                <ol style="margin-left: 1.5rem; margin-top: 0.75rem;">
+                    <li>Hold the material up to a light source (like the Sun or a lamp)</li>
+                    <li>Look at the light through the material</li>
+                    <li>Can you see the light and objects clearly? → Transparent</li>
+                    <li>Can you see light but shapes are blurry? → Translucent</li>
+                    <li>Is everything dark and you can't see the light? → Opaque</li>
+                </ol>
+
+                <div class="info-box concept">
+                    <div class="info-box concept-title">Key Concept: Material Properties</div>
+                    Materials can be transparent (all light passes through), translucent (some light passes through), or opaque (no light passes through).
+                </div>
+
+                <div class="info-box think">
+                    <div class="info-box think-title">Think About It:</div>
+                    <p>Why do you think bathroom windows are usually frosted (translucent) instead of clear (transparent)? Because people want privacy! Frosted glass lets light in but prevents people from seeing inside clearly. This is a smart use of translucent materials.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- INTERACTIVE TOOLS -->
+    <section>
+        <h2 class="section-title">Interactive Applets</h2>
+
+        <!-- SHADOW MAKER -->
+        <div class="tool">
+            <div class="tool-title">🎯 Shadow Maker Tool</div>
+            <p style="text-align: center; color: #666; margin-bottom: 1rem;">Move the light source or object to see how shadows change!</p>
+            <div class="shadow-scene" id="shadowScene">
+                <div class="light-source" id="lightSource"></div>
+                <div class="screen"></div>
+                <div class="object-box" id="objectBox"></div>
+                <div class="shadow-display" id="shadowDisplay"></div>
+            </div>
+            <div class="tool-controls">
+                <div class="control-group">
+                    <label for="lightPos">Light Position:</label>
+                    <input type="range" id="lightPos" min="10" max="280" value="50" style="width: 150px;">
+                    <span id="lightPosValue" style="min-width: 30px;">50px</span>
+                </div>
+            </div>
+            <div class="tool-controls">
+                <div class="control-group">
+                    <label for="objectPos">Object Position:</label>
+                    <input type="range" id="objectPos" min="80" max="350" value="200" style="width: 150px;">
+                    <span id="objectPosValue" style="min-width: 30px;">200px</span>
+                </div>
+            </div>
+            <div style="background: #e3f2fd; padding: 1rem; border-radius: 4px; margin-top: 1rem;">
+                <p><strong>Observations:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>When light moves left (gets closer to object), shadow grows <strong>bigger</strong></li>
+                    <li>When light moves right (moves away from object), shadow becomes <strong>smaller</strong></li>
+                    <li>Shadow always appears on the <strong>opposite side</strong> from the light source</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MATERIAL CLASSIFIER -->
+        <div class="tool">
+            <div class="tool-title">🔍 Sort the Materials</div>
+            <p style="text-align: center; color: #666; margin-bottom: 1rem;">Classify each object as transparent, translucent, or opaque</p>
+            <div style="margin-bottom: 2rem;">
+                <p style="font-weight: 600; margin-bottom: 1rem;">Materials to classify:</p>
+                <div class="classifier-grid" id="materialsList">
+                    <div class="material-card" data-type="transparent">Clear Glass</div>
+                    <div class="material-card" data-type="translucent">Frosted Glass</div>
+                    <div class="material-card" data-type="opaque">Wooden Door</div>
+                    <div class="material-card" data-type="transparent">Clean Water</div>
+                    <div class="material-card" data-type="translucent">Tissue Paper</div>
+                    <div class="material-card" data-type="opaque">Metal Sheet</div>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem;">
+                <div class="category-box">
+                    <div class="category-label">✨ Transparent</div>
+                    <div id="transparentBox" style="min-height: 80px;"></div>
+                </div>
+                <div class="category-box">
+                    <div class="category-label">💫 Translucent</div>
+                    <div id="translucentBox" style="min-height: 80px;"></div>
+                </div>
+                <div class="category-box">
+                    <div class="category-label">⬛ Opaque</div>
+                    <div id="opaqueBox" style="min-height: 80px;"></div>
+                </div>
+            </div>
+            <button onclick="resetClassifier()" style="margin-top: 1rem; width: 100%;">Reset</button>
+        </div>
+
+        <!-- LIGHT SOURCE CHECKER -->
+        <div class="tool">
+            <div class="tool-title">💡 Light Source or Not?</div>
+            <p style="text-align: center; color: #666; margin-bottom: 1rem;">Select whether each is a light source (produces light) or not</p>
+            <div id="checkerContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem;">
+                <!-- Populated by JavaScript -->
+            </div>
+            <button onclick="checkAnswers()" style="margin-top: 1rem; width: 100%;">Check Answers</button>
+            <div id="checkerResult" class="result-message"></div>
+        </div>
+
+        <!-- LIGHT PATH TRACER -->
+        <div class="tool">
+            <div class="tool-title">➡️ Light Path Tracer</div>
+            <p style="text-align: center; color: #666; margin-bottom: 1rem;">Click to draw straight lines showing how light travels</p>
+            <canvas id="tracerCanvas" class="tracer-canvas" width="700" height="250"></canvas>
+            <div class="tracer-legend">
+                <p><strong>Instructions:</strong> Click on the light source to start, then click on an object to show the light path. Multiple lines show light can travel in different straight directions.</p>
+            </div>
+            <button onclick="resetTracer()" style="width: 100%; margin-top: 1rem;">Clear Canvas</button>
+        </div>
+
+    </section>
+
+    <!-- QUIZ SECTION -->
+    <section>
+        <div class="quiz-section">
+            <h2 class="section-title">Test Your Knowledge</h2>
+
+            <!-- SECTION A: MCQs -->
+            <div style="margin-bottom: 3rem;">
+                <div class="quiz-title" style="border-bottom: 2px solid var(--pri); padding-bottom: 1rem;">Section A: Multiple Choice Questions (5 marks)</div>
+
+                <div class="question">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">Which of the following is a natural source of light?</div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q1a" name="q1" value="a">
+                        <label for="q1a">A. Electric light bulb</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q1b" name="q1" value="b">
+                        <label for="q1b">B. The Sun</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q1c" name="q1" value="c">
+                        <label for="q1c">C. Television screen</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q1d" name="q1" value="d">
+                        <label for="q1d">D. Neon sign</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">What property of light is demonstrated when we cannot see around corners?</div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q2a" name="q2" value="a">
+                        <label for="q2a">A. Light bounces off surfaces</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q2b" name="q2" value="b">
+                        <label for="q2b">B. Light travels in straight lines</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q2c" name="q2" value="c">
+                        <label for="q2c">C. Light is very fast</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q2d" name="q2" value="d">
+                        <label for="q2d">D. Light creates shadows</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">Which material is translucent?</div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q3a" name="q3" value="a">
+                        <label for="q3a">A. Clear glass</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q3b" name="q3" value="b">
+                        <label for="q3b">B. Wooden board</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q3c" name="q3" value="c">
+                        <label for="q3c">C. Frosted glass</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q3d" name="q3" value="d">
+                        <label for="q3d">D. Metal foil</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">When an object moves closer to the screen while the light source stays in the same place, what happens to its shadow?</div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q4a" name="q4" value="a">
+                        <label for="q4a">A. The shadow becomes larger</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q4b" name="q4" value="b">
+                        <label for="q4b">B. The shadow becomes smaller</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q4c" name="q4" value="c">
+                        <label for="q4c">C. The shadow stays the same size</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q4d" name="q4" value="d">
+                        <label for="q4d">D. The shadow disappears</label>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 5</div>
+                    <div class="question-text">Why is the Moon not a source of light?</div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q5a" name="q5" value="a">
+                        <label for="q5a">A. It is too far away</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q5b" name="q5" value="b">
+                        <label for="q5b">B. It reflects light from the Sun</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q5c" name="q5" value="c">
+                        <label for="q5c">C. It is made of rock</label>
+                    </div>
+                    <div class="mcq-option">
+                        <input type="radio" id="q5d" name="q5" value="d">
+                        <label for="q5d">D. It only shines at night</label>
+                    </div>
+                </div>
+
+                <button onclick="submitMCQ()" class="submit-button">Submit Section A</button>
+                <div id="mcqResult" class="result-message"></div>
+            </div>
+
+            <!-- SECTION B: Open-ended -->
+            <div>
+                <div class="quiz-title" style="border-bottom: 2px solid var(--pri); padding-bottom: 1rem;">Section B: Open-Ended Questions (5 marks)</div>
+
+                <div class="question">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">During a puppet show, Ravi moved the puppet closer to the light source. Describe what happened to the shadow on the screen and explain why this happened.</div>
+                    <textarea class="open-answer" id="open1" placeholder="Type your answer here..."></textarea>
+                    <button onclick="toggleModelAnswer('open1model')" class="secondary" style="margin-top: 0.5rem;">Show Model Answer</button>
+                    <div id="open1model" class="model-answer">
+                        <div class="model-answer-title">Model Answer:</div>
+                        <p>The shadow became larger (or bigger) when the puppet was moved closer to the light source. This happened because when the light source is closer to the object, the light rays spread out more. This causes the shadow to be larger on the screen. The shadow also becomes less sharp or softer.</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">Mei is setting up three cardboard pieces with holes in them in a straight line. She looks through them towards a light source and can see the light. Explain why she can see the light when the holes are in a straight line.</div>
+                    <textarea class="open-answer" id="open2" placeholder="Type your answer here..."></textarea>
+                    <button onclick="toggleModelAnswer('open2model')" class="secondary" style="margin-top: 0.5rem;">Show Model Answer</button>
+                    <div id="open2model" class="model-answer">
+                        <div class="model-answer-title">Model Answer:</div>
+                        <p>Mei can see the light because light travels in straight lines. When the holes are aligned in a straight line, the light can travel straight through all three holes without being blocked. If the holes were not in a straight line, the cardboard would block the light path and she would not be able to see the light.</p>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">Explain why frosted glass (translucent) is used for bathroom windows instead of clear glass (transparent). What properties of translucent materials make it suitable for this purpose?</div>
+                    <textarea class="open-answer" id="open3" placeholder="Type your answer here..."></textarea>
+                    <button onclick="toggleModelAnswer('open3model')" class="secondary" style="margin-top: 0.5rem;">Show Model Answer</button>
+                    <div id="open3model" class="model-answer">
+                        <div class="model-answer-title">Model Answer:</div>
+                        <p>Frosted glass is used for bathroom windows because it provides privacy. Translucent materials allow light to pass through but do not allow clear vision of objects on the other side. This means people can see light coming in through the window but cannot see people inside the bathroom. Clear glass would allow people outside to see inside clearly, which is not desirable for a private space like a bathroom.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES BOX -->
+    <section>
+        <div class="values-box">
+            <div class="values-title">🌟 Why This Matters</div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <span>🔬</span>
+                    <span><strong>Scientific Curiosity:</strong> Understanding light helps us understand the world</span>
+                </div>
+                <div class="value-item">
+                    <span>💡</span>
+                    <span><strong>Problem-Solving:</strong> Knowing how light works helps us design better tools</span>
+                </div>
+                <div class="value-item">
+                    <span>🌍</span>
+                    <span><strong>Sustainability:</strong> Understanding light helps us use energy wisely</span>
+                </div>
+                <div class="value-item">
+                    <span>🧠</span>
+                    <span><strong>Critical Thinking:</strong> Testing ideas helps us learn more</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>Myko Education</strong> • Primary 4 Science • Theme: Energy</p>
+    <p>Topic 6: Light • Understanding how light travels and interacts with materials</p>
+    <p style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.8;">© 2026 Myko Education | Singapore MOE Primary 4 Science Curriculum</p>
+</footer>
+
+<script>
+    // EXPANDABLE SECTIONS
+    document.querySelectorAll('.expandable').forEach(section => {
+        section.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    });
+
+    // SHADOW MAKER
+    const lightPos = document.getElementById('lightPos');
+    const objectPos = document.getElementById('objectPos');
+    const lightSource = document.getElementById('lightSource');
+    const objectBox = document.getElementById('objectBox');
+    const shadowDisplay = document.getElementById('shadowDisplay');
+
+    function updateShadow() {
+        const lightX = parseInt(lightPos.value);
+        const objectX = parseInt(objectPos.value);
+
+        lightSource.style.left = lightX + 'px';
+        objectBox.style.left = objectX + 'px';
+
+        // Calculate shadow position and size
+        const lightToObject = objectX - lightX;
+        const shadowScale = Math.abs(lightToObject) > 0 ? 1 + (Math.abs(lightToObject) / 150) : 1;
+
+        let shadowLeft = objectX;
+        if (objectX > lightX) {
+            shadowLeft = objectX + (shadowScale - 1) * 25;
+        } else {
+            shadowLeft = objectX - (shadowScale - 1) * 25;
+        }
+
+        shadowDisplay.style.left = Math.max(0, Math.min(330, shadowLeft)) + 'px';
+        shadowDisplay.style.width = Math.min(100, 50 * shadowScale) + 'px';
+        shadowDisplay.style.height = Math.min(100, 50 * shadowScale) + 'px';
+    }
+
+    lightPos.addEventListener('input', function() {
+        document.getElementById('lightPosValue').textContent = this.value + 'px';
+        updateShadow();
+    });
+
+    objectPos.addEventListener('input', function() {
+        document.getElementById('objectPosValue').textContent = this.value + 'px';
+        updateShadow();
+    });
+
+    updateShadow();
+
+    // MATERIAL CLASSIFIER
+    let draggedElement = null;
+    document.querySelectorAll('.material-card').forEach(card => {
+        card.addEventListener('dragstart', function(e) {
+            draggedElement = this;
+            this.style.opacity = '0.5';
+        });
+        card.addEventListener('dragend', function() {
+            this.style.opacity = '1';
+        });
+    });
+
+    ['transparentBox', 'translucentBox', 'opaqueBox'].forEach(boxId => {
+        const box = document.getElementById(boxId);
+        box.addEventListener('dragover', e => e.preventDefault());
+        box.addEventListener('drop', function(e) {
+            e.preventDefault();
+            if (draggedElement) {
+                const expectedType = boxId.replace('Box', '');
+                const actualType = draggedElement.getAttribute('data-type');
+
+                draggedElement.style.opacity = '1';
+                draggedElement.parentNode.removeChild(draggedElement);
+
+                draggedElement.style.cursor = 'default';
+                if (expectedType === actualType) {
+                    draggedElement.classList.add('correct');
+                }
+                this.appendChild(draggedElement);
+            }
+        });
+    });
+
+    function resetClassifier() {
+        document.querySelectorAll('.material-card').forEach(card => {
+            card.classList.remove('correct');
+            document.getElementById('materialsList').appendChild(card);
+        });
+    }
+
+    // LIGHT SOURCE CHECKER
+    const items = [
+        { name: 'Sun', isSource: true },
+        { name: 'Moon', isSource: false },
+        { name: 'LED Bulb', isSource: true },
+        { name: 'Mirror', isSource: false },
+        { name: 'Candle', isSource: true },
+        { name: 'Red Apple', isSource: false }
+    ];
+
+    const checkerContainer = document.getElementById('checkerContainer');
+    items.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'checker-item';
+        div.innerHTML = `
+            <strong>${item.name}</strong>
+            <div style="margin-top: 0.75rem;">
+                <div style="margin-bottom: 0.5rem;">
+                    <input type="radio" id="item${index}yes" name="item${index}" value="yes">
+                    <label for="item${index}yes">Light Source</label>
+                </div>
+                <div>
+                    <input type="radio" id="item${index}no" name="item${index}" value="no">
+                    <label for="item${index}no">Not a Source</label>
+                </div>
+            </div>
+        `;
+        checkerContainer.appendChild(div);
+    });
+
+    function checkAnswers() {
+        let correct = 0;
+        const result = document.getElementById('checkerResult');
+
+        items.forEach((item, index) => {
+            const selected = document.querySelector(`input[name="item${index}"]:checked`);
+            const itemDiv = document.querySelectorAll('.checker-item')[index];
+
+            itemDiv.classList.remove('correct', 'incorrect');
+
+            if (!selected) {
+                itemDiv.classList.add('incorrect');
+                return;
+            }
+
+            const isCorrect = (selected.value === 'yes') === item.isSource;
+            if (isCorrect) {
+                correct++;
+                itemDiv.classList.add('correct');
+            } else {
+                itemDiv.classList.add('incorrect');
+            }
+        });
+
+        result.className = 'result-message show';
+        result.textContent = `You got ${correct}/${items.length} correct!`;
+        if (correct === items.length) {
+            result.classList.add('correct');
+            result.textContent += ' Perfect!';
+        } else {
+            result.classList.add('incorrect');
+        }
+    }
+
+    // LIGHT PATH TRACER
+    const canvas = document.getElementById('tracerCanvas');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+    let startX, startY;
+
+    canvas.addEventListener('mousedown', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        startX = e.clientX - rect.left;
+        startY = e.clientY - rect.top;
+        isDrawing = true;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+        if (!isDrawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const currentX = e.clientX - rect.left;
+        const currentY = e.clientY - rect.top;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        redrawLines();
+
+        ctx.strokeStyle = '#1565c0';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(currentX, currentY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+    });
+
+    canvas.addEventListener('mouseup', (e) => {
+        if (!isDrawing) return;
+        const rect = canvas.getBoundingClientRect();
+        const endX = e.clientX - rect.left;
+        const endY = e.clientY - rect.top;
+
+        drawLine(startX, startY, endX, endY);
+        isDrawing = false;
+    });
+
+    let lines = [];
+
+    function drawLine(x1, y1, x2, y2) {
+        lines.push({x1, y1, x2, y2});
+        redrawLines();
+    }
+
+    function redrawLines() {
+        ctx.strokeStyle = '#ff6f00';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([]);
+        lines.forEach(line => {
+            ctx.beginPath();
+            ctx.moveTo(line.x1, line.y1);
+            ctx.lineTo(line.x2, line.y2);
+            ctx.stroke();
+
+            const headlen = 15;
+            const angle = Math.atan2(line.y2 - line.y1, line.x2 - line.x1);
+            ctx.beginPath();
+            ctx.moveTo(line.x2, line.y2);
+            ctx.lineTo(line.x2 - headlen * Math.cos(angle - Math.PI / 6), line.y2 - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.moveTo(line.x2, line.y2);
+            ctx.lineTo(line.x2 - headlen * Math.cos(angle + Math.PI / 6), line.y2 - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.stroke();
+        });
+    }
+
+    function resetTracer() {
+        lines = [];
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // QUIZ FUNCTIONS
+    function submitMCQ() {
+        const answers = {q1: 'b', q2: 'b', q3: 'c', q4: 'b', q5: 'b'};
+        let score = 0;
+
+        for (const [q, correct] of Object.entries(answers)) {
+            const selected = document.querySelector(`input[name="${q}"]:checked`);
+            if (selected && selected.value === correct) {
+                score++;
+            }
+        }
+
+        const result = document.getElementById('mcqResult');
+        result.className = 'result-message show';
+        result.textContent = `Section A Score: ${score}/5 marks`;
+        if (score === 5) {
+            result.classList.add('correct');
+            result.textContent += ' • Excellent!';
+        } else {
+            result.classList.add('incorrect');
+        }
+    }
+
+    function toggleModelAnswer(id) {
+        document.getElementById(id).classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>

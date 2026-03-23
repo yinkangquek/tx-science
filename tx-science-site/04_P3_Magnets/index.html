@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 3 Science: Magnets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #2e7d32;
+            --pri-light: #4caf50;
+            --pri-dark: #1b5e20;
+            --accent: #ff6f00;
+            --gray-light: #f5f5f5;
+            --gray-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            background: var(--gray-light);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Learning Outcomes */
+        .outcomes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--pri);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Section Headings */
+        h2 {
+            color: var(--pri);
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--pri);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Notes Section */
+        .notes-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .subsection {
+            margin-bottom: 2rem;
+        }
+
+        .subsection p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        /* Key Boxes */
+        .key-concept {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 5px solid var(--pri-dark);
+        }
+
+        .key-concept h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .did-you-know {
+            background: #e3f2fd;
+            border-left: 5px solid #1976d2;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .did-you-know h4 {
+            color: #1565c0;
+            margin-bottom: 0.5rem;
+        }
+
+        .think-about {
+            background: #fff3e0;
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .think-about h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Material List */
+        .material-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .material-item {
+            background: var(--gray-light);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .material-item.non-magnetic {
+            border-left-color: #d32f2f;
+        }
+
+        .material-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--gray-dark);
+        }
+
+        .material-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* SVG Diagrams */
+        .diagram {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Expandable Sections */
+        .expandable {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            background: var(--pri);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            font-weight: 600;
+        }
+
+        .expandable-header:hover {
+            background: var(--pri-dark);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1rem;
+        }
+
+        .expandable.open .expandable-content {
+            max-height: 1000px;
+            padding: 1rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.open .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            margin: 2rem 0;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            border: 2px solid var(--pri);
+        }
+
+        .flashcard:hover {
+            transform: scale(1.02);
+        }
+
+        .flashcard p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .flashcard.flipped {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+        }
+
+        .flashcard-label {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        /* Interactive Applets */
+        .applet-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .applet-container h3 {
+            margin-top: 0;
+        }
+
+        /* Drag and Drop */
+        .drag-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .drop-zone {
+            background: var(--gray-light);
+            border: 2px dashed var(--pri);
+            border-radius: 8px;
+            padding: 1.5rem;
+            min-height: 300px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .drop-zone.hover {
+            background: #e8f5e9;
+            border-color: var(--pri-dark);
+        }
+
+        .drop-zone h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+        }
+
+        .draggable {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+            cursor: grab;
+            border: 2px solid var(--pri);
+            text-align: center;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .draggable:active {
+            cursor: grabbing;
+        }
+
+        .dropped {
+            background: #e8f5e9;
+            border-color: var(--pri-dark);
+        }
+
+        .objects-to-sort {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Simulator */
+        .simulator {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .magnet-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .magnet {
+            width: 80px;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            user-select: none;
+        }
+
+        .magnet.north-top {
+            background: linear-gradient(180deg, #d32f2f 0%, #d32f2f 30%, #c62828 30%, #c62828 100%);
+        }
+
+        .magnet.south-top {
+            background: linear-gradient(180deg, #1976d2 0%, #1976d2 30%, #0d47a1 30%, #0d47a1 100%);
+        }
+
+        .magnet-pole {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .result-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 6px;
+            background: white;
+        }
+
+        .attract {
+            color: #1976d2;
+            border-left: 4px solid #1976d2;
+        }
+
+        .repel {
+            color: #d32f2f;
+            border-left: 4px solid #d32f2f;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .question-block:last-child {
+            border-bottom: none;
+        }
+
+        .question-number {
+            background: var(--pri);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .mcq-option {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: var(--gray-light);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .mcq-option:hover {
+            background: #e0e0e0;
+        }
+
+        .mcq-option input[type="radio"] {
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        .mcq-option label {
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .open-response textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .open-response textarea:focus {
+            outline: none;
+            border-color: var(--pri);
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+
+        .model-answer {
+            background: #e8f5e9;
+            border: 2px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .model-answer.show {
+            display: block;
+        }
+
+        .model-answer h5 {
+            color: var(--pri);
+            margin-top: 0;
+        }
+
+        .btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            background: var(--pri-dark);
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: #e65100;
+        }
+
+        /* Values Box */
+        .values-box {
+            background: linear-gradient(135deg, var(--pri-dark) 0%, var(--pri) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .values-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--pri-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Feedback Messages */
+        .feedback {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-weight: 500;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #c8e6c9;
+            color: #1b5e20;
+            border-left: 4px solid #4caf50;
+        }
+
+        .feedback.incorrect {
+            background: #ffcdd2;
+            color: #c62828;
+            border-left: 4px solid #f44336;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .drag-area {
+                grid-template-columns: 1fr;
+            }
+
+            .magnet-display {
+                gap: 1rem;
+            }
+
+            .material-list {
+                grid-template-columns: 1fr;
+            }
+
+            .objects-to-sort {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .notes-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero Banner -->
+<div class="hero">
+    <div class="breadcrumb">Primary 3 • Theme: Interactions</div>
+    <h1>🧲 Magnets</h1>
+    <p>Explore the invisible force that pushes and pulls objects, and discover how magnets work in our everyday life.</p>
+</div>
+
+<div class="container">
+
+    <!-- Learning Outcomes -->
+    <div class="outcomes">
+        <div class="outcome-card">
+            <h3>LO1</h3>
+            <p>Show that magnets can attract some materials and not others</p>
+        </div>
+        <div class="outcome-card">
+            <h3>LO2</h3>
+            <p>Identify the poles of a magnet as regions of strongest force</p>
+        </div>
+        <div class="outcome-card">
+            <h3>LO3</h3>
+            <p>Show that like poles repel and unlike poles attract</p>
+        </div>
+        <div class="outcome-card">
+            <h3>LO4</h3>
+            <p>Describe the uses of magnets in everyday life</p>
+        </div>
+    </div>
+
+    <!-- Interactive Notes -->
+    <div class="notes-section">
+        <h2>Understanding Magnets</h2>
+
+        <!-- What Are Magnets -->
+        <div class="subsection">
+            <h3>What Are Magnets?</h3>
+            <p>A magnet is an object that produces an invisible force called a <strong>magnetic force</strong> that can push or pull certain materials. This force is generated by the movement of electrons in atoms, creating what we call a <strong>magnetic field</strong>.</p>
+
+            <div class="key-concept">
+                <h4>Key Concept</h4>
+                <p>A magnet is any object that can attract certain materials, especially iron and steel, through an invisible magnetic force.</p>
+            </div>
+
+            <p><strong>History of Magnets:</strong> Ancient civilizations discovered natural magnets called <strong>lodestones</strong> around 2000 years ago in Magnesia (modern-day Turkey), which is where the word "magnet" comes from. Today, we use both natural magnets (found in Earth) and artificial magnets (human-made).</p>
+
+            <h4>Types of Magnets</h4>
+            <p>There are several common shapes of magnets, each with different uses:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Bar Magnet:</strong> A straight rectangular magnet, easy to use in experiments</li>
+                <li><strong>Horseshoe Magnet:</strong> U-shaped, its poles are close together, making it stronger for lifting objects</li>
+                <li><strong>Ring Magnet:</strong> Circular with a hole in the middle, used in toys and devices</li>
+                <li><strong>Button Magnet:</strong> Small and disc-shaped, used in fridge magnets and electronic devices</li>
+                <li><strong>Electromagnet:</strong> Created by passing electricity through a coil of wire, can be turned on and off</li>
+            </ul>
+
+            <div class="did-you-know">
+                <h4>Did You Know?</h4>
+                <p>Earth itself is a giant magnet! The magnetic field around Earth helps compass needles point north and protects us from harmful solar radiation.</p>
+            </div>
+        </div>
+
+        <!-- Magnetic vs Non-Magnetic Materials -->
+        <div class="subsection">
+            <h3>Magnetic vs Non-Magnetic Materials</h3>
+            <p>Not all materials are attracted to magnets. Some materials respond strongly to magnets (magnetic materials), while others are not affected at all (non-magnetic materials). This difference is very important to understand in science.</p>
+
+            <div class="key-concept">
+                <h4>The Key Pattern</h4>
+                <p><strong>Magnetic materials:</strong> Iron, steel, nickel, and cobalt are STRONGLY attracted to magnets. <strong>Non-magnetic materials:</strong> Most other materials like wood, plastic, glass, rubber, copper, aluminium, and gold are NOT attracted to magnets.</p>
+            </div>
+
+            <h4>Why Aren't All Metals Magnetic?</h4>
+            <p>This is a common misconception! Many students think all metals are magnetic because iron and steel are magnetic metals. However, <strong>not all metals are magnetic</strong>. For example:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li>Copper (used in wiring) - NOT magnetic</li>
+                <li>Aluminium (used in drink cans) - NOT magnetic</li>
+                <li>Gold and silver (precious metals) - NOT magnetic</li>
+                <li>Brass and bronze (alloys) - NOT magnetic</li>
+            </ul>
+
+            <h4>Magnetic Materials Chart</h4>
+            <div class="material-list">
+                <div class="material-item">
+                    <h4>🧲 Iron</h4>
+                    <p>Strongly magnetic. Found in metals and ores. Used in many everyday items.</p>
+                </div>
+                <div class="material-item">
+                    <h4>🧲 Steel</h4>
+                    <p>An alloy of iron and carbon. Very strongly magnetic. Most common magnetic material in use.</p>
+                </div>
+                <div class="material-item">
+                    <h4>🧲 Nickel</h4>
+                    <p>A silvery metal that is magnetic. Used in coins and alloys.</p>
+                </div>
+                <div class="material-item">
+                    <h4>🧲 Cobalt</h4>
+                    <p>A hard magnetic metal. Less common than iron or nickel but very strong magnetically.</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Wood</h4>
+                    <p>Organic material made from trees. Completely non-magnetic.</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Plastic</h4>
+                    <p>Synthetic polymer material. Used in many products. Not magnetic.</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Glass</h4>
+                    <p>Made from sand and minerals. Transparent but not magnetic.</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Rubber</h4>
+                    <p>Natural or synthetic elastic material. Not affected by magnets.</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Copper</h4>
+                    <p>A reddish metal used in wiring and pipes. NOT magnetic despite being a metal!</p>
+                </div>
+                <div class="material-item non-magnetic">
+                    <h4>❌ Aluminium</h4>
+                    <p>A light silver metal used in cans and foil. NOT magnetic despite being a metal!</p>
+                </div>
+            </div>
+
+            <div class="think-about">
+                <h4>Think About It</h4>
+                <p>If you have a coin, test it with a magnet. Most coins are non-magnetic because they're made from copper, nickel alloys, or other non-magnetic metals. However, some older coins might contain more iron!</p>
+            </div>
+        </div>
+
+        <!-- Poles of a Magnet -->
+        <div class="subsection">
+            <h3>Poles of a Magnet</h3>
+            <p>Every magnet has two special points called <strong>poles</strong> where the magnetic force is strongest. These are called the <strong>North Pole (N)</strong> and the <strong>South Pole (S)</strong>.</p>
+
+            <div class="key-concept">
+                <h4>Key Concept</h4>
+                <p>The poles are the regions of a magnet where the magnetic force is strongest. Every magnet, no matter its shape, has exactly TWO poles - a North and a South.</p>
+            </div>
+
+            <h4>Properties of Poles</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Strongest Force at Poles:</strong> If you try to pick up iron filings (tiny pieces of iron), you'll pick up many more at the poles than at the middle of the magnet</li>
+                <li><strong>Both Magnets Have Both Poles:</strong> You cannot separate the North and South poles. If you cut a magnet in half, each piece becomes a complete magnet with its own North and South poles!</li>
+                <li><strong>Invisible Field:</strong> The magnetic force extends around the magnet as an invisible field, but it's strongest at the poles</li>
+            </ul>
+
+            <h4>How to Find the Poles</h4>
+            <p>If a magnet's poles are not labeled, you can find them by:</p>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Compass Method:</strong> Place a compass near each end of the magnet. The needle's North-seeking end will point towards the magnet's South pole and away from its North pole</li>
+                <li><strong>Hanging Method:</strong> Suspend the magnet so it can swing freely. The end that points north is the North pole</li>
+                <li><strong>Repulsion Method:</strong> Use a known magnet and test which end repels (pushes away) from your unlabeled magnet</li>
+            </ol>
+
+            <div class="diagram">
+                <svg width="300" height="120" viewBox="0 0 300 120">
+                    <!-- Bar Magnet -->
+                    <rect x="50" y="30" width="200" height="60" fill="none" stroke="#333" stroke-width="2" rx="5"/>
+                    <!-- North Pole -->
+                    <rect x="50" y="30" width="100" height="60" fill="#d32f2f" opacity="0.3" rx="5"/>
+                    <text x="100" y="65" text-anchor="middle" font-size="24" font-weight="bold" fill="#d32f2f">N</text>
+                    <!-- South Pole -->
+                    <rect x="150" y="30" width="100" height="60" fill="#1976d2" opacity="0.3" rx="5"/>
+                    <text x="200" y="65" text-anchor="middle" font-size="24" font-weight="bold" fill="#1976d2">S</text>
+                    <!-- Labels -->
+                    <text x="100" y="105" text-anchor="middle" font-size="12" fill="#666">North Pole</text>
+                    <text x="200" y="105" text-anchor="middle" font-size="12" fill="#666">South Pole</text>
+                </svg>
+            </div>
+
+            <div class="expandable">
+                <div class="expandable-header">
+                    What Happens When You Break a Magnet?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="expandable-content">
+                    <p>If you break a bar magnet in half, you might think you'd get a separate North pole and South pole. But that's not what happens! Instead, each piece becomes a complete magnet with its own North and South poles. This is one of the most interesting properties of magnets - you cannot isolate a single pole.</p>
+                    <p>Scientists believe this is because magnetism comes from the alignment of atoms in the material. When you break it, the atoms in both pieces rearrange to form complete magnets again.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attraction and Repulsion -->
+        <div class="subsection">
+            <h3>Attraction and Repulsion: The Force Between Poles</h3>
+            <p>When two magnets come near each other, their poles interact in predictable ways. This interaction is one of the most important concepts in magnetism.</p>
+
+            <div class="key-concept">
+                <h4>The Law of Magnetic Poles</h4>
+                <p><strong>Unlike poles (N and S) ATTRACT each other.</strong> <strong>Like poles (N-N or S-S) REPEL each other.</strong> This is different from gravity, which only attracts!</p>
+            </div>
+
+            <h4>Understanding Attraction and Repulsion</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Attract:</strong> The magnets pull toward each other with force. North pole of one magnet pulls toward South pole of another</li>
+                <li><strong>Repel:</strong> The magnets push away from each other with force. North poles push away from each other, and South poles push away from each other</li>
+                <li><strong>Force Increases Closer:</strong> The magnetic force gets stronger as magnets get closer to each other</li>
+            </ul>
+
+            <div class="diagram">
+                <svg width="100%" height="300" viewBox="0 0 400 300">
+                    <!-- Attraction Example -->
+                    <text x="100" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">Attraction (Unlike Poles)</text>
+                    <circle cx="70" cy="80" r="25" fill="#d32f2f" opacity="0.4" stroke="#d32f2f" stroke-width="2"/>
+                    <text x="70" y="85" text-anchor="middle" font-size="18" font-weight="bold" fill="#d32f2f">N</text>
+                    <circle cx="130" cy="80" r="25" fill="#1976d2" opacity="0.4" stroke="#1976d2" stroke-width="2"/>
+                    <text x="130" y="85" text-anchor="middle" font-size="18" font-weight="bold" fill="#1976d2">S</text>
+                    <path d="M 95 80 L 105 80" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowgreen)"/>
+                    <path d="M 105 80 L 95 80" stroke="#4caf50" stroke-width="3" marker-end="url(#arrowgreen2)"/>
+                    <text x="100" y="130" text-anchor="middle" font-size="14" fill="#4caf50" font-weight="bold">They pull together</text>
+
+                    <!-- Repulsion Example -->
+                    <text x="300" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="#333">Repulsion (Like Poles)</text>
+                    <circle cx="270" cy="80" r="25" fill="#d32f2f" opacity="0.4" stroke="#d32f2f" stroke-width="2"/>
+                    <text x="270" y="85" text-anchor="middle" font-size="18" font-weight="bold" fill="#d32f2f">N</text>
+                    <circle cx="330" cy="80" r="25" fill="#d32f2f" opacity="0.4" stroke="#d32f2f" stroke-width="2"/>
+                    <text x="330" y="85" text-anchor="middle" font-size="18" font-weight="bold" fill="#d32f2f">N</text>
+                    <path d="M 295 80 L 275 80" stroke="#d32f2f" stroke-width="3" marker-end="url(#arrowred)"/>
+                    <path d="M 305 80 L 325 80" stroke="#d32f2f" stroke-width="3" marker-end="url(#arrowred2)"/>
+                    <text x="300" y="130" text-anchor="middle" font-size="14" fill="#d32f2f" font-weight="bold">They push apart</text>
+
+                    <defs>
+                        <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#4caf50"/>
+                        </marker>
+                        <marker id="arrowgreen2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#4caf50" transform="rotate(180 4.5 3)"/>
+                        </marker>
+                        <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#d32f2f"/>
+                        </marker>
+                        <marker id="arrowred2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#d32f2f" transform="rotate(180 4.5 3)"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="did-you-know">
+                <h4>Did You Know?</h4>
+                <p>This attraction and repulsion happens even when the magnets are NOT touching! The magnetic field extends invisibly around the magnet, allowing forces to act at a distance.</p>
+            </div>
+        </div>
+
+        <!-- Magnets in Everyday Life -->
+        <div class="subsection">
+            <h3>Magnets in Everyday Life</h3>
+            <p>Magnets are not just interesting science experiments - they're all around us in everyday objects! Understanding where magnets are used helps us appreciate how science is part of our daily lives.</p>
+
+            <h4>Common Uses of Magnets</h4>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Fridge Magnets:</strong> Small magnets on the back hold pictures, shopping lists, and notes on the refrigerator door. The steel door is magnetic!</li>
+                <li><strong>Door Catches:</strong> Magnetic catches keep cabinet doors and wardrobe doors closed without loud slamming sounds</li>
+                <li><strong>Compass:</strong> A compass is a small magnet that aligns with Earth's magnetic field to always point North, helping people find direction</li>
+                <li><strong>Maglev Trains:</strong> In some countries, magnets are used to lift trains above the track, reducing friction and allowing them to travel at extremely high speeds (500+ km/h)</li>
+                <li><strong>Speakers and Headphones:</strong> Electromagnets in speakers and headphones vibrate to create sound waves we hear as music and voices</li>
+                <li><strong>Dishwashers and Washing Machines:</strong> Magnets help control water valves and pump operations</li>
+                <li><strong>Credit Cards and Debit Cards:</strong> The magnetic stripe on the back of cards stores banking information</li>
+                <li><strong>Hard Drives:</strong> Computer hard drives use electromagnets to read and write data on spinning magnetic discs</li>
+                <li><strong>Microwave Ovens:</strong> A magnet creates the energy needed to heat food</li>
+                <li><strong>Toys:</strong> Many toys use magnets for special effects or to make pieces stick together</li>
+            </ul>
+
+            <div class="think-about">
+                <h4>Think About It</h4>
+                <p>Look around your home and classroom. How many magnetic devices can you find? Make a list! You might be surprised by how many everyday items depend on magnets to work.</p>
+            </div>
+        </div>
+
+        <!-- Testing for Magnets -->
+        <div class="subsection">
+            <h3>How to Test If Something Is a Magnet</h3>
+            <p>Sometimes it's important to know whether an object is actually a magnet or just made of magnetic material. Here's how to tell the difference:</p>
+
+            <h4>Simple Tests</h4>
+            <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>The Magnetic Material Test:</strong> Try to pick up small iron pieces (like paper clips) with the object. If it attracts them, it could be a magnet or just made of iron</li>
+                <li><strong>The Repulsion Test:</strong> Use a known magnet to test if the unknown object repels. If it pushes away, it's definitely a magnet! (Magnetic materials only attract, they don't repel)</li>
+                <li><strong>The Compass Test:</strong> Place a compass near the object. If the needle moves, the object creates a magnetic field, meaning it's a magnet</li>
+                <li><strong>The Orientation Test:</strong> Magnets have poles with different properties. If you can identify distinct North and South poles, it's a magnet</li>
+            </ol>
+
+            <div class="key-concept">
+                <h4>Key Distinction</h4>
+                <p><strong>Magnetic materials</strong> (like iron and steel) can be attracted to magnets but cannot repel. <strong>Magnets</strong> can both attract and repel other magnets because they have poles.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Interactive Applets Section -->
+    <h2>Interactive Activities</h2>
+
+    <!-- Applet 1: Magnetic or Not? -->
+    <div class="applet-container">
+        <h3>Activity 1: Magnetic or Not? 🧲</h3>
+        <p>Drag each object into the correct bin. Is it magnetic or non-magnetic?</p>
+
+        <div class="objects-to-sort">
+            <div class="draggable" draggable="true" data-answer="magnetic">Iron nail</div>
+            <div class="draggable" draggable="true" data-answer="magnetic">Steel paperclip</div>
+            <div class="draggable" draggable="true" data-answer="non-magnetic">Rubber band</div>
+            <div class="draggable" draggable="true" data-answer="magnetic">Nickel coin</div>
+            <div class="draggable" draggable="true" data-answer="non-magnetic">Plastic toy</div>
+            <div class="draggable" draggable="true" data-answer="non-magnetic">Glass marble</div>
+            <div class="draggable" draggable="true" data-answer="magnetic">Steel button</div>
+            <div class="draggable" draggable="true" data-answer="non-magnetic">Copper wire</div>
+        </div>
+
+        <div class="drag-area">
+            <div class="drop-zone" id="magnetic-bin">
+                <h4>🧲 Magnetic</h4>
+                <p>Drop magnetic materials here</p>
+                <div id="magnetic-items"></div>
+            </div>
+            <div class="drop-zone" id="non-magnetic-bin">
+                <h4>❌ Non-Magnetic</h4>
+                <p>Drop non-magnetic materials here</p>
+                <div id="non-magnetic-items"></div>
+            </div>
+        </div>
+
+        <div id="sort-feedback" class="feedback"></div>
+    </div>
+
+    <!-- Applet 2: Pole Interaction Simulator -->
+    <div class="applet-container">
+        <h3>Activity 2: Magnetic Pole Simulator ⚡</h3>
+        <p>Click to change pole orientations and see if the magnets attract or repel!</p>
+
+        <div class="simulator">
+            <div class="magnet-display">
+                <div class="magnet north-top" id="magnet1" onclick="toggleMagnet1()">
+                    <span class="magnet-pole">N</span>
+                    <span class="magnet-pole">S</span>
+                </div>
+                <div style="font-size: 1.5rem; color: #666;">→</div>
+                <div class="magnet south-top" id="magnet2" onclick="toggleMagnet2()">
+                    <span class="magnet-pole">N</span>
+                    <span class="magnet-pole">S</span>
+                </div>
+            </div>
+
+            <div id="pole-result" class="result-text" style="display: none;"></div>
+
+            <p style="color: #666; font-size: 0.9rem; margin-top: 1rem;">Click on each magnet to flip it</p>
+        </div>
+    </div>
+
+    <!-- Applet 3: Magnet Strength Test -->
+    <div class="applet-container">
+        <h3>Activity 3: Where Is a Magnet Strongest? 📍</h3>
+        <p>Click different positions on the magnet to see how many paperclips it can pick up.</p>
+
+        <div class="simulator">
+            <svg width="100%" height="250" viewBox="0 0 400 250" style="max-width: 400px; margin: 0 auto;">
+                <!-- Magnet -->
+                <rect x="100" y="80" width="200" height="60" fill="#d32f2f" opacity="0.3" rx="5" stroke="#d32f2f" stroke-width="2"/>
+                <rect x="100" y="80" width="100" height="60" fill="#d32f2f" opacity="0.5" rx="5"/>
+                <text x="150" y="115" text-anchor="middle" font-size="24" font-weight="bold" fill="#c62828">N</text>
+                <text x="250" y="115" text-anchor="middle" font-size="24" font-weight="bold" fill="#1565c0">S</text>
+
+                <!-- Clickable areas with circles -->
+                <circle cx="130" cy="140" r="20" fill="white" opacity="0" stroke="#666" stroke-width="2" stroke-dasharray="5,5" onclick="testStrength(130, 'North Pole', 8)" cursor="pointer"/>
+                <circle cx="200" cy="140" r="20" fill="white" opacity="0" stroke="#666" stroke-width="2" stroke-dasharray="5,5" onclick="testStrength(200, 'Middle', 2)" cursor="pointer"/>
+                <circle cx="270" cy="140" r="20" fill="white" opacity="0" stroke="#666" stroke-width="2" stroke-dasharray="5,5" onclick="testStrength(270, 'South Pole', 8)" cursor="pointer"/>
+
+                <!-- Labels -->
+                <text x="130" y="185" text-anchor="middle" font-size="12" fill="#666">North Pole</text>
+                <text x="200" y="185" text-anchor="middle" font-size="12" fill="#666">Middle</text>
+                <text x="270" y="185" text-anchor="middle" font-size="12" fill="#666">South Pole</text>
+
+                <text x="200" y="230" text-anchor="middle" font-size="13" fill="#333" font-weight="600">Click a position to test magnet strength</text>
+            </svg>
+
+            <div id="strength-result" class="result-text" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Applet 4: Everyday Magnets Match -->
+    <div class="applet-container">
+        <h3>Activity 4: Match Magnets to Their Uses 🏠</h3>
+        <p>Match each magnet use to the correct everyday object.</p>
+
+        <div class="simulator">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.5rem 0;">
+                <div>
+                    <h4 style="text-align: center; margin-bottom: 1rem;">Uses</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="draggable" draggable="true" data-match="fridge">Holding notes</div>
+                        <div class="draggable" draggable="true" data-match="compass">Finding North</div>
+                        <div class="draggable" draggable="true" data-match="speaker">Creating sound</div>
+                        <div class="draggable" draggable="true" data-match="train">Fast transport</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="text-align: center; margin-bottom: 1rem;">Objects</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="drop-zone" style="flex: 1; display: flex; align-items: center; justify-content: center;" id="fridge-zone">Fridge</div>
+                        <div class="drop-zone" style="flex: 1; display: flex; align-items: center; justify-content: center;" id="compass-zone">Compass</div>
+                        <div class="drop-zone" style="flex: 1; display: flex; align-items: center; justify-content: center;" id="speaker-zone">Speaker</div>
+                        <div class="drop-zone" style="flex: 1; display: flex; align-items: center; justify-content: center;" id="train-zone">Maglev Train</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <h2>Practice Questions</h2>
+
+    <div class="quiz-section">
+        <h3>Section A: Multiple Choice Questions</h3>
+        <p>Choose the best answer for each question.</p>
+
+        <!-- Q1 -->
+        <div class="question-block">
+            <span class="question-number">1</span>
+            <div class="question-text">Which material is NOT attracted to a magnet?</div>
+            <div class="mcq-option">
+                <input type="radio" name="q1" value="a" id="q1a">
+                <label for="q1a">A) Iron</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q1" value="b" id="q1b">
+                <label for="q1b">B) Steel</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q1" value="c" id="q1c">
+                <label for="q1c">C) Aluminium</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q1" value="d" id="q1d">
+                <label for="q1d">D) Cobalt</label>
+            </div>
+            <button class="btn" onclick="checkMCQ('q1', 'c', 'Correct! Aluminium is a metal but NOT magnetic. Iron, steel, and cobalt are all magnetic materials.')">Check Answer</button>
+            <div id="q1-feedback" class="feedback"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-block">
+            <span class="question-number">2</span>
+            <div class="question-text">Where is the magnetic force of a magnet strongest?</div>
+            <div class="mcq-option">
+                <input type="radio" name="q2" value="a" id="q2a">
+                <label for="q2a">A) At the poles</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q2" value="b" id="q2b">
+                <label for="q2b">B) In the middle</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q2" value="c" id="q2c">
+                <label for="q2c">C) Equally everywhere</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q2" value="d" id="q2d">
+                <label for="q2d">D) Only at the North pole</label>
+            </div>
+            <button class="btn" onclick="checkMCQ('q2', 'a', 'Correct! The magnetic force is strongest at both the North and South poles.')">Check Answer</button>
+            <div id="q2-feedback" class="feedback"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-block">
+            <span class="question-number">3</span>
+            <div class="question-text">What happens when two South poles of different magnets are placed close to each other?</div>
+            <div class="mcq-option">
+                <input type="radio" name="q3" value="a" id="q3a">
+                <label for="q3a">A) They attract</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q3" value="b" id="q3b">
+                <label for="q3b">B) They repel</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q3" value="c" id="q3c">
+                <label for="q3c">C) Nothing happens</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q3" value="d" id="q3d">
+                <label for="q3d">D) They stick together permanently</label>
+            </div>
+            <button class="btn" onclick="checkMCQ('q3', 'b', 'Correct! Like poles repel. Two South poles push each other away.')">Check Answer</button>
+            <div id="q3-feedback" class="feedback"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-block">
+            <span class="question-number">4</span>
+            <div class="question-text">Which of the following is NOT a use of magnets in everyday life?</div>
+            <div class="mcq-option">
+                <input type="radio" name="q4" value="a" id="q4a">
+                <label for="q4a">A) Holding pictures on a fridge</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q4" value="b" id="q4b">
+                <label for="q4b">B) Creating the wind</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q4" value="c" id="q4c">
+                <label for="q4c">C) Helping a compass point North</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q4" value="d" id="q4d">
+                <label for="q4d">D) Making sounds in speakers</label>
+            </div>
+            <button class="btn" onclick="checkMCQ('q4', 'b', 'Correct! Magnets do not create wind. Wind is created by differences in air pressure caused by the sun heating our atmosphere.')">Check Answer</button>
+            <div id="q4-feedback" class="feedback"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-block">
+            <span class="question-number">5</span>
+            <div class="question-text">If you break a bar magnet into two pieces, what will each piece have?</div>
+            <div class="mcq-option">
+                <input type="radio" name="q5" value="a" id="q5a">
+                <label for="q5a">A) Only a North pole</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q5" value="b" id="q5b">
+                <label for="q5b">B) Only a South pole</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q5" value="c" id="q5c">
+                <label for="q5c">C) Both a North and South pole</label>
+            </div>
+            <div class="mcq-option">
+                <input type="radio" name="q5" value="d" id="q5d">
+                <label for="q5d">D) No poles at all</label>
+            </div>
+            <button class="btn" onclick="checkMCQ('q5', 'c', 'Correct! Each broken piece becomes a complete magnet with its own North and South poles.')">Check Answer</button>
+            <div id="q5-feedback" class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- Open-Ended Questions -->
+    <div class="quiz-section">
+        <h3>Section B: Application and Thinking Questions</h3>
+        <p>Answer these questions in your own words. Click "Show Model Answer" to compare your response.</p>
+
+        <!-- OQ1 -->
+        <div class="question-block">
+            <span class="question-number">1</span>
+            <div class="question-text">Ali has a bar magnet but the poles are not labeled. Describe TWO methods Ali can use to find out which end is the North pole. (4 marks)</div>
+            <div class="open-response">
+                <textarea id="oq1" placeholder="Write your answer here..."></textarea>
+            </div>
+            <button class="btn btn-secondary" onclick="toggleModelAnswer('oq1-model')">Show Model Answer</button>
+            <div id="oq1-model" class="model-answer">
+                <h5>Model Answer</h5>
+                <p><strong>Method 1: Using a Compass</strong><br>
+                Place a compass near each end of the unlabeled magnet. The North-seeking end of the compass needle will point away from the magnet's North pole and toward its South pole. By observing which end the compass needle points toward, Ali can identify the South pole, and therefore the opposite end is the North pole.</p>
+                <p><strong>Method 2: Using a Known Magnet</strong><br>
+                Use a magnet that has labeled poles. Slowly bring the known North pole near one end of Ali's unlabeled magnet. If they repel (push away), then Ali's magnet's end is also a North pole. If they attract (pull together), then Ali's magnet's end is a South pole.</p>
+                <p><strong>Alternative Method: Hanging Test</strong><br>
+                Suspend the magnet so it can swing freely (hang it from a string). The end that points toward North is the North pole.</p>
+            </div>
+        </div>
+
+        <!-- OQ2 -->
+        <div class="question-block">
+            <span class="question-number">2</span>
+            <div class="question-text">Explain why copper and aluminium are metals but are NOT attracted to magnets, while iron and steel are also metals but ARE attracted to magnets. (3 marks)</div>
+            <div class="open-response">
+                <textarea id="oq2" placeholder="Write your answer here..."></textarea>
+            </div>
+            <button class="btn btn-secondary" onclick="toggleModelAnswer('oq2-model')">Show Model Answer</button>
+            <div id="oq2-model" class="model-answer">
+                <h5>Model Answer</h5>
+                <p>Not all metals have the same atomic structure. Copper and aluminium are metals, but their electrons are not arranged in a way that can respond to a magnetic field. They cannot be magnetized easily, so they are non-magnetic.</p>
+                <p>Iron and steel, on the other hand, have electrons that can be aligned by a magnetic field. The unpaired electrons in iron atoms can spin in the same direction, creating a strong response to magnets. Steel, which contains iron, also has this property. Therefore, even though all four materials are metals, only iron and steel are magnetic materials.</p>
+            </div>
+        </div>
+
+        <!-- OQ3 -->
+        <div class="question-block">
+            <span class="question-number">3</span>
+            <div class="question-text">A toy company wants to design a toy where small metal balls stick together using magnets. Explain how they should arrange the poles of the magnets in the balls so that any ball can stick to any other ball. (3 marks)</div>
+            <div class="open-response">
+                <textarea id="oq3" placeholder="Write your answer here..."></textarea>
+            </div>
+            <button class="btn btn-secondary" onclick="toggleModelAnswer('oq3-model')">Show Model Answer</button>
+            <div id="oq3-model" class="model-answer">
+                <h5>Model Answer</h5>
+                <p>For any ball to stick to any other ball, the toy company should arrange the poles so that unlike poles face outward on each ball. </p>
+                <p>For example, if Ball A has its North pole on the left and South pole on the right, and Ball B has its South pole on the left and North pole on the right, then when they come together, unlike poles will meet (North to South), and they will attract and stick.</p>
+                <p>Alternatively, they could arrange the poles alternately so that one ball has North facing outward and the next has South facing outward, ensuring that any two adjacent balls have unlike poles facing each other, causing attraction.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Box -->
+    <div class="values-box">
+        <h3>Curiosity & Discovery</h3>
+        <p>Science is about asking questions and finding answers. Magnets have fascinated humans for thousands of years, and scientists still discover new ways to use them. Your curiosity about how things work is the beginning of great scientific discoveries!</p>
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+    <p><strong>Primary 3 Science: Magnets</strong></p>
+    <p>Singapore MOE Primary Science Curriculum</p>
+    <p>Last Updated: March 2026 | Learning Resource</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem;">© 2026 Science Education Resources. All rights reserved.</p>
+</footer>
+
+<script>
+    // Expandable Sections
+    document.querySelectorAll('.expandable-header').forEach(header => {
+        header.addEventListener('click', function() {
+            const expandable = this.closest('.expandable');
+            expandable.classList.toggle('open');
+        });
+    });
+
+    // Flashcards
+    document.querySelectorAll('.flashcard').forEach(card => {
+        card.addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+    });
+
+    // Drag and Drop - Magnetic or Not Activity
+    let draggedElement = null;
+
+    document.querySelectorAll('.draggable').forEach(draggable => {
+        draggable.addEventListener('dragstart', function(e) {
+            draggedElement = this;
+            e.dataTransfer.effectAllowed = 'move';
+        });
+
+        draggable.addEventListener('dragend', function() {
+            draggedElement = null;
+        });
+    });
+
+    document.getElementById('magnetic-bin').addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('hover');
+    });
+
+    document.getElementById('magnetic-bin').addEventListener('dragleave', function() {
+        this.classList.remove('hover');
+    });
+
+    document.getElementById('magnetic-bin').addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('hover');
+        if (draggedElement && draggedElement.dataset.answer === 'magnetic') {
+            draggedElement.classList.add('dropped');
+            document.getElementById('magnetic-items').appendChild(draggedElement);
+            draggedElement.draggable = false;
+            checkSort();
+        }
+    });
+
+    document.getElementById('non-magnetic-bin').addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('hover');
+    });
+
+    document.getElementById('non-magnetic-bin').addEventListener('dragleave', function() {
+        this.classList.remove('hover');
+    });
+
+    document.getElementById('non-magnetic-bin').addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('hover');
+        if (draggedElement && draggedElement.dataset.answer === 'non-magnetic') {
+            draggedElement.classList.add('dropped');
+            document.getElementById('non-magnetic-items').appendChild(draggedElement);
+            draggedElement.draggable = false;
+            checkSort();
+        }
+    });
+
+    function checkSort() {
+        const magneticBin = document.getElementById('magnetic-items');
+        const nonMagneticBin = document.getElementById('non-magnetic-items');
+        const allDropped = magneticBin.children.length + nonMagneticBin.children.length === 8;
+
+        if (allDropped) {
+            const feedback = document.getElementById('sort-feedback');
+            feedback.classList.add('show', 'correct');
+            feedback.textContent = 'Perfect! You\'ve correctly identified magnetic and non-magnetic materials!';
+        }
+    }
+
+    // Magnetic Poles Simulator
+    let magnet1Flipped = false;
+    let magnet2Flipped = true;
+
+    function toggleMagnet1() {
+        magnet1Flipped = !magnet1Flipped;
+        const magnet = document.getElementById('magnet1');
+        if (magnet1Flipped) {
+            magnet.classList.remove('north-top');
+            magnet.classList.add('south-top');
+        } else {
+            magnet.classList.remove('south-top');
+            magnet.classList.add('north-top');
+        }
+        updatePoleResult();
+    }
+
+    function toggleMagnet2() {
+        magnet2Flipped = !magnet2Flipped;
+        const magnet = document.getElementById('magnet2');
+        if (magnet2Flipped) {
+            magnet.classList.remove('south-top');
+            magnet.classList.add('north-top');
+        } else {
+            magnet.classList.remove('north-top');
+            magnet.classList.add('south-top');
+        }
+        updatePoleResult();
+    }
+
+    function updatePoleResult() {
+        const result = document.getElementById('pole-result');
+        let magnet1Pole = magnet1Flipped ? 'S' : 'N';
+        let magnet2Pole = magnet2Flipped ? 'N' : 'S';
+
+        result.style.display = 'block';
+
+        if ((magnet1Pole === 'N' && magnet2Pole === 'S') || (magnet1Pole === 'S' && magnet2Pole === 'N')) {
+            result.className = 'result-text attract';
+            result.textContent = `Unlike poles (${magnet1Pole}-${magnet2Pole}) ATTRACT! They pull together.`;
+        } else {
+            result.className = 'result-text repel';
+            result.textContent = `Like poles (${magnet1Pole}-${magnet2Pole}) REPEL! They push apart.`;
+        }
+    }
+
+    // Magnet Strength Test
+    function testStrength(x, position, clips) {
+        const result = document.getElementById('strength-result');
+        result.style.display = 'block';
+        result.className = 'result-text';
+        result.textContent = `${position}: Can pick up ${clips} paperclips. ${position.includes('Pole') ? 'The poles are strongest!' : 'The middle is weaker than the poles.'}`;
+    }
+
+    // MCQ Checking
+    function checkMCQ(qName, correct, message) {
+        const selected = document.querySelector(`input[name="${qName}"]:checked`);
+        const feedback = document.getElementById(`${qName}-feedback`);
+
+        if (!selected) {
+            feedback.className = 'feedback show incorrect';
+            feedback.textContent = 'Please select an answer first.';
+            return;
+        }
+
+        if (selected.value === correct) {
+            feedback.className = 'feedback show correct';
+            feedback.textContent = 'Correct! ' + message;
+        } else {
+            feedback.className = 'feedback show incorrect';
+            feedback.textContent = 'Incorrect. ' + message;
+        }
+    }
+
+    // Toggle Model Answers
+    function toggleModelAnswer(id) {
+        const element = document.getElementById(id);
+        element.classList.toggle('show');
+    }
+</script>
+
+</body>
+</html>

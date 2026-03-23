@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 5 Science - Reproduction in Plants and Humans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #e65100;
+            --pri-light: #ff7043;
+            --pri-dark: #bf360c;
+            --accent: #ffd54f;
+            --bg: #fafafa;
+            --text: #212121;
+            --text-light: #666;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--pri);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .outcome-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        h2 {
+            color: var(--pri);
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        h3 {
+            color: var(--pri-dark);
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .notes-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .notes-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .info-box {
+            background: #fff3e0;
+            border-left: 5px solid var(--pri);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: var(--pri);
+        }
+
+        .key-concept {
+            background: #e3f2fd;
+            border-left: 5px solid #1976d2;
+        }
+
+        .did-you-know {
+            background: #f3e5f5;
+            border-left: 5px solid #7b1fa2;
+        }
+
+        .think-about {
+            background: #e8f5e9;
+            border-left: 5px solid #388e3c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+        }
+
+        th {
+            background: var(--pri);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .flower-diagram {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .applet-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .applet-title {
+            color: var(--pri);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .matching-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .match-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .match-item:hover {
+            background: #efefef;
+            border-color: var(--pri);
+        }
+
+        .match-item.matched {
+            background: #c8e6c9;
+            border-color: #388e3c;
+        }
+
+        .sorter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .sorter-category {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px dashed var(--border);
+            min-height: 150px;
+        }
+
+        .sorter-category h4 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .seed-item {
+            background: white;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            cursor: grab;
+            border: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .seed-item:active {
+            cursor: grabbing;
+        }
+
+        .sequencer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .sequence-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .sequence-item:hover {
+            border-color: var(--pri);
+            transform: translateY(-2px);
+        }
+
+        .sequence-item.selected {
+            background: var(--pri);
+            color: white;
+            border-color: var(--pri);
+        }
+
+        .questions-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--pri);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .question-block {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 5px solid var(--pri);
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .mcq-option {
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mcq-option:hover {
+            background: #f0f0f0;
+            border-color: var(--pri);
+        }
+
+        .mcq-option input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        .answer-reveal {
+            background: #c8e6c9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border-left: 5px solid #388e3c;
+            display: none;
+        }
+
+        .answer-reveal.show {
+            display: block;
+        }
+
+        .answer-label {
+            font-weight: 600;
+            color: #388e3c;
+        }
+
+        .values-box {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .value-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        footer {
+            background: #424242;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background: var(--pri);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        button:hover {
+            background: var(--pri-dark);
+        }
+
+        ul, ol {
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .matching-container {
+                grid-template-columns: 1fr;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        a {
+            color: var(--pri);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button:focus {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-badge">Primary 5 • Theme: Cycles</div>
+        <h1>Reproduction in Plants and Humans</h1>
+        <p class="subtitle">Understanding Life's Continuous Cycle</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Learning Outcomes</h2>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <h3>LO1</h3>
+                    <p>Describe the parts of a flower and their functions (sepals, petals, stamen, pistil)</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO2</h3>
+                    <p>Describe pollination and agents of pollination (wind, insects, birds)</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO3</h3>
+                    <p>Describe fertilisation, seed and fruit formation</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO4</h3>
+                    <p>Describe stages of human development (fertilisation to adult)</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO5</h3>
+                    <p>Describe physical and emotional changes during puberty</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="notes-section">
+            <h2>Reproduction in Flowering Plants</h2>
+
+            <h3>Parts of a Flower and Their Functions</h3>
+            <p>A flower is the reproductive organ of a flowering plant. Each part has a specific role in the process of creating seeds and fruits. Understanding these parts is essential to understanding how plants reproduce.</p>
+
+            <div class="flower-diagram">
+                <svg viewBox="0 0 300 300" class="flower-svg-large">
+                    <rect width="300" height="300" fill="#f0f0f0" rx="8"/>
+                    <line x1="150" y1="250" x2="150" y2="150" stroke="#2d5016" stroke-width="3"/>
+                    <ellipse cx="120" cy="100" rx="20" ry="35" fill="#7cb342" transform="rotate(-20 120 100)"/>
+                    <ellipse cx="180" cy="100" rx="20" ry="35" fill="#7cb342" transform="rotate(20 180 100)"/>
+                    <ellipse cx="150" cy="70" rx="20" ry="35" fill="#7cb342"/>
+                    <ellipse cx="110" cy="90" rx="18" ry="30" fill="#ff6b9d" transform="rotate(-35 110 90)"/>
+                    <ellipse cx="190" cy="90" rx="18" ry="30" fill="#ff6b9d" transform="rotate(35 190 90)"/>
+                    <ellipse cx="150" cy="55" rx="18" ry="30" fill="#ff6b9d"/>
+                    <ellipse cx="145" cy="105" rx="18" ry="30" fill="#ff6b9d" transform="rotate(20 145 105)"/>
+                    <ellipse cx="155" cy="105" rx="18" ry="30" fill="#ff6b9d" transform="rotate(-20 155 105)"/>
+                    <circle cx="150" cy="80" r="6" fill="#c2185b"/>
+                    <line x1="150" y1="86" x2="150" y2="100" stroke="#d81b60" stroke-width="3"/>
+                    <ellipse cx="150" cy="110" rx="12" ry="15" fill="#ec407a"/>
+                    <line x1="130" y1="95" x2="125" y2="75" stroke="#f57c00" stroke-width="2"/>
+                    <line x1="170" y1="95" x2="175" y2="75" stroke="#f57c00" stroke-width="2"/>
+                    <circle cx="125" cy="70" r="4" fill="#ff9800"/>
+                    <circle cx="175" cy="70" r="4" fill="#ff9800"/>
+                    <circle cx="130" cy="73" r="4" fill="#ffb74d"/>
+                    <circle cx="170" cy="73" r="4" fill="#ffb74d"/>
+                    <text x="30" y="70" font-size="11" font-weight="bold" fill="#333">SEPAL</text>
+                    <text x="210" y="70" font-size="11" font-weight="bold" fill="#333">PETAL</text>
+                    <text x="85" y="50" font-size="11" font-weight="bold" fill="#333">ANTHER</text>
+                    <text x="200" y="50" font-size="11" font-weight="bold" fill="#333">STIGMA</text>
+                    <text x="160" y="130" font-size="11" font-weight="bold" fill="#333">OVARY</text>
+                </svg>
+            </div>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> A flower has both male parts (stamens with anthers and filaments) and female parts (pistils with stigma, style, and ovary). This allows flowers to produce their own seeds.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flower Part</th>
+                        <th>Type</th>
+                        <th>Structure</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sepal</strong></td>
+                        <td>Accessory</td>
+                        <td>Green, leaf-like structures at base</td>
+                        <td>Protects the developing flower bud</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Petal</strong></td>
+                        <td>Accessory</td>
+                        <td>Colorful, delicate structures</td>
+                        <td>Attracts pollinators; used for photosynthesis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stamen (Male)</strong></td>
+                        <td>Reproductive</td>
+                        <td>Anther + Filament</td>
+                        <td>Produces and releases pollen (male gametes)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anther</strong></td>
+                        <td>Stamen part</td>
+                        <td>Small, round sac at top of filament</td>
+                        <td>Contains and releases pollen grains</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Filament</strong></td>
+                        <td>Stamen part</td>
+                        <td>Thin stalk supporting anther</td>
+                        <td>Elevates anther to release pollen effectively</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pistil (Female)</strong></td>
+                        <td>Reproductive</td>
+                        <td>Stigma + Style + Ovary</td>
+                        <td>Produces female gametes; develops into fruit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stigma</strong></td>
+                        <td>Pistil part</td>
+                        <td>Sticky top of pistil</td>
+                        <td>Receives pollen grains during pollination</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Style</strong></td>
+                        <td>Pistil part</td>
+                        <td>Tube connecting stigma to ovary</td>
+                        <td>Pollen tube grows through style to reach ovary</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ovary</strong></td>
+                        <td>Pistil part</td>
+                        <td>Enlarged base of pistil</td>
+                        <td>Contains ovules; develops into fruit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ovule</strong></td>
+                        <td>Ovary part</td>
+                        <td>Small structure inside ovary</td>
+                        <td>Contains female gamete; becomes seed</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pollination</h3>
+            <p>Pollination is the process of transferring pollen from the anther (male part) of one flower to the stigma (female part) of another flower, or sometimes the same flower. This is a critical step in plant reproduction because it allows for the mixing of genetic material.</p>
+
+            <p>There are two types of pollination: <strong>self-pollination</strong> (pollen transfers within the same flower or plant) and <strong>cross-pollination</strong> (pollen transfers between different plants). Cross-pollination produces stronger, healthier offspring because of genetic diversity.</p>
+
+            <p>Pollination is carried out by different agents: wind, insects, birds, and water. Plants have evolved different characteristics depending on their pollinator:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pollination Agent</th>
+                        <th>Flower Characteristics</th>
+                        <th>Pollen Type</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wind</strong></td>
+                        <td>Small, inconspicuous; no fragrance; no nectar; light anthers; feathery stigma</td>
+                        <td>Light, powdery, smooth</td>
+                        <td>Grasses, cereals, pines, oak</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insects</strong></td>
+                        <td>Bright, colorful petals; fragrant; produce nectar; rough, sticky pollen</td>
+                        <td>Heavy, spiky, sticky</td>
+                        <td>Roses, sunflowers, orchids, apple</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Birds</strong></td>
+                        <td>Bright red/orange flowers; no fragrance; abundant nectar; sturdy structure</td>
+                        <td>Sticky, powdery</td>
+                        <td>Hibiscus, bottle brush, honeysuckle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Water</strong></td>
+                        <td>Flowers submerged or floating; no petals; no nectar</td>
+                        <td>Light, filamentous</td>
+                        <td>Sea grasses, water lilies</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong> Some flowers use multiple pollinators! A flower might be visited by insects during the day and bats at night. Bees are the most important pollinator globally, responsible for pollinating about 75% of the world's flowering plants.
+            </div>
+
+            <h3>Fertilisation</h3>
+            <p>After pollination, fertilisation occurs. When a pollen grain lands on the stigma, it begins to grow a pollen tube that extends down through the style toward the ovary. The nucleus of the pollen grain (containing the male gamete) travels down this tube and fuses with the nucleus of the ovule (containing the female gamete). This fusion is fertilisation, and it results in a zygote—the beginning of a new plant.</p>
+
+            <p>The pollen tube is essential because it protects the male gamete as it travels to the ovule. Without this tube, the pollen grain could not reach the ovule, and fertilisation would not occur. This process typically takes just a few hours to a few days, depending on the plant species.</p>
+
+            <h3>Seed and Fruit Formation</h3>
+            <p>After fertilisation, significant changes occur inside the flower:</p>
+
+            <ul>
+                <li><strong>Seed Formation:</strong> The ovule develops into a seed. The zygote inside the ovule divides and grows into an embryo (a tiny plant). The ovule's outer coating hardens to form the seed coat, which protects the developing embryo.</li>
+                <li><strong>Fruit Formation:</strong> The ovary ripens and develops into a fruit. The fruit's purpose is to protect the seeds and aid in their dispersal to new locations.</li>
+                <li><strong>Flower Changes:</strong> The petals and sepals wilt and fall off, as they are no longer needed. The style also dies back.</li>
+            </ul>
+
+            <p>Inside each seed is an embryo (consisting of a root, a shoot, and seed leaves) and stored food for the embryo to use when it first germinates. The seed coat protects everything inside.</p>
+
+            <div class="info-box think-about">
+                <strong>Think About It:</strong> Why do you think fruits are often colorful and tasty? Their bright colors and sweet taste attract animals like birds and mammals, who eat the fruit and disperse the seeds in their droppings, far from the parent plant. This is an excellent evolutionary strategy!
+            </div>
+
+            <h3>Seed Dispersal</h3>
+            <p>After seeds form, plants need a way to spread them to new locations. If all seeds fell directly below the parent plant, there would be overcrowding and competition for resources. Plants have evolved several clever methods of seed dispersal:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dispersal Method</th>
+                        <th>Mechanism</th>
+                        <th>Seed Adaptations</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wind</strong></td>
+                        <td>Seeds carried by air currents</td>
+                        <td>Wings or parachutes (dandelion, maple)</td>
+                        <td>Dandelion, maple, pine, thistle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Water</strong></td>
+                        <td>Seeds float or sink in water</td>
+                        <td>Waterproof coat, air chambers</td>
+                        <td>Coconut, water lily, lotus</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Animals</strong></td>
+                        <td>Animals eat fruit or carry seeds on fur</td>
+                        <td>Hooks, barbs (burs), or fleshy fruit</td>
+                        <td>Strawberry, apple, burr (comb), cocklebur</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Explosive/Splitting</strong></td>
+                        <td>Seed pod splits violently when dry</td>
+                        <td>Pod structure designed to burst</td>
+                        <td>Pea pod, bean pod, touch-me-not</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="notes-section">
+            <h2>Human Reproduction and Development</h2>
+
+            <h3>The Process of Human Reproduction</h3>
+            <p>Human reproduction involves the union of two cells: a sperm cell from the father and an egg cell (ovum) from the mother. The male reproductive system produces sperm, while the female reproductive system produces eggs and provides the environment for the developing baby.</p>
+
+            <h3>Stages of Human Development</h3>
+            <p>The development of a human from conception to adulthood follows a remarkable journey with distinct stages:</p>
+
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 5px solid var(--pri);">
+                <strong style="color: var(--pri); font-size: 1.05rem;">The Life Cycle: From Fertilisation to Adulthood</strong>
+                <ol style="margin-left: 2rem; margin-top: 1rem; line-height: 2;">
+                    <li><strong>Fertilisation (Conception):</strong> A sperm cell from the father fuses with an egg cell from the mother. This happens in the fallopian tube. The combined cell is called a zygote and contains DNA from both parents.</li>
+                    <li><strong>Embryo Stage (Weeks 0-8 of pregnancy):</strong> The zygote divides rapidly as it travels down the fallopian tube to the uterus (womb). By the end of the embryo stage, all major organs and body systems have begun to form. The embryo is tiny—about the size of a bean.</li>
+                    <li><strong>Foetus Stage (Weeks 8-40 of pregnancy):</strong> From 8 weeks onwards, the developing human is called a foetus. During this stage, organs continue to develop and grow, and the foetus gains weight. By 40 weeks (about 9 months), the foetus is fully developed and ready for birth.</li>
+                    <li><strong>Baby (Birth to 1 year):</strong> The baby is born and becomes dependent on parents or caregivers for food, warmth, and protection. The baby grows rapidly and begins to develop motor skills like rolling, sitting, and crawling.</li>
+                    <li><strong>Child (1 year to 12 years):</strong> The child continues to grow and develop. Physical growth is steady, and the child learns to walk, talk, and interact with others. Mental development includes learning, reasoning, and emotional growth.</li>
+                    <li><strong>Adolescent (12-18 years):</strong> During adolescence, the body undergoes significant changes during puberty. This is a time of rapid growth and sexual maturation.</li>
+                    <li><strong>Adult (18+ years):</strong> Physical growth slows and eventually stops. The adult body is fully developed and capable of reproduction.</li>
+                </ol>
+            </div>
+
+            <h3>The Womb (Uterus) - Home for Development</h3>
+            <p>The mother's womb (uterus) is a special organ where the foetus develops. Inside the womb, the foetus is protected from harm and receives everything it needs to grow: oxygen, nutrients, and waste removal. The foetus is connected to the mother through the umbilical cord and placenta.</p>
+
+            <ul>
+                <li><strong>Placenta:</strong> An organ that develops during pregnancy. It allows oxygen and nutrients from the mother's blood to pass to the foetus, and allows the foetus's waste products to be removed.</li>
+                <li><strong>Umbilical Cord:</strong> The cord connecting the foetus to the placenta. Through this cord, the foetus receives nutrition and oxygen.</li>
+                <li><strong>Amniotic Fluid:</strong> The liquid surrounding the foetus inside the womb. This fluid cushions the foetus, maintains temperature, and allows it to move freely.</li>
+            </ul>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> The foetus develops inside the mother's womb for about 40 weeks (9 months). During this time, it grows from a microscopic zygote to a fully formed baby ready for birth.
+            </div>
+
+            <h3>Puberty and Changes During Adolescence</h3>
+            <p>Puberty is a period of rapid physical, emotional, and social change that typically begins between ages 8-14 (earlier in girls, later in boys) and lasts about 4-5 years. It is triggered by hormones—chemical messengers in the body that control growth and development.</p>
+
+            <h4>Changes in Boys During Puberty:</h4>
+            <ul>
+                <li>Growth in height and muscle mass (growth spurt)</li>
+                <li>Development of facial hair, underarm hair, and pubic hair</li>
+                <li>Voice deepens (breaks)</li>
+                <li>Shoulders broaden</li>
+                <li>Reproductive organs develop and mature</li>
+                <li>Increased production of sweat and oil on skin (which may lead to acne)</li>
+                <li>Emotional changes: increased mood swings, increased interest in the opposite sex</li>
+            </ul>
+
+            <h4>Changes in Girls During Puberty:</h4>
+            <ul>
+                <li>Growth in height (growth spurt occurs slightly earlier than in boys)</li>
+                <li>Development of breasts</li>
+                <li>Development of underarm hair and pubic hair</li>
+                <li>Hips widen and body shape changes</li>
+                <li>Reproductive organs develop and mature</li>
+                <li>Menstrual cycle begins (menarche), usually between ages 11-14</li>
+                <li>Increased production of sweat and oil on skin (which may lead to acne)</li>
+                <li>Emotional changes: increased mood swings, increased interest in the opposite sex</li>
+            </ul>
+
+            <p><strong>Menstruation:</strong> The menstrual cycle is a monthly process in which the uterus sheds its lining if fertilisation has not occurred. This cycle typically lasts about 28 days (but can range from 21-35 days) and involves hormonal changes. Understanding this natural process is important for health and hygiene.</p>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong> Puberty is not just about physical changes—it's also a time of emotional and social development. It's completely normal to experience mood swings, increased self-consciousness, and stronger feelings during this time. These changes are all part of growing up!
+            </div>
+
+            <div class="info-box think-about">
+                <strong>Think About It:</strong> Why do you think puberty happens? It's your body's way of maturing and preparing for adulthood. The hormones that trigger puberty are the same hormones that eventually allow you to become a parent yourself. It's a remarkable biological process!
+            </div>
+        </section>
+
+        <section>
+            <h2>Interactive Learning Activities</h2>
+
+            <div class="applet-section">
+                <div class="applet-title">1. Pollination Matching Game</div>
+                <p>Match each flower characteristic to the correct pollination agent.</p>
+                <div class="matching-container">
+                    <div class="matching-column">
+                        <strong style="color: var(--pri); margin-bottom: 1rem;">Flower Characteristics</strong>
+                        <div class="match-item" data-match="wind">Tiny, inconspicuous flowers</div>
+                        <div class="match-item" data-match="insect">Bright, colorful petals with sweet scent</div>
+                        <div class="match-item" data-match="bird">Produces abundant sweet nectar</div>
+                        <div class="match-item" data-match="wind">Light, powdery pollen</div>
+                        <div class="match-item" data-match="insect">Sticky, heavy pollen</div>
+                        <div class="match-item" data-match="bird">Bright red or orange colored flowers</div>
+                    </div>
+                    <div class="matching-column">
+                        <strong style="color: var(--pri); margin-bottom: 1rem;">Pollination Agents</strong>
+                        <div class="match-item" data-match="wind">Wind</div>
+                        <div class="match-item" data-match="insect">Insects (Bees, butterflies)</div>
+                        <div class="match-item" data-match="bird">Birds (Hummingbirds)</div>
+                    </div>
+                </div>
+                <button onclick="resetMatching()">Reset Game</button>
+            </div>
+
+            <div class="applet-section">
+                <div class="applet-title">2. Seed Dispersal Sorter</div>
+                <p>Drag each seed/fruit to the correct dispersal method category.</p>
+                <div class="sorter-container">
+                    <div class="sorter-category" id="wind-category"><h4>Wind Dispersal</h4></div>
+                    <div class="sorter-category" id="water-category"><h4>Water Dispersal</h4></div>
+                    <div class="sorter-category" id="animal-category"><h4>Animal Dispersal</h4></div>
+                    <div class="sorter-category" id="explosive-category"><h4>Explosive Dispersal</h4></div>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <strong style="color: var(--pri);">Seeds to Sort:</strong>
+                    <div id="seeds-container" style="margin-top: 1rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1rem;">
+                        <div class="seed-item" draggable="true" data-dispersal="wind">Dandelion</div>
+                        <div class="seed-item" draggable="true" data-dispersal="wind">Maple Seed</div>
+                        <div class="seed-item" draggable="true" data-dispersal="water">Coconut</div>
+                        <div class="seed-item" draggable="true" data-dispersal="animal">Strawberry</div>
+                        <div class="seed-item" draggable="true" data-dispersal="animal">Burr (Comb)</div>
+                        <div class="seed-item" draggable="true" data-dispersal="explosive">Pea Pod</div>
+                        <div class="seed-item" draggable="true" data-dispersal="wind">Pine Seed</div>
+                        <div class="seed-item" draggable="true" data-dispersal="water">Water Lily</div>
+                        <div class="seed-item" draggable="true" data-dispersal="animal">Apple</div>
+                        <div class="seed-item" draggable="true" data-dispersal="explosive">Bean Pod</div>
+                    </div>
+                </div>
+                <button onclick="resetSorter()">Reset Sorter</button>
+            </div>
+
+            <div class="applet-section">
+                <div class="applet-title">3. Human Development Sequencer</div>
+                <p>Click on each stage in the correct order to arrange the human life cycle.</p>
+                <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <strong style="color: var(--pri);">Correct Order:</strong>
+                    <div id="sequence-display" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 0.5rem; margin-top: 1rem;"></div>
+                </div>
+                <div class="sequencer-container" id="sequencer-items">
+                    <div class="sequence-item" data-stage="1" data-name="Fertilisation">Fertilisation</div>
+                    <div class="sequence-item" data-stage="2" data-name="Embryo">Embryo</div>
+                    <div class="sequence-item" data-stage="3" data-name="Foetus">Foetus</div>
+                    <div class="sequence-item" data-stage="4" data-name="Baby">Baby</div>
+                    <div class="sequence-item" data-stage="5" data-name="Child">Child</div>
+                    <div class="sequence-item" data-stage="6" data-name="Adolescent">Adolescent</div>
+                    <div class="sequence-item" data-stage="7" data-name="Adult">Adult</div>
+                </div>
+                <button onclick="resetSequencer()">Reset Sequencer</button>
+            </div>
+        </section>
+
+        <section class="questions-section">
+            <h2>PSLE-Style Assessment Questions</h2>
+
+            <div>
+                <span class="section-label">Section A: Multiple Choice Questions</span>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">Choose the correct answer for each question.</p>
+
+                <div class="question-block">
+                    <div class="question-text">Q1: Which part produces pollen?</div>
+                    <div>
+                        <label class="mcq-option"><input type="radio" name="mcq1" value="a"> A) Stigma</label>
+                        <label class="mcq-option"><input type="radio" name="mcq1" value="b"> B) Anther</label>
+                        <label class="mcq-option"><input type="radio" name="mcq1" value="c"> C) Ovary</label>
+                        <label class="mcq-option"><input type="radio" name="mcq1" value="d"> D) Style</label>
+                    </div>
+                    <button onclick="revealAnswer('mcq1', 'b', 'The anther produces pollen grains.')">Show Answer</button>
+                    <div class="answer-reveal" id="mcq1-reveal"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q2: What is the main function of petals?</div>
+                    <div>
+                        <label class="mcq-option"><input type="radio" name="mcq2" value="a"> A) Protect the bud</label>
+                        <label class="mcq-option"><input type="radio" name="mcq2" value="b"> B) Produce pollen</label>
+                        <label class="mcq-option"><input type="radio" name="mcq2" value="c"> C) Attract pollinators</label>
+                        <label class="mcq-option"><input type="radio" name="mcq2" value="d"> D) Store nutrients</label>
+                    </div>
+                    <button onclick="revealAnswer('mcq2', 'c', 'Petals are colorful to attract pollinators.')">Show Answer</button>
+                    <div class="answer-reveal" id="mcq2-reveal"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q3: Which is wind-pollinated?</div>
+                    <div>
+                        <label class="mcq-option"><input type="radio" name="mcq3" value="a"> A) Rose</label>
+                        <label class="mcq-option"><input type="radio" name="mcq3" value="b"> B) Grass</label>
+                        <label class="mcq-option"><input type="radio" name="mcq3" value="c"> C) Sunflower</label>
+                        <label class="mcq-option"><input type="radio" name="mcq3" value="d"> D) Orchid</label>
+                    </div>
+                    <button onclick="revealAnswer('mcq3', 'b', 'Grasses are wind-pollinated with light, powdery pollen.')">Show Answer</button>
+                    <div class="answer-reveal" id="mcq3-reveal"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q4: What happens to the ovule after fertilisation?</div>
+                    <div>
+                        <label class="mcq-option"><input type="radio" name="mcq4" value="a"> A) Becomes a fruit</label>
+                        <label class="mcq-option"><input type="radio" name="mcq4" value="b"> B) Becomes a seed</label>
+                        <label class="mcq-option"><input type="radio" name="mcq4" value="c"> C) Becomes pollen</label>
+                        <label class="mcq-option"><input type="radio" name="mcq4" value="d"> D) Falls from flower</label>
+                    </div>
+                    <button onclick="revealAnswer('mcq4', 'b', 'The ovule develops into a seed after fertilisation.')">Show Answer</button>
+                    <div class="answer-reveal" id="mcq4-reveal"></div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q5: When does puberty typically begin?</div>
+                    <div>
+                        <label class="mcq-option"><input type="radio" name="mcq5" value="a"> A) 3-5 years</label>
+                        <label class="mcq-option"><input type="radio" name="mcq5" value="b"> B) 8-14 years</label>
+                        <label class="mcq-option"><input type="radio" name="mcq5" value="c"> C) 15-20 years</label>
+                        <label class="mcq-option"><input type="radio" name="mcq5" value="d"> D) 20-25 years</label>
+                    </div>
+                    <button onclick="revealAnswer('mcq5', 'b', 'Puberty typically begins between ages 8-14.')">Show Answer</button>
+                    <div class="answer-reveal" id="mcq5-reveal"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <span class="section-label">Section B: Open-Ended Questions</span>
+                <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">Answer in complete sentences.</p>
+
+                <div class="question-block">
+                    <div class="question-text">Q1: Explain the role of the anther and stigma in plant reproduction. (2 marks)</div>
+                    <button onclick="revealOpenAnswer('oe1')">Show Model Answer</button>
+                    <div class="answer-reveal" id="oe1-reveal" style="margin-top: 1rem;">
+                        <div class="answer-label">Model Answer:</div>
+                        <p>The anther produces pollen grains containing male gametes. The stigma receives the pollen grains during pollination. When pollen lands on the stigma, it grows a pollen tube that allows the male gamete to fertilise the ovule. Together, they enable pollination and fertilisation, which are essential for plant reproduction.</p>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q2: Describe the changes that occur in the flower after fertilisation. (2 marks)</div>
+                    <button onclick="revealOpenAnswer('oe2')">Show Model Answer</button>
+                    <div class="answer-reveal" id="oe2-reveal" style="margin-top: 1rem;">
+                        <div class="answer-label">Model Answer:</div>
+                        <p>After fertilisation, the ovule develops into a seed containing an embryo and stored food. The ovary ripens and develops into a fruit that protects the seeds. The petals, sepals, stamens, and style wither and fall off because they are no longer needed. The fruit helps in seed dispersal by attracting animals or being carried by wind or water.</p>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-text">Q3: List three physical changes in girls during puberty and explain how they prepare the body for adulthood. (3 marks)</div>
+                    <button onclick="revealOpenAnswer('oe3')">Show Model Answer</button>
+                    <div class="answer-reveal" id="oe3-reveal" style="margin-top: 1rem;">
+                        <div class="answer-label">Model Answer:</div>
+                        <p><strong>Three physical changes:</strong> (1) Development of breasts for future milk production. (2) Widening of hips to prepare for childbirth. (3) Beginning of menstrual cycle to prepare the reproductive system for potential pregnancy. These changes develop the reproductive system and make the body physically capable of becoming a parent in the future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-box">
+            <h3>Core Values in Understanding Reproduction</h3>
+            <div class="values-grid">
+                <div class="value-item">Scientific Inquiry</div>
+                <div class="value-item">Respect for Life</div>
+                <div class="value-item">Sustainability</div>
+                <div class="value-item">Lifelong Learning</div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Myko Education • Primary 5 Science</strong></p>
+        <p>Topic 10: Reproduction in Plants and Humans</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">Singapore MOE Primary 5 Science Curriculum | Designed for PSLE Preparation | March 2026</p>
+    </footer>
+
+    <script>
+        let matchedPairs = new Set();
+
+        document.querySelectorAll('.match-item[data-match]').forEach(item => {
+            item.addEventListener('click', function() {
+                const match = this.getAttribute('data-match');
+                const agentItems = document.querySelectorAll('.matching-column:last-child .match-item');
+                agentItems.forEach(agent => {
+                    if (agent.getAttribute('data-match') === match && !matchedPairs.has(agent.textContent)) {
+                        this.classList.add('matched');
+                        agent.classList.add('matched');
+                        matchedPairs.add(this.textContent);
+                        matchedPairs.add(agent.textContent);
+                    }
+                });
+            });
+        });
+
+        function resetMatching() {
+            document.querySelectorAll('.match-item').forEach(item => item.classList.remove('matched'));
+            matchedPairs.clear();
+        }
+
+        let draggedSeed = null;
+
+        document.querySelectorAll('.seed-item').forEach(seed => {
+            seed.addEventListener('dragstart', function(e) {
+                draggedSeed = this;
+                e.dataTransfer.effectAllowed = 'move';
+            });
+        });
+
+        document.querySelectorAll('.sorter-category').forEach(category => {
+            category.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            });
+            category.addEventListener('drop', function(e) {
+                e.preventDefault();
+                if (draggedSeed) {
+                    const dispersal = draggedSeed.getAttribute('data-dispersal');
+                    const categoryId = this.getAttribute('id');
+                    const expectedCategory = dispersal + '-category';
+                    if (categoryId === expectedCategory) {
+                        this.appendChild(draggedSeed);
+                    }
+                    draggedSeed = null;
+                }
+            });
+        });
+
+        function resetSorter() {
+            const container = document.getElementById('seeds-container');
+            container.innerHTML = `
+                <div class="seed-item" draggable="true" data-dispersal="wind">Dandelion</div>
+                <div class="seed-item" draggable="true" data-dispersal="wind">Maple Seed</div>
+                <div class="seed-item" draggable="true" data-dispersal="water">Coconut</div>
+                <div class="seed-item" draggable="true" data-dispersal="animal">Strawberry</div>
+                <div class="seed-item" draggable="true" data-dispersal="animal">Burr (Comb)</div>
+                <div class="seed-item" draggable="true" data-dispersal="explosive">Pea Pod</div>
+                <div class="seed-item" draggable="true" data-dispersal="wind">Pine Seed</div>
+                <div class="seed-item" draggable="true" data-dispersal="water">Water Lily</div>
+                <div class="seed-item" draggable="true" data-dispersal="animal">Apple</div>
+                <div class="seed-item" draggable="true" data-dispersal="explosive">Bean Pod</div>
+            `;
+            document.querySelectorAll('.seed-item').forEach(seed => {
+                seed.addEventListener('dragstart', function(e) {
+                    draggedSeed = this;
+                    e.dataTransfer.effectAllowed = 'move';
+                });
+            });
+            document.querySelectorAll('.sorter-category').forEach(category => {
+                const h4 = category.querySelector('h4');
+                category.innerHTML = '';
+                category.appendChild(h4);
+            });
+        }
+
+        let sequence = [];
+
+        document.querySelectorAll('.sequence-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const stage = this.getAttribute('data-stage');
+                const name = this.getAttribute('data-name');
+                sequence.push({ stage: stage, name: name });
+                this.classList.add('selected');
+                this.style.pointerEvents = 'none';
+                updateSequenceDisplay();
+            });
+        });
+
+        function updateSequenceDisplay() {
+            const display = document.getElementById('sequence-display');
+            display.innerHTML = '';
+            sequence.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.style.cssText = 'background: var(--pri); color: white; padding: 0.75rem; border-radius: 4px; text-align: center; font-weight: 600;';
+                div.textContent = (index + 1) + '. ' + item.name;
+                display.appendChild(div);
+            });
+        }
+
+        function resetSequencer() {
+            sequence = [];
+            document.querySelectorAll('.sequence-item').forEach(item => {
+                item.classList.remove('selected');
+                item.style.pointerEvents = 'auto';
+            });
+            document.getElementById('sequence-display').innerHTML = '';
+        }
+
+        function revealAnswer(questionId, correctAnswer, explanation) {
+            const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+            const reveal = document.getElementById(questionId + '-reveal');
+            if (!selected) {
+                alert('Please select an answer first.');
+                return;
+            }
+            const isCorrect = selected.value === correctAnswer;
+            reveal.innerHTML = `<div class="answer-label">${isCorrect ? 'Correct!' : 'Incorrect'}</div><p>${explanation}</p>`;
+            reveal.classList.add('show');
+        }
+
+        function revealOpenAnswer(questionId) {
+            const reveal = document.getElementById(questionId + '-reveal');
+            reveal.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

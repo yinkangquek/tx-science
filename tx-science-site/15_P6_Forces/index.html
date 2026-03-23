@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 6 Science - Forces</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #6a1b9a;
+            --sec: #9c27b0;
+            --light: #f3e5f5;
+            --dark: #212121;
+            --accent: #ffc107;
+            --success: #4caf50;
+            --warning: #ff9800;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--sec) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            .hero {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Learning Outcomes Grid */
+        .learning-outcomes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--pri);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .outcome-card p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Content Sections */
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: var(--pri);
+            font-size: 2em;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .section h3 {
+            color: var(--sec);
+            font-size: 1.4em;
+            margin-top: 28px;
+            margin-bottom: 16px;
+        }
+
+        .section p {
+            margin-bottom: 16px;
+            font-size: 1em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .section ul {
+            margin-left: 30px;
+            margin-bottom: 16px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .key-concept {
+            background: #e8f5e9;
+            border-color: var(--success);
+        }
+
+        .key-concept strong {
+            color: var(--success);
+        }
+
+        .did-you-know {
+            background: #fff3e0;
+            border-color: var(--warning);
+        }
+
+        .did-you-know strong {
+            color: var(--warning);
+        }
+
+        .think-about {
+            background: #f3e5f5;
+            border-color: var(--pri);
+        }
+
+        .think-about strong {
+            color: var(--pri);
+        }
+
+        /* Force Types Grid */
+        .force-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .force-card {
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.05) 0%, rgba(156, 39, 176, 0.05) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--pri);
+        }
+
+        .force-card h4 {
+            color: var(--pri);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .force-card p {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* Interactive Sections */
+        .interactive-section {
+            background: linear-gradient(135deg, rgba(106, 27, 154, 0.02) 0%, rgba(156, 39, 176, 0.02) 100%);
+            border: 2px dashed var(--pri);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .interactive-section h3 {
+            color: var(--pri);
+            margin-top: 0;
+        }
+
+        .applet-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            align-items: flex-end;
+        }
+
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--pri);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .control-group input[type="range"],
+        .control-group select,
+        .control-group button {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--pri);
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        .control-group button {
+            background: var(--pri);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .control-group button:hover {
+            background: var(--sec);
+            transform: translateY(-2px);
+        }
+
+        .applet-canvas {
+            background: white;
+            border: 2px solid var(--pri);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .applet-output {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid var(--accent);
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Assessment Section */
+        .assessment-section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .assessment-section h2 {
+            color: var(--pri);
+            font-size: 2em;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .subsection {
+            margin-bottom: 40px;
+        }
+
+        .subsection h3 {
+            color: var(--sec);
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .question p {
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .option {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .option label {
+            cursor: pointer;
+        }
+
+        .answer-key {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            border-left: 4px solid var(--success);
+            display: none;
+        }
+
+        .answer-key.show {
+            display: block;
+        }
+
+        .answer-key strong {
+            color: var(--success);
+        }
+
+        .show-answer-btn {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .show-answer-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Values Box */
+        .values-box {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--sec) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            font-size: 1.3em;
+            margin-bottom: 16px;
+        }
+
+        .values-box p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        footer strong {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            .applet-controls {
+                flex-direction: column;
+            }
+
+            .control-group {
+                min-width: 100%;
+            }
+
+            .question {
+                padding: 15px;
+            }
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        /* Force Demo Visualization */
+        .force-demo {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(to bottom, #e3f2fd 0%, #fff9c4 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .object-demo {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--pri) 0%, var(--sec) 100%);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.75em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 120px;
+            font-size: 2em;
+            color: var(--accent);
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scaleX(1); }
+            50% { transform: scaleX(1.3); }
+        }
+
+        /* Friction visualization */
+        .surface {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: repeating-linear-gradient(
+                45deg,
+                #8d6e63,
+                #8d6e63 10px,
+                #a1887f 10px,
+                #a1887f 20px
+            );
+            border-radius: 4px;
+        }
+
+        .surface.smooth {
+            background: linear-gradient(to bottom, #90caf9, #1976d2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-badge">Primary 6 • Theme: Interactions</div>
+            <h1>Forces</h1>
+            <p>Understanding how forces affect objects around us</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Learning Outcomes -->
+        <section class="learning-outcomes">
+            <div class="outcome-card">
+                <h3>LO1: Force Effects</h3>
+                <p>Show that a force can change the speed, shape, or direction of an object</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO2: Types of Forces</h3>
+                <p>Identify different types of forces including gravitational, friction, elastic, and magnetic forces</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO3: Force Effects Description</h3>
+                <p>Describe the effects of different forces on objects</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO4: Friction Applications</h3>
+                <p>Identify situations where friction is useful and where it is not</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO5: Friction Control</h3>
+                <p>Describe ways to increase or decrease friction</p>
+            </div>
+        </section>
+
+        <!-- Section 1: What Are Forces? -->
+        <section class="section">
+            <h2>What Are Forces?</h2>
+
+            <p>A <strong>force</strong> is a push or pull that acts on an object. Forces are all around us every day. When you kick a ball, throw a stone, or press a button, you are applying a force. Even when you stand still, forces are acting on you!</p>
+
+            <h3>Definition and Measurement</h3>
+            <p>A force is measured in <strong>Newtons (N)</strong>, named after the famous scientist Sir Isaac Newton. One Newton is quite small—it's roughly the force needed to lift an apple against gravity. In our everyday lives, we use forces much larger than this. For example, the force of gravity pulling on a 1 kg mass is about 10 N.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> A force is any push or pull. We measure forces in Newtons (N). Forces can change how objects move, their shape, or their direction of motion.
+            </div>
+
+            <h3>Types of Force Action</h3>
+            <p>Forces act in two main ways:</p>
+
+            <p><strong>1. Contact Forces:</strong> These forces require the object applying the force to touch the object receiving it. Examples include pushing a box, hitting a ball with a bat, or friction between surfaces. When you push a door, your hand must touch the door.</p>
+
+            <p><strong>2. Non-Contact (At-a-Distance) Forces:</strong> These forces act without anything touching. The most common example is gravity—the Earth pulls everything downward without touching them. Magnetic forces also act at a distance: a magnet can attract a metal paperclip without touching it. Other non-contact forces include electric forces.</p>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong> When you pick up a pen, at least three forces are working together: the contact force from your hand, the gravitational force pulling the pen downward, and the normal force from your hand pushing upward!
+            </div>
+
+            <h3>Direction and Magnitude</h3>
+            <p>Every force has two important properties:</p>
+            <ul>
+                <li><strong>Magnitude:</strong> How strong the force is, measured in Newtons</li>
+                <li><strong>Direction:</strong> The way the force acts (up, down, left, right, or at an angle)</li>
+            </ul>
+
+            <p>This is why we often draw forces as arrows—the length of the arrow shows the magnitude, and the way the arrow points shows the direction.</p>
+
+            <div class="info-box think-about">
+                <strong>Think About It:</strong> If two people push a box in opposite directions with equal force, what happens to the box? The forces cancel out! This is called balanced forces. But if one person pushes harder, the box will move toward the stronger person. Unbalanced forces cause movement.
+            </div>
+        </section>
+
+        <!-- Section 2: Effects of Forces -->
+        <section class="section">
+            <h2>Effects of Forces</h2>
+
+            <p>When an unbalanced force acts on an object, it can produce three main effects: changing speed, changing direction, or changing shape.</p>
+
+            <h3>1. Changing Speed (Acceleration and Deceleration)</h3>
+            <p><strong>Acceleration</strong> is when an object speeds up, and <strong>deceleration</strong> (or negative acceleration) is when it slows down. Both are caused by forces.</p>
+
+            <p>When you step on the accelerator pedal in a car, you apply a force that makes the car go faster. This is acceleration. When you step on the brake, the brakes apply a force in the opposite direction of motion, which slows the car down. This is deceleration.</p>
+
+            <p>Even objects moving at the same speed can have different accelerations. A car accelerating from 0 to 100 km/h in 5 seconds experiences more acceleration than a car taking 10 seconds for the same speed change.</p>
+
+            <h3>2. Changing Direction</h3>
+            <p>A force can change the direction of an object's motion without changing its speed. Think about a ball rolling in a straight line. If you push it from the side, it will change direction and roll at an angle. The force changed the direction but not necessarily the speed.</p>
+
+            <p>In circular motion, forces continuously change direction. When you swing a bucket of water around your head, the rope pulls the bucket toward the center, constantly changing its direction. Without this force, the bucket would fly away in a straight line.</p>
+
+            <div class="interactive-section">
+                <h3>Force Effects Demo</h3>
+                <p>Use the slider below to apply different forces to the object and observe the effects:</p>
+
+                <div class="applet-controls">
+                    <div class="control-group">
+                        <label for="forceSlider">Force Magnitude (Newtons)</label>
+                        <input type="range" id="forceSlider" min="0" max="50" value="20" step="5">
+                    </div>
+                    <div class="control-group">
+                        <label for="effectSelect">Effect to Observe</label>
+                        <select id="effectSelect">
+                            <option value="speed">Change Speed</option>
+                            <option value="direction">Change Direction</option>
+                            <option value="shape">Change Shape</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <button onclick="applyForceEffect()">Apply Force</button>
+                    </div>
+                </div>
+
+                <div class="force-demo" id="forceDemo">
+                    <div class="object-demo" id="demoObject">Object</div>
+                    <div class="arrow" id="forceArrow" style="opacity: 0;">→</div>
+                </div>
+
+                <div class="applet-output" id="forceOutput">
+                    Select an effect and click "Apply Force" to see what happens
+                </div>
+            </div>
+
+            <h3>3. Changing Shape (Deformation)</h3>
+            <p>Forces can also change the shape of objects. When you squeeze a sponge, compress a spring, or stretch a rubber band, you are applying forces that change their shape.</p>
+
+            <p>There are two types of shape changes:</p>
+            <ul>
+                <li><strong>Elastic Deformation:</strong> The object returns to its original shape when the force is removed. A stretched spring, elastic band, or balloon shows elastic deformation.</li>
+                <li><strong>Plastic Deformation:</strong> The object does not return to its original shape after the force is removed. Modeling clay, bent aluminum foil, or a dented car show plastic deformation.</li>
+            </ul>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> Forces have three main effects: they can change how fast something moves (speed), change which way it is moving (direction), or change what shape it is (deformation).
+            </div>
+        </section>
+
+        <!-- Section 3: Types of Forces -->
+        <section class="section">
+            <h2>Types of Forces</h2>
+
+            <p>There are many different forces in the world. Let's explore the most important ones you need to understand for Primary 6 Science.</p>
+
+            <div class="force-types">
+                <div class="force-card">
+                    <h4>Gravitational Force</h4>
+                    <p>The force that pulls objects toward Earth. It keeps us on the ground and makes things fall.</p>
+                </div>
+                <div class="force-card">
+                    <h4>Friction Force</h4>
+                    <p>The force that opposes motion between two surfaces in contact. It produces heat and slows objects down.</p>
+                </div>
+                <div class="force-card">
+                    <h4>Elastic Spring Force</h4>
+                    <p>The force in stretched or compressed springs and elastic materials. It pushes or pulls to return objects to their original shape.</p>
+                </div>
+                <div class="force-card">
+                    <h4>Magnetic Force</h4>
+                    <p>The attraction or repulsion between magnets and magnetic materials. It can act at a distance without touching.</p>
+                </div>
+            </div>
+
+            <h3>Gravitational Force</h3>
+            <p><strong>Gravitational force</strong> (or gravity) is the force that pulls objects toward the Earth. It is always acting downward. This force exists between any two objects with mass, but Earth's gravitational force is by far the strongest one we experience daily.</p>
+
+            <p>Gravitational force is responsible for several important phenomena:</p>
+            <ul>
+                <li><strong>Weight:</strong> Your weight is the gravitational force that Earth exerts on you. If you weigh 30 kg, Earth is pulling down on you with a force of about 300 N.</li>
+                <li><strong>Objects Falling:</strong> When you drop a ball, gravity pulls it downward, causing it to accelerate toward the ground.</li>
+                <li><strong>Keeping Us Grounded:</strong> Gravity keeps us on the ground. Without it, we would float away into space.</li>
+                <li><strong>Orbits:</strong> Gravity keeps the moon orbiting Earth and Earth orbiting the sun.</li>
+            </ul>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong> Astronauts in space stations feel weightless not because there is no gravity, but because they are falling around Earth. The gravitational force is still pulling them toward Earth, but they are moving forward at the same time, creating the sensation of weightlessness.
+            </div>
+
+            <h3>Friction Force</h3>
+            <p><strong>Friction</strong> is the force that opposes motion between two surfaces in contact. Whenever two surfaces slide against each other, friction acts to slow them down.</p>
+
+            <p>Friction occurs because surfaces are not perfectly smooth—they have tiny bumps and irregularities that catch on each other. The rougher the surfaces, the greater the friction. Friction produces heat, which is why your hands warm up when you rub them together.</p>
+
+            <p>There are different types of friction:</p>
+            <ul>
+                <li><strong>Static Friction:</strong> The friction that prevents an object from starting to move. It is why a book on a table doesn't slide without being pushed.</li>
+                <li><strong>Kinetic Friction:</strong> The friction that opposes motion once an object is already moving. It is why a sliding book eventually stops.</li>
+                <li><strong>Rolling Friction:</strong> The friction from rolling objects. It is much smaller than sliding friction, which is why wheels are more efficient than dragging.</li>
+            </ul>
+
+            <div class="interactive-section">
+                <h3>Friction Slider Interactive</h3>
+                <p>Adjust the surface roughness to see how friction affects object movement:</p>
+
+                <div class="applet-controls">
+                    <div class="control-group">
+                        <label for="frictionSlider">Surface Roughness (0 = Smooth, 100 = Rough)</label>
+                        <input type="range" id="frictionSlider" min="0" max="100" value="50" step="10">
+                    </div>
+                    <div class="control-group">
+                        <button onclick="simulateFriction()">Release Object</button>
+                    </div>
+                </div>
+
+                <div class="force-demo" id="frictionDemo">
+                    <div class="surface" id="demoSurface"></div>
+                    <div class="object-demo" id="frictionObject" style="bottom: 50px; top: auto; left: 80px;">Box</div>
+                </div>
+
+                <div class="applet-output" id="frictionOutput">
+                    Adjust the roughness and click "Release Object" to simulate friction
+                </div>
+            </div>
+
+            <h3>Elastic Spring Force</h3>
+            <p><strong>Elastic spring force</strong> is the force in stretched or compressed springs and elastic materials. When you pull a spring, it resists the pulling and tries to return to its original length. When you compress a spring, it pushes back.</p>
+
+            <p>Many everyday objects use elastic forces:</p>
+            <ul>
+                <li>Springs in mattresses and chairs</li>
+                <li>Elastic bands</li>
+                <li>Trampoline material</li>
+                <li>Rubber balls</li>
+                <li>Diving boards</li>
+            </ul>
+
+            <p>The more you stretch or compress a spring, the greater the force it exerts back. This relationship was discovered by Robert Hooke and is called Hooke's Law: the elastic force is proportional to the distance stretched or compressed.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> Springs follow Hooke's Law: the more you stretch (or compress) a spring, the greater the force it exerts to return to its original shape.
+            </div>
+
+            <h3>Magnetic Force</h3>
+            <p><strong>Magnetic force</strong> is the attraction or repulsion between magnets and magnetic materials. Unlike friction or gravitational force, magnetic force can act at a distance without objects touching.</p>
+
+            <p>Key facts about magnetic forces:</p>
+            <ul>
+                <li>Every magnet has a north pole and a south pole</li>
+                <li>Opposite poles attract (north attracts south)</li>
+                <li>Similar poles repel (north repels north, south repels south)</li>
+                <li>Magnets attract certain metals, especially iron, nickel, and cobalt</li>
+                <li>Earth itself is a giant magnet, which is why compass needles point north</li>
+                <li>Magnetic force is used in many devices: electric motors, generators, transformers, and MRI machines</li>
+            </ul>
+
+            <div class="interactive-section">
+                <h3>Force Identifier Challenge</h3>
+                <p>Read each scenario below and identify which type of force is being described. Click "Show Answer" to check your understanding.</p>
+
+                <div class="question" style="margin-bottom: 20px;">
+                    <p><strong>Scenario 1:</strong> A boy kicks a football, and it flies through the air before landing and rolling to a stop on the grass.</p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">Which forces are acting on the football during each stage?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('ans1')">Show Answer</button>
+                    <div class="answer-key" id="ans1">
+                        <strong>Answer:</strong> During the kick, an applied contact force changes the ball's speed and direction. While in the air, gravitational force pulls it downward. When landing and rolling, friction between the ball and grass opposes motion and slows it down.
+                    </div>
+                </div>
+
+                <div class="question" style="margin-bottom: 20px;">
+                    <p><strong>Scenario 2:</strong> Two magnets are held with their north poles facing each other. They push apart without touching.</p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">What type of force is this?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('ans2')">Show Answer</button>
+                    <div class="answer-key" id="ans2">
+                        <strong>Answer:</strong> This is a magnetic force—specifically, magnetic repulsion. The north poles of the two magnets repel each other. Magnetic force is a non-contact force that acts at a distance.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Scenario 3:</strong> A stretched rubber band suddenly snaps back to its original shape when released.</p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">What type of force causes this?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('ans3')">Show Answer</button>
+                    <div class="answer-key" id="ans3">
+                        <strong>Answer:</strong> This is elastic spring force. The rubber band resists stretching and stores energy. When released, this elastic force pushes the rubber band back to its original shape.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Friction - Friend or Foe? -->
+        <section class="section">
+            <h2>Friction: Friend or Foe?</h2>
+
+            <p>Friction is a force that many people think is only a problem—something that slows things down and prevents motion. However, friction is actually essential for life! It can be both helpful and harmful, depending on the situation.</p>
+
+            <h3>When Friction Is Useful (Friend)</h3>
+            <p>Friction is incredibly important in many everyday situations:</p>
+
+            <p><strong>Walking and Running:</strong> Without friction between your shoes and the ground, you would slide around like you're on ice. Friction allows you to grip the ground and push yourself forward. Athletes wear special shoes with textured soles to increase friction.</p>
+
+            <p><strong>Braking:</strong> Car, bicycle, and train brakes all rely on friction. Brake pads press against wheels or discs, creating friction that slows the vehicle down. Without friction, we couldn't stop vehicles safely.</p>
+
+            <p><strong>Writing:</strong> When you write with a pencil or pen, friction between the tip and paper is what leaves a mark. A very smooth surface like ice would not allow writing because there isn't enough friction.</p>
+
+            <p><strong>Holding Objects:</strong> When you grip a pencil or hold a ball, friction between your hand and the object prevents it from slipping. Without friction, you couldn't hold anything.</p>
+
+            <p><strong>Climbing:</strong> Rock climbers and tree climbers rely entirely on friction between their hands, feet, and the surface to stay safe.</p>
+
+            <p><strong>Playing Sports:</strong> In soccer, basketball, and other sports, friction between the ball and the ground or court affects how the ball moves and bounces.</p>
+
+            <h3>When Friction Is Not Useful (Foe)</h3>
+            <p>In some situations, friction causes problems:</p>
+
+            <p><strong>Wear and Tear:</strong> Friction between moving parts in machines causes them to wear out over time. For example, the wheels and axles in a skateboard become worn and damage each other through friction.</p>
+
+            <p><strong>Moving Heavy Objects:</strong> When you try to push a heavy box across a rough floor, friction makes it very difficult. The greater the friction, the more force you need to apply.</p>
+
+            <p><strong>Fuel Consumption:</strong> Friction in the engine of a car causes wasted energy and uses more fuel. Friction between the car's tires and road also reduces fuel efficiency.</p>
+
+            <p><strong>Mechanical Inefficiency:</strong> In any machine with moving parts, friction causes energy loss as heat. This is why machines need lubrication.</p>
+
+            <p><strong>Heat Generation:</strong> Excessive friction produces heat, which can damage materials or even cause fires. This is why machinery can overheat if not properly maintained.</p>
+
+            <div class="info-box key-concept">
+                <strong>Key Concept:</strong> Friction is not always good or bad. In many situations (walking, braking, writing), friction is essential. In other situations (machine wear, heavy object movement), friction is a problem that we try to minimize.
+            </div>
+        </section>
+
+        <!-- Section 5: Increasing and Decreasing Friction -->
+        <section class="section">
+            <h2>Increasing and Decreasing Friction</h2>
+
+            <p>Since friction can be both helpful and harmful, scientists and engineers have developed methods to increase friction when it's useful and decrease it when it's not.</p>
+
+            <h3>Ways to Increase Friction</h3>
+
+            <p><strong>Use Rougher Surfaces:</strong> The rougher a surface, the greater the friction. This is why safety shoes have textured, bumpy soles instead of smooth ones. Sandpaper is rough and creates high friction. If you want to increase traction, you make surfaces rougher.</p>
+
+            <p><strong>Add Tread or Ridges:</strong> Tires on cars and bicycles have tread—raised patterns that increase friction with the road. Rain or mud reduces traction because it fills the tread spaces, so vehicles have deeper tread in the winter to maintain grip on wet and icy roads.</p>
+
+            <p><strong>Use Sticky Materials:</strong> Materials like rubber have high friction coefficients. This is why rubber-soled shoes grip better than smooth leather soles. Rubber also grips wet surfaces better than many other materials.</p>
+
+            <p><strong>Increase Pressure:</strong> The more force pressing two surfaces together, the greater the friction between them. A heavier person creates more friction with the ground than a lighter person due to greater pressing force.</p>
+
+            <p><strong>Use Friction Strips or Pads:</strong> Brake pads in cars are made of special materials with high friction. Anti-slip strips on stairs and bathtubs increase friction to prevent slipping. Non-slip mats use friction to keep objects in place.</p>
+
+            <h3>Ways to Decrease Friction</h3>
+
+            <p><strong>Use Lubricants:</strong> Oil, grease, and other lubricants create a thin layer between surfaces, reducing direct contact and friction. Mechanics lubricate car engines to reduce wear and heat. Skate rink floors use a special wax that acts as a lubricant, allowing skaters to glide smoothly.</p>
+
+            <p><strong>Smooth Surfaces:</strong> Smooth, polished surfaces have less friction than rough ones. This is why skiing and ice skating work so well—ice and ski wax create very smooth surfaces with minimal friction. Polished wooden floors reduce friction compared to rough concrete.</p>
+
+            <p><strong>Use Wheels and Ball Bearings:</strong> Instead of sliding an object (high friction), rolling it on wheels creates much less friction. Ball bearings use small spinning balls to reduce friction in machinery. Skateboards use wheels to reduce friction compared to sliding.</p>
+
+            <p><strong>Reduce Contact Area:</strong> A sharp knife slides through butter more easily than a dull one because the sharp blade has less contact area. Similarly, a skate blade has a thin edge that reduces the contact area with ice.</p>
+
+            <p><strong>Reduce Pressure:</strong> Pressing less hard reduces friction. A light touch with a pencil causes less friction (and wear on the pencil) than pressing very hard while writing.</p>
+
+            <div class="interactive-section">
+                <h3>Design Challenge: Choose the Right Surface</h3>
+                <p>Engineers must choose the right materials and surfaces for different situations. For each application below, decide whether to increase or decrease friction, and explain your choice:</p>
+
+                <div class="question" style="margin-bottom: 20px;">
+                    <p><strong>Challenge 1: Playground Slide</strong></p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">The slide is made of smooth, polished metal. Should you increase or decrease friction? Why?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('chal1')">Show Answer</button>
+                    <div class="answer-key" id="chal1">
+                        <strong>Answer:</strong> Decrease friction. A smooth slide with low friction allows children to slide down quickly and smoothly. If the slide had high friction, children would slide slowly or get stuck.
+                    </div>
+                </div>
+
+                <div class="question" style="margin-bottom: 20px;">
+                    <p><strong>Challenge 2: Sports Shoe Soles</strong></p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">Should the sole be smooth or textured with tread? Why?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('chal2')">Show Answer</button>
+                    <div class="answer-key" id="chal2">
+                        <strong>Answer:</strong> Increase friction with a textured, treaded sole. This allows athletes to grip the ground when running or changing direction. Without grip, they would slip and fall.
+                    </div>
+                </div>
+
+                <div class="question" style="margin-bottom: 20px;">
+                    <p><strong>Challenge 3: Car Engine Parts</strong></p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">Should the internal moving parts be lubricated with oil? Why?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('chal3')">Show Answer</button>
+                    <div class="answer-key" id="chal3">
+                        <strong>Answer:</strong> Decrease friction with oil lubrication. Moving engine parts have high friction if in direct contact, which causes wear, heat, and energy loss. Oil reduces this friction, protecting the engine and improving efficiency.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Challenge 4: Bathroom Floor Tile</strong></p>
+                    <p style="color: #666; font-size: 0.95em; margin-top: 10px;">Should bathroom floor tiles be smooth and slippery or textured? Why?</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('chal4')">Show Answer</button>
+                    <div class="answer-key" id="chal4">
+                        <strong>Answer:</strong> Increase friction with textured tiles. Bathrooms are wet, and smooth tiles have very low friction when wet, causing people to slip and fall. Textured tiles increase friction, providing safe footing.
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box did-you-know">
+                <strong>Did You Know?</strong> Engineers use a number called the "coefficient of friction" to measure how much friction exists between two surfaces. A smooth ice rink has a coefficient near 0.02, while rubber on concrete can be 0.6 or higher. The higher the number, the more friction!
+            </div>
+        </section>
+
+        <!-- Values Box -->
+        <div class="values-box">
+            <h3>What Did We Learn?</h3>
+            <p>Forces are pushes and pulls that affect everything around us. They change how objects move, their direction, and even their shape. Understanding forces helps us design safer, more efficient tools and structures. By knowing how to increase or decrease friction, we can solve real-world problems and make life better.</p>
+        </div>
+
+        <!-- Assessment Section -->
+        <section class="assessment-section">
+            <h2>PSLE-Style Questions</h2>
+
+            <div class="subsection">
+                <h3>Section A: Multiple Choice Questions</h3>
+                <p style="margin-bottom: 20px; color: #666;">Choose the correct answer for each question.</p>
+
+                <div class="question">
+                    <p><strong>Question 1:</strong> Which of the following is NOT a force?</p>
+                    <div class="option">
+                        <input type="radio" id="q1a" name="q1" value="a">
+                        <label for="q1a">A) Gravity pulling you downward</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1b" name="q1" value="b">
+                        <label for="q1b">B) A magnet attracting a paperclip</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1c" name="q1" value="c">
+                        <label for="q1c">C) The temperature of water</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q1d" name="q1" value="d">
+                        <label for="q1d">D) Friction between a ball and the ground</label>
+                    </div>
+                    <button class="show-answer-btn" onclick="toggleAnswer('q1ans')">Show Answer</button>
+                    <div class="answer-key" id="q1ans">
+                        <strong>Answer: C</strong> Temperature is a measure of heat energy, not a force. All the others (gravity, magnetic attraction, friction) are forces.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 2:</strong> A car brakes hard and comes to a stop. Which force is responsible for stopping the car?</p>
+                    <div class="option">
+                        <input type="radio" id="q2a" name="q2" value="a">
+                        <label for="q2a">A) Gravitational force</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2b" name="q2" value="b">
+                        <label for="q2b">B) Friction between brake pads and wheels</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2c" name="q2" value="c">
+                        <label for="q2c">C) Elastic force from the suspension</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q2d" name="q2" value="d">
+                        <label for="q2d">D) Magnetic force</label>
+                    </div>
+                    <button class="show-answer-btn" onclick="toggleAnswer('q2ans')">Show Answer</button>
+                    <div class="answer-key" id="q2ans">
+                        <strong>Answer: B</strong> Brake systems use friction between brake pads and wheel discs (or drums) to create a force opposing the car's motion, bringing it to a stop.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 3:</strong> Which of the following scenarios shows elastic spring force?</p>
+                    <div class="option">
+                        <input type="radio" id="q3a" name="q3" value="a">
+                        <label for="q3a">A) A book slides across a table and slows down</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3b" name="q3" value="b">
+                        <label for="q3b">B) A rubber ball is thrown and bounces back up</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3c" name="q3" value="c">
+                        <label for="q3c">C) A paperclip sticks to a magnet</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q3d" name="q3" value="d">
+                        <label for="q3d">D) A feather falls slowly to the ground</label>
+                    </div>
+                    <button class="show-answer-btn" onclick="toggleAnswer('q3ans')">Show Answer</button>
+                    <div class="answer-key" id="q3ans">
+                        <strong>Answer: B</strong> The rubber ball compresses when it hits the ground, and elastic spring force within the rubber pushes it back up. This elastic restoring force causes the bounce.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 4:</strong> To decrease friction between a skateboard's wheels and axles, you should:</p>
+                    <div class="option">
+                        <input type="radio" id="q4a" name="q4" value="a">
+                        <label for="q4a">A) Make the surfaces rougher</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4b" name="q4" value="b">
+                        <label for="q4b">B) Apply oil or grease as a lubricant</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4c" name="q4" value="c">
+                        <label for="q4c">C) Press the wheels harder against the axles</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q4d" name="q4" value="d">
+                        <label for="q4d">D) Use heavier wheels</label>
+                    </div>
+                    <button class="show-answer-btn" onclick="toggleAnswer('q4ans')">Show Answer</button>
+                    <div class="answer-key" id="q4ans">
+                        <strong>Answer: B</strong> Lubrication with oil or grease reduces friction by creating a thin layer between surfaces, preventing direct contact. This allows the skateboard to roll more smoothly.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 5:</strong> Which type of force can act without direct contact between objects?</p>
+                    <div class="option">
+                        <input type="radio" id="q5a" name="q5" value="a">
+                        <label for="q5a">A) Friction only</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5b" name="q5" value="b">
+                        <label for="q5b">B) Gravitational and magnetic forces</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5c" name="q5" value="c">
+                        <label for="q5c">C) Elastic spring force only</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="q5d" name="q5" value="d">
+                        <label for="q5d">D) Friction and elastic forces only</label>
+                    </div>
+                    <button class="show-answer-btn" onclick="toggleAnswer('q5ans')">Show Answer</button>
+                    <div class="answer-key" id="q5ans">
+                        <strong>Answer: B</strong> Both gravity and magnetic force can act at a distance without objects touching. Friction and elastic spring force require contact between surfaces or objects.
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Section B: Open-Ended Questions</h3>
+                <p style="margin-bottom: 20px; color: #666;">Answer the following questions in complete sentences. Show your understanding of the concepts.</p>
+
+                <div class="question">
+                    <p><strong>Question 1:</strong> Ali pushes a heavy box across a rough floor. He then pours some oil on the floor. Describe what will happen to the force needed to push the box and explain why.</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('open1')">Show Answer</button>
+                    <div class="answer-key" id="open1">
+                        <strong>Model Answer:</strong> The force needed to push the box will decrease. When oil is poured on the floor, it acts as a lubricant between the bottom of the box and the floor surface. The oil reduces friction by creating a thin layer that prevents direct contact between the rough surfaces. With less friction, Ali needs to apply less force to move the box across the floor. The oil makes it easier to push the box.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 2:</strong> Explain three ways in which friction is useful in our daily lives. Give one example for each way.</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('open2')">Show Answer</button>
+                    <div class="answer-key" id="open2">
+                        <strong>Model Answer:</strong>
+                        <br>1) <strong>Walking and running:</strong> Friction between our shoes and the ground allows us to grip and push ourselves forward. Without friction, we would slip.
+                        <br>2) <strong>Braking vehicles:</strong> Friction between brake pads and wheels or discs creates the force that stops cars and bicycles safely.
+                        <br>3) <strong>Holding objects:</strong> Friction between our hands and objects prevents them from slipping. We use friction to write with pencils and pens, and to grip sports equipment.
+                    </div>
+                </div>
+
+                <div class="question">
+                    <p><strong>Question 3:</strong> A ball is thrown upward in the air. Describe all the forces acting on the ball while it is in the air. Explain what effect each force has on the ball's motion.</p>
+                    <button class="show-answer-btn" onclick="toggleAnswer('open3')">Show Answer</button>
+                    <div class="answer-key" id="open3">
+                        <strong>Model Answer:</strong> There are two main forces acting on the ball in the air:
+                        <br>1) <strong>Gravitational force:</strong> Earth's gravity pulls the ball downward. This force causes the ball to slow down as it travels upward (deceleration), stop at the peak, and then accelerate downward as it falls.
+                        <br>2) <strong>Air friction (air resistance):</strong> As the ball moves through the air, friction from the air opposes its motion in all directions. This air resistance causes the ball to slow down slightly and reduces how high it reaches.
+                        <br>Both forces change the ball's speed and direction of motion.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>Myko Education</strong> • Primary 6 Science Learning Content</p>
+            <p>Theme: Interactions • Topic 15: Forces</p>
+            <p style="font-size: 0.85em; margin-top: 16px; opacity: 0.8;">Designed to support Singapore MOE Primary 6 Science Curriculum</p>
+        </footer>
+    </div>
+
+    <script>
+        // Force Effects Demo
+        function applyForceEffect() {
+            const force = document.getElementById('forceSlider').value;
+            const effect = document.getElementById('effectSelect').value;
+            const demoObject = document.getElementById('demoObject');
+            const forceArrow = document.getElementById('forceArrow');
+            const output = document.getElementById('forceOutput');
+
+            // Reset position
+            demoObject.style.left = '80px';
+            demoObject.style.transform = 'translateY(-50%) rotate(0deg)';
+
+            if (effect === 'speed') {
+                forceArrow.style.opacity = '1';
+                forceArrow.style.left = '120px';
+
+                let position = 80;
+                let steps = 0;
+                const interval = setInterval(() => {
+                    position += (force / 50) * 2;
+                    steps++;
+                    demoObject.style.left = position + 'px';
+
+                    if (steps > 30) {
+                        clearInterval(interval);
+                        forceArrow.style.opacity = '0';
+                    }
+                }, 20);
+
+                output.innerHTML = `<strong>Speed Change Applied:</strong> Applied force of ${force}N accelerates the object. Greater force = faster acceleration!`;
+            } else if (effect === 'direction') {
+                forceArrow.style.left = '50%';
+                forceArrow.style.opacity = '1';
+                demoObject.style.transition = 'all 0.6s ease-out';
+                demoObject.style.left = '250px';
+                demoObject.style.top = '30%';
+                demoObject.style.transform = 'translateY(-50%) rotate(30deg)';
+
+                setTimeout(() => {
+                    forceArrow.style.opacity = '0';
+                }, 600);
+
+                output.innerHTML = `<strong>Direction Change Applied:</strong> Applied force of ${force}N changes the object's direction. The object moves at an angle!`;
+            } else if (effect === 'shape') {
+                forceArrow.style.opacity = '1';
+                forceArrow.style.left = '120px';
+                demoObject.style.transition = 'all 0.4s ease';
+                demoObject.style.width = Math.max(30, 60 - force/2) + 'px';
+                demoObject.style.height = Math.min(90, 60 + force/2) + 'px';
+
+                setTimeout(() => {
+                    forceArrow.style.opacity = '0';
+                }, 400);
+
+                output.innerHTML = `<strong>Shape Change Applied:</strong> Applied force of ${force}N deforms the object. Greater force = more deformation!`;
+            }
+        }
+
+        // Friction Simulation
+        function simulateFriction() {
+            const roughness = document.getElementById('frictionSlider').value;
+            const frictionObject = document.getElementById('frictionObject');
+            const demoSurface = document.getElementById('demoSurface');
+            const output = document.getElementById('frictionOutput');
+
+            const smoothness = 100 - roughness;
+            if (smoothness > 70) {
+                demoSurface.style.background = 'linear-gradient(to bottom, #90caf9, #1976d2)';
+            } else if (smoothness > 40) {
+                demoSurface.style.background = 'repeating-linear-gradient(45deg, #9c8a78, #9c8a78 15px, #a89888 15px, #a89888 30px)';
+            } else {
+                demoSurface.style.background = 'repeating-linear-gradient(45deg, #6d4c41, #6d4c41 10px, #8d6e63 10px, #8d6e63 20px)';
+            }
+
+            const distance = Math.max(50, 400 - roughness * 3);
+            const duration = (roughness / 10) + 1;
+
+            frictionObject.style.transition = `left ${duration}s linear`;
+            frictionObject.style.left = distance + 'px';
+
+            const frictionForce = (roughness / 10).toFixed(1);
+            const description = roughness > 70 ? 'very low friction (slippery)' :
+                              roughness > 40 ? 'moderate friction' :
+                              'high friction (rough)';
+
+            output.innerHTML = `<strong>Friction Roughness: ${roughness}/100 (${description})</strong><br>Friction force: ~${frictionForce}N<br>Distance traveled: ~${(distance/10).toFixed(1)}m before stopping`;
+
+            setTimeout(() => {
+                frictionObject.style.transition = 'none';
+                frictionObject.style.left = '80px';
+            }, duration * 1000);
+        }
+
+        // Toggle answer visibility
+        function toggleAnswer(id) {
+            const answerBox = document.getElementById(id);
+            answerBox.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 4 Science - Matter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #1565c0;
+            --light-pri: #42a5f5;
+            --dark-pri: #0d47a1;
+            --accent: #ff9800;
+            --success: #66bb6a;
+            --danger: #ef5350;
+            --warning: #ffa726;
+            --text: #212121;
+            --light-text: #757575;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* HERO BANNER */
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--light-pri) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* LEARNING OUTCOMES */
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--pri);
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .outcome-card {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--pri);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .outcome-card p {
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: var(--pri);
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-section h3 {
+            color: var(--text);
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-section p {
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .content-section ul {
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+
+        /* HIGHLIGHT BOXES */
+        .concept-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid var(--pri);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .concept-box h4 {
+            color: var(--dark-pri);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .concept-box p {
+            color: var(--text);
+            margin: 0;
+        }
+
+        .did-you-know {
+            background: linear-gradient(135deg, #f3e5f5 0%, #ede7f6 100%);
+            border-left: 4px solid #9c27b0;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .did-you-know h4 {
+            color: #7b1fa2;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .think-about {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .think-about h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        /* TABLES */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-white);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: var(--pri);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        /* EXPANDABLE SECTIONS */
+        .expandable {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .expandable-header {
+            background: #f5f5f5;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text);
+            user-select: none;
+        }
+
+        .expandable-header:hover {
+            background: #eeeeee;
+        }
+
+        .expandable-header .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable-content {
+            padding: 20px;
+            display: none;
+            border-top: 1px solid var(--border);
+        }
+
+        .expandable-content.active {
+            display: block;
+        }
+
+        .expandable-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* PARTICLE SIMULATOR */
+        .simulator {
+            background: var(--bg-light);
+            border: 2px solid var(--pri);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #particleCanvas {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 4px;
+        }
+
+        .simulator-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .simulator-btn {
+            padding: 10px 20px;
+            background: var(--pri);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .simulator-btn:hover {
+            background: var(--dark-pri);
+        }
+
+        .simulator-btn.active {
+            background: var(--accent);
+        }
+
+        /* INTERACTIVE DIAGRAM */
+        .state-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .state-box {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--light-pri) 100%);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .arrow-button {
+            background: white;
+            border: 2px solid var(--pri);
+            color: var(--pri);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .arrow-button:hover {
+            background: var(--pri);
+            color: white;
+        }
+
+        .transition-label {
+            background: white;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            margin: 10px 0;
+            text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CLASSIFICATION GAME */
+        .classification-container {
+            display: grid;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .classification-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .draggable-item {
+            background: white;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            cursor: grab;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s;
+            touch-action: none;
+            user-select: none;
+        }
+
+        .draggable-item:hover {
+            border-color: var(--pri);
+            box-shadow: 0 2px 8px rgba(21, 101, 192, 0.2);
+        }
+
+        .draggable-item.dragging {
+            opacity: 0.5;
+        }
+
+        .classification-dropzones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .dropzone {
+            background: #f5f5f5;
+            border: 2px dashed var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            min-height: 150px;
+            text-align: center;
+        }
+
+        .dropzone h4 {
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .dropzone.solid { border-color: var(--pri); }
+        .dropzone.liquid { border-color: #1976d2; }
+        .dropzone.gas { border-color: #1565c0; }
+
+        .dropped-items {
+            min-height: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .dropped-item {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        /* TEMPERATURE SLIDER */
+        .slider-section {
+            margin: 30px 0;
+        }
+
+        .temperature-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(to right, #1565c0, #ff9800, #f44336);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .temperature-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            border: 3px solid var(--pri);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .temperature-slider::-moz-range-thumb {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            border: 3px solid var(--pri);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .temperature-display {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .temp-state {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid var(--border);
+        }
+
+        .temp-state.active {
+            border-color: var(--pri);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .temp-state h4 {
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .temp-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--pri);
+        }
+
+        /* FLASHCARDS */
+        .flashcard-container {
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            perspective: 1000px;
+            text-align: center;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flashcard:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .flashcard.flipped {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--light-pri) 100%);
+            color: white;
+        }
+
+        .flashcard-content {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .flashcard-hint {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 10px;
+        }
+
+        /* QUIZ SECTION */
+        .quiz-container {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .question-block {
+            background: #fafafa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border-left: 4px solid var(--pri);
+        }
+
+        .question-number {
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .option {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            border-color: var(--pri);
+            background: #f5f5f5;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .option.selected {
+            background: #e3f2fd;
+            border-color: var(--pri);
+        }
+
+        .option.correct {
+            background: #e8f5e9;
+            border-color: var(--success);
+        }
+
+        .option.incorrect {
+            background: #ffebee;
+            border-color: var(--danger);
+        }
+
+        .open-response {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 100px;
+            margin: 10px 0;
+        }
+
+        .open-response:focus {
+            outline: none;
+            border-color: var(--pri);
+            box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+        }
+
+        .answer-reveal {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .answer-reveal.show {
+            display: block;
+        }
+
+        .answer-reveal h5 {
+            color: var(--success);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .answer-reveal p {
+            color: var(--text);
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .answer-reveal p:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-reveal {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-reveal:hover {
+            background: #43a047;
+        }
+
+        .btn-submit-quiz {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit-quiz:hover {
+            background: var(--dark-pri);
+        }
+
+        .quiz-feedback {
+            background: #e3f2fd;
+            border: 2px solid var(--pri);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-feedback h4 {
+            color: var(--pri);
+            margin-bottom: 10px;
+        }
+
+        /* VALUES BOX */
+        .values-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px solid var(--warning);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            color: #e65100;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .values-box p {
+            color: var(--text);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .state-diagram {
+                gap: 10px;
+            }
+
+            .state-box {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
+
+            .comparison-table {
+                font-size: 14px;
+            }
+
+            .comparison-table td,
+            .comparison-table th {
+                padding: 10px;
+            }
+
+            .temperature-display {
+                grid-template-columns: 1fr;
+            }
+
+            .classification-items {
+                grid-template-columns: 1fr;
+            }
+
+            .classification-dropzones {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO BANNER -->
+    <div class="hero">
+        <div class="hero-badge">Primary 4 • Theme: Diversity</div>
+        <h1>Matter</h1>
+        <p>Explore the properties of solids, liquids, and gases. Discover how matter changes its state when heat is added or removed.</p>
+    </div>
+
+    <div class="container">
+        <!-- LEARNING OUTCOMES -->
+        <h2 class="section-title">Learning Outcomes</h2>
+        <div class="outcomes-grid">
+            <div class="outcome-card">
+                <h3>LO1</h3>
+                <p>Show that matter has mass and occupies space</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO2</h3>
+                <p>Describe the three states of matter (solid, liquid, gas) in terms of shape, volume, and compressibility</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO3</h3>
+                <p>Compare the properties of the three states of matter</p>
+            </div>
+            <div class="outcome-card">
+                <h3>LO4</h3>
+                <p>Describe how matter can change from one state to another by adding or removing heat</p>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE NOTES -->
+        <div class="content-section">
+            <h2>📚 Interactive Notes</h2>
+
+            <!-- WHAT IS MATTER -->
+            <h3>What Is Matter?</h3>
+            <p>Everything around us is made of matter. Matter is anything that has <strong>mass</strong> and <strong>occupies space</strong>. In other words, if something takes up room and has weight, it is matter.</p>
+            <p>The key properties of matter are:</p>
+            <ul>
+                <li><strong>Mass</strong>: The amount of material in an object. We measure mass in grams or kilograms.</li>
+                <li><strong>Occupies Space (Volume)</strong>: Matter takes up room. Every object you can see and touch occupies space.</li>
+            </ul>
+
+            <div class="concept-box">
+                <h4>💡 Key Concept</h4>
+                <p><strong>Even air is matter!</strong> You cannot see air, but it has mass and occupies space. Here's proof: A deflated balloon is light and takes up little space. When you inflate the balloon with air, it becomes heavier and takes up much more space. The air inside has mass and volume!</p>
+            </div>
+
+            <!-- THREE STATES OF MATTER -->
+            <h3>The Three States of Matter</h3>
+            <p>All matter exists in one of three states: <strong>solid</strong>, <strong>liquid</strong>, or <strong>gas</strong>. The state depends on how the particles are arranged and how much they move.</p>
+
+            <h3>1. Solids</h3>
+            <p><strong>Properties of Solids:</strong></p>
+            <ul>
+                <li><strong>Fixed shape</strong>: A solid keeps the same shape no matter what container it is in. A block of wood is always block-shaped.</li>
+                <li><strong>Fixed volume</strong>: The amount of space a solid takes up does not change.</li>
+                <li><strong>Cannot be compressed</strong>: You cannot squeeze a solid into a smaller space.</li>
+                <li><strong>Particles are tightly packed</strong>: In a solid, particles are very close together and vibrate in place but do not move around freely.</li>
+            </ul>
+
+            <p><strong>Examples:</strong> ice, wood, metal, pencil, book, rock, glass</p>
+
+            <h3>2. Liquids</h3>
+            <p><strong>Properties of Liquids:</strong></p>
+            <ul>
+                <li><strong>No fixed shape</strong>: A liquid takes the shape of the container it is in. Water in a cup is cup-shaped, but water in a bowl is bowl-shaped.</li>
+                <li><strong>Fixed volume</strong>: The amount of space a liquid takes up stays the same.</li>
+                <li><strong>Cannot be easily compressed</strong>: It is very difficult to squeeze a liquid into a smaller space.</li>
+                <li><strong>Particles are close but can slide</strong>: In a liquid, particles are still close together, but they can slide past each other, allowing the liquid to flow.</li>
+            </ul>
+
+            <p><strong>Examples:</strong> water, milk, juice, oil, honey, blood</p>
+
+            <h3>3. Gases</h3>
+            <p><strong>Properties of Gases:</strong></p>
+            <ul>
+                <li><strong>No fixed shape</strong>: A gas spreads out to fill whatever space is available. It takes the shape of the entire container, not just part of it.</li>
+                <li><strong>No fixed volume</strong>: A gas can expand or shrink depending on the container size.</li>
+                <li><strong>Can be compressed</strong>: You can squeeze a gas into a smaller space. For example, pumping air into a bicycle tire compresses the air.</li>
+                <li><strong>Particles are far apart and move freely</strong>: In a gas, particles are spread out and move very quickly in all directions.</li>
+            </ul>
+
+            <p><strong>Examples:</strong> air (oxygen, nitrogen), carbon dioxide, steam, hydrogen, helium (in balloons)</p>
+
+            <!-- COMPARISON TABLE -->
+            <h3>Comparing the Three States of Matter</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Solid</th>
+                        <th>Liquid</th>
+                        <th>Gas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Shape</strong></td>
+                        <td>Fixed shape</td>
+                        <td>No fixed shape (takes shape of container)</td>
+                        <td>No fixed shape (fills entire container)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Volume</strong></td>
+                        <td>Fixed volume</td>
+                        <td>Fixed volume</td>
+                        <td>No fixed volume (fills container)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compressibility</strong></td>
+                        <td>Cannot be compressed</td>
+                        <td>Cannot be easily compressed</td>
+                        <td>Can be compressed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Particle Arrangement</strong></td>
+                        <td>Tightly packed, fixed positions</td>
+                        <td>Close together, can slide</td>
+                        <td>Far apart, move freely</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Density</strong></td>
+                        <td>High density</td>
+                        <td>Medium density</td>
+                        <td>Low density</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="did-you-know">
+                <h4>🔬 Did You Know?</h4>
+                <p>The densest state of matter is a solid, followed by a liquid, and then a gas. This is why a solid sinks in water (it's denser), and air bubbles rise up (gas is less dense than liquid).</p>
+            </div>
+
+            <!-- PARTICLE MODEL -->
+            <h3>The Particle Model of Matter</h3>
+            <p>All matter is made up of tiny particles called <strong>atoms</strong> and <strong>molecules</strong>. These particles are always moving, but the amount of space between them and how fast they move differs depending on the state.</p>
+
+            <p><strong>In a Solid:</strong> Particles are packed tightly with very little space between them. They vibrate in place but stay in fixed positions. This is why solids have a fixed shape and volume.</p>
+
+            <p><strong>In a Liquid:</strong> Particles are still close together, but they have more space between them than in a solid. They can slide past each other, which allows the liquid to flow and take the shape of its container.</p>
+
+            <p><strong>In a Gas:</strong> Particles are far apart with lots of space between them. They move very quickly and randomly in all directions. This is why gases can fill an entire container and be compressed.</p>
+
+            <!-- CHANGES OF STATE -->
+            <h3>Changes of State</h3>
+            <p>Matter can change from one state to another when heat is added or removed. Let's explore each type of change:</p>
+
+            <h3>1. Melting (Solid → Liquid)</h3>
+            <p><strong>Definition:</strong> Melting is when a solid changes into a liquid by adding heat.</p>
+            <p><strong>What happens:</strong> When you add heat to a solid, the particles vibrate faster and faster. Eventually, they vibrate so much that they break free from their fixed positions and can slide past each other. The solid becomes a liquid.</p>
+            <p><strong>Example:</strong> Ice (solid) melts into water (liquid) when it is heated. At 0°C (32°F), ice melts into water.</p>
+            <p><strong>Real-life example:</strong> A chocolate bar left in the sun starts to melt because the heat from the sun gives energy to the particles.</p>
+
+            <h3>2. Freezing (Liquid → Solid)</h3>
+            <p><strong>Definition:</strong> Freezing is when a liquid changes into a solid by removing heat.</p>
+            <p><strong>What happens:</strong> When you cool a liquid, the particles slow down and vibrate less. Eventually, they move so slowly that they form fixed positions and become a solid.</p>
+            <p><strong>Example:</strong> Water (liquid) freezes into ice (solid) when it is cooled. At 0°C (32°F), water freezes into ice.</p>
+            <p><strong>Real-life example:</strong> Water in a freezer turns into ice cubes because the freezer removes heat from the water.</p>
+
+            <div class="concept-box">
+                <h4>💡 Key Concept</h4>
+                <p><strong>Melting and Freezing are Opposite Processes:</strong> Melting adds heat and turns a solid into a liquid. Freezing removes heat and turns a liquid into a solid. They happen at the same temperature but in opposite directions.</p>
+            </div>
+
+            <h3>3. Boiling & Evaporation (Liquid → Gas)</h3>
+            <p><strong>Definition:</strong> Boiling and evaporation are when a liquid changes into a gas by adding heat.</p>
+            <p><strong>What happens:</strong> When you add enough heat to a liquid, the particles gain so much energy that they escape from the surface and become a gas. The liquid turns into a gas.</p>
+
+            <p><strong>Boiling:</strong></p>
+            <ul>
+                <li>Boiling happens at a specific temperature (100°C for water).</li>
+                <li>Bubbles form inside the liquid and rise to the surface.</li>
+                <li>The entire liquid turns into a gas throughout its volume.</li>
+                <li>Example: Heating water on a stove until it boils and steam rises.</li>
+            </ul>
+
+            <p><strong>Evaporation:</strong></p>
+            <ul>
+                <li>Evaporation can happen at any temperature, not just at boiling point.</li>
+                <li>Particles escape from the surface of the liquid.</li>
+                <li>Only particles at the surface turn into a gas.</li>
+                <li>Example: Wet clothes hanging on a clothesline eventually dry because water evaporates from the surface.</li>
+            </ul>
+
+            <p><strong>Real-life example:</strong> A kettle of water boils at 100°C and turns into steam (gas). But a puddle on the ground also becomes a gas through evaporation, even though the temperature is much lower.</p>
+
+            <div class="think-about">
+                <h4>❓ Think About It</h4>
+                <p>Why does a wet towel eventually dry even if you don't heat it? The water evaporates from the towel at room temperature, turning into water vapor in the air. This is why evaporation happens much slower than boiling, but it still happens!</p>
+            </div>
+
+            <h3>4. Condensation (Gas → Liquid)</h3>
+            <p><strong>Definition:</strong> Condensation is when a gas changes into a liquid by removing heat.</p>
+            <p><strong>What happens:</strong> When you cool a gas, the particles slow down and lose energy. Eventually, they come close enough together to form a liquid.</p>
+            <p><strong>Example:</strong> Steam (gas) condenses into water (liquid) when it cools. This is the opposite of boiling.</p>
+            <p><strong>Real-life examples:</strong></p>
+            <ul>
+                <li>Water droplets on a mirror or window after a hot shower - steam from the hot water condenses on the cold glass.</li>
+                <li>Water droplets on the outside of a cold glass of water - water vapor in the air condenses on the cold surface.</li>
+                <li>Morning dew on grass - water vapor in the air condenses on the cold grass overnight.</li>
+            </ul>
+
+            <div class="concept-box">
+                <h4>💡 Key Concept</h4>
+                <p><strong>Condensation is Opposite to Boiling/Evaporation:</strong> When a gas is cooled, it condenses into a liquid. This happens at the same temperature as boiling, but in the opposite direction.</p>
+            </div>
+
+            <!-- CYCLE DIAGRAM -->
+            <h3>The Complete Cycle: States of Matter</h3>
+            <div class="state-diagram">
+                <div class="state-box">SOLID</div>
+                <div class="arrow-button" onclick="showTransition('melting')">→</div>
+                <div class="state-box">LIQUID</div>
+                <div class="arrow-button" onclick="showTransition('boiling')">→</div>
+                <div class="state-box">GAS</div>
+            </div>
+            <div class="transition-label" id="transitionLabel">Click arrows to see transitions</div>
+
+            <div class="expandable">
+                <div class="expandable-header" onclick="toggleExpand(this)">
+                    <span>⭐ Sublimation: Solid Directly to Gas</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="expandable-content">
+                    <p>Some solids can change directly into a gas without becoming a liquid first. This is called <strong>sublimation</strong>.</p>
+                    <p><strong>Example:</strong> Dry ice (solid carbon dioxide) sublimes into carbon dioxide gas without melting into a liquid first. This is why dry ice seems to "disappear" and creates fog.</p>
+                    <p><strong>Another example:</strong> Ice can sublime in very cold, dry places without melting.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PARTICLE SIMULATOR -->
+        <div class="content-section">
+            <h2>🎮 Interactive Particle Simulator</h2>
+            <p>Watch how particles behave differently in solids, liquids, and gases. Click the buttons to change the state!</p>
+            <div class="simulator">
+                <canvas id="particleCanvas" width="600" height="300"></canvas>
+                <div class="simulator-controls">
+                    <button class="simulator-btn active" onclick="changeState('solid')">Solid</button>
+                    <button class="simulator-btn" onclick="changeState('liquid')">Liquid</button>
+                    <button class="simulator-btn" onclick="changeState('gas')">Gas</button>
+                </div>
+                <p style="margin-top: 15px; color: var(--light-text); font-size: 14px;">Watch the particles move! In solids they stay in place. In liquids they slide around. In gases they zoom everywhere!</p>
+            </div>
+        </div>
+
+        <!-- CLASSIFICATION GAME -->
+        <div class="content-section">
+            <h2>🎯 Classify the Matter</h2>
+            <p>Drag each item into the correct category: Solid, Liquid, or Gas.</p>
+            <div class="classification-container">
+                <div class="classification-items" id="classificationItems">
+                    <div class="draggable-item" draggable="true">Ice</div>
+                    <div class="draggable-item" draggable="true">Water</div>
+                    <div class="draggable-item" draggable="true">Steam</div>
+                    <div class="draggable-item" draggable="true">Wood</div>
+                    <div class="draggable-item" draggable="true">Milk</div>
+                    <div class="draggable-item" draggable="true">Air</div>
+                    <div class="draggable-item" draggable="true">Metal</div>
+                    <div class="draggable-item" draggable="true">Oil</div>
+                    <div class="draggable-item" draggable="true">Oxygen</div>
+                </div>
+                <div class="classification-dropzones">
+                    <div class="dropzone solid" ondrop="drop(event, 'solid')" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+                        <h4>SOLID</h4>
+                        <div class="dropped-items" id="solid-items"></div>
+                    </div>
+                    <div class="dropzone liquid" ondrop="drop(event, 'liquid')" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+                        <h4>LIQUID</h4>
+                        <div class="dropped-items" id="liquid-items"></div>
+                    </div>
+                    <div class="dropzone gas" ondrop="drop(event, 'gas')" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+                        <h4>GAS</h4>
+                        <div class="dropped-items" id="gas-items"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEMPERATURE SLIDER -->
+        <div class="content-section">
+            <h2>🌡️ Temperature and States of Matter</h2>
+            <p>Move the slider to see how temperature affects the state of water:</p>
+            <div class="slider-section">
+                <input type="range" min="-50" max="150" value="25" class="temperature-slider" id="tempSlider" oninput="updateTemperature()">
+                <div class="temperature-display">
+                    <div class="temp-state" id="solid-state">
+                        <h4>ICE (Solid)</h4>
+                        <p>Below 0°C</p>
+                    </div>
+                    <div class="temp-state active" id="liquid-state">
+                        <h4>WATER (Liquid)</h4>
+                        <p>0°C to 100°C</p>
+                    </div>
+                    <div class="temp-state" id="gas-state">
+                        <h4>STEAM (Gas)</h4>
+                        <p>Above 100°C</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-weight: 600; color: var(--pri);">Current Temperature: <span id="tempValue">25</span>°C</p>
+            </div>
+        </div>
+
+        <!-- FLASHCARDS -->
+        <div class="content-section">
+            <h2>📇 Quick Flashcards</h2>
+            <p>Click on each card to reveal the answer!</p>
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-content">
+                        <div>What is matter?</div>
+                        <div class="flashcard-hint">(Click to reveal)</div>
+                    </div>
+                </div>
+                <div class="flashcard hidden-back" data-back="Anything that has mass and occupies space">
+                    <div class="flashcard-content"></div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-content">
+                        <div>What is melting?</div>
+                        <div class="flashcard-hint">(Click to reveal)</div>
+                    </div>
+                </div>
+                <div class="flashcard hidden-back" data-back="When a solid changes into a liquid by adding heat">
+                    <div class="flashcard-content"></div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-content">
+                        <div>Which state has fixed shape and volume?</div>
+                        <div class="flashcard-hint">(Click to reveal)</div>
+                    </div>
+                </div>
+                <div class="flashcard hidden-back" data-back="Solid - its particles are tightly packed in fixed positions">
+                    <div class="flashcard-content"></div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-content">
+                        <div>What is condensation?</div>
+                        <div class="flashcard-hint">(Click to reveal)</div>
+                    </div>
+                </div>
+                <div class="flashcard hidden-back" data-back="When a gas changes into a liquid by removing heat">
+                    <div class="flashcard-content"></div>
+                </div>
+
+                <div class="flashcard" onclick="flipCard(this)">
+                    <div class="flashcard-content">
+                        <div>Why can gases be compressed?</div>
+                        <div class="flashcard-hint">(Click to reveal)</div>
+                    </div>
+                </div>
+                <div class="flashcard hidden-back" data-back="Because gas particles are far apart with lots of empty space between them">
+                    <div class="flashcard-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUIZ SECTION -->
+        <div class="quiz-container">
+            <h2 class="section-title">📝 PSLE-Style Practice Questions</h2>
+
+            <!-- SECTION A: MCQs -->
+            <h3 class="quiz-section-title">Section A: Multiple Choice Questions (5 marks)</h3>
+            <p style="margin-bottom: 20px; color: var(--light-text);">Choose the best answer for each question.</p>
+
+            <!-- Question 1 -->
+            <div class="question-block">
+                <div class="question-number">Question 1</div>
+                <div class="question-text">Mei has a glass of water sitting on the table. After some time, some of the water evaporates. Which statement best describes what happens to the water during evaporation?</div>
+                <div class="option" onclick="selectOption(this, 'q1')">
+                    <input type="radio" name="q1" value="A"> A) The water turns into ice
+                </div>
+                <div class="option" onclick="selectOption(this, 'q1')">
+                    <input type="radio" name="q1" value="B"> B) The water changes from liquid into gas
+                </div>
+                <div class="option" onclick="selectOption(this, 'q1')">
+                    <input type="radio" name="q1" value="C"> C) The water becomes more solid
+                </div>
+                <div class="option" onclick="selectOption(this, 'q1')">
+                    <input type="radio" name="q1" value="D"> D) The water's mass increases
+                </div>
+                <button class="btn-reveal" onclick="showAnswer('ans1')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans1">
+                    <h5>✓ Correct Answer: B</h5>
+                    <p><strong>Explanation:</strong> Evaporation is the process where a liquid changes into a gas. Water from the glass escapes as water vapor into the air. This is different from boiling because evaporation happens at room temperature without bubbles forming.</p>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-block">
+                <div class="question-number">Question 2</div>
+                <div class="question-text">Which of the following statements about solids is correct?</div>
+                <div class="option" onclick="selectOption(this, 'q2')">
+                    <input type="radio" name="q2" value="A"> A) Solids can take the shape of any container
+                </div>
+                <div class="option" onclick="selectOption(this, 'q2')">
+                    <input type="radio" name="q2" value="B"> B) Solids have fixed volume but no fixed shape
+                </div>
+                <div class="option" onclick="selectOption(this, 'q2')">
+                    <input type="radio" name="q2" value="C"> C) Solids have both fixed shape and fixed volume
+                </div>
+                <div class="option" onclick="selectOption(this, 'q2')">
+                    <input type="radio" name="q2" value="D"> D) Solids can be easily compressed
+                </div>
+                <button class="btn-reveal" onclick="showAnswer('ans2')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans2">
+                    <h5>✓ Correct Answer: C</h5>
+                    <p><strong>Explanation:</strong> Solids have both fixed shape and fixed volume because their particles are tightly packed in fixed positions. Liquids have fixed volume but no fixed shape. Gases have neither fixed shape nor fixed volume.</p>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-block">
+                <div class="question-number">Question 3</div>
+                <div class="question-text">The diagram shows a glass of hot water covered with a lid. After 20 minutes, water droplets form on the inside of the lid. Why do these water droplets form?</div>
+                <div class="option" onclick="selectOption(this, 'q3')">
+                    <input type="radio" name="q3" value="A"> A) The hot water is freezing
+                </div>
+                <div class="option" onclick="selectOption(this, 'q3')">
+                    <input type="radio" name="q3" value="B"> B) Water vapor rises and condenses on the cold lid
+                </div>
+                <div class="option" onclick="selectOption(this, 'q3')">
+                    <input type="radio" name="q3" value="C"> C) Ice is melting on top of the water
+                </div>
+                <div class="option" onclick="selectOption(this, 'q3')">
+                    <input type="radio" name="q3" value="D"> D) The water is subliming
+                </div>
+                <button class="btn-reveal" onclick="showAnswer('ans3')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans3">
+                    <h5>✓ Correct Answer: B</h5>
+                    <p><strong>Explanation:</strong> When water is heated, it evaporates and becomes water vapor (gas). This vapor rises and touches the cold lid. The cold surface causes the water vapor to condense back into liquid water droplets. This is the process of condensation.</p>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-block">
+                <div class="question-number">Question 4</div>
+                <div class="question-text">Which of the following statements about gases is true?</div>
+                <div class="option" onclick="selectOption(this, 'q4')">
+                    <input type="radio" name="q4" value="A"> A) Gases have fixed volume and can be compressed
+                </div>
+                <div class="option" onclick="selectOption(this, 'q4')">
+                    <input type="radio" name="q4" value="B"> B) Gases have no fixed shape and no fixed volume
+                </div>
+                <div class="option" onclick="selectOption(this, 'q4')">
+                    <input type="radio" name="q4" value="C"> C) Gases cannot be compressed because their particles are tightly packed
+                </div>
+                <div class="option" onclick="selectOption(this, 'q4')">
+                    <input type="radio" name="q4" value="D"> D) Gases have fixed shape like solids
+                </div>
+                <button class="btn-reveal" onclick="showAnswer('ans4')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans4">
+                    <h5>✓ Correct Answer: B</h5>
+                    <p><strong>Explanation:</strong> Gases have no fixed shape (they fill their container) and no fixed volume (they can expand or shrink). Gas particles are far apart and move freely, which is why gases can be compressed.</p>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question-block">
+                <div class="question-number">Question 5</div>
+                <div class="question-text">Ice turns into water when heated. What is the name of this change of state?</div>
+                <div class="option" onclick="selectOption(this, 'q5')">
+                    <input type="radio" name="q5" value="A"> A) Freezing
+                </div>
+                <div class="option" onclick="selectOption(this, 'q5')">
+                    <input type="radio" name="q5" value="B"> B) Evaporation
+                </div>
+                <div class="option" onclick="selectOption(this, 'q5')">
+                    <input type="radio" name="q5" value="C"> C) Melting
+                </div>
+                <div class="option" onclick="selectOption(this, 'q5')">
+                    <input type="radio" name="q5" value="D"> D) Condensation
+                </div>
+                <button class="btn-reveal" onclick="showAnswer('ans5')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans5">
+                    <h5>✓ Correct Answer: C</h5>
+                    <p><strong>Explanation:</strong> Melting is when a solid (ice) changes into a liquid (water) by adding heat. The opposite process is freezing, where a liquid becomes a solid.</p>
+                </div>
+            </div>
+
+            <!-- SECTION B: Open-ended -->
+            <h3 class="quiz-section-title" style="margin-top: 40px;">Section B: Open-Ended Questions (6 marks)</h3>
+            <p style="margin-bottom: 20px; color: var(--light-text);">Answer the following questions in complete sentences.</p>
+
+            <!-- Question 6 -->
+            <div class="question-block">
+                <div class="question-number">Question 6 (2 marks)</div>
+                <div class="question-text">Mei placed a glass of cold water on the table. After 10 minutes, she noticed water droplets on the outside of the glass. Explain how the water droplets formed on the outside of the glass.</div>
+                <textarea class="open-response" id="q6-response" placeholder="Write your answer here..."></textarea>
+                <button class="btn-reveal" onclick="showAnswer('ans6')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans6">
+                    <h5>✓ Model Answer</h5>
+                    <p><strong>Water vapor in the air around the glass comes into contact with the cold surface of the glass. The cold temperature causes the water vapor (gas) to condense into liquid water droplets. This is the process of condensation.</strong></p>
+                    <p><strong>Key points:</strong> Mention water vapor from air, cold glass surface, and condensation process.</p>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question-block">
+                <div class="question-number">Question 7 (2 marks)</div>
+                <div class="question-text">Describe two differences between the properties of liquids and gases.</div>
+                <textarea class="open-response" id="q7-response" placeholder="Write your answer here..."></textarea>
+                <button class="btn-reveal" onclick="showAnswer('ans7')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans7">
+                    <h5>✓ Model Answer</h5>
+                    <p><strong>Difference 1: Shape</strong> - Liquids do not have a fixed shape but take the shape of the container, while gases also do not have a fixed shape but fill the entire container.</p>
+                    <p><strong>Difference 2: Volume</strong> - Liquids have a fixed volume, while gases do not have a fixed volume and can expand or contract depending on the container size.</p>
+                    <p><strong>Alternative:</strong> Liquids cannot be easily compressed, but gases can be compressed.</p>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question-block">
+                <div class="question-number">Question 8 (2 marks)</div>
+                <div class="question-text">Explain what happens to the particles of a substance when it is heated and changes from a solid to a liquid.</div>
+                <textarea class="open-response" id="q8-response" placeholder="Write your answer here..."></textarea>
+                <button class="btn-reveal" onclick="showAnswer('ans8')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans8">
+                    <h5>✓ Model Answer</h5>
+                    <p><strong>When heat is added to a solid, the particles gain energy and vibrate faster. The particles vibrate so much that they break free from their fixed positions and can slide past each other. This allows the solid to become a liquid.</strong></p>
+                    <p><strong>Key points:</strong> Mention particles vibrating, gaining energy, breaking free from fixed positions, and sliding past each other.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- VALUES BOX -->
+        <div class="values-box">
+            <h3>🌟 Values & Character</h3>
+            <p><strong>Curiosity:</strong> As scientists, we ask questions about how and why things change. Understanding matter helps us understand the world around us! Stay curious about nature and never stop asking questions.</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Myko Education • Primary 4 Science</strong></p>
+        <p>Topic 5: Matter | Singapore MOE Curriculum</p>
+        <p>Last Updated: March 2026 | For Educational Use Only</p>
+    </footer>
+
+    <script>
+        // PARTICLE SIMULATOR
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let currentState = 'solid';
+        let particles = [];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = 0;
+                this.vy = 0;
+                this.size = 4;
+            }
+
+            update(state) {
+                if (state === 'solid') {
+                    this.vx *= 0.95;
+                    this.vy *= 0.95;
+                    if (Math.abs(this.vx) < 0.1) this.vx = (Math.random() - 0.5) * 0.5;
+                    if (Math.abs(this.vy) < 0.1) this.vy = (Math.random() - 0.5) * 0.5;
+                } else if (state === 'liquid') {
+                    this.vx += (Math.random() - 0.5) * 1;
+                    this.vy += (Math.random() - 0.5) * 1;
+                    this.vx *= 0.98;
+                    this.vy *= 0.98;
+                } else if (state === 'gas') {
+                    this.vx += (Math.random() - 0.5) * 3;
+                    this.vy += (Math.random() - 0.5) * 3;
+                    this.vx *= 0.99;
+                    this.vy *= 0.99;
+                }
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                this.x = Math.max(0, Math.min(canvas.width, this.x));
+                this.y = Math.max(0, Math.min(canvas.height, this.y));
+            }
+
+            draw() {
+                ctx.fillStyle = '#1565c0';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = currentState === 'gas' ? 30 : 50;
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update(currentState);
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        function changeState(state) {
+            currentState = state;
+            document.querySelectorAll('.simulator-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            initParticles();
+        }
+
+        initParticles();
+        animateParticles();
+
+        // DRAG AND DROP CLASSIFICATION
+        let draggedElement = null;
+
+        function allowDrop(event) {
+            event.preventDefault();
+            event.target.closest('.dropzone').style.background = '#eeeeee';
+        }
+
+        function dragLeave(event) {
+            event.target.closest('.dropzone').style.background = '';
+        }
+
+        function drop(event, category) {
+            event.preventDefault();
+            event.target.closest('.dropzone').style.background = '';
+            if (draggedElement) {
+                const container = document.getElementById(category + '-items');
+                const item = document.createElement('div');
+                item.className = 'dropped-item';
+                item.textContent = draggedElement.textContent;
+                container.appendChild(item);
+                draggedElement.remove();
+                draggedElement = null;
+            }
+        }
+
+        document.addEventListener('dragstart', function(event) {
+            if (event.target.classList.contains('draggable-item')) {
+                draggedElement = event.target;
+                event.target.classList.add('dragging');
+            }
+        });
+
+        document.addEventListener('dragend', function(event) {
+            event.target.classList.remove('dragging');
+        });
+
+        // TEMPERATURE SLIDER
+        function updateTemperature() {
+            const temp = document.getElementById('tempSlider').value;
+            document.getElementById('tempValue').textContent = temp;
+
+            document.getElementById('solid-state').classList.remove('active');
+            document.getElementById('liquid-state').classList.remove('active');
+            document.getElementById('gas-state').classList.remove('active');
+
+            if (temp < 0) {
+                document.getElementById('solid-state').classList.add('active');
+            } else if (temp <= 100) {
+                document.getElementById('liquid-state').classList.add('active');
+            } else {
+                document.getElementById('gas-state').classList.add('active');
+            }
+        }
+
+        // STATE TRANSITIONS
+        function showTransition(type) {
+            const label = document.getElementById('transitionLabel');
+            const transitions = {
+                'melting': { text: 'MELTING: Solid → Liquid (Add Heat)', color: '#ff9800' },
+                'boiling': { text: 'BOILING: Liquid → Gas (Add Heat)', color: '#f44336' }
+            };
+            const trans = transitions[type];
+            label.textContent = trans.text;
+            label.style.borderColor = trans.color;
+            label.style.color = trans.color;
+        }
+
+        // EXPANDABLE SECTIONS
+        function toggleExpand(header) {
+            header.classList.toggle('active');
+            header.nextElementSibling.classList.toggle('active');
+        }
+
+        // FLASHCARDS
+        function flipCard(card) {
+            if (card.classList.contains('hidden-back')) return;
+            const backCard = card.nextElementSibling;
+            if (backCard && backCard.classList.contains('hidden-back')) {
+                card.classList.toggle('flipped');
+                backCard.classList.toggle('flipped');
+                if (backCard.classList.contains('flipped')) {
+                    card.style.display = 'none';
+                    backCard.style.display = 'flex';
+                } else {
+                    card.style.display = 'flex';
+                    backCard.style.display = 'none';
+                }
+            }
+        }
+
+        // QUIZ FUNCTIONS
+        function selectOption(element, questionId) {
+            element.parentElement.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            element.querySelector('input').checked = true;
+        }
+
+        function showAnswer(answerId) {
+            const element = document.getElementById(answerId);
+            element.classList.toggle('show');
+        }
+
+    </script>
+</body>
+</html>

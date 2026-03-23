@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary 5 • Plant Transport System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #e65100;
+            --pri-light: #ff8f00;
+            --pri-dark: #bf360c;
+            --accent: #0277bd;
+            --text: #212121;
+            --text-light: #757575;
+            --bg-light: #f5f5f5;
+            --success: #2e7d32;
+            --warning: #f57f17;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 0.3rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--pri);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--pri);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--pri-dark);
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border-left: 4px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card h4 {
+            color: var(--pri-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 5px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .key-concept strong {
+            color: var(--accent);
+        }
+
+        .did-you-know {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-left: 5px solid #7b1fa2;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .think-about {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 5px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .diagram {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            border: 2px solid var(--pri);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .interactive-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border: 2px dashed var(--pri);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .interactive-box h4 {
+            color: var(--pri-dark);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        button {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--pri-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(230, 81, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 1rem 0;
+            height: 8px;
+            cursor: pointer;
+        }
+
+        .applet-output {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            min-height: 150px;
+        }
+
+        .questions-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .mcq {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .mcq-question {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .option {
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            border: 2px solid #ddd;
+        }
+
+        .option:hover {
+            background: #f0f0f0;
+            border-color: var(--pri);
+        }
+
+        .option input[type="radio"] {
+            margin-right: 0.8rem;
+            cursor: pointer;
+        }
+
+        .open-ended {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            margin: 1rem 0;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .answer-reveal {
+            background: #e8f5e9;
+            border-left: 4px solid var(--success);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .answer-reveal.shown {
+            display: block;
+        }
+
+        .values-box {
+            background: linear-gradient(135deg, var(--pri-light) 0%, var(--pri-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .values-box p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        .plant-path {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(to bottom, #87ceeb 0%, #e0f6ff 100%);
+            border-radius: 12px;
+            border: 2px solid var(--pri);
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+
+        .plant-path svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .result-message {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            font-weight: 500;
+            display: none;
+        }
+
+        .result-message.success {
+            background: #c8e6c9;
+            color: var(--success);
+            display: block;
+        }
+
+        .result-message.info {
+            background: #bbdefb;
+            color: var(--accent);
+            display: block;
+        }
+
+        .drag-zone {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .draggable-label {
+            background: var(--pri);
+            color: white;
+            padding: 0.7rem 1.2rem;
+            border-radius: 6px;
+            cursor: move;
+            user-select: none;
+            font-weight: 500;
+        }
+
+        .draggable-label.placed {
+            opacity: 0.5;
+        }
+
+        .drop-target {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .drop-target.active {
+            border-color: var(--pri);
+            background: #fff3e0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plant-path {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p class="subtitle">Primary 5 • Theme: Systems</p>
+        <h1>Plant Transport System</h1>
+        <p>How do plants move water from their roots to their leaves?</p>
+    </header>
+
+    <div class="container">
+        <!-- Learning Outcomes -->
+        <section>
+            <h2>What You Will Learn</h2>
+            <div class="grid">
+                <div class="card">
+                    <h4>LO1: Water Transport</h4>
+                    <p>Describe how plants transport water from the roots to the leaves through tubes in the stem.</p>
+                </div>
+                <div class="card">
+                    <h4>LO2: Transpiration</h4>
+                    <p>Explain what transpiration is and how water vapour escapes from leaves through stomata.</p>
+                </div>
+                <div class="card">
+                    <h4>LO3: System Importance</h4>
+                    <p>Understand why the plant transport system is essential for growth and survival.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Notes -->
+        <section>
+            <h2>Understanding Plant Transport</h2>
+
+            <h3>How Do Plants Get Water?</h3>
+            <p>Plants need water to survive and grow. But where do they get their water from? The answer lies in the <strong>roots</strong>.</p>
+
+            <p>Deep underground, plant roots spread out into the soil. The roots have special structures called <strong>root hairs</strong>—these are tiny, hair-like extensions that stick out from the root. Root hairs have a very large surface area, which allows them to absorb lots of water and dissolved minerals from the soil.</p>
+
+            <p>Think of root hairs like tiny sponges. When soil is wet, the root hairs soak up water and minerals (like nitrogen, phosphorus, and potassium). These minerals are essential nutrients that help the plant grow strong and healthy. The water and minerals are absorbed through the root hair cell walls and move into the rest of the plant.</p>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Root hairs absorb water and minerals from the soil through their large surface area.
+            </div>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> A single plant root can have millions of root hairs. If you could somehow unroll all the root hairs from a small plant, they could stretch for many metres!
+            </div>
+
+            <h3>Transport in the Stem</h3>
+            <p>Once water is absorbed by the roots, it needs to travel all the way up to the leaves—sometimes several metres high! But how does the water move against gravity?</p>
+
+            <p>The secret is hidden inside the stem. If you cut open a plant stem and look closely (or use a magnifying glass), you will see tiny tubes running through it. These tubes are called <strong>xylem</strong>. The xylem is like a network of straws inside the plant.</p>
+
+            <p>Water and minerals absorbed by the roots move up through the xylem tubes in the stem. This process is called <strong>water transport</strong> or <strong>translocation</strong>. The water moves from the roots, through the stem, and finally reaches the leaves at the top of the plant.</p>
+
+            <p>But what causes the water to move upwards against gravity? There are two main forces:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Root pressure:</strong> The roots push water upwards into the stem.</li>
+                <li><strong>Transpiration pull:</strong> As water evaporates from the leaves, it creates a "pull" that draws more water up from the roots (we will learn more about this later).</li>
+            </ul>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Xylem tubes in the stem transport water and minerals from roots to leaves.
+            </div>
+
+            <div class="think-about">
+                <strong>Think About It:</strong> If you place a celery stalk in coloured water, the xylem tubes will transport the coloured water upwards. The colour will spread throughout the veins in the leaves. This is a visible way to see the transport system at work!
+            </div>
+
+            <h3>What Happens in the Leaves?</h3>
+            <p>When water reaches the leaves, several important things happen:</p>
+
+            <p><strong>1. Photosynthesis:</strong> Leaves use water (along with carbon dioxide and sunlight) to make food for the plant through photosynthesis. This is the plant's most important job—making its own food energy.</p>
+
+            <p><strong>2. Cooling:</strong> Some of the water is used to keep the leaf cells turgid (firm and full of water), which helps the leaf stay strong and rigid.</p>
+
+            <p><strong>3. Transpiration:</strong> Not all the water that reaches the leaves is used for photosynthesis or staying turgid. Some of it turns into water vapour and escapes into the air. This process is called <strong>transpiration</strong>.</p>
+
+            <p>Leaves have special structures called <strong>stomata</strong> (plural of stoma). These are tiny pores or openings on the leaf surface, mostly on the underside. Water vapour escapes through the stomata into the atmosphere. In fact, a large plant can lose many litres of water per day through transpiration!</p>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Transpiration is the loss of water vapour from the leaves through stomata.
+            </div>
+
+            <h3>Understanding Transpiration</h3>
+            <p><strong>What is transpiration?</strong> Transpiration is the process by which plants lose water in the form of water vapour through the stomata in their leaves. It happens because water inside the leaf cells evaporates, especially when the leaf is exposed to sunlight and heat.</p>
+
+            <p><strong>Why does transpiration happen?</strong> Transpiration is not a "waste" process—it is actually very important for the plant. Here's why:</p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Creates a pull force:</strong> As water evaporates from the leaves, it creates a "pull" that draws water up from the roots (transpiration pull).</li>
+                <li><strong>Cools the plant:</strong> Just like sweating cools your body, transpiration cools the leaves, especially on hot days.</li>
+                <li><strong>Transports minerals:</strong> Water carries dissolved minerals up to the leaves. Transpiration ensures these minerals are delivered effectively.</li>
+                <li><strong>Maintains cell turgidity:</strong> The water pressure inside cells keeps leaves and stems firm and prevents wilting.</li>
+            </ul>
+
+            <p><strong>How do stomata work?</strong> Stomata are surrounded by two special cells called <strong>guard cells</strong>. When the plant has plenty of water and it is light outside, the guard cells absorb water and swell up, opening the stoma. This allows carbon dioxide to enter the leaf for photosynthesis, and allows water vapour to escape.</p>
+
+            <p>When it is dark or when water is scarce, the guard cells lose water and shrink. This closes the stoma, reducing water loss. The plant is able to control the opening and closing of stomata to balance the need for photosynthesis with the need to conserve water.</p>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Guard cells control the opening and closing of stomata to regulate transpiration.
+            </div>
+
+            <p><strong>Factors that affect transpiration:</strong></p>
+            <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li><strong>Sunlight:</strong> More sunlight → higher temperature → more transpiration. Sunlight also opens the stomata wider.</li>
+                <li><strong>Temperature:</strong> Higher temperatures increase transpiration. Water evaporates faster when it is hot.</li>
+                <li><strong>Wind:</strong> Wind blows away the layer of water vapour around the leaf, allowing more water to evaporate.</li>
+                <li><strong>Humidity:</strong> Lower humidity (drier air) increases transpiration. Higher humidity slows down transpiration.</li>
+                <li><strong>Availability of water:</strong> If the soil is very dry, the plant closes its stomata to conserve water, reducing transpiration.</li>
+            </ul>
+
+            <h3>The Transpiration Pull: A Chain of Water</h3>
+            <p>Now let's put everything together. Remember, water travels from the roots all the way to the leaves. But what keeps it moving upwards?</p>
+
+            <p>Imagine a chain of water molecules in the xylem, connected to each other. At the top of the chain, in the leaves, water molecules are constantly evaporating and escaping as water vapour through the stomata. As each water molecule leaves, it pulls the water molecule below it upwards. This continues down the entire chain, all the way back to the roots.</p>
+
+            <p>This is called the <strong>transpiration pull</strong>. It is one of the most powerful forces in nature! The transpiration pull can lift water and minerals hundreds of metres high, which is why tall trees can survive.</p>
+
+            <p>Here is the complete cycle:</p>
+            <ol style="margin-left: 2rem; margin-bottom: 1rem;">
+                <li>Roots absorb water and minerals from the soil through root hairs.</li>
+                <li>Water and minerals travel up through xylem tubes in the stem.</li>
+                <li>Water reaches the leaves and is used for photosynthesis.</li>
+                <li>Excess water evaporates from the leaves through stomata (transpiration).</li>
+                <li>As water evaporates, it pulls more water up from the roots (transpiration pull).</li>
+                <li>The cycle continues as long as the plant is alive and has water in the soil.</li>
+            </ol>
+
+            <div class="key-concept">
+                <strong>Key Concept:</strong> Transpiration pull is the force created by water evaporating from leaves, which pulls water up from the roots.
+            </div>
+
+            <div class="did-you-know">
+                <strong>Did You Know?</strong> In a rainforest, trees release so much water through transpiration that it forms a kind of "recycled rain." The water that was absorbed by tree roots eventually comes back down as rain, which is then absorbed by the roots again!
+            </div>
+
+            <h3>Why Is the Plant Transport System Important?</h3>
+            <p>The plant transport system (roots, stem with xylem tubes, and leaves) is absolutely essential for plants to survive. Here is why:</p>
+
+            <p><strong>1. Delivers water and minerals:</strong> The transport system carries water and minerals from the soil to all parts of the plant. These are essential nutrients needed for growth, development, and health.</p>
+
+            <p><strong>2. Supports photosynthesis:</strong> Without water delivered to the leaves, photosynthesis cannot happen. Photosynthesis is the plant's main way of making food energy, so without it, the plant cannot survive or grow.</p>
+
+            <p><strong>3. Maintains cell turgidity:</strong> The water transported through the stem keeps leaf and stem cells firm and turgid. This is why plants wilt when they do not get enough water—the cells lose water and become limp.</p>
+
+            <p><strong>4. Cools the plant:</strong> Through transpiration, plants release water vapour that helps cool their leaves, especially in hot conditions. This prevents the leaves from overheating and being damaged.</p>
+
+            <p><strong>5. Transports dissolved minerals:</strong> Water does not just move alone—it carries dissolved minerals that the plant needs for healthy growth. These minerals include nitrogen for leaf growth, phosphorus for root development, and potassium for overall plant health.</p>
+
+            <p>In short, without a working transport system, no plant could survive. It is one of the most important systems in the entire plant!</p>
+
+            <div class="values-box">
+                <h3>Why This Matters</h3>
+                <p><strong>Understanding plant transport helps us:</strong></p>
+                <p>✓ Grow healthier plants at home by knowing when and how much to water them</p>
+                <p>✓ Appreciate how plants adapt to different environments</p>
+                <p>✓ Understand the water cycle and how plants contribute to it</p>
+                <p>✓ Develop sustainable agriculture to grow food for people worldwide</p>
+            </div>
+
+            <!-- Water Transport Diagram -->
+            <div class="diagram">
+                <h3 style="margin-top: 0;">The Complete Water Transport System</h3>
+                <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sky -->
+                    <rect width="400" height="150" fill="#87ceeb"/>
+                    <!-- Soil -->
+                    <rect y="350" width="400" height="150" fill="#8b7355"/>
+                    <!-- Water drops in sky -->
+                    <circle cx="50" cy="50" r="4" fill="#4da6ff"/>
+                    <circle cx="350" cy="80" r="5" fill="#4da6ff"/>
+                    <circle cx="100" cy="100" r="3" fill="#4da6ff"/>
+                    <!-- Leaves -->
+                    <ellipse cx="150" cy="100" rx="40" ry="30" fill="#2d5016"/>
+                    <ellipse cx="250" cy="110" rx="35" ry="28" fill="#2d5016"/>
+                    <ellipse cx="200" cy="80" rx="45" ry="35" fill="#38a169"/>
+                    <!-- Stem -->
+                    <rect x="195" y="150" width="10" height="150" fill="#8b4513"/>
+                    <!-- Xylem tubes in stem (thin lines) -->
+                    <line x1="198" y1="150" x2="198" y2="300" stroke="#ff6b6b" stroke-width="2"/>
+                    <line x1="202" y1="150" x2="202" y2="300" stroke="#ff6b6b" stroke-width="2"/>
+                    <!-- Root system -->
+                    <ellipse cx="200" cy="380" rx="50" ry="40" fill="#a0826d"/>
+                    <!-- Root hairs -->
+                    <line x1="160" y1="360" x2="140" y2="350" stroke="#8b4513" stroke-width="1.5"/>
+                    <line x1="165" y1="375" x2="145" y2="390" stroke="#8b4513" stroke-width="1.5"/>
+                    <line x1="240" y1="365" x2="260" y2="350" stroke="#8b4513" stroke-width="1.5"/>
+                    <line x1="235" y1="385" x2="255" y2="405" stroke="#8b4513" stroke-width="1.5"/>
+                    <!-- Water droplets moving up -->
+                    <circle cx="198" cy="280" r="3" fill="#4da6ff"/>
+                    <circle cx="202" cy="250" r="3" fill="#4da6ff"/>
+                    <circle cx="198" cy="200" r="3" fill="#4da6ff"/>
+                    <!-- Arrow showing water vapour escaping -->
+                    <path d="M 200 80 Q 220 60 240 30" stroke="#4da6ff" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#4da6ff"/>
+                        </marker>
+                    </defs>
+                    <!-- Labels -->
+                    <text x="280" y="100" font-size="12" font-weight="bold" fill="#212121">Leaves</text>
+                    <text x="280" y="200" font-size="12" font-weight="bold" fill="#212121">Stem</text>
+                    <text x="270" y="380" font-size="12" font-weight="bold" fill="#fff">Roots</text>
+                    <text x="180" y="40" font-size="11" fill="#212121">Transpiration</text>
+                    <text x="300" y="150" font-size="10" fill="#ff6b6b">Water tubes</text>
+                    <text x="70" y="400" font-size="11" fill="#fff">Water & minerals</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Interactive Applets -->
+        <section>
+            <h2>Interactive Learning</h2>
+
+            <!-- Applet 1: Trace Water Path -->
+            <div class="interactive-box">
+                <h4>Applet 1: Trace the Water Path</h4>
+                <p>Click on each stage to see how water travels through the plant:</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 1.5rem 0;">
+                    <button onclick="showStage(1)">1. Roots Absorb Water</button>
+                    <button onclick="showStage(2)">2. Water in Stem</button>
+                    <button onclick="showStage(3)">3. Reaches Leaves</button>
+                    <button onclick="showStage(4)">4. Transpiration</button>
+                </div>
+                <div class="applet-output" id="traceOutput">
+                    <p style="margin: 0;">Click a button to start the journey of water through the plant!</p>
+                </div>
+            </div>
+
+            <!-- Applet 2: Transpiration Factors -->
+            <div class="interactive-box">
+                <h4>Applet 2: How Do Factors Affect Transpiration?</h4>
+                <p>Adjust the sliders to see how different factors affect the rate of transpiration:</p>
+                <div style="margin: 1.5rem 0;">
+                    <label>Sunlight: <strong id="sunlight-value">50</strong>%</label>
+                    <input type="range" id="sunlight" min="0" max="100" value="50" oninput="updateTranspiration()">
+
+                    <label>Temperature: <strong id="temp-value">20</strong>°C</label>
+                    <input type="range" id="temp" min="10" max="40" value="20" oninput="updateTranspiration()">
+
+                    <label>Humidity: <strong id="humidity-value">60</strong>%</label>
+                    <input type="range" id="humidity" min="0" max="100" value="60" oninput="updateTranspiration()">
+                </div>
+                <div class="applet-output">
+                    <div style="font-size: 2rem; color: var(--pri); margin-bottom: 1rem;">
+                        <span id="transpire-rate">Medium</span> Transpiration
+                    </div>
+                    <div id="transpire-explanation"></div>
+                </div>
+            </div>
+
+            <!-- Applet 3: Celery Experiment -->
+            <div class="interactive-box">
+                <h4>Applet 3: The Coloured Water Experiment</h4>
+                <p>Click "Start Experiment" to watch what happens when a celery stalk is placed in coloured water:</p>
+                <button onclick="startCeleryExp()">Start Experiment</button>
+                <button onclick="resetCeleryExp()" style="background: #666;">Reset</button>
+                <div class="applet-output">
+                    <svg id="celeryDiagram" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 250px;">
+                        <!-- Water in cup -->
+                        <rect x="50" y="300" width="200" height="80" fill="#ffcccc" stroke="#999" stroke-width="2"/>
+                        <!-- Celery stalk -->
+                        <rect x="140" y="150" width="20" height="160" fill="#90ee90" stroke="#228b22" stroke-width="2"/>
+                        <!-- Leaves -->
+                        <ellipse cx="120" cy="120" rx="25" ry="40" fill="#228b22"/>
+                        <ellipse cx="180" cy="100" rx="30" ry="45" fill="#228b22"/>
+                        <!-- Root hairs (hidden in cup) -->
+                        <line x1="140" y1="310" x2="120" y2="350" stroke="#8b6f47" stroke-width="1.5"/>
+                        <line x1="160" y1="315" x2="180" y2="360" stroke="#8b6f47" stroke-width="1.5"/>
+                        <!-- Xylem tubes showing colour -->
+                        <line id="xylem1" x1="144" y1="150" x2="144" y2="300" stroke="#ffcccc" stroke-width="2"/>
+                        <line id="xylem2" x1="156" y1="150" x2="156" y2="300" stroke="#ffcccc" stroke-width="2"/>
+                        <!-- Labels -->
+                        <text x="50" y="30" font-size="14" font-weight="bold" fill="#212121">Celery Stalk</text>
+                        <text x="50" y="370" font-size="12" fill="#212121">Red Water</text>
+                    </svg>
+                    <p id="celeryMessage" style="text-align: center; margin-top: 1rem;">Click "Start Experiment" to begin...</p>
+                </div>
+            </div>
+
+            <!-- Applet 4: Label the Plant -->
+            <div class="interactive-box">
+                <h4>Applet 4: Label the Plant Transport System</h4>
+                <p>Drag the labels to the correct parts of the plant:</p>
+                <div class="drag-zone" id="labelZone">
+                    <span class="draggable-label" draggable="true" data-label="Leaves">Leaves</span>
+                    <span class="draggable-label" draggable="true" data-label="Stem">Stem</span>
+                    <span class="draggable-label" draggable="true" data-label="Xylem">Xylem</span>
+                    <span class="draggable-label" draggable="true" data-label="Roots">Roots</span>
+                    <span class="draggable-label" draggable="true" data-label="Root Hairs">Root Hairs</span>
+                    <span class="draggable-label" draggable="true" data-label="Stomata">Stomata</span>
+                </div>
+                <div class="applet-output">
+                    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 300px;">
+                        <!-- Leaves -->
+                        <ellipse cx="100" cy="60" rx="30" ry="40" fill="#38a169" id="drop-leaves"/>
+                        <ellipse cx="200" cy="50" rx="35" ry="45" fill="#38a169"/>
+                        <!-- Stem -->
+                        <rect x="145" y="120" width="10" height="180" fill="#8b4513" id="drop-stem"/>
+                        <!-- Xylem tube -->
+                        <line x1="150" y1="120" x2="150" y2="300" stroke="#ff6b6b" stroke-width="3" id="drop-xylem"/>
+                        <!-- Roots -->
+                        <ellipse cx="150" cy="340" rx="45" ry="35" fill="#a0826d" id="drop-roots"/>
+                        <!-- Root hairs -->
+                        <line x1="110" y1="325" x2="90" y2="310" stroke="#8b4513" stroke-width="1.5" id="drop-roothairs"/>
+                        <!-- Stomata indicator on leaf -->
+                        <circle cx="190" cy="40" r="4" fill="#000" id="drop-stomata"/>
+                    </svg>
+                    <div class="drag-zone" style="margin-top: 1.5rem;">
+                        <div class="drop-target" ondrop="drop(event, 'leaves')" ondragover="allowDrop(event)" data-target="leaves">Drop: Leaves</div>
+                        <div class="drop-target" ondrop="drop(event, 'stem')" ondragover="allowDrop(event)" data-target="stem">Drop: Stem</div>
+                        <div class="drop-target" ondrop="drop(event, 'xylem')" ondragover="allowDrop(event)" data-target="xylem">Drop: Xylem</div>
+                        <div class="drop-target" ondrop="drop(event, 'roots')" ondragover="allowDrop(event)" data-target="roots">Drop: Roots</div>
+                        <div class="drop-target" ondrop="drop(event, 'roothairs')" ondragover="allowDrop(event)" data-target="roothairs">Drop: Root Hairs</div>
+                        <div class="drop-target" ondrop="drop(event, 'stomata')" ondragover="allowDrop(event)" data-target="stomata">Drop: Stomata</div>
+                    </div>
+                </div>
+                <div class="result-message" id="labelResult"></div>
+            </div>
+        </section>
+
+        <!-- PSLE-Style Questions -->
+        <section class="questions-section">
+            <h2>Practice Questions (PSLE Style)</h2>
+
+            <h3>Section A: Multiple Choice Questions (1 mark each)</h3>
+
+            <div class="mcq">
+                <div class="mcq-question">1. Which of the following structures in a plant root absorbs water from the soil?</div>
+                <div class="option">
+                    <input type="radio" name="q1" value="a"> <strong>A)</strong> Root cap
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" value="b"> <strong>B)</strong> Root hairs
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" value="c"> <strong>C)</strong> Xylem tubes
+                </div>
+                <div class="option">
+                    <input type="radio" name="q1" value="d"> <strong>D)</strong> Stomata
+                </div>
+                <button onclick="checkMCQ('q1', 'b', 'Root hairs have a large surface area which allows them to absorb water and minerals from the soil.')">Show Answer</button>
+                <div class="answer-reveal" id="ans-q1"></div>
+            </div>
+
+            <div class="mcq">
+                <div class="mcq-question">2. What is the main function of xylem tubes in a plant stem?</div>
+                <div class="option">
+                    <input type="radio" name="q2" value="a"> <strong>A)</strong> To transport food made by the leaves to other parts of the plant
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" value="b"> <strong>B)</strong> To transport water and minerals from the roots to the leaves
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" value="c"> <strong>C)</strong> To support the stem and keep it rigid
+                </div>
+                <div class="option">
+                    <input type="radio" name="q2" value="d"> <strong>D)</strong> To protect the stem from disease
+                </div>
+                <button onclick="checkMCQ('q2', 'b', 'Xylem tubes transport water and minerals (raw materials) from the roots up to the leaves. (Note: Phloem tubes transport food from leaves to other parts.)')">Show Answer</button>
+                <div class="answer-reveal" id="ans-q2"></div>
+            </div>
+
+            <div class="mcq">
+                <div class="mcq-question">3. Transpiration is the process by which plants lose water in the form of...</div>
+                <div class="option">
+                    <input type="radio" name="q3" value="a"> <strong>A)</strong> Liquid water through the roots
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" value="b"> <strong>B)</strong> Water vapour through the stomata
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" value="c"> <strong>C)</strong> Dissolved minerals through the xylem
+                </div>
+                <div class="option">
+                    <input type="radio" name="q3" value="d"> <strong>D)</strong> Oxygen through the leaves
+                </div>
+                <button onclick="checkMCQ('q3', 'b', 'Transpiration is the loss of water vapour from the leaves through stomata. This is how plants regulate water loss.')">Show Answer</button>
+                <div class="answer-reveal" id="ans-q3"></div>
+            </div>
+
+            <div class="mcq">
+                <div class="mcq-question">4. Which of the following factors will INCREASE the rate of transpiration in a plant?</div>
+                <div class="option">
+                    <input type="radio" name="q4" value="a"> <strong>A)</strong> Increased humidity and lower temperature
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" value="b"> <strong>B)</strong> Decreased sunlight and lower wind speed
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" value="c"> <strong>C)</strong> Increased temperature and increased wind speed
+                </div>
+                <div class="option">
+                    <input type="radio" name="q4" value="d"> <strong>D)</strong> Decreased sunlight and increased humidity
+                </div>
+                <button onclick="checkMCQ('q4', 'c', 'Higher temperature increases water evaporation, and wind blows away the water vapour layer around the leaf, allowing more water to escape.')">Show Answer</button>
+                <div class="answer-reveal" id="ans-q4"></div>
+            </div>
+
+            <div class="mcq">
+                <div class="mcq-question">5. Why is the plant transport system important?</div>
+                <div class="option">
+                    <input type="radio" name="q5" value="a"> <strong>A)</strong> It provides the plant with oxygen and light
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" value="b"> <strong>B)</strong> It transports water and minerals from roots to leaves, and supports photosynthesis and growth
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" value="c"> <strong>C)</strong> It helps the plant reproduce and make seeds
+                </div>
+                <div class="option">
+                    <input type="radio" name="q5" value="d"> <strong>D)</strong> It allows the plant to move and respond to stimuli
+                </div>
+                <button onclick="checkMCQ('q5', 'b', 'The transport system delivers water and minerals needed for photosynthesis, growth, and survival. It is essential for plant life.')">Show Answer</button>
+                <div class="answer-reveal" id="ans-q5"></div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Section B: Open-Ended Questions (2-3 marks each)</h3>
+
+            <div class="open-ended">
+                <div class="mcq-question">6. A student placed a celery stalk in red-coloured water. After a few hours, she cut the stalk horizontally and observed red dots throughout the cut surface. Explain what the red dots show about how plants transport water.</div>
+                <textarea placeholder="Write your answer here..." id="ans-6"></textarea>
+                <button onclick="revealAnswer('ans-6-reveal')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans-6-reveal">
+                    <strong>Model Answer:</strong>
+                    <p>The red dots are the xylem tubes that have transported the coloured water upwards through the stem. They show that plants have tiny tubes inside their stems that carry water and minerals from the roots to the leaves. The red dots prove that water travels through these specific tubes (xylem) rather than spreading evenly throughout the stem.</p>
+                    <strong>Marking points:</strong>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li>Red dots are xylem tubes (1 mark)</li>
+                        <li>They show water travels/is transported upwards (1 mark)</li>
+                        <li>Explanation connects observation to plant transport system (1 mark)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="open-ended">
+                <div class="mcq-question">7. A potted plant was placed in a sealed plastic bag. After 3 days, water droplets were observed on the inside of the plastic bag. Explain where this water came from and what process caused it.</div>
+                <textarea placeholder="Write your answer here..." id="ans-7"></textarea>
+                <button onclick="revealAnswer('ans-7-reveal')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans-7-reveal">
+                    <strong>Model Answer:</strong>
+                    <p>The water droplets came from the plant through the process of transpiration. Water absorbed by the plant's roots is transported up the stem to the leaves. In the leaves, excess water evaporates and escapes as water vapour through the stomata. Because the plastic bag is sealed, the water vapour cannot escape into the air and instead condenses on the inside of the bag, forming water droplets.</p>
+                    <strong>Marking points:</strong>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li>Water came from the plant (1 mark)</li>
+                        <li>Process is transpiration (1 mark)</li>
+                        <li>Explanation of how water vapour condenses in sealed bag (1 mark)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="open-ended">
+                <div class="mcq-question">8. Explain why plants wilt (droop and become limp) when they do not receive enough water from the soil.</div>
+                <textarea placeholder="Write your answer here..." id="ans-8"></textarea>
+                <button onclick="revealAnswer('ans-8-reveal')">Show Model Answer</button>
+                <div class="answer-reveal" id="ans-8-reveal">
+                    <strong>Model Answer:</strong>
+                    <p>When there is not enough water in the soil, the plant's roots cannot absorb enough water. With less water in the plant, the cells in the leaves and stems lose their turgidity (firmness). Turgidity is the water pressure inside cells that keeps them firm and rigid. Without enough water, the cells become flaccid (soft and limp), causing the leaves and stems to droop and wilt. The plant remains wilted until more water is absorbed by the roots.</p>
+                    <strong>Marking points:</strong>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                        <li>Roots cannot absorb enough water (1 mark)</li>
+                        <li>Cells lose water/turgidity (1 mark)</li>
+                        <li>Cells become flaccid/limp, causing wilting (1 mark)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Box -->
+        <section>
+            <div class="values-box">
+                <h3>Learning Values</h3>
+                <p><strong>Curiosity:</strong> Ask questions about how plants work and observe nature carefully.</p>
+                <p><strong>Responsibility:</strong> Care for plants by watering them properly and understanding their needs.</p>
+                <p><strong>Systems Thinking:</strong> Understand how all parts of the plant work together as one system.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Myko Education • Primary 5 Science</strong></p>
+        <p>Topic 13: Plant Transport System</p>
+        <p>Learning Outcomes: Water transport • Transpiration • System importance</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">© 2026 Myko Education. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Applet 1: Trace Water Path
+        function showStage(stage) {
+            const output = document.getElementById('traceOutput');
+            const stages = {
+                1: '<strong>Stage 1: Roots Absorb Water</strong><p>Root hairs absorb water and dissolved minerals from the soil through osmosis. The large surface area of root hairs allows efficient absorption of water and nutrients needed by the plant.</p>',
+                2: '<strong>Stage 2: Water Travels in Stem</strong><p>Water and minerals move upward through xylem tubes in the stem. The xylem tubes are like tiny straws that transport the water against gravity. Root pressure and transpiration pull help move water upwards.</p>',
+                3: '<strong>Stage 3: Reaches the Leaves</strong><p>Water arrives at the leaves where it is used for photosynthesis, keeping cells turgid and firm. Some water is used to make food (glucose) using sunlight and carbon dioxide.</p>',
+                4: '<strong>Stage 4: Transpiration</strong><p>Excess water is lost as water vapour from the leaves through stomata. This water vapour escapes into the atmosphere. The transpiration pull created by this water loss helps pull more water up from the roots.</p>'
+            };
+            output.innerHTML = stages[stage];
+        }
+
+        // Applet 2: Transpiration Factors
+        function updateTranspiration() {
+            const sun = parseInt(document.getElementById('sunlight').value);
+            const temp = parseInt(document.getElementById('temp').value);
+            const humidity = parseInt(document.getElementById('humidity').value);
+
+            document.getElementById('sunlight-value').textContent = sun;
+            document.getElementById('temp-value').textContent = temp;
+            document.getElementById('humidity-value').textContent = humidity;
+
+            // Calculate transpiration rate
+            const sunEffect = sun / 100;
+            const tempEffect = (temp - 10) / 30;
+            const humidityEffect = (100 - humidity) / 100;
+
+            const rate = (sunEffect * 0.4 + tempEffect * 0.35 + humidityEffect * 0.25);
+
+            let rateText, explanation;
+            if (rate < 0.3) {
+                rateText = 'Very Low';
+                explanation = '<p><strong>Why?</strong> Low sunlight, cool temperature, and high humidity slow down transpiration. Stomata are less open and water evaporates slowly.</p>';
+            } else if (rate < 0.6) {
+                rateText = 'Low';
+                explanation = '<p><strong>Why?</strong> Conditions are moderately unfavourable for transpiration. Some water is lost, but not rapidly.</p>';
+            } else if (rate < 0.75) {
+                rateText = 'Medium';
+                explanation = '<p><strong>Why?</strong> Moderate conditions. Some sunlight, normal temperature, and moderate humidity create a steady rate of water loss.</p>';
+            } else if (rate < 0.9) {
+                rateText = 'High';
+                explanation = '<p><strong>Why?</strong> Conditions favour transpiration. Good sunlight, warm temperature, and low humidity increase water vapour loss.</p>';
+            } else {
+                rateText = 'Very High';
+                explanation = '<p><strong>Why?</strong> Excellent conditions for transpiration! Strong sunlight, hot temperature, and dry air cause rapid water loss from leaves.</p>';
+            }
+
+            document.getElementById('transpire-rate').textContent = rateText;
+            document.getElementById('transpire-explanation').innerHTML = explanation;
+        }
+
+        // Applet 3: Celery Experiment
+        let celeryRunning = false;
+        function startCeleryExp() {
+            if (celeryRunning) return;
+            celeryRunning = true;
+
+            document.getElementById('celeryMessage').textContent = 'Experiment in progress...';
+            const xylem1 = document.getElementById('xylem1');
+            const xylem2 = document.getElementById('xylem2');
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += 10;
+                const color = `rgb(255, ${204 - progress * 0.51}, ${204 - progress * 0.51})`;
+                xylem1.setAttribute('stroke', color);
+                xylem2.setAttribute('stroke', color);
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    document.getElementById('celeryMessage').innerHTML = '<strong>Experiment Complete!</strong><p>The red dye has travelled up through the xylem tubes to the leaves, proving that plants have a transport system.</p>';
+                    celeryRunning = false;
+                }
+            }, 100);
+        }
+
+        function resetCeleryExp() {
+            celeryRunning = false;
+            document.getElementById('xylem1').setAttribute('stroke', '#ffcccc');
+            document.getElementById('xylem2').setAttribute('stroke', '#ffcccc');
+            document.getElementById('celeryMessage').textContent = 'Click "Start Experiment" to begin...';
+        }
+
+        // Applet 4: Drag and Drop
+        let placedLabels = {};
+
+        function allowDrop(e) {
+            e.preventDefault();
+            e.target.closest('.drop-target')?.classList.add('active');
+        }
+
+        document.addEventListener('dragover', e => {
+            if (e.target.closest('.drop-target')) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('dragleave', e => {
+            if (!e.relatedTarget?.closest('.drop-target') || e.relatedTarget === e.target) {
+                document.querySelectorAll('.drop-target').forEach(el => el.classList.remove('active'));
+            }
+        });
+
+        function drop(e, target) {
+            e.preventDefault();
+            e.target.closest('.drop-target')?.classList.remove('active');
+
+            const label = e.dataTransfer.getData('text/plain');
+            placedLabels[target] = label;
+
+            const labelEl = document.querySelector(`[data-label="${label}"]`);
+            labelEl?.classList.add('placed');
+
+            checkLabelCompletion();
+        }
+
+        document.addEventListener('dragstart', e => {
+            if (e.target.classList.contains('draggable-label')) {
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/plain', e.target.dataset.label);
+            }
+        });
+
+        function checkLabelCompletion() {
+            const requiredLabels = ['leaves', 'stem', 'xylem', 'roots', 'roothairs', 'stomata'];
+            const allPlaced = requiredLabels.every(label => placedLabels[label]);
+
+            if (allPlaced) {
+                const resultEl = document.getElementById('labelResult');
+                resultEl.classList.add('success');
+                resultEl.innerHTML = '✓ Excellent! You have correctly labelled all parts of the plant transport system!';
+            }
+        }
+
+        // MCQ Answer Checker
+        function checkMCQ(questionId, correctAnswer, explanation) {
+            const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+            if (!selected) {
+                alert('Please select an answer first!');
+                return;
+            }
+
+            const answerDiv = document.getElementById(`ans-${questionId}`);
+            if (selected.value === correctAnswer) {
+                answerDiv.innerHTML = `<strong style="color: var(--success);">✓ Correct!</strong><p>${explanation}</p>`;
+                answerDiv.classList.add('shown');
+            } else {
+                answerDiv.innerHTML = `<strong style="color: #d32f2f;">✗ Incorrect.</strong><p>${explanation}</p>`;
+                answerDiv.classList.add('shown');
+            }
+        }
+
+        // Reveal Answer for Open-Ended Questions
+        function revealAnswer(elementId) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle('shown');
+        }
+
+        // Initialize transpiration display
+        updateTranspiration();
+    </script>
+</body>
+</html>

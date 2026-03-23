@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P3 Life Cycles of Plants and Animals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pri: #2e7d32;
+            --pri-light: #4caf50;
+            --pri-dark: #1b5e20;
+            --key: #d4e157;
+            --dyk: #fff9c4;
+            --think: #81d4fa;
+            --think-dark: #0277bd;
+            --gray-light: #f5f5f5;
+            --gray: #e0e0e0;
+            --text-dark: #212121;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fafafa;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--pri) 0%, var(--pri-light) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--pri);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--pri);
+        }
+
+        .section-header::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--pri);
+            border-radius: 50%;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .outcome-card {
+            background: white;
+            border-left: 4px solid var(--pri);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .outcome-card h3 {
+            color: var(--pri);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .outcome-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .notes-section {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .note-subsection {
+            padding: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .note-subsection:last-child {
+            border-bottom: none;
+        }
+
+        .note-subsection h3 {
+            color: var(--pri);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .note-subsection h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-subsection p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .note-subsection ul, .note-subsection ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .note-subsection li {
+            margin-bottom: 0.5rem;
+        }
+
+        .key-concept, .did-you-know, .think-about {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+
+        .key-concept {
+            background: #f1f8e9;
+            border-left-color: var(--pri);
+        }
+
+        .key-concept strong {
+            color: var(--pri);
+        }
+
+        .did-you-know {
+            background: var(--dyk);
+            border-left-color: #fbc02d;
+        }
+
+        .did-you-know strong {
+            color: #f57f17;
+        }
+
+        .think-about {
+            background: #e1f5fe;
+            border-left-color: var(--think-dark);
+        }
+
+        .think-about strong {
+            color: var(--think-dark);
+        }
+
+        .collapsible {
+            background: var(--gray-light);
+            cursor: pointer;
+            padding: 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .collapsible:hover {
+            background: var(--gray);
+        }
+
+        .collapsible.active {
+            background: var(--pri-light);
+            color: white;
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--gray-light);
+            padding: 0 1rem;
+        }
+
+        .collapsible-content.active {
+            max-height: 1000px;
+            padding: 1rem;
+        }
+
+        .diagram-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid var(--gray);
+        }
+
+        .tab-button {
+            padding: 1rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            color: var(--pri);
+        }
+
+        .tab-button.active {
+            color: var(--pri);
+            border-bottom-color: var(--pri);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .drag-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .drag-area {
+            background: var(--gray-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border: 2px dashed var(--gray);
+            min-height: 300px;
+        }
+
+        .drag-area.available {
+            border-color: var(--pri);
+        }
+
+        .drag-area h4 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .stage-card {
+            background: white;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            border-left: 4px solid var(--pri);
+            cursor: move;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stage-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .stage-card.dragging {
+            opacity: 0.7;
+            transform: rotate(2deg);
+        }
+
+        .stage-card.placed {
+            background: #f1f8e9;
+            border-left-color: var(--pri-light);
+        }
+
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 2rem 0;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 4px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            border: 2px solid var(--pri);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .flashcard:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .flashcard.revealed {
+            background: #f1f8e9;
+        }
+
+        .quiz-section {
+            background: white;
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .question-number {
+            background: var(--pri);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .option-label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-input {
+            margin-right: 0.5rem;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+        }
+
+        .model-answer-btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .model-answer-btn:hover {
+            background: var(--pri-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .model-answer {
+            background: #f1f8e9;
+            border-left: 4px solid var(--pri);
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .model-answer.revealed {
+            max-height: 500px;
+        }
+
+        .values-box {
+            background: linear-gradient(135deg, rgba(46,125,50,0.1) 0%, rgba(76,175,80,0.1) 100%);
+            border: 2px solid var(--pri);
+            border-radius: 4px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .values-box h3 {
+            color: var(--pri);
+            margin-bottom: 1rem;
+        }
+
+        .values-box p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--pri);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drag-container {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .note-subsection {
+                padding: 1.5rem;
+            }
+        }
+
+        .stage-circle {
+            cursor: pointer;
+            transition: fill 0.3s ease;
+        }
+
+        .stage-circle:hover {
+            opacity: 0.8;
+        }
+
+        .stage-circle.active {
+            stroke: #ffd700;
+            stroke-width: 3;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+        }
+
+        .comparison-table th {
+            background: var(--pri);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--gray-light);
+        }
+
+        .match-item {
+            background: white;
+            padding: 0.75rem 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .match-item:hover {
+            border-color: var(--pri);
+            transform: translateX(4px);
+        }
+
+        .match-item.matched {
+            background: #f1f8e9;
+            border-color: var(--pri);
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Primary 3 • Theme: Cycles</div>
+            <h1>Life Cycles of Plants and Animals</h1>
+            <p>Discover how living things grow, change, and continue the cycle of life</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section>
+            <div class="section-header">
+                <h2>Learning Outcomes</h2>
+            </div>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <h3>LO1: Plant Life Cycles</h3>
+                    <p>Describe the life cycles of flowering plants from seed to seed dispersal</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO2: Animal Life Cycles</h3>
+                    <p>Describe how animals such as butterflies, frogs, and chickens grow and change</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO3: Survival & Reproduction</h3>
+                    <p>Relate life cycles to survival and reproduction of living things</p>
+                </div>
+                <div class="outcome-card">
+                    <h3>LO4: Compare Patterns</h3>
+                    <p>Compare life cycles and identify patterns such as 3-stage vs 4-stage cycles</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="notes-section">
+            <div class="note-subsection">
+                <h3>What Is a Life Cycle?</h3>
+                <p>A <strong>life cycle</strong> is the series of stages that a living thing goes through from its birth to its death. Every living thing—plants, animals, insects, and even tiny creatures we cannot see—has a life cycle.</p>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> A life cycle describes all the changes an organism goes through in its lifetime. The word "cycle" tells us that after an organism reproduces, the cycle starts again with new offspring.
+                </div>
+
+                <h4>Why Do All Living Things Have Life Cycles?</h4>
+                <p>Life cycles are essential for survival. They include:</p>
+                <ul>
+                    <li><strong>Growth:</strong> The organism gets bigger and stronger</li>
+                    <li><strong>Development:</strong> The organism changes form and develops new body parts</li>
+                    <li><strong>Reproduction:</strong> The organism makes babies, starting the cycle again</li>
+                    <li><strong>Aging:</strong> The organism becomes older and eventually dies</li>
+                </ul>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> Some plants can live for hundreds of years! A giant sequoia tree can live for over 2,000 years, while some animals like elephants live 60-70 years. Mayflies, however, live for just one day!
+                </div>
+            </div>
+
+            <div class="note-subsection">
+                <h3>Life Cycle of Flowering Plants</h3>
+                <p>Flowering plants have one of nature's most beautiful and important life cycles. This cycle takes plants from a tiny seed all the way to creating new seeds.</p>
+
+                <h4>Stage 1: The Seed</h4>
+                <p>The seed is the starting point of the plant's life cycle. Inside the hard seed coat, there is a baby plant (called an embryo) and stored food. The seed waits for the right conditions—water, warmth, and oxygen—to grow.</p>
+
+                <h4>Stage 2: Germination</h4>
+                <p>Germination is when the seed starts to grow. The seed takes in water and swells. A tiny root pushes down into the soil to absorb water and minerals. A shoot pushes upward toward sunlight. This usually takes 5-10 days for most plants.</p>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> Germination is the "waking up" of the seed. It marks the beginning of an active plant life.
+                </div>
+
+                <h4>Stage 3: Seedling Growth</h4>
+                <p>The seedling is a young plant that has just broken through the soil. It has tiny leaves that start to photosynthesize (make food from sunlight). The roots grow deeper to find water and minerals. The seedling needs water, sunlight, and nutrients to grow.</p>
+
+                <h4>Stage 4: Mature Growth</h4>
+                <p>Over weeks and months, the seedling grows into a mature plant. It develops:</p>
+                <ul>
+                    <li>Stronger stems to hold it upright</li>
+                    <li>More leaves for photosynthesis</li>
+                    <li>A root system for water and mineral absorption</li>
+                    <li>Branches and more complex structure</li>
+                </ul>
+
+                <h4>Stage 5: Flowering</h4>
+                <p>When the plant is mature and has enough energy, it produces flowers. Flowers are the plant's reproductive organs. They contain male parts (stamens with pollen) and female parts (pistils with ovules). Flowers attract pollinators like bees, butterflies, and birds that help transfer pollen from one flower to another.</p>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> The bright colors and sweet smells of flowers are actually "advertisements" to attract pollinators. Some flowers are red to attract birds, while others are white or yellow to attract bees.
+                </div>
+
+                <h4>Stage 6: Fruiting</h4>
+                <p>After pollination, the ovules develop into seeds, and the flower's base grows into a fruit. The fruit protects the seeds and helps spread them. Fruits come in many types:</p>
+                <ul>
+                    <li><strong>Fleshy fruits:</strong> Apples, bananas, strawberries (animals eat them)</li>
+                    <li><strong>Dry fruits:</strong> Pea pods, nuts (split open when dry)</li>
+                    <li><strong>Winged fruits:</strong> Maple seeds (float on air)</li>
+                </ul>
+
+                <h4>Stage 7: Seed Dispersal</h4>
+                <p>The fruit ripens and releases its seeds. Seeds are dispersed (spread) in different ways:</p>
+                <ul>
+                    <li><strong>Wind dispersal:</strong> Light seeds with wings or hairs (dandelions, maple seeds) are blown by wind</li>
+                    <li><strong>Water dispersal:</strong> Seeds float down rivers and streams (coconuts)</li>
+                    <li><strong>Animal dispersal:</strong> Seeds are eaten and later passed in animal droppings, or stuck to animal fur (burrs)</li>
+                    <li><strong>Explosive dispersal:</strong> Some seed pods burst open, flinging seeds away (geraniums)</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Why do you think plants need to disperse their seeds instead of dropping them right below the parent plant? Consider space, competition, and resources.
+                </div>
+
+                <div class="diagram-container">
+                    <svg width="300" height="300" viewBox="0 0 300 300">
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#2e7d32" />
+                            </marker>
+                        </defs>
+                        <circle cx="150" cy="150" r="120" fill="none" stroke="#2e7d32" stroke-width="2" stroke-dasharray="5,5"/>
+                        <circle cx="150" cy="50" r="20" fill="#8d6e63" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="150" y="90" text-anchor="middle" font-size="12" fill="#2e7d32" font-weight="bold">Seed</text>
+                        <circle cx="240" cy="90" r="20" fill="#66bb6a" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="270" y="100" font-size="12" fill="#2e7d32" font-weight="bold">Germinate</text>
+                        <circle cx="260" cy="180" r="20" fill="#81c784" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="280" y="185" font-size="12" fill="#2e7d32" font-weight="bold">Seedling</text>
+                        <circle cx="190" cy="260" r="20" fill="#a5d6a7" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="190" y="290" text-anchor="middle" font-size="12" fill="#2e7d32" font-weight="bold">Mature</text>
+                        <circle cx="90" cy="270" r="20" fill="#ff69b4" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="90" y="300" text-anchor="middle" font-size="12" fill="#d32f2f" font-weight="bold">Flower</text>
+                        <circle cx="30" cy="200" r="20" fill="#ffa500" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="0" y="210" font-size="12" fill="#2e7d32" font-weight="bold">Fruit</text>
+                        <circle cx="50" cy="100" r="20" fill="#ffeb3b" class="stage-circle" onclick="highlightStage(this)"/>
+                        <text x="20" y="95" font-size="12" fill="#2e7d32" font-weight="bold">Dispersal</text>
+                        <path d="M 165 65 Q 200 70 230 80" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 255 105 Q 265 140 270 160" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 245 210 Q 220 240 210 250" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 155 270 Q 120 280 110 280" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 65 260 Q 40 230 35 215" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 50 180 Q 40 140 55 115" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                        <path d="M 65 80 Q 100 65 135 55" fill="none" stroke="#2e7d32" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="note-subsection">
+                <h3>Life Cycles of Animals</h3>
+                <p>Animals have different life cycles compared to plants. Some animals go through dramatic changes in form (metamorphosis), while others look similar throughout their life.</p>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    <span>🦋 Butterfly Life Cycle (4-Stage: Complete Metamorphosis)</span>
+                    <span>+</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>The butterfly has one of nature's most dramatic transformations!</strong></p>
+                    <h4>Stage 1: Egg (Ovum)</h4>
+                    <p>A butterfly lays tiny eggs on a leaf. The eggs are so small you need a magnifying glass to see them clearly. The mother butterfly carefully chooses a leaf from a plant that the babies will be able to eat. The eggs are covered with a special coating to protect them. This stage lasts about 3-5 days.</p>
+                    <h4>Stage 2: Larva (Caterpillar)</h4>
+                    <p>When the egg hatches, out comes a tiny caterpillar (larva). The caterpillar looks nothing like the adult butterfly! It has a long, worm-like body with many segments, strong chewing jaws, simple eyes, and six pairs of legs. The caterpillar's job is to EAT! It spends all day eating leaves and growing. As it grows, it outgrows its skin and must shed it (molting). A caterpillar can eat 27,000 times its own birth weight! This stage lasts 3-5 weeks.</p>
+                    <div class="did-you-know">
+                        <strong>Did You Know?</strong> Some caterpillars are poisonous. The bright colors on a caterpillar are warning colors that tell predators, "Don't eat me, I'm toxic!" The Monarch butterfly's caterpillar is an example.
+                    </div>
+                    <h4>Stage 3: Pupa (Chrysalis)</h4>
+                    <p>When the caterpillar is fully grown, it forms a chrysalis (pupa). This is a protective shell, often green or brown to blend with its surroundings. Inside the chrysalis, something incredible happens: metamorphosis. The caterpillar's body completely breaks down and restructures into a butterfly! This stage can last from 1-2 weeks, but some butterflies overwinter in the chrysalis and stay inside for several months!</p>
+                    <h4>Stage 4: Adult Butterfly (Imago)</h4>
+                    <p>The chrysalis splits open and out comes an adult butterfly! At first, the butterfly's wings are wet and folded. The butterfly pumps fluid into its wing veins to expand them. Once dry, the butterfly can fly! Adult butterflies have six legs (caterpillars have more), compound eyes for excellent vision, a long proboscis (tongue) to drink nectar from flowers, and can fly and travel. An adult butterfly lives 2-6 weeks (some species live longer). Some butterflies migrate thousands of miles!</p>
+                </div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    <span>🐸 Frog Life Cycle (Metamorphosis in Water)</span>
+                    <span>+</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>Frogs have an amazing life cycle that takes them from water to land!</strong></p>
+                    <h4>Stage 1: Eggs (Spawn)</h4>
+                    <p>In spring, frogs gather in ponds and streams. The female frog lays hundreds of tiny eggs in a jelly-like mass. These eggs float in the water and are protected by the jelly coating. This stage lasts about 3-12 days depending on water temperature.</p>
+                    <div class="key-concept">
+                        <strong>Key Concept:</strong> Frog eggs are laid in water, not on land. The jelly protects the developing tadpoles.
+                    </div>
+                    <h4>Stage 2: Tadpole (Aquatic Larva)</h4>
+                    <p>When the egg hatches, out comes a tadpole. The tadpole is completely adapted to life in water. It has a rounded head with a long tail, gills to breathe underwater, herbivorous diet (eats algae), and no legs. Tadpoles spend 6-9 weeks in the water, eating and growing. They look completely different from adult frogs!</p>
+                    <h4>Stage 3: Tadpole with Legs</h4>
+                    <p>Around week 6-9, the tadpole begins to develop legs! First, back legs appear as tiny bumps, then front legs develop. During this time, lungs develop alongside gills, the tadpole swims to the surface to gulp air, diet changes from herbivore to omnivore, and the tail begins to shrink.</p>
+                    <h4>Stage 4: Froglet</h4>
+                    <p>The tadpole is now called a froglet. It has all four legs fully developed, a small tail that continues to shrink, lungs that are becoming the main breathing organs, and can now hop on land and breathe air. The froglet begins to spend time on land. This stage lasts 2-3 weeks.</p>
+                    <h4>Stage 5: Adult Frog</h4>
+                    <p>The tail has completely disappeared, and the frog is now fully adapted to adult life. Adult frogs breathe through lungs, have powerful back legs for jumping, are carnivores, have large eyes for hunting, can hear using their eardrums, spend time on land but often near water, and return to water to breed. An adult frog lives 4-15 years depending on species.</p>
+                    <div class="did-you-know">
+                        <strong>Did You Know?</strong> A tadpole is a completely different creature from an adult frog. They eat different foods, breathe differently, live in different places, and look completely different. This is a dramatic example of metamorphosis!
+                    </div>
+                </div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    <span>🐔 Chicken Life Cycle (3-Stage: Direct Development)</span>
+                    <span>+</span>
+                </div>
+                <div class="collapsible-content">
+                    <p><strong>The chicken has a simpler life cycle with no metamorphosis—the chick looks like a miniature adult.</strong></p>
+                    <h4>Stage 1: Egg</h4>
+                    <p>The chicken's life starts inside an egg. The egg has a yolk (yellow center with stored food), albumen (egg white that protects and cushions), shell (hard calcium protection), and air pocket (where the chick breathes). The egg must be kept warm (about 38°C) for development. Incubation lasts 21 days.</p>
+                    <div class="key-concept">
+                        <strong>Key Concept:</strong> Chicken eggs don't have a larval or pupal stage. The chick develops directly inside the egg and hatches as a tiny chicken.
+                    </div>
+                    <h4>Stage 2: Chick</h4>
+                    <p>After 21 days of development, the chick is ready to hatch. The chick has a special tooth (egg tooth) on its beak to crack through the shell. Breaking through takes 12-24 hours of hard work! Once out, the chick is covered in soft, fluffy down feathers, can see, hear, and walk within hours, can peck and eat food immediately, weighs only about 40-50 grams, and must stay warm. Within 4-6 weeks, it doubles in size. At 5-6 months old, the chicken reaches sexual maturity.</p>
+                    <div class="did-you-know">
+                        <strong>Did You Know?</strong> Baby chickens can recognize their mother and other chicks by their sounds before they even hatch! They chirp inside the egg, and the mother hen talks back to them.
+                    </div>
+                    <h4>Stage 3: Adult Chicken</h4>
+                    <p>An adult chicken is fully mature and can reproduce. Hens (females) lay eggs regularly, roosters (males) fertilize the eggs, they have colorful feathers, can live 5-10 years, and spend time foraging, roosting, and socializing. The adult hen lays eggs, starting the cycle again.</p>
+                </div>
+            </div>
+
+            <div class="note-subsection">
+                <h3>Comparing Life Cycles</h3>
+                <p>While each organism has a unique life cycle, scientists group them into patterns based on how they develop.</p>
+
+                <h4>Metamorphosis vs. Direct Development</h4>
+                <p><strong>Metamorphosis</strong> is when an animal goes through dramatic, visible changes during its life cycle. There are two types:</p>
+                <ul>
+                    <li><strong>Complete Metamorphosis (4 stages):</strong> The adult looks completely different from the larva. Examples: butterfly, ant, bee, beetle.</li>
+                    <li><strong>Incomplete Metamorphosis (3 stages):</strong> The young (nymph) looks somewhat like the adult but is smaller and lacks wings. Examples: grasshopper, dragonfly.</li>
+                    <li><strong>No Metamorphosis (Direct Development):</strong> The baby looks like a miniature adult. Examples: chicken, dog, human.</li>
+                </ul>
+
+                <div class="think-about">
+                    <strong>Think About It:</strong> Why might metamorphosis be useful for animals like butterflies? (Hint: Consider what food they eat as caterpillars vs. butterflies.)
+                </div>
+
+                <h4>Comparison Table</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Life Cycle Type</th>
+                            <th>Stages</th>
+                            <th>Examples</th>
+                            <th>Key Feature</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Complete Metamorphosis</strong></td>
+                            <td>4: Egg → Larva → Pupa → Adult</td>
+                            <td>Butterfly, Ant, Bee</td>
+                            <td>Larva looks completely different from adult</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Incomplete Metamorphosis</strong></td>
+                            <td>3: Egg → Nymph → Adult</td>
+                            <td>Grasshopper, Dragonfly</td>
+                            <td>Nymph resembles small adult</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Direct Development</strong></td>
+                            <td>3: Egg → Baby → Adult</td>
+                            <td>Chicken, Dog, Human</td>
+                            <td>Baby looks like miniature adult</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amphibian Metamorphosis</strong></td>
+                            <td>5: Egg → Tadpole → Tadpole w/ Legs → Froglet → Adult</td>
+                            <td>Frog, Toad</td>
+                            <td>Aquatic larva changes to terrestrial adult</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-concept">
+                    <strong>Key Concept:</strong> The type of life cycle an animal has is related to its habitat and food sources. Butterflies go through complete metamorphosis because caterpillars eat leaves while butterflies drink nectar—two different food sources!
+                </div>
+            </div>
+
+            <div class="note-subsection">
+                <h3>Why Are Life Cycles Important?</h3>
+
+                <h4>Survival</h4>
+                <p>Each stage of a life cycle is adapted for survival in a specific environment. Caterpillars have strong jaws to eat tough leaves, butterflies have a long tongue to drink nectar, tadpoles have gills to breathe underwater, and froglets develop lungs to breathe air. These changes allow each organism to survive in its habitat at each stage of life.</p>
+
+                <h4>Reproduction</h4>
+                <p>The main goal of any life cycle is to reach the reproductive stage and make babies. This ensures the species continues through plants producing flowers and fruits, animals reaching adulthood, seeds being dispersed to new locations, and baby animals being cared for until independent.</p>
+
+                <h4>Continuation of Species</h4>
+                <p>Without life cycles, species would disappear. The cycle repeats generation after generation, allowing populations to grow and spread, genetic information to pass to offspring, adaptation to changing environments, and ecosystems to remain balanced.</p>
+
+                <div class="did-you-know">
+                    <strong>Did You Know?</strong> If even one life cycle is broken, the entire species can disappear. When habitats are destroyed, organisms can't complete their life cycles, and they may go extinct. Monarch butterflies need milkweed plants for their caterpillars to eat. Without milkweed, there are no caterpillars, and the species is threatened.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Interactive Activities</h2>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Activity 1: Build the Life Cycle</h3>
+                <p>Drag the stages into the correct order. Complete the life cycles of three different organisms!</p>
+
+                <div class="tabs">
+                    <button class="tab-button active" onclick="switchTab(event, 'build-butterfly')">Butterfly</button>
+                    <button class="tab-button" onclick="switchTab(event, 'build-frog')">Frog</button>
+                    <button class="tab-button" onclick="switchTab(event, 'build-plant')">Plant</button>
+                </div>
+
+                <div id="build-butterfly" class="tab-content active">
+                    <div class="drag-container">
+                        <div>
+                            <h4>Available Stages (Drag to the right →)</h4>
+                            <div class="drag-area available" id="butterfly-source">
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Butterfly (Adult)</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Chrysalis (Pupa)</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Caterpillar (Larva)</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Egg</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Your Sequence (in order)</h4>
+                            <div class="drag-area" id="butterfly-target" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <p style="color: var(--text-light); text-align: center;">Drop stages here in correct order</p>
+                            </div>
+                            <button class="model-answer-btn" onclick="checkButterflyOrder()">Check Answer</button>
+                            <div id="butterfly-feedback" style="margin-top: 1rem; display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="build-frog" class="tab-content">
+                    <div class="drag-container">
+                        <div>
+                            <h4>Available Stages (Drag to the right →)</h4>
+                            <div class="drag-area available" id="frog-source">
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Adult Frog</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Froglet</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Tadpole with Legs</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Tadpole</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Eggs (Spawn)</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Your Sequence (in order)</h4>
+                            <div class="drag-area" id="frog-target" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <p style="color: var(--text-light); text-align: center;">Drop stages here in correct order</p>
+                            </div>
+                            <button class="model-answer-btn" onclick="checkFrogOrder()">Check Answer</button>
+                            <div id="frog-feedback" style="margin-top: 1rem; display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="build-plant" class="tab-content">
+                    <div class="drag-container">
+                        <div>
+                            <h4>Available Stages (Drag to the right →)</h4>
+                            <div class="drag-area available" id="plant-source">
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Flower</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Seedling</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Fruit & Seeds</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Seed</div>
+                                <div class="stage-card" draggable="true" ondragstart="dragStart(event)" ondragend="dragEnd(event)">Mature Plant</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Your Sequence (in order)</h4>
+                            <div class="drag-area" id="plant-target" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                <p style="color: var(--text-light); text-align: center;">Drop stages here in correct order</p>
+                            </div>
+                            <button class="model-answer-btn" onclick="checkPlantOrder()">Check Answer</button>
+                            <div id="plant-feedback" style="margin-top: 1rem; display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Activity 2: Match Life Cycle Types</h3>
+                <p>Click on organisms to match them with their life cycle type.</p>
+
+                <div style="margin: 2rem 0;">
+                    <div style="background: var(--gray-light); padding: 1.5rem; border-radius: 4px; margin-bottom: 1rem;">
+                        <h4 style="margin-bottom: 1rem;">Life Cycle Types</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                            <div class="match-item" onclick="highlightType(this, '4-stage')">
+                                <strong>4-Stage Metamorphosis</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Egg → Larva → Pupa → Adult</p>
+                            </div>
+                            <div class="match-item" onclick="highlightType(this, '3-stage')">
+                                <strong>3-Stage Direct Development</strong>
+                                <p style="font-size: 0.85rem; color: var(--text-light);">Egg → Baby → Adult</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: white; padding: 1.5rem; border-radius: 4px; border: 2px solid var(--gray);">
+                        <h4 style="margin-bottom: 1rem;">Organisms to Classify (Click each)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                            <div class="match-item" onclick="classifyOrganism(this, '4-stage')">Butterfly</div>
+                            <div class="match-item" onclick="classifyOrganism(this, '3-stage')">Chicken</div>
+                            <div class="match-item" onclick="classifyOrganism(this, '4-stage')">Ant</div>
+                            <div class="match-item" onclick="classifyOrganism(this, '3-stage')">Dog</div>
+                            <div class="match-item" onclick="classifyOrganism(this, '4-stage')">Bee</div>
+                            <div class="match-item" onclick="classifyOrganism(this, '3-stage')">Frog (Adults)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Activity 3: Life Cycle Flashcards</h3>
+                <p>Click on each card to reveal the answer. Test your knowledge!</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">What is the pupal stage in a butterfly called?</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">Chrysalis or Pupa</div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">What does a tadpole use to breathe underwater?</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">Gills</div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">How long do chicken eggs take to hatch?</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">21 days</div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">Name 7 stages of a flowering plant's life cycle.</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">Seed, Germination, Seedling, Mature Plant, Flower, Fruit, Dispersal</div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">What is metamorphosis?</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">Dramatic change in form or structure during life cycle</div>
+                        </div>
+                    </div>
+
+                    <div class="flashcard" onclick="toggleFlashcard(this)">
+                        <div>
+                            <div class="flashcard-question">How many legs does a caterpillar have?</div>
+                            <div class="flashcard-answer" style="display: none; color: var(--pri); font-weight: 600;">More than 10 (including prolegs)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Assessment: PSLE-Style Questions</h2>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Section A: Multiple Choice Questions</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Choose the correct answer for each question.</p>
+
+                <div class="question-block">
+                    <div class="question-number">1</div>
+                    <div class="question-text">A tadpole undergoes metamorphosis to become a frog. Which best describes metamorphosis?</div>
+                    <label class="option-label">
+                        <input type="radio" name="q1" class="option-input"> A) Growing bigger in size
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" class="option-input"> B) Dramatic change in form and structure
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" class="option-input"> C) Moving to a new location
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q1" class="option-input"> D) Reproducing with other tadpoles
+                    </label>
+                    <button class="model-answer-btn" onclick="showMCQAnswer('q1', 'B')">Show Answer</button>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">2</div>
+                    <div class="question-text">Which stage is the butterfly most protected from predators?</div>
+                    <label class="option-label">
+                        <input type="radio" name="q2" class="option-input"> A) Egg stage
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" class="option-input"> B) Caterpillar stage
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" class="option-input"> C) Chrysalis stage
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q2" class="option-input"> D) Adult butterfly stage
+                    </label>
+                    <button class="model-answer-btn" onclick="showMCQAnswer('q2', 'C')">Show Answer</button>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">3</div>
+                    <div class="question-text">A seed needs three things to germinate. Which is NOT required?</div>
+                    <label class="option-label">
+                        <input type="radio" name="q3" class="option-input"> A) Water
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" class="option-input"> B) Warmth
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" class="option-input"> C) Oxygen
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q3" class="option-input"> D) Bright sunlight
+                    </label>
+                    <button class="model-answer-btn" onclick="showMCQAnswer('q3', 'D')">Show Answer</button>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">4</div>
+                    <div class="question-text">What is the main difference between chicken and butterfly life cycles?</div>
+                    <label class="option-label">
+                        <input type="radio" name="q4" class="option-input"> A) Chicken eggs hatch in 21 days, butterfly eggs in 3 days
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" class="option-input"> B) Butterflies have metamorphosis with larval stages; chickens do not
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" class="option-input"> C) Chicken eggs are larger than butterfly eggs
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q4" class="option-input"> D) Only butterflies lay eggs in spring
+                    </label>
+                    <button class="model-answer-btn" onclick="showMCQAnswer('q4', 'B')">Show Answer</button>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">5</div>
+                    <div class="question-text">Dandelion seeds have parachute-like structures. What is the purpose?</div>
+                    <label class="option-label">
+                        <input type="radio" name="q5" class="option-input"> A) To make the seeds heavier
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" class="option-input"> B) To disperse seeds over long distances by wind
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" class="option-input"> C) To protect seeds from insects
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="q5" class="option-input"> D) To help seeds absorb water
+                    </label>
+                    <button class="model-answer-btn" onclick="showMCQAnswer('q5', 'B')">Show Answer</button>
+                </div>
+            </div>
+
+            <div class="quiz-section">
+                <h3>Section B: Open-Ended Questions</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Answer in complete sentences.</p>
+
+                <div class="question-block">
+                    <div class="question-number">1</div>
+                    <div class="question-text">Why does a butterfly have a chrysalis stage but a chicken does not? What advantage does this provide?</div>
+                    <textarea placeholder="Write your answer here..."></textarea>
+                    <button class="model-answer-btn" onclick="toggleModelAnswer(this)">Show Model Answer</button>
+                    <div class="model-answer">
+                        <strong>Model Answer:</strong>
+                        <p>The chrysalis stage protects the caterpillar while it completely transforms into a butterfly. Inside the chrysalis, the caterpillar's entire body is reorganized. This is important because:</p>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>The chrysalis protects the developing butterfly from predators and harsh weather</li>
+                            <li>It allows the caterpillar to change from eating leaves to drinking nectar—a completely different body structure</li>
+                            <li>The chrysalis is camouflaged, providing extra protection</li>
+                        </ul>
+                        <p>A chicken does not need this because the chick is born looking like a miniature adult and eats the same foods.</p>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">2</div>
+                    <div class="question-text">Explain how life cycles are connected to survival and reproduction. Give two examples.</div>
+                    <textarea placeholder="Write your answer here..."></textarea>
+                    <button class="model-answer-btn" onclick="toggleModelAnswer(this)">Show Model Answer</button>
+                    <div class="model-answer">
+                        <strong>Model Answer:</strong>
+                        <p><strong>Example 1 - Plants:</strong> Seeds contain stored food for seedlings to survive until they can photosynthesize. Flowers let plants reproduce by making new seeds. Seed dispersal spreads seeds to new locations where there is less competition.</p>
+                        <p><strong>Example 2 - Frogs:</strong> Tadpoles are aquatic with gills, allowing survival in water. As they develop, they grow legs and lungs to move to land where there are different food sources. Adult frogs return to water to reproduce.</p>
+                        <p>Without life cycles, organisms cannot reproduce and pass genes to the next generation, so species would disappear.</p>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <div class="question-number">3</div>
+                    <div class="question-text">A caterpillar eats leaves, but a butterfly drinks nectar. Why is this difference important for both life cycles?</div>
+                    <textarea placeholder="Write your answer here..."></textarea>
+                    <button class="model-answer-btn" onclick="toggleModelAnswer(this)">Show Model Answer</button>
+                    <div class="model-answer">
+                        <strong>Model Answer:</strong>
+                        <p><strong>For the Butterfly:</strong> Caterpillars eat leaves to grow quickly. Adult butterflies drink nectar for energy to fly and find mates. They don't need to grow anymore.</p>
+                        <p><strong>For Plants:</strong> When butterflies drink nectar, pollen sticks to their bodies. As they fly from flower to flower, they transfer pollen, helping plants reproduce. Flowers have bright colors and sweet nectar to attract pollinators.</p>
+                        <p><strong>Connection:</strong> Different food sources mean no competition between caterpillars and butterflies. The butterfly's feeding helps plants reproduce. This is mutualism—a win-win relationship!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="values-box">
+            <h3>Values, Ethics & Attitudes (VEA)</h3>
+            <p><strong>Respect for Life:</strong> All living things have life cycles. We should protect habitats so organisms can complete their cycles.</p>
+            <p><strong>Scientific Curiosity:</strong> By studying life cycles, we discover amazing transformations in nature. Keep observing the living world!</p>
+            <p><strong>Responsibility:</strong> Our actions affect whether organisms complete their life cycles. Protecting endangered species and their habitats is everyone's responsibility.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Myko Education • Primary 3 Science • Based on Singapore MOE 2023 Primary Science Syllabus</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Learning Content Version 2.0</p>
+    </footer>
+
+    <script>
+        let draggedElement = null;
+
+        function dragStart(e) {
+            draggedElement = e.target.cloneNode(true);
+            e.target.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        }
+
+        function dragEnd(e) {
+            e.target.classList.remove('dragging');
+        }
+
+        function allowDrop(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            if (draggedElement) {
+                const card = draggedElement.cloneNode(true);
+                card.classList.add('placed');
+                card.draggable = true;
+                card.ondragstart = dragStart;
+                card.ondragend = dragEnd;
+                e.target.appendChild(card);
+            }
+        }
+
+        function checkButterflyOrder() {
+            const target = document.getElementById('butterfly-target');
+            const cards = Array.from(target.querySelectorAll('.stage-card.placed')).map(c => c.textContent.trim());
+            const correct = ['Egg', 'Caterpillar (Larva)', 'Chrysalis (Pupa)', 'Butterfly (Adult)'];
+            const feedback = document.getElementById('butterfly-feedback');
+
+            if (cards.join('|') === correct.join('|')) {
+                feedback.innerHTML = '<div class="key-concept"><strong>Correct!</strong> You have the butterfly life cycle in perfect order!</div>';
+            } else {
+                feedback.innerHTML = '<div style="background: #ffebee; border-left: 4px solid #f44336; padding: 1rem; border-radius: 4px;"><strong>Not quite.</strong> Try again: Egg → Caterpillar → Chrysalis → Butterfly</div>';
+            }
+            feedback.style.display = 'block';
+        }
+
+        function checkFrogOrder() {
+            const target = document.getElementById('frog-target');
+            const cards = Array.from(target.querySelectorAll('.stage-card.placed')).map(c => c.textContent.trim());
+            const correct = ['Eggs (Spawn)', 'Tadpole', 'Tadpole with Legs', 'Froglet', 'Adult Frog'];
+            const feedback = document.getElementById('frog-feedback');
+
+            if (cards.join('|') === correct.join('|')) {
+                feedback.innerHTML = '<div class="key-concept"><strong>Correct!</strong> Perfect frog transformation!</div>';
+            } else {
+                feedback.innerHTML = '<div style="background: #ffebee; border-left: 4px solid #f44336; padding: 1rem; border-radius: 4px;"><strong>Not quite.</strong> Try: Eggs → Tadpole → Tadpole with Legs → Froglet → Adult Frog</div>';
+            }
+            feedback.style.display = 'block';
+        }
+
+        function checkPlantOrder() {
+            const target = document.getElementById('plant-target');
+            const cards = Array.from(target.querySelectorAll('.stage-card.placed')).map(c => c.textContent.trim());
+            const correct = ['Seed', 'Seedling', 'Mature Plant', 'Flower', 'Fruit & Seeds'];
+            const feedback = document.getElementById('plant-feedback');
+
+            if (cards.join('|') === correct.join('|')) {
+                feedback.innerHTML = '<div class="key-concept"><strong>Correct!</strong> Plant life cycle complete!</div>';
+            } else {
+                feedback.innerHTML = '<div style="background: #ffebee; border-left: 4px solid #f44336; padding: 1rem; border-radius: 4px;"><strong>Not quite.</strong> Try: Seed → Seedling → Mature Plant → Flower → Fruit & Seeds</div>';
+            }
+            feedback.style.display = 'block';
+        }
+
+        function toggleCollapsible(element) {
+            const content = element.nextElementSibling;
+            element.classList.toggle('active');
+            const span = element.querySelector('span:last-child');
+            span.textContent = element.classList.contains('active') ? '−' : '+';
+            content.classList.toggle('active');
+        }
+
+        function switchTab(e, tabName) {
+            const buttons = e.target.parentElement.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            e.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function toggleFlashcard(element) {
+            element.classList.toggle('revealed');
+            const question = element.querySelector('.flashcard-question');
+            const answer = element.querySelector('.flashcard-answer');
+
+            if (element.classList.contains('revealed')) {
+                question.style.display = 'none';
+                answer.style.display = 'block';
+            } else {
+                question.style.display = 'block';
+                answer.style.display = 'none';
+            }
+        }
+
+        function classifyOrganism(element, type) {
+            element.classList.toggle('matched');
+        }
+
+        function highlightType(element, type) {
+            element.classList.toggle('matched');
+        }
+
+        function showMCQAnswer(questionName, correctLetter) {
+            const options = document.querySelectorAll(`input[name="${questionName}"]`);
+            let selectedLetter = '';
+
+            options.forEach((option, index) => {
+                const letter = String.fromCharCode(65 + index);
+                if (option.checked) {
+                    selectedLetter = letter;
+                }
+            });
+
+            const feedbackHtml = selectedLetter === correctLetter
+                ? '<div class="key-concept" style="margin-top: 1rem;">Correct!</div>'
+                : `<div style="background: #ffebee; border-left: 4px solid #f44336; padding: 1rem; border-radius: 4px; margin-top: 1rem;"><strong>The correct answer is ${correctLetter}.</strong> Try again!</div>`;
+
+            const button = event.target;
+            const existing = button.nextElementSibling;
+            if (existing && existing.classList.contains('key-concept')) {
+                existing.remove();
+            }
+            button.insertAdjacentHTML('afterend', feedbackHtml);
+        }
+
+        function toggleModelAnswer(button) {
+            const modelAnswer = button.nextElementSibling;
+            modelAnswer.classList.toggle('revealed');
+            button.textContent = modelAnswer.classList.contains('revealed') ? 'Hide Model Answer' : 'Show Model Answer';
+        }
+
+        function highlightStage(element) {
+            document.querySelectorAll('.stage-circle.active').forEach(circle => {
+                circle.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
