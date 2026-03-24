@@ -590,6 +590,50 @@
             background: #f1f8e9;
             border-color: var(--pri);
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1b5e20;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @keyframes flutter {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-8px) rotate(-5deg); }
+            75% { transform: translateY(-8px) rotate(5deg); }
+        }
+
+        .flutter-animation {
+            animation: flutter 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .pulse-animation {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -740,6 +784,186 @@
                 <h3>Life Cycles of Animals</h3>
                 <p>Animals have different life cycles compared to plants. Some animals go through dramatic changes in form (metamorphosis), while others look similar throughout their life.</p>
 
+                <!-- Butterfly Life Cycle Diagram -->
+                <div class="visual-container">
+                    <div class="visual-header">🦋 Butterfly Life Cycle (Complete Metamorphosis)</div>
+                    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background circle -->
+                        <circle cx="350" cy="200" r="150" fill="none" stroke="#2e7d32" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+
+                        <!-- Stage 1: Egg -->
+                        <g>
+                            <circle cx="350" cy="50" r="30" fill="#E8D4B8" stroke="#8B7355" stroke-width="2"/>
+                            <ellipse cx="350" cy="50" rx="8" ry="18" fill="#A0826D"/>
+                            <text x="350" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">1. Egg</text>
+                            <text x="350" y="140" text-anchor="middle" font-size="11" fill="#666">Tiny, laid on leaf</text>
+                            <text x="350" y="155" text-anchor="middle" font-size="10" fill="#666">3-5 days</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 370 75 Q 450 100 480 140" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+                        <!-- Stage 2: Caterpillar (Larva) -->
+                        <g>
+                            <ellipse cx="520" cy="150" rx="35" ry="28" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                            <circle cx="490" cy="145" r="12" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                            <circle cx="550" cy="145" r="12" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                            <circle cx="480" cy="160" r="8" fill="#FFD700"/>
+                            <text x="520" y="230" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">2. Caterpillar</text>
+                            <text x="520" y="250" text-anchor="middle" font-size="11" fill="#666">Eats constantly!</text>
+                            <text x="520" y="265" text-anchor="middle" font-size="10" fill="#666">3-5 weeks</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 510 190 Q 500 270 480 310" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+                        <!-- Stage 3: Chrysalis (Pupa) -->
+                        <g>
+                            <path d="M 480 330 Q 460 360 460 380 Q 460 390 470 390 Q 480 390 480 380 Q 480 360 500 330" fill="#C9B59A" stroke="#8B7355" stroke-width="2"/>
+                            <ellipse cx="480" cy="345" rx="8" ry="12" fill="#A0826D"/>
+                            <text x="480" y="330" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">3. Chrysalis</text>
+                            <text x="480" y="350" text-anchor="middle" font-size="11" fill="#666">Transformation!</text>
+                            <text x="480" y="365" text-anchor="middle" font-size="10" fill="#666">2-3 weeks</text>
+                        </g>
+
+                        <!-- Arrow 3 -->
+                        <path d="M 450 320 Q 300 300 220 250" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+                        <!-- Stage 4: Adult Butterfly -->
+                        <g>
+                            <ellipse cx="150" cy="180" rx="12" ry="25" fill="#FF69B4"/>
+                            <!-- Left wings -->
+                            <ellipse cx="115" cy="160" rx="28" ry="35" fill="#FF1493" opacity="0.9" transform="rotate(-30 115 160)"/>
+                            <ellipse cx="110" cy="200" rx="22" ry="28" fill="#FF69B4" opacity="0.9" transform="rotate(-50 110 200)"/>
+                            <!-- Right wings -->
+                            <ellipse cx="185" cy="160" rx="28" ry="35" fill="#FF1493" opacity="0.9" transform="rotate(30 185 160)"/>
+                            <ellipse cx="190" cy="200" rx="22" ry="28" fill="#FF69B4" opacity="0.9" transform="rotate(50 190 200)"/>
+                            <!-- Antennae -->
+                            <path d="M 150 155 Q 140 120 135 100" stroke="#333" stroke-width="2" fill="none"/>
+                            <path d="M 150 155 Q 160 120 165 100" stroke="#333" stroke-width="2" fill="none"/>
+                            <text x="150" y="260" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">4. Butterfly</text>
+                            <text x="150" y="280" text-anchor="middle" font-size="11" fill="#666">Drinks nectar</text>
+                            <text x="150" y="295" text-anchor="middle" font-size="10" fill="#666">2-6 weeks</text>
+                        </g>
+
+                        <!-- Arrow back to start -->
+                        <path d="M 180 140 Q 250 60 320 50" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+                        <text x="250" y="80" font-size="11" font-weight="600" fill="#2e7d32">Lays eggs</text>
+
+                        <!-- Arrow marker -->
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#2e7d32"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">Complete Metamorphosis: The butterfly goes through 4 completely different stages, looking very different at each stage!</p>
+                </div>
+
+                <!-- Frog Life Cycle Diagram -->
+                <div class="visual-container">
+                    <div class="visual-header">🐸 Frog Life Cycle (Metamorphosis in Water)</div>
+                    <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Water background hint -->
+                        <rect x="0" y="200" width="700" height="200" fill="#ADD8E6" opacity="0.2"/>
+                        <text x="10" y="320" font-size="10" fill="#666" font-style="italic">Water</text>
+
+                        <!-- Stage 1: Eggs in jelly -->
+                        <g>
+                            <circle cx="100" cy="250" r="25" fill="#8FBC8F" opacity="0.6" stroke="#228B22" stroke-width="2"/>
+                            <circle cx="85" cy="240" r="6" fill="#333"/>
+                            <circle cx="95" cy="235" r="6" fill="#333"/>
+                            <circle cx="105" cy="238" r="6" fill="#333"/>
+                            <circle cx="115" cy="245" r="6" fill="#333"/>
+                            <circle cx="110" cy="260" r="6" fill="#333"/>
+                            <text x="100" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">1. Eggs</text>
+                            <text x="100" y="330" text-anchor="middle" font-size="11" fill="#666">In jelly mass</text>
+                            <text x="100" y="345" text-anchor="middle" font-size="10" fill="#666">2-3 weeks</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 130 260 L 180 260" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+
+                        <!-- Stage 2: Tadpole -->
+                        <g>
+                            <ellipse cx="230" cy="260" rx="25" ry="20" fill="#1E90FF" stroke="#000080" stroke-width="2"/>
+                            <path d="M 255 250 Q 280 240 290 235" stroke="#1E90FF" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <path d="M 255 270 Q 280 280 290 285" stroke="#1E90FF" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <circle cx="210" cy="255" r="4" fill="#FFF"/>
+                            <text x="230" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">2. Tadpole</text>
+                            <text x="230" y="330" text-anchor="middle" font-size="11" fill="#666">With tail, gills</text>
+                            <text x="230" y="345" text-anchor="middle" font-size="10" fill="#666">2-3 months</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 260 240 L 310 240" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+
+                        <!-- Stage 3: Tadpole with legs -->
+                        <g>
+                            <ellipse cx="360" cy="260" rx="25" ry="20" fill="#4169E1" stroke="#000080" stroke-width="2"/>
+                            <path d="M 385 250 Q 410 240 420 235" stroke="#4169E1" stroke-width="3" fill="none" stroke-linecap="round"/>
+                            <!-- Back legs -->
+                            <path d="M 345 275 L 330 295 L 325 285" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <path d="M 375 275 L 390 295 L 395 285" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <circle cx="340" cy="255" r="4" fill="#FFF"/>
+                            <text x="360" y="310" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">3. With Legs</text>
+                            <text x="360" y="330" text-anchor="middle" font-size="11" fill="#666">Tail shrinks</text>
+                            <text x="360" y="345" text-anchor="middle" font-size="10" fill="#666">4-8 weeks</text>
+                        </g>
+
+                        <!-- Arrow 3 -->
+                        <path d="M 390 240 L 440 220" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+
+                        <!-- Stage 4: Froglet -->
+                        <g>
+                            <ellipse cx="500" cy="180" rx="20" ry="22" fill="#32CD32" stroke="#228B22" stroke-width="2"/>
+                            <circle cx="490" cy="165" r="8" fill="#FFD700"/>
+                            <circle cx="510" cy="165" r="8" fill="#FFD700"/>
+                            <!-- Back legs -->
+                            <path d="M 485 200 L 470 225" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <path d="M 515 200 L 530 225" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <!-- Front legs (small) -->
+                            <path d="M 485 185 L 475 195" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <path d="M 515 185 L 525 195" stroke="#228B22" stroke-width="2" fill="none"/>
+                            <text x="500" y="265" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">4. Froglet</text>
+                            <text x="500" y="285" text-anchor="middle" font-size="11" fill="#666">Still tiny tail</text>
+                            <text x="500" y="300" text-anchor="middle" font-size="10" fill="#666">Transitioning</text>
+                        </g>
+
+                        <!-- Arrow 4 -->
+                        <path d="M 530 160 L 600 140" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow2)"/>
+
+                        <!-- Stage 5: Adult Frog -->
+                        <g>
+                            <ellipse cx="630" cy="120" rx="22" ry="25" fill="#32CD32" stroke="#228B22" stroke-width="2"/>
+                            <!-- Eyes -->
+                            <circle cx="620" cy="105" r="6" fill="#FFD700" stroke="#333" stroke-width="1"/>
+                            <circle cx="640" cy="105" r="6" fill="#FFD700" stroke="#333" stroke-width="1"/>
+                            <!-- Back legs -->
+                            <path d="M 615 135 L 600 160" stroke="#228B22" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M 645 135 L 660 160" stroke="#228B22" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Front legs -->
+                            <path d="M 618 125 L 610 140" stroke="#228B22" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M 642 125 L 650 140" stroke="#228B22" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <text x="630" y="195" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">5. Adult Frog</text>
+                            <text x="630" y="215" text-anchor="middle" font-size="11" fill="#666">No tail!</text>
+                            <text x="630" y="230" text-anchor="middle" font-size="10" fill="#666">2-3 years</text>
+                        </g>
+
+                        <!-- Arrow back -->
+                        <path d="M 610 90 Q 350 20 120 200" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow2)" stroke-dasharray="5,5"/>
+                        <text x="350" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#2e7d32">Lays eggs</text>
+
+                        <!-- Arrow marker -->
+                        <defs>
+                            <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#2e7d32"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">Incomplete Metamorphosis: The frog goes through 5 stages, starting in water as an egg and ending as a land animal. The tadpole gradually transforms, not suddenly!</p>
+                </div>
+
                 <div class="collapsible" onclick="toggleCollapsible(this)">
                     <span>🦋 Butterfly Life Cycle (4-Stage: Complete Metamorphosis)</span>
                     <span>+</span>
@@ -878,6 +1102,105 @@
                 <div class="did-you-know">
                     <strong>Did You Know?</strong> If even one life cycle is broken, the entire species can disappear. When habitats are destroyed, organisms can't complete their life cycles, and they may go extinct. Monarch butterflies need milkweed plants for their caterpillars to eat. Without milkweed, there are no caterpillars, and the species is threatened.
                 </div>
+            </div>
+        </section>
+
+        <!-- Butterfly Metamorphosis Animation -->
+        <section>
+            <div class="visual-container">
+                <div class="visual-header">✨ Watch the Butterfly Transform (Animated)</div>
+                <svg viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg" id="butterfly-anim">
+                    <!-- Stage 1: Egg -->
+                    <g id="anim-egg" opacity="1">
+                        <circle cx="100" cy="150" r="25" fill="#E8D4B8" stroke="#8B7355" stroke-width="2"/>
+                        <ellipse cx="100" cy="150" rx="8" ry="18" fill="#A0826D"/>
+                        <text x="100" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Stage 1: Egg</text>
+                    </g>
+
+                    <!-- Stage 2: Caterpillar -->
+                    <g id="anim-caterpillar" opacity="0">
+                        <ellipse cx="180" cy="150" rx="30" ry="25" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                        <circle cx="155" cy="145" r="12" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                        <circle cx="205" cy="145" r="12" fill="#90EE90" stroke="#228B22" stroke-width="2"/>
+                        <circle cx="165" cy="165" r="8" fill="#FFD700"/>
+                        <circle cx="195" cy="165" r="8" fill="#FFD700"/>
+                        <text x="180" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Stage 2: Caterpillar</text>
+                    </g>
+
+                    <!-- Stage 3: Chrysalis -->
+                    <g id="anim-chrysalis" opacity="0">
+                        <path d="M 260 120 Q 250 135 250 160 Q 250 180 260 185 Q 270 180 270 160 Q 270 135 260 120" fill="#C9B59A" stroke="#8B7355" stroke-width="2"/>
+                        <ellipse cx="260" cy="150" rx="6" ry="10" fill="#A0826D"/>
+                        <text x="260" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Stage 3: Chrysalis</text>
+                    </g>
+
+                    <!-- Stage 4: Butterfly -->
+                    <g id="anim-butterfly" opacity="0" class="flutter-animation">
+                        <ellipse cx="380" cy="150" rx="10" ry="20" fill="#FF69B4"/>
+                        <!-- Left wings -->
+                        <ellipse cx="350" cy="130" rx="25" ry="30" fill="#FF1493" opacity="0.9" transform="rotate(-30 350 130)"/>
+                        <ellipse cx="345" cy="170" rx="20" ry="25" fill="#FF69B4" opacity="0.9" transform="rotate(-50 345 170)"/>
+                        <!-- Right wings -->
+                        <ellipse cx="410" cy="130" rx="25" ry="30" fill="#FF1493" opacity="0.9" transform="rotate(30 410 130)"/>
+                        <ellipse cx="415" cy="170" rx="20" ry="25" fill="#FF69B4" opacity="0.9" transform="rotate(50 415 170)"/>
+                        <!-- Antennae -->
+                        <path d="M 380 130 Q 375 100 370 80" stroke="#333" stroke-width="2" fill="none"/>
+                        <path d="M 380 130 Q 385 100 390 80" stroke="#333" stroke-width="2" fill="none"/>
+                        <text x="380" y="220" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Stage 4: Butterfly!</text>
+                    </g>
+
+                    <!-- Connecting arrows -->
+                    <path d="M 130 150 L 150 150" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow3)" id="arrow1"/>
+                    <path d="M 210 150 L 240 150" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow3)" id="arrow2"/>
+                    <path d="M 290 150 L 330 150" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrow3)" id="arrow3"/>
+
+                    <!-- Arrow marker -->
+                    <defs>
+                        <marker id="arrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#2e7d32"/>
+                        </marker>
+                    </defs>
+
+                    <!-- Information panel -->
+                    <rect x="20" y="280" width="560" height="55" fill="#f9f9f9" stroke="#2e7d32" stroke-width="1" rx="4"/>
+                    <text id="anim-info" x="300" y="305" text-anchor="middle" font-size="12" fill="#333">Watch as the egg develops into a beautiful butterfly through complete metamorphosis!</text>
+                    <text id="anim-duration" x="300" y="325" text-anchor="middle" font-size="11" fill="#666" font-style="italic">Total time: 4-6 weeks</text>
+                </svg>
+                <p style="margin-top: 20px; font-size: 0.95rem; color: #555; text-align: center;">This animation shows one complete cycle. It will automatically repeat so you can see the transformation again and again!</p>
+
+                <script>
+                (function() {
+                    const stages = [
+                        { id: 'anim-egg', name: 'Egg', duration: '3-5 days' },
+                        { id: 'anim-caterpillar', name: 'Caterpillar (Larva)', duration: '3-5 weeks' },
+                        { id: 'anim-chrysalis', name: 'Chrysalis (Pupa)', duration: '2-3 weeks' },
+                        { id: 'anim-butterfly', name: 'Butterfly (Adult)', duration: '2-6 weeks' }
+                    ];
+
+                    let currentStage = 0;
+
+                    function showStage(index) {
+                        stages.forEach((stage, i) => {
+                            const elem = document.getElementById(stage.id);
+                            elem.style.opacity = i === index ? '1' : '0';
+                            elem.style.transition = 'opacity 0.6s ease';
+                        });
+
+                        const info = document.getElementById('anim-info');
+                        const duration = document.getElementById('anim-duration');
+                        const current = stages[index];
+                        info.textContent = `Stage ${index + 1}: ${current.name} - A fascinating transformation!`;
+                        duration.textContent = `Duration: ${current.duration}`;
+                    }
+
+                    setInterval(() => {
+                        currentStage = (currentStage + 1) % stages.length;
+                        showStage(currentStage);
+                    }, 3000);
+
+                    showStage(0);
+                })();
+                </script>
             </div>
         </section>
 

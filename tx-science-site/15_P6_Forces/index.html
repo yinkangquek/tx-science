@@ -512,6 +512,104 @@
         .surface.smooth {
             background: linear-gradient(to bottom, #90caf9, #1976d2);
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #0B465F;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .force-simulator-btn {
+            background: #F47D20;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 10px 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .force-simulator-btn:hover {
+            background: #0B465F;
+            transform: translateY(-2px);
+        }
+
+        .force-simulator-controls {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .force-simulator-object {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #F47D20 0%, #098EAF 100%);
+            border-radius: 8px;
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .force-arrow-display {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .simulator-canvas {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(to bottom, #e3f2fd 0%, #fff9c4 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 2px solid #0B465F;
+        }
+
+        .simulator-output {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #F47D20;
+            font-weight: 500;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -594,6 +692,58 @@
 
             <p>When an unbalanced force acts on an object, it can produce three main effects: changing speed, changing direction, or changing shape.</p>
 
+            <div class="visual-container">
+                <div class="visual-header">🔬 Balanced vs Unbalanced Forces</div>
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Balanced Forces -->
+                    <g>
+                        <text x="200" y="30" text-anchor="middle" font-weight="bold" font-size="16" fill="#0B465F">Balanced Forces</text>
+                        <text x="200" y="50" text-anchor="middle" font-size="12" fill="#333">Equal forces = No motion</text>
+
+                        <circle cx="200" cy="130" r="30" fill="#098EAF"/>
+                        <text x="200" y="140" text-anchor="middle" font-weight="bold" font-size="14" fill="white">10N</text>
+
+                        <path d="M 140 130 L 100 130" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowhead-orange)"/>
+                        <text x="120" y="120" text-anchor="middle" font-size="11" fill="#F47D20">10N</text>
+
+                        <path d="M 260 130 L 300 130" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowhead-orange)"/>
+                        <text x="280" y="120" text-anchor="middle" font-size="11" fill="#F47D20">10N</text>
+
+                        <text x="200" y="200" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Result: STAYS IN PLACE</text>
+                    </g>
+
+                    <!-- Unbalanced Forces -->
+                    <g>
+                        <text x="600" y="30" text-anchor="middle" font-weight="bold" font-size="16" fill="#0B465F">Unbalanced Forces</text>
+                        <text x="600" y="50" text-anchor="middle" font-size="12" fill="#333">Unequal forces = Motion</text>
+
+                        <circle cx="600" cy="130" r="30" fill="#098EAF"/>
+                        <text x="600" y="140" text-anchor="middle" font-weight="bold" font-size="14" fill="white">10N</text>
+
+                        <path d="M 540 130 L="500 130" stroke="#EF3740" stroke-width="2" marker-end="url(#arrowhead-red)"/>
+                        <text x="520" y="120" text-anchor="middle" font-size="11" fill="#EF3740">5N</text>
+
+                        <path d="M 660 130 L 720 130" stroke="#F47D20" stroke-width="4" marker-end="url(#arrowhead-orange-thick)"/>
+                        <text x="690" y="120" text-anchor="middle" font-size="11" fill="#F47D20">15N</text>
+
+                        <path d="M 600 150 L 600 180" stroke="#098EAF" stroke-width="2" stroke-dasharray="5,5"/>
+                        <text x="600" y="200" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Result: MOVES RIGHT</text>
+                    </g>
+
+                    <defs>
+                        <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                        <marker id="arrowhead-orange-thick" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                        <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
             <h3>1. Changing Speed (Acceleration and Deceleration)</h3>
             <p><strong>Acceleration</strong> is when an object speeds up, and <strong>deceleration</strong> (or negative acceleration) is when it slows down. Both are caused by forces.</p>
 
@@ -638,6 +788,45 @@
                 </div>
             </div>
 
+            <div class="visual-container">
+                <div class="visual-header">🎮 Try It Yourself: Force Arrow Simulator</div>
+                <p style="margin-bottom: 16px; color: #555;">Click buttons to add/remove forces on an object and observe if it moves, stays still, or changes direction!</p>
+
+                <div class="force-simulator-controls">
+                    <div style="margin-bottom: 10px;">
+                        <button class="force-simulator-btn" onclick="addForceLeft()">Add Force Left (10N)</button>
+                        <button class="force-simulator-btn" onclick="addForceRight()">Add Force Right (10N)</button>
+                        <button class="force-simulator-btn" onclick="addForceUp()">Add Force Up (10N)</button>
+                        <button class="force-simulator-btn" onclick="addForceDown()">Add Force Down (10N)</button>
+                    </div>
+                    <div>
+                        <button class="force-simulator-btn" style="background: #EF3740;" onclick="clearForces()">Clear All Forces</button>
+                    </div>
+                </div>
+
+                <div class="simulator-canvas" id="simulatorCanvas">
+                    <svg style="position: absolute; width: 100%; height: 100%;" id="forcesSvg">
+                        <!-- Object -->
+                        <circle cx="150" cy="125" r="25" fill="#098EAF" id="simObject"/>
+                        <text x="150" y="130" text-anchor="middle" font-weight="bold" font-size="14" fill="white" id="objectLabel">Box</text>
+
+                        <!-- Force arrows (will be added dynamically) -->
+                        <defs>
+                            <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                            </marker>
+                            <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="simulator-output" id="simulatorOutput">
+                    Add forces to see what happens!
+                </div>
+            </div>
+
             <h3>3. Changing Shape (Deformation)</h3>
             <p>Forces can also change the shape of objects. When you squeeze a sponge, compress a spring, or stretch a rubber band, you are applying forces that change their shape.</p>
 
@@ -675,6 +864,71 @@
                     <h4>Magnetic Force</h4>
                     <p>The attraction or repulsion between magnets and magnetic materials. It can act at a distance without touching.</p>
                 </div>
+            </div>
+
+            <div class="visual-container">
+                <div class="visual-header">🔬 Types of Forces Visual</div>
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Gravitational Force -->
+                    <g>
+                        <rect x="20" y="20" width="160" height="250" fill="#f5f5f5" stroke="#0B465F" stroke-width="2" rx="8"/>
+                        <circle cx="100" cy="80" r="20" fill="#F47D20"/>
+                        <text x="100" y="85" text-anchor="middle" font-weight="bold" font-size="12">Ball</text>
+                        <path d="M 100 105 L 100 150" stroke="#EF3740" stroke-width="3" marker-end="url(#arrowhead-red)"/>
+                        <text x="100" y="180" text-anchor="middle" font-size="11" font-weight="600">Gravity</text>
+                        <text x="100" y="200" text-anchor="middle" font-size="10">Pulls down</text>
+                    </g>
+
+                    <!-- Friction Force -->
+                    <g>
+                        <rect x="210" y="20" width="160" height="250" fill="#f5f5f5" stroke="#0B465F" stroke-width="2" rx="8"/>
+                        <rect x="250" y="150" width="80" height="10" fill="#8B4513" stroke="#654321" stroke-width="1"/>
+                        <circle cx="290" cy="130" r="15" fill="#098EAF"/>
+                        <text x="290" y="135" text-anchor="middle" font-weight="bold" font-size="11">Box</text>
+                        <path d="M 305 130 L 250 130" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowhead-orange)"/>
+                        <text x="290" y="100" text-anchor="middle" font-size="11" font-weight="600">Motion</text>
+                        <text x="290" y="200" text-anchor="middle" font-size="11" font-weight="600">Friction</text>
+                        <text x="290" y="220" text-anchor="middle" font-size="10">Opposes motion</text>
+                    </g>
+
+                    <!-- Magnetic Force -->
+                    <g>
+                        <rect x="400" y="20" width="160" height="250" fill="#f5f5f5" stroke="#0B465F" stroke-width="2" rx="8"/>
+                        <rect x="425" y="120" width="35" height="50" fill="#EF3740" stroke="#C00" stroke-width="1" rx="3"/>
+                        <text x="442" y="155" text-anchor="middle" font-weight="bold" font-size="9" fill="white">N</text>
+                        <rect x="470" y="120" width="35" height="50" fill="#EF3740" stroke="#C00" stroke-width="1" rx="3"/>
+                        <text x="487" y="155" text-anchor="middle" font-weight="bold" font-size="9" fill="white">S</text>
+                        <path d="M 460 145 L 470 145" stroke="#098EAF" stroke-width="2" marker-end="url(#arrowhead-cyan)"/>
+                        <text x="480" y="105" text-anchor="middle" font-size="11" font-weight="600">Attraction</text>
+                        <text x="480" y="210" text-anchor="middle" font-size="11" font-weight="600">Magnetic Force</text>
+                        <text x="480" y="230" text-anchor="middle" font-size="10">Works at a distance</text>
+                    </g>
+
+                    <!-- Elastic Force -->
+                    <g>
+                        <rect x="590" y="20" width="160" height="250" fill="#f5f5f5" stroke="#0B465F" stroke-width="2" rx="8"/>
+                        <path d="M 630 120 Q 635 110 640 120 Q 645 130 650 120 Q 655 110 660 120" stroke="#1E3363" stroke-width="2" fill="none"/>
+                        <text x="630" y="150" font-size="10">Compressed</text>
+                        <text x="630" y="165" font-size="10">Spring</text>
+                        <path d="M 625 120 L 610 120" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowhead-orange)"/>
+                        <path d="M 665 120 L 680 120" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowhead-orange)"/>
+                        <text x="655" y="210" text-anchor="middle" font-size="11" font-weight="600">Elastic Force</text>
+                        <text x="655" y="230" text-anchor="middle" font-size="10">Restores shape</text>
+                    </g>
+
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                        </marker>
+                        <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                        <marker id="arrowhead-cyan" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#098EAF"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
 
             <h3>Gravitational Force</h3>
@@ -726,6 +980,79 @@
                 <div class="applet-output" id="frictionOutput">
                     Adjust the roughness and click "Release Object" to simulate friction
                 </div>
+            </div>
+
+            <div class="visual-container">
+                <div class="visual-header">🔬 Friction on Different Surfaces</div>
+                <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Smooth Surface (Low Friction) -->
+                    <g>
+                        <text x="200" y="30" text-anchor="middle" font-weight="bold" font-size="14" fill="#0B465F">Smooth Surface</text>
+
+                        <!-- Surface -->
+                        <rect x="80" y="160" width="240" height="20" fill="#1976d2" stroke="#0B465F" stroke-width="1" rx="2"/>
+                        <path d="M 85 160 Q 90 155 95 160 Q 100 165 105 160 Q 110 155 115 160 Q 120 165 125 160 Q 130 155 135 160 Q 140 165 145 160 Q 150 155 155 160 Q 160 165 165 160 Q 170 155 175 160 Q 180 165 185 160 Q 190 155 195 160 Q 200 165 205 160 Q 210 155 215 160 Q 220 165 225 160 Q 230 155 235 160 Q 240 165 245 160 Q 250 155 255 160 Q 260 165 265 160 Q 270 155 275 160 Q 280 165 285 160 Q 290 155 295 160 Q 300 165 305 160 Q 310 155 315 160" stroke="none" fill="none"/>
+
+                        <!-- Object -->
+                        <rect x="110" y="130" width="40" height="30" fill="#F47D20" stroke="#0B465F" stroke-width="1" rx="2"/>
+                        <text x="130" y="150" text-anchor="middle" font-weight="bold" font-size="11" fill="white">Box</text>
+
+                        <!-- Motion -->
+                        <path d="M 150 145 L 240 145" stroke="#098EAF" stroke-width="2" stroke-dasharray="5,5"/>
+
+                        <!-- Small friction arrow -->
+                        <path d="M 130 110 L 100 110" stroke="#EF3740" stroke-width="2" marker-end="url(#arrowSmall)"/>
+                        <text x="115" y="105" text-anchor="middle" font-size="10" fill="#EF3740">Small</text>
+
+                        <!-- Speed indicator -->
+                        <text x="130" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">High Speed</text>
+                        <text x="130" y="240" text-anchor="middle" font-size="11" fill="#555">Low friction</text>
+                    </g>
+
+                    <!-- Rough Surface (High Friction) -->
+                    <g>
+                        <text x="600" y="30" text-anchor="middle" font-weight="bold" font-size="14" fill="#0B465F">Rough Surface</text>
+
+                        <!-- Textured surface -->
+                        <rect x="500" y="160" width="200" height="20" fill="#8B4513" stroke="#0B465F" stroke-width="1" rx="2"/>
+                        <rect x="505" y="155" width="8" height="8" fill="#6d4c41"/>
+                        <rect x="520" y="162" width="6" height="6" fill="#6d4c41"/>
+                        <rect x="535" y="157" width="7" height="7" fill="#6d4c41"/>
+                        <rect x="550" y="164" width="8" height="8" fill="#6d4c41"/>
+                        <rect x="565" y="159" width="6" height="6" fill="#6d4c41"/>
+                        <rect x="580" y="165" width="7" height="7" fill="#6d4c41"/>
+                        <rect x="595" y="160" width="8" height="8" fill="#6d4c41"/>
+                        <rect x="610" y="158" width="6" height="6" fill="#6d4c41"/>
+                        <rect x="625" y="163" width="7" height="7" fill="#6d4c41"/>
+                        <rect x="640" y="161" width="8" height="8" fill="#6d4c41"/>
+                        <rect x="655" y="164" width="6" height="6" fill="#6d4c41"/>
+                        <rect x="670" y="159" width="7" height="7" fill="#6d4c41"/>
+
+                        <!-- Object -->
+                        <rect x="530" y="130" width="40" height="30" fill="#F47D20" stroke="#0B465F" stroke-width="1" rx="2"/>
+                        <text x="550" y="150" text-anchor="middle" font-weight="bold" font-size="11" fill="white">Box</text>
+
+                        <!-- Motion -->
+                        <path d="M 570 145 L 620 145" stroke="#098EAF" stroke-width="2" stroke-dasharray="5,5"/>
+
+                        <!-- Large friction arrow -->
+                        <path d="M 530 110 L 450 110" stroke="#EF3740" stroke-width="4" marker-end="url(#arrowLarge)"/>
+                        <text x="490" y="105" text-anchor="middle" font-size="10" fill="#EF3740">Large</text>
+
+                        <!-- Speed indicator -->
+                        <text x="550" y="220" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Low Speed</text>
+                        <text x="550" y="240" text-anchor="middle" font-size="11" fill="#555">High friction</text>
+                    </g>
+
+                    <defs>
+                        <marker id="arrowSmall" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                        </marker>
+                        <marker id="arrowLarge" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
 
             <h3>Elastic Spring Force</h3>
@@ -1184,6 +1511,92 @@
         function toggleAnswer(id) {
             const answerBox = document.getElementById(id);
             answerBox.classList.toggle('show');
+        }
+
+        // Force Simulator Functions
+        let forces = { left: 0, right: 0, up: 0, down: 0 };
+
+        function addForceLeft() {
+            forces.left += 10;
+            updateForceSimulator();
+        }
+
+        function addForceRight() {
+            forces.right += 10;
+            updateForceSimulator();
+        }
+
+        function addForceUp() {
+            forces.up += 10;
+            updateForceSimulator();
+        }
+
+        function addForceDown() {
+            forces.down += 10;
+            updateForceSimulator();
+        }
+
+        function clearForces() {
+            forces = { left: 0, right: 0, up: 0, down: 0 };
+            updateForceSimulator();
+        }
+
+        function updateForceSimulator() {
+            const svg = document.getElementById('forcesSvg');
+            const object = document.getElementById('simObject');
+            const output = document.getElementById('simulatorOutput');
+
+            // Remove existing force arrows
+            const oldArrows = svg.querySelectorAll('.force-line');
+            oldArrows.forEach(arrow => arrow.remove());
+
+            // Calculate net forces
+            const netForceX = forces.right - forces.left;
+            const netForceY = forces.down - forces.up;
+            const netForceMag = Math.sqrt(netForceX * netForceX + netForceY * netForceY);
+
+            // Draw force arrows
+            const scale = 1.5;
+            const originX = 150;
+            const originY = 125;
+
+            if (forces.left > 0) {
+                svg.innerHTML += `<line x1="${originX}" y1="${originY}" x2="${originX - forces.left * scale}" y2="${originY}" stroke="#EF3740" stroke-width="3" marker-end="url(#arrow-red)" class="force-line"/>
+                                 <text x="${originX - forces.left * scale / 2}" y="${originY - 10}" text-anchor="middle" font-size="10" fill="#EF3740" class="force-line">${forces.left}N</text>`;
+            }
+            if (forces.right > 0) {
+                svg.innerHTML += `<line x1="${originX}" y1="${originY}" x2="${originX + forces.right * scale}" y2="${originY}" stroke="#F47D20" stroke-width="3" marker-end="url(#arrow-orange)" class="force-line"/>
+                                 <text x="${originX + forces.right * scale / 2}" y="${originY - 10}" text-anchor="middle" font-size="10" fill="#F47D20" class="force-line">${forces.right}N</text>`;
+            }
+            if (forces.up > 0) {
+                svg.innerHTML += `<line x1="${originX}" y1="${originY}" x2="${originX}" y2="${originY - forces.up * scale}" stroke="#098EAF" stroke-width="3" marker-end="url(#arrow-orange)" class="force-line"/>
+                                 <text x="${originX + 20}" y="${originY - forces.up * scale / 2}" text-anchor="middle" font-size="10" fill="#098EAF" class="force-line">${forces.up}N</text>`;
+            }
+            if (forces.down > 0) {
+                svg.innerHTML += `<line x1="${originX}" y1="${originY}" x2="${originX}" y2="${originY + forces.down * scale}" stroke="#1E3363" stroke-width="3" marker-end="url(#arrow-orange)" class="force-line"/>
+                                 <text x="${originX + 20}" y="${originY + forces.down * scale / 2}" text-anchor="middle" font-size="10" fill="#1E3363" class="force-line">${forces.down}N</text>`;
+            }
+
+            // Update output message
+            let message = '';
+            if (netForceMag === 0) {
+                message = '✓ <strong>Balanced Forces!</strong> The object stays in place. All forces cancel out.';
+                object.style.fill = '#098EAF';
+            } else if (netForceX > 0) {
+                message = '✓ <strong>Unbalanced Forces!</strong> Net force = ' + netForceMag.toFixed(1) + 'N pointing RIGHT. Object accelerates right!';
+                object.style.fill = '#F47D20';
+            } else if (netForceX < 0) {
+                message = '✓ <strong>Unbalanced Forces!</strong> Net force = ' + netForceMag.toFixed(1) + 'N pointing LEFT. Object accelerates left!';
+                object.style.fill = '#F47D20';
+            } else if (netForceY > 0) {
+                message = '✓ <strong>Unbalanced Forces!</strong> Net force = ' + netForceMag.toFixed(1) + 'N pointing DOWN. Object accelerates down!';
+                object.style.fill = '#F47D20';
+            } else if (netForceY < 0) {
+                message = '✓ <strong>Unbalanced Forces!</strong> Net force = ' + netForceMag.toFixed(1) + 'N pointing UP. Object accelerates up!';
+                object.style.fill = '#F47D20';
+            }
+
+            output.innerHTML = message || 'Add forces to see what happens!';
         }
     </script>
 </body>

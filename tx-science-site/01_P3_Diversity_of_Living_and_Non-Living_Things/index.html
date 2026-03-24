@@ -918,6 +918,47 @@
         .hidden {
             display: none;
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--pri-dark);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Animation keyframes */
+        @keyframes grow {
+            0% { transform: scaleY(0); opacity: 0; }
+            100% { transform: scaleY(1); opacity: 1; }
+        }
+
+        @keyframes sprout {
+            0% { height: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { height: 100%; opacity: 1; }
+        }
+
+        .grow-animation {
+            animation: grow 0.6s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -1004,6 +1045,50 @@
                         </div>
                     </div>
 
+                    <!-- MRS GREN Wheel Diagram -->
+                    <div class="visual-container">
+                        <div class="visual-header">🔬 MRS GREN Characteristics Wheel</div>
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Center circle -->
+                            <circle cx="200" cy="200" r="60" fill="#2e7d32" stroke="white" stroke-width="3"/>
+                            <text x="200" y="210" text-anchor="middle" font-size="14" font-weight="bold" fill="white">Living Things</text>
+
+                            <!-- Outer segments -->
+                            <!-- Movement -->
+                            <circle cx="200" cy="200" r="130" fill="none" stroke="#e8e8e8" stroke-width="0.5"/>
+                            <path d="M 200 200 L 200 70 A 130 130 0 0 1 292.2 104.4 Z" fill="#FF6B6B" opacity="0.85"/>
+                            <text x="230" y="115" font-size="13" font-weight="bold" fill="white">Movement</text>
+
+                            <!-- Respiration -->
+                            <path d="M 200 200 L 292.2 104.4 A 130 130 0 0 1 330 200 Z" fill="#FF8C42" opacity="0.85"/>
+                            <text x="300" y="150" font-size="13" font-weight="bold" fill="white">Respiration</text>
+
+                            <!-- Sensitivity -->
+                            <path d="M 200 200 L 330 200 A 130 130 0 0 1 292.2 295.6 Z" fill="#FDB833" opacity="0.85"/>
+                            <text x="310" y="250" font-size="13" font-weight="bold" fill="white">Sensitivity</text>
+
+                            <!-- Growth -->
+                            <path d="M 200 200 L 292.2 295.6 A 130 130 0 0 1 200 330 Z" fill="#4CAF50" opacity="0.85"/>
+                            <text x="250" y="310" font-size="13" font-weight="bold" fill="white">Growth</text>
+
+                            <!-- Reproduction -->
+                            <path d="M 200 200 L 200 330 A 130 130 0 0 1 107.8 295.6 Z" fill="#66BB6A" opacity="0.85"/>
+                            <text x="130" y="310" font-size="13" font-weight="bold" fill="white">Reproduction</text>
+
+                            <!-- Excretion -->
+                            <path d="M 200 200 L 107.8 295.6 A 130 130 0 0 1 70 200 Z" fill="#81C784" opacity="0.85"/>
+                            <text x="70" y="250" font-size="13" font-weight="bold" fill="white">Excretion</text>
+
+                            <!-- Nutrition -->
+                            <path d="M 200 200 L 70 200 A 130 130 0 0 1 107.8 104.4 Z" fill="#A5D6A7" opacity="0.85"/>
+                            <text x="70" y="150" font-size="13" font-weight="bold" fill="white">Nutrition</text>
+
+                            <!-- Connecting circle for next segment -->
+                            <path d="M 200 200 L 107.8 104.4 A 130 130 0 0 1 200 70 Z" fill="#C8E6C9" opacity="0.85"/>
+                        </svg>
+                        <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">All seven characteristics of MRS GREN work together to define what we call a living thing. If an organism displays most or all of these characteristics consistently, it is living!</p>
+                    </div>
+
                     <h4 style="color: var(--pri-dark); margin-top: 30px; margin-bottom: 15px;">Understanding Each Characteristic:</h4>
 
                     <div class="expandable">
@@ -1075,6 +1160,87 @@
                                 <li>An egg hatches into a chick that grows into a chicken</li>
                             </ul>
                             <p style="margin-top: 15px;"><strong>Did you know?</strong> Some living things grow their whole lives (like some fish and reptiles), while others stop growing when they reach a certain age (like most mammals).</p>
+
+                            <!-- Growing Plant Animation -->
+                            <div class="visual-container" style="margin-top: 20px;">
+                                <div class="visual-header">🌱 Watch a Plant Grow</div>
+                                <svg viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg" style="max-height: 300px;">
+                                    <!-- Soil -->
+                                    <rect x="50" y="250" width="200" height="80" fill="#8B6F47"/>
+                                    <ellipse cx="150" cy="250" rx="100" ry="20" fill="#A0826D"/>
+
+                                    <!-- Seed Stage (appears, then fades) -->
+                                    <g id="seed-stage">
+                                        <circle cx="150" cy="240" r="8" fill="#654321" stroke="#4A2511" stroke-width="1"/>
+                                    </g>
+
+                                    <!-- Root (grows down) -->
+                                    <g id="roots" opacity="0">
+                                        <path d="M 150 250 Q 140 270 130 290" stroke="#8B6F47" stroke-width="2" fill="none"/>
+                                        <path d="M 150 250 Q 160 270 170 290" stroke="#8B6F47" stroke-width="2" fill="none"/>
+                                    </g>
+
+                                    <!-- Sprout Stage 1 -->
+                                    <g id="sprout-1" opacity="0">
+                                        <line x1="150" y1="240" x2="150" y2="200" stroke="#90EE90" stroke-width="3" stroke-linecap="round"/>
+                                        <ellipse cx="140" cy="200" rx="6" ry="10" fill="#90EE90"/>
+                                        <ellipse cx="160" cy="200" rx="6" ry="10" fill="#90EE90"/>
+                                    </g>
+
+                                    <!-- Growing Plant Stage 2 -->
+                                    <g id="plant-2" opacity="0">
+                                        <line x1="150" y1="240" x2="150" y2="140" stroke="#228B22" stroke-width="4" stroke-linecap="round"/>
+                                        <ellipse cx="130" cy="160" rx="12" ry="16" fill="#32CD32"/>
+                                        <ellipse cx="170" cy="160" rx="12" ry="16" fill="#32CD32"/>
+                                        <ellipse cx="140" cy="120" rx="10" ry="14" fill="#32CD32"/>
+                                        <ellipse cx="160" cy="120" rx="10" ry="14" fill="#32CD32"/>
+                                    </g>
+
+                                    <!-- Mature Plant with Flower -->
+                                    <g id="plant-3" opacity="0">
+                                        <line x1="150" y1="240" x2="150" y2="80" stroke="#228B22" stroke-width="5" stroke-linecap="round"/>
+                                        <ellipse cx="125" cy="150" rx="14" ry="18" fill="#32CD32"/>
+                                        <ellipse cx="175" cy="150" rx="14" ry="18" fill="#32CD32"/>
+                                        <ellipse cx="130" cy="100" rx="12" ry="16" fill="#32CD32"/>
+                                        <ellipse cx="170" cy="100" rx="12" ry="16" fill="#32CD32"/>
+                                        <ellipse cx="150" cy="60" rx="12" ry="16" fill="#32CD32"/>
+
+                                        <!-- Flower petals -->
+                                        <circle cx="150" cy="50" r="4" fill="#FFD700"/>
+                                        <circle cx="140" cy="40" r="5" fill="#FF69B4"/>
+                                        <circle cx="160" cy="40" r="5" fill="#FF69B4"/>
+                                        <circle cx="135" cy="50" r="5" fill="#FF69B4"/>
+                                        <circle cx="165" cy="50" r="5" fill="#FF69B4"/>
+                                        <circle cx="145" cy="30" r="5" fill="#FF69B4"/>
+                                        <circle cx="155" cy="30" r="5" fill="#FF69B4"/>
+                                    </g>
+                                </svg>
+                                <p style="margin-top: 15px; font-size: 0.9rem; color: #555; text-align: center;">This animation shows how a seed grows into a mature flowering plant over time!</p>
+                            </div>
+
+                            <script>
+                            (function() {
+                                const seedStage = document.getElementById('seed-stage');
+                                const roots = document.getElementById('roots');
+                                const sprout1 = document.getElementById('sprout-1');
+                                const plant2 = document.getElementById('plant-2');
+                                const plant3 = document.getElementById('plant-3');
+
+                                let stage = 0;
+
+                                function animate() {
+                                    stage = (stage + 1) % 5;
+
+                                    seedStage.style.opacity = stage === 0 ? '1' : '0';
+                                    roots.style.opacity = stage >= 1 ? '1' : '0';
+                                    sprout1.style.opacity = stage === 1 ? '1' : '0';
+                                    plant2.style.opacity = stage === 2 ? '1' : '0';
+                                    plant3.style.opacity = stage >= 3 ? '1' : '0';
+                                }
+
+                                setInterval(animate, 1000);
+                            })();
+                            </script>
                         </div>
                     </div>
 
@@ -1151,6 +1317,48 @@
 
                     <div class="concept-box">
                         <strong>Quick Rule:</strong> If something has <strong>even one or two</strong> characteristics of MRS GREN consistently, it's likely non-living. But if it has <strong>all seven</strong>, it's definitely living!
+                    </div>
+
+                    <!-- Living vs Non-Living Venn Diagram -->
+                    <div class="visual-container">
+                        <div class="visual-header">📊 Living vs Non-Living: Venn Diagram</div>
+                        <svg viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background -->
+                            <rect width="500" height="380" fill="#f9f9f9"/>
+
+                            <!-- Left Circle (Living) -->
+                            <circle cx="180" cy="190" r="120" fill="#2e7d32" opacity="0.15" stroke="#2e7d32" stroke-width="2"/>
+
+                            <!-- Right Circle (Non-Living) -->
+                            <circle cx="320" cy="190" r="120" fill="#FF8C42" opacity="0.15" stroke="#FF8C42" stroke-width="2"/>
+
+                            <!-- Labels for circles -->
+                            <text x="130" y="80" font-size="16" font-weight="bold" fill="#1b5e20">LIVING</text>
+                            <text x="340" y="80" font-size="16" font-weight="bold" fill="#D64500">NON-LIVING</text>
+
+                            <!-- Left section (only living) -->
+                            <text x="100" y="160" font-size="11" font-weight="600" fill="#1b5e20">Reproduce</text>
+                            <text x="100" y="180" font-size="11" font-weight="600" fill="#1b5e20">Grow from inside</text>
+                            <text x="100" y="200" font-size="11" font-weight="600" fill="#1b5e20">Need food</text>
+                            <text x="100" y="220" font-size="11" font-weight="600" fill="#1b5e20">Respond actively</text>
+
+                            <!-- Center section (overlap/tricky) -->
+                            <text x="240" y="170" font-size="10" text-anchor="middle" fill="#666">Fire:</text>
+                            <text x="240" y="190" font-size="9" text-anchor="middle" fill="#666">moves,</text>
+                            <text x="240" y="205" font-size="9" text-anchor="middle" fill="#666">grows</text>
+                            <text x="240" y="220" font-size="9" text-anchor="middle" fill="#666">(but not alive)</text>
+
+                            <!-- Right section (only non-living) -->
+                            <text x="380" y="160" font-size="11" font-weight="600" fill="#D64500">Don't reproduce</text>
+                            <text x="380" y="180" font-size="11" font-weight="600" fill="#D64500">Made by humans</text>
+                            <text x="380" y="200" font-size="11" font-weight="600" fill="#D64500">Don't respire</text>
+                            <text x="380" y="220" font-size="11" font-weight="600" fill="#D64500">No cells</text>
+
+                            <!-- Bottom note -->
+                            <rect x="20" y="320" width="460" height="50" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1" rx="4"/>
+                            <text x="250" y="340" font-size="12" text-anchor="middle" font-weight="600" fill="#1b5e20">Key Insight: Living things have ALL MRS GREN characteristics.</text>
+                            <text x="250" y="360" font-size="11" text-anchor="middle" fill="#1b5e20">Non-living things have few or none of these characteristics.</text>
+                        </svg>
                     </div>
 
                     <h4 style="color: var(--pri-dark); margin-top: 25px; margin-bottom: 15px;">Side-by-Side Comparison:</h4>
@@ -1929,6 +2137,108 @@
                         <button class="tree-btn" onclick="resetDecisionTree()" style="margin-top: 15px;">Try Another</button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Game 5: Quick Click Sorter -->
+            <div class="game-section">
+                <div class="game-title">Game 5: Quick Living/Non-Living Sorter</div>
+                <div class="game-instructions">
+                    Click on each item and quickly decide if it's Living or Non-Living! Try to get them all right!
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;" id="sorter-items">
+                    <div class="sorter-item" data-type="living">🐕 Dog</div>
+                    <div class="sorter-item" data-type="nonliving">🪨 Rock</div>
+                    <div class="sorter-item" data-type="living">🌳 Tree</div>
+                    <div class="sorter-item" data-type="nonliving">🪑 Chair</div>
+                    <div class="sorter-item" data-type="living">🦋 Butterfly</div>
+                    <div class="sorter-item" data-type="nonliving">💧 Water (pure)</div>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 25px; justify-content: center; flex-wrap: wrap;">
+                    <button class="sorter-btn living-btn" style="background: #4caf50; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Living ✓</button>
+                    <button class="sorter-btn nonliving-btn" style="background: #ff8c42; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Non-Living ✗</button>
+                </div>
+
+                <div id="sorter-feedback" style="margin-top: 20px; padding: 15px; border-radius: 4px; display: none;"></div>
+
+                <script>
+                (function() {
+                    let currentItem = null;
+                    const livingBtn = document.querySelector('.living-btn');
+                    const nonlivingBtn = document.querySelector('.nonliving-btn');
+                    const itemsContainer = document.getElementById('sorter-items');
+                    const feedback = document.getElementById('sorter-feedback');
+
+                    const correctAnswers = {
+                        '🐕 Dog': 'living',
+                        '🪨 Rock': 'nonliving',
+                        '🌳 Tree': 'living',
+                        '🪑 Chair': 'nonliving',
+                        '🦋 Butterfly': 'living',
+                        '💧 Water (pure)': 'nonliving'
+                    };
+
+                    let sorted = 0;
+
+                    // Click item to select
+                    itemsContainer.addEventListener('click', function(e) {
+                        if (e.target.classList.contains('sorter-item')) {
+                            document.querySelectorAll('.sorter-item').forEach(item => item.style.backgroundColor = 'white');
+                            e.target.style.backgroundColor = '#e8f5e9';
+                            currentItem = e.target;
+                        }
+                    });
+
+                    livingBtn.addEventListener('click', function() {
+                        if (!currentItem) return;
+                        const itemText = currentItem.textContent;
+                        if (correctAnswers[itemText] === 'living') {
+                            currentItem.style.opacity = '0.5';
+                            currentItem.style.textDecoration = 'line-through';
+                            currentItem.style.pointerEvents = 'none';
+                            currentItem.style.backgroundColor = '#e8f5e9';
+                            sorted++;
+                            if (sorted === 6) {
+                                feedback.style.display = 'block';
+                                feedback.style.background = '#e8f5e9';
+                                feedback.style.borderLeft = '4px solid #2e7d32';
+                                feedback.innerHTML = '<strong style="color: #2e7d32;">✅ Perfect!</strong> You sorted all items correctly!';
+                            }
+                        } else {
+                            currentItem.style.backgroundColor = '#ffebee';
+                            setTimeout(() => {
+                                currentItem.style.backgroundColor = 'white';
+                            }, 500);
+                        }
+                        currentItem = null;
+                    });
+
+                    nonlivingBtn.addEventListener('click', function() {
+                        if (!currentItem) return;
+                        const itemText = currentItem.textContent;
+                        if (correctAnswers[itemText] === 'nonliving') {
+                            currentItem.style.opacity = '0.5';
+                            currentItem.style.textDecoration = 'line-through';
+                            currentItem.style.pointerEvents = 'none';
+                            currentItem.style.backgroundColor = '#ffe0b2';
+                            sorted++;
+                            if (sorted === 6) {
+                                feedback.style.display = 'block';
+                                feedback.style.background = '#ffe0b2';
+                                feedback.style.borderLeft = '4px solid #ff8c42';
+                                feedback.innerHTML = '<strong style="color: #ff8c42;">✅ Perfect!</strong> You sorted all items correctly!';
+                            }
+                        } else {
+                            currentItem.style.backgroundColor = '#ffebee';
+                            setTimeout(() => {
+                                currentItem.style.backgroundColor = 'white';
+                            }, 500);
+                        }
+                        currentItem = null;
+                    });
+                })();
+                </script>
             </div>
         </section>
 

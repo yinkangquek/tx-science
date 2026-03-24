@@ -726,6 +726,105 @@
         button:active {
             transform: scale(0.98);
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #0B465F;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .sorter-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .sorter-column {
+            background: #f5f5f5;
+            border: 2px dashed #0B465F;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 300px;
+        }
+
+        .sorter-column h4 {
+            color: #0B465F;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .sorter-item {
+            background: #F47D20;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .sorter-item:hover {
+            background: #0B465F;
+            transform: translateY(-2px);
+        }
+
+        .sorter-item.placed {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        @keyframes leafPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .leaf-animate {
+            animation: leafPulse 2s infinite;
+        }
+
+        @keyframes sunRay {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .sun-ray {
+            animation: sunRay 2s infinite;
+        }
+
+        @keyframes gasMove {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .gas-particle {
+            animation: gasMove 2s infinite ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -772,16 +871,145 @@
 
             <p>Plants use energy from sunlight to convert water and carbon dioxide into glucose (a type of sugar that serves as food) and oxygen. This is one of the most important processes on Earth because it provides food and oxygen for nearly all living things.</p>
 
-            <div class="equation-container">
-                <div style="text-align: center; margin-bottom: 1rem;">
-                    <strong style="font-size: 1.05rem; color: var(--pri);">The Photosynthesis Equation</strong>
-                </div>
-                <div class="equation">
-                    <div class="equation-box">Carbon Dioxide + Water</div>
-                    <div class="equation-arrow">→</div>
-                    <div class="equation-box">Glucose + Oxygen</div>
-                </div>
-                <div class="equation-condition">Sunlight + Chlorophyll (energy source)</div>
+            <div class="visual-container">
+                <div class="visual-header">🔬 Photosynthesis Process in a Leaf</div>
+                <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Leaf shape -->
+                    <ellipse cx="450" cy="200" rx="200" ry="120" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" opacity="0.9"/>
+                    <path d="M 450 80 Q 500 100 520 200 Q 500 300 450 320 Q 400 300 380 200 Q 400 100 450 80" fill="#4CAF50" stroke="#2E7D32" stroke-width="2" opacity="0.9"/>
+
+                    <!-- Leaf vein -->
+                    <line x1="450" y1="80" x2="450" y2="320" stroke="#2E7D32" stroke-width="2"/>
+
+                    <!-- Sun and light rays -->
+                    <circle cx="100" cy="80" r="30" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                    <line x1="100" y1="30" x2="100" y2="10" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="100" y1="130" x2="100" y2="150" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="50" y1="80" x2="30" y2="80" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="150" y1="80" x2="170" y2="80" stroke="#FFD700" stroke-width="3"/>
+
+                    <!-- Rays to leaf -->
+                    <path d="M 130 110 L 300 180" stroke="#FFD700" stroke-width="2" opacity="0.7" class="sun-ray"/>
+                    <path d="M 130 50 L 350 120" stroke="#FFD700" stroke-width="2" opacity="0.7" class="sun-ray"/>
+
+                    <!-- Inputs: CO2 from air -->
+                    <g class="gas-particle">
+                        <circle cx="150" cy="120" r="8" fill="#098EAF" opacity="0.7"/>
+                        <text x="150" y="125" text-anchor="middle" font-size="10" font-weight="600" fill="white">CO₂</text>
+                    </g>
+
+                    <!-- Inputs: Water from roots -->
+                    <g>
+                        <path d="M 450 320 L 450 360" stroke="#1976d2" stroke-width="3"/>
+                        <circle cx="440" cy="370" r="6" fill="#1976d2"/>
+                        <circle cx="450" cy="375" r="6" fill="#1976d2"/>
+                        <circle cx="460" cy="370" r="6" fill="#1976d2"/>
+                        <text x="450" y="395" text-anchor="middle" font-size="11" font-weight="600" fill="#1976d2">H₂O</text>
+                    </g>
+
+                    <!-- Inside leaf - Chloroplasts -->
+                    <circle cx="420" cy="160" r="20" fill="#81C784" stroke="#558B2F" stroke-width="1"/>
+                    <text x="420" y="165" text-anchor="middle" font-size="9" font-weight="600" fill="white">Chloroplast</text>
+
+                    <circle cx="480" cy="200" r="20" fill="#81C784" stroke="#558B2F" stroke-width="1"/>
+                    <text x="480" y="205" text-anchor="middle" font-size="9" font-weight="600" fill="white">Chloroplast</text>
+
+                    <!-- Products: Glucose -->
+                    <g>
+                        <path d="M 380 250 L 320 280" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowPhoto)"/>
+                        <rect x="280" y="275" width="60" height="30" rx="4" fill="#F47D20" stroke="#D84315" stroke-width="1"/>
+                        <text x="310" y="295" text-anchor="middle" font-size="11" font-weight="600" fill="white">Glucose</text>
+                    </g>
+
+                    <!-- Products: Oxygen -->
+                    <g class="gas-particle">
+                        <circle cx="650" cy="150" r="8" fill="#EF3740" opacity="0.7"/>
+                        <text x="650" y="155" text-anchor="middle" font-size="10" font-weight="600" fill="white">O₂</text>
+                    </g>
+
+                    <g class="gas-particle" style="animation-delay: 0.3s;">
+                        <circle cx="700" cy="170" r="8" fill="#EF3740" opacity="0.7"/>
+                        <text x="700" y="175" text-anchor="middle" font-size="10" font-weight="600" fill="white">O₂</text>
+                    </g>
+
+                    <!-- Labels -->
+                    <text x="100" y="50" font-size="12" font-weight="600" fill="#FFD700">Sunlight</text>
+                    <text x="120" y="140" font-size="12" font-weight="600" fill="#098EAF">CO₂ enters</text>
+                    <text x="470" y="390" font-size="12" font-weight="600" fill="#1976d2">Water</text>
+                    <text x="340" y="330" font-size="12" font-weight="600" fill="#F47D20">Food made</text>
+                    <text x="720" y="140" font-size="12" font-weight="600" fill="#EF3740">O₂ exits</text>
+
+                    <!-- Process arrow -->
+                    <path d="M 420 180 L 480 220" stroke="#0B465F" stroke-width="2" stroke-dasharray="5,5"/>
+                    <text x="450" y="190" font-size="11" font-weight="600" fill="#0B465F">Process</text>
+
+                    <defs>
+                        <marker id="arrowPhoto" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="visual-container">
+                <div class="visual-header">⚗️ Photosynthesis Equation</div>
+                <svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Input section -->
+                    <g>
+                        <text x="150" y="40" font-size="14" font-weight="600" fill="#0B465F" text-anchor="middle">INPUTS</text>
+
+                        <!-- CO2 -->
+                        <circle cx="50" cy="100" r="25" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="50" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="white">CO₂</text>
+                        <text x="50" y="135" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Carbon<br/>Dioxide</text>
+
+                        <!-- H2O -->
+                        <circle cx="150" cy="100" r="25" fill="#1976d2" stroke="#0B465F" stroke-width="2"/>
+                        <text x="150" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="white">H₂O</text>
+                        <text x="150" y="135" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Water</text>
+
+                        <!-- Light -->
+                        <circle cx="250" cy="100" r="25" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                        <text x="250" y="110" text-anchor="middle" font-size="16">☀️</text>
+                        <text x="250" y="135" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Light<br/>Energy</text>
+                    </g>
+
+                    <!-- Arrow -->
+                    <path d="M 290 100 L 410 100" stroke="#F47D20" stroke-width="4" marker-end="url(#arrowEq)"/>
+                    <text x="350" y="85" text-anchor="middle" font-size="11" fill="#0B465F" font-weight="600">Photosynthesis</text>
+
+                    <!-- Output section -->
+                    <g>
+                        <text x="650" y="40" font-size="14" font-weight="600" fill="#0B465F" text-anchor="middle">OUTPUTS</text>
+
+                        <!-- Glucose -->
+                        <circle cx="550" cy="100" r="25" fill="#F47D20" stroke="#0B465F" stroke-width="2"/>
+                        <text x="550" y="105" text-anchor="middle" font-size="12" font-weight="bold" fill="white">C₆H₁₂O₆</text>
+                        <text x="550" y="135" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Glucose<br/>(Food)</text>
+
+                        <!-- O2 -->
+                        <circle cx="650" cy="100" r="25" fill="#EF3740" stroke="#0B465F" stroke-width="2"/>
+                        <text x="650" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="white">O₂</text>
+                        <text x="650" y="135" text-anchor="middle" font-size="11" fill="#333" font-weight="600">Oxygen</text>
+                    </g>
+
+                    <!-- Bottom equation -->
+                    <text x="450" y="190" text-anchor="middle" font-size="13" fill="#0B465F" font-weight="600">
+                        6CO₂ + 6H₂O + Light Energy → C₆H₁₂O₆ + 6O₂
+                    </text>
+
+                    <!-- Chlorophyll note -->
+                    <rect x="300" y="210" width="300" height="30" rx="4" fill="#f5f5f5" stroke="#0B465F" stroke-width="1"/>
+                    <text x="450" y="232" text-anchor="middle" font-size="11" fill="#0B465F" font-weight="600">
+                        Requires: Chlorophyll (green pigment in leaves)
+                    </text>
+
+                    <defs>
+                        <marker id="arrowEq" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
 
             <div class="key-concept">
@@ -977,6 +1205,38 @@
 
             <div class="did-you-know">
                 <strong>💡 Did You Know?</strong> If you cover part of a leaf with foil for a few days and then test it with iodine, the covered part will not turn blue-black, proving that photosynthesis requires light!
+            </div>
+        </section>
+
+        <!-- Interactive Sorter -->
+        <section>
+            <div class="visual-container">
+                <div class="visual-header">🎮 Try It Yourself: Inputs vs Outputs Sorter</div>
+                <p style="margin-bottom: 16px; color: #555;">Drag or click items to categorize them as INPUTS (needed for photosynthesis) or OUTPUTS (made by photosynthesis)!</p>
+
+                <div class="sorter-container">
+                    <div class="sorter-column">
+                        <h4>⬅️ INPUTS<br/>(Needed for Photosynthesis)</h4>
+                        <div id="inputsZone">
+                            <div class="sorter-item" onclick="moveItem(this, 'inputs')">☀️ Sunlight</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'inputs')">💧 Water</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'inputs')">💨 Carbon Dioxide</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'inputs')">💚 Chlorophyll</div>
+                        </div>
+                    </div>
+
+                    <div class="sorter-column">
+                        <h4>➡️ OUTPUTS<br/>(Made by Photosynthesis)</h4>
+                        <div id="outputsZone">
+                            <div class="sorter-item" onclick="moveItem(this, 'outputs')">🍯 Glucose (Food)</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'outputs')">💨 Oxygen</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'outputs')">🌿 Chlorophyll</div>
+                            <div class="sorter-item" onclick="moveItem(this, 'outputs')">☀️ Sunlight</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sorterFeedback" style="text-align: center; margin-top: 20px; font-weight: 600; color: #0B465F; min-height: 30px;"></div>
             </div>
         </section>
 
@@ -1516,6 +1776,62 @@
                 }
             });
         });
+
+        // Sorter Functions for Photosynthesis
+        const correctInputs = ['☀️ Sunlight', '💧 Water', '💨 Carbon Dioxide', '💚 Chlorophyll'];
+        const correctOutputs = ['🍯 Glucose (Food)', '💨 Oxygen'];
+
+        function moveItem(element, zone) {
+            const itemText = element.textContent.trim();
+            const targetZone = zone === 'inputs' ? document.getElementById('inputsZone') : document.getElementById('outputsZone');
+
+            // Check if item is already placed
+            if (element.classList.contains('placed')) {
+                element.classList.remove('placed');
+                return;
+            }
+
+            // Move the item
+            element.classList.add('placed');
+            targetZone.appendChild(element);
+
+            checkSorterAnswers();
+        }
+
+        function checkSorterAnswers() {
+            const inputsZone = document.getElementById('inputsZone');
+            const outputsZone = document.getElementById('outputsZone');
+            const feedback = document.getElementById('sorterFeedback');
+
+            const inputItems = Array.from(inputsZone.querySelectorAll('.sorter-item')).map(el => el.textContent.trim());
+            const outputItems = Array.from(outputsZone.querySelectorAll('.sorter-item')).map(el => el.textContent.trim());
+
+            // Check if all items are sorted
+            if (inputItems.length + outputItems.length < 8) {
+                feedback.innerHTML = '';
+                return;
+            }
+
+            // Verify correct answers
+            const inputsCorrect = correctInputs.every(item => inputItems.includes(item));
+            const outputsCorrect = correctOutputs.every(item => outputItems.includes(item));
+
+            // Check for incorrect placements
+            const wrongInputs = inputItems.filter(item => !correctInputs.includes(item) && !correctOutputs.includes(item));
+            const wrongOutputs = outputItems.filter(item => !correctOutputs.includes(item) && !correctInputs.includes(item));
+
+            if (inputsCorrect && outputsCorrect && wrongInputs.length === 0 && wrongOutputs.length === 0) {
+                feedback.innerHTML = '✓ Perfect! You\'ve correctly sorted all the inputs and outputs of photosynthesis!';
+                feedback.style.color = '#2e7d32';
+                feedback.style.fontWeight = '700';
+            } else if (wrongInputs.length > 0 || wrongOutputs.length > 0) {
+                feedback.innerHTML = '❌ Not quite right! Check that sunlight and chlorophyll are inputs, and glucose and oxygen are outputs.';
+                feedback.style.color = '#d84315';
+            } else {
+                feedback.innerHTML = 'Good progress! Keep sorting...';
+                feedback.style.color = '#F47D20';
+            }
+        }
     </script>
 </body>
 </html>

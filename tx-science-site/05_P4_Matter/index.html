@@ -805,6 +805,104 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* VISUAL CONTAINER STYLES */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(21, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes melt {
+            0% { fill: #6DD5FA; }
+            50% { fill: #5CBFE4; }
+            100% { fill: #4AADE4; }
+        }
+
+        @keyframes particle-vibrate {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            75% { transform: translate(1px, -1px); }
+        }
+
+        @keyframes spectrum-shift {
+            0% { fill: red; }
+            16% { fill: orange; }
+            32% { fill: yellow; }
+            48% { fill: green; }
+            64% { fill: blue; }
+            80% { fill: indigo; }
+            100% { fill: violet; }
+        }
+
+        @keyframes rise-fall {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .particle {
+            animation: particle-vibrate 0.5s infinite;
+        }
+
+        .ice-cube {
+            animation: melt 4s ease-in-out infinite;
+        }
+
+        .convection-arrow {
+            animation: rise-fall 2s ease-in-out infinite;
+        }
+
+        /* Interactive Elements */
+        .quiz-button, .interactive-btn {
+            background: var(--pri);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 8px;
+        }
+
+        .quiz-button:hover, .interactive-btn:hover {
+            background: var(--dark-pri);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+        }
+
+        .instruction-text {
+            font-size: 14px;
+            color: var(--light-text);
+            font-style: italic;
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
@@ -858,6 +956,137 @@
             <!-- THREE STATES OF MATTER -->
             <h3>The Three States of Matter</h3>
             <p>All matter exists in one of three states: <strong>solid</strong>, <strong>liquid</strong>, or <strong>gas</strong>. The state depends on how the particles are arranged and how much they move.</p>
+
+            <!-- SVG: Three States of Matter Diagram -->
+            <div class="visual-container">
+                <div class="visual-header">🔬 Three States of Matter - Particle Arrangement</div>
+                <svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SOLID Section -->
+                    <rect x="20" y="20" width="240" height="200" fill="#F5F5F5" stroke="#1565c0" stroke-width="2" rx="8"/>
+                    <text x="140" y="45" font-size="20" font-weight="bold" text-anchor="middle" fill="#1565c0">SOLID</text>
+
+                    <!-- Solid particles (tightly packed, vibrating) -->
+                    <circle cx="70" cy="100" r="8" fill="#ff9800"/>
+                    <circle cx="100" cy="80" r="8" fill="#ff9800"/>
+                    <circle cx="130" cy="100" r="8" fill="#ff9800"/>
+                    <circle cx="160" cy="80" r="8" fill="#ff9800"/>
+                    <circle cx="190" cy="100" r="8" fill="#ff9800"/>
+                    <circle cx="70" cy="140" r="8" fill="#ff9800"/>
+                    <circle cx="100" cy="160" r="8" fill="#ff9800"/>
+                    <circle cx="130" cy="140" r="8" fill="#ff9800"/>
+                    <circle cx="160" cy="160" r="8" fill="#ff9800"/>
+                    <circle cx="190" cy="140" r="8" fill="#ff9800"/>
+
+                    <!-- Vibration indicator -->
+                    <text x="140" y="200" font-size="12" text-anchor="middle" fill="#666">Vibrate in place</text>
+                    <text x="140" y="220" font-size="12" text-anchor="middle" fill="#0B465F" font-weight="bold">Fixed shape & volume</text>
+
+                    <!-- LIQUID Section -->
+                    <rect x="330" y="20" width="240" height="200" fill="#E3F2FD" stroke="#1565c0" stroke-width="2" rx="8"/>
+                    <text x="450" y="45" font-size="20" font-weight="bold" text-anchor="middle" fill="#1565c0">LIQUID</text>
+
+                    <!-- Liquid particles (loosely packed, sliding) -->
+                    <circle cx="380" cy="95" r="7" fill="#2196F3"/>
+                    <circle cx="410" cy="85" r="7" fill="#2196F3"/>
+                    <circle cx="440" cy="110" r="7" fill="#2196F3"/>
+                    <circle cx="470" cy="95" r="7" fill="#2196F3"/>
+                    <circle cx="380" cy="135" r="7" fill="#2196F3"/>
+                    <circle cx="410" cy="150" r="7" fill="#2196F3"/>
+                    <circle cx="440" cy="140" r="7" fill="#2196F3"/>
+                    <circle cx="470" cy="155" r="7" fill="#2196F3"/>
+                    <circle cx="395" cy="170" r="7" fill="#2196F3"/>
+                    <circle cx="450" cy="170" r="7" fill="#2196F3"/>
+
+                    <!-- Flow indicator -->
+                    <path d="M 360 130 Q 380 120 400 130" stroke="#2196F3" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+                    <text x="450" y="200" font-size="12" text-anchor="middle" fill="#666">Slide past each other</text>
+                    <text x="450" y="220" font-size="12" text-anchor="middle" fill="#0B465F" font-weight="bold">Takes shape of container</text>
+
+                    <!-- GAS Section -->
+                    <rect x="640" y="20" width="240" height="200" fill="#FFF3E0" stroke="#ff9800" stroke-width="2" rx="8"/>
+                    <text x="760" y="45" font-size="20" font-weight="bold" text-anchor="middle" fill="#ff9800">GAS</text>
+
+                    <!-- Gas particles (spread out, fast-moving) -->
+                    <circle cx="680" cy="70" r="6" fill="#EF5350"/>
+                    <circle cx="730" cy="60" r="6" fill="#EF5350"/>
+                    <circle cx="780" cy="85" r="6" fill="#EF5350"/>
+                    <circle cx="690" cy="120" r="6" fill="#EF5350"/>
+                    <circle cx="750" cy="130" r="6" fill="#EF5350"/>
+                    <circle cx="810" cy="110" r="6" fill="#EF5350"/>
+                    <circle cx="700" cy="170" r="6" fill="#EF5350"/>
+                    <circle cx="760" cy="180" r="6" fill="#EF5350"/>
+                    <circle cx="820" cy="160" r="6" fill="#EF5350"/>
+
+                    <!-- Movement arrows -->
+                    <path d="M 720 100 L 740 90" stroke="#EF5350" stroke-width="2" marker-end="url(#arrowred)"/>
+                    <path d="M 750 150 L 770 140" stroke="#EF5350" stroke-width="2" marker-end="url(#arrowred)"/>
+                    <text x="760" y="200" font-size="12" text-anchor="middle" fill="#666">Move freely, fast</text>
+                    <text x="760" y="220" font-size="12" text-anchor="middle" fill="#0B465F" font-weight="bold">Fills entire container</text>
+
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#2196F3"/>
+                        </marker>
+                        <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#EF5350"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- SVG: Changes of State Diagram -->
+            <div class="visual-container">
+                <div class="visual-header">🔄 Changes of State - The Cycle</div>
+                <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Solid circle -->
+                    <circle cx="100" cy="100" r="50" fill="#ff9800" opacity="0.7"/>
+                    <text x="100" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="white">SOLID</text>
+
+                    <!-- Liquid circle -->
+                    <circle cx="400" cy="100" r="50" fill="#2196F3" opacity="0.7"/>
+                    <text x="400" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="white">LIQUID</text>
+
+                    <!-- Gas circle -->
+                    <circle cx="700" cy="100" r="50" fill="#EF5350" opacity="0.7"/>
+                    <text x="700" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="white">GAS</text>
+
+                    <!-- Arrows and labels (Heating - top) -->
+                    <path d="M 150 80 L 350 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arroworange)" fill="none"/>
+                    <text x="250" y="65" font-size="14" font-weight="bold" text-anchor="middle" fill="#F47D20">MELTING</text>
+                    <text x="250" y="82" font-size="12" text-anchor="middle" fill="#666">(Add Heat)</text>
+
+                    <path d="M 450 80 L 650 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arroworange)" fill="none"/>
+                    <text x="550" y="65" font-size="14" font-weight="bold" text-anchor="middle" fill="#F47D20">EVAPORATION</text>
+                    <text x="550" y="82" font-size="12" text-anchor="middle" fill="#666">(Add Heat)</text>
+
+                    <!-- Arrows and labels (Cooling - bottom) -->
+                    <path d="M 350 120 L 150 120" stroke="#0B465F" stroke-width="3" marker-end="url(#arrowteal)" fill="none"/>
+                    <text x="250" y="150" font-size="14" font-weight="bold" text-anchor="middle" fill="#0B465F">FREEZING</text>
+                    <text x="250" y="167" font-size="12" text-anchor="middle" fill="#666">(Remove Heat)</text>
+
+                    <path d="M 650 120 L 450 120" stroke="#0B465F" stroke-width="3" marker-end="url(#arrowteal)" fill="none"/>
+                    <text x="550" y="150" font-size="14" font-weight="bold" text-anchor="middle" fill="#0B465F">CONDENSATION</text>
+                    <text x="550" y="167" font-size="12" text-anchor="middle" fill="#666">(Remove Heat)</text>
+
+                    <!-- Additional transitions (sublimation/deposition) -->
+                    <path d="M 100 150 Q 150 220 200 220" stroke="#9C27B0" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                    <path d="M 200 220 Q 150 220 100 150" stroke="#6A1B9A" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+                    <text x="120" y="250" font-size="12" text-anchor="middle" fill="#9C27B0" font-weight="bold">Sublimation</text>
+                    <text x="180" y="250" font-size="12" text-anchor="middle" fill="#6A1B9A" font-weight="bold">Deposition</text>
+
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#F47D20"/>
+                        </marker>
+                        <marker id="arrowteal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#0B465F"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p class="instruction-text">↑ Add heat to move up the cycle (melting, evaporation) | ↓ Remove heat to move down (freezing, condensation)</p>
+            </div>
 
             <h3>1. Solids</h3>
             <p><strong>Properties of Solids:</strong></p>
@@ -955,6 +1184,54 @@
             <!-- CHANGES OF STATE -->
             <h3>Changes of State</h3>
             <p>Matter can change from one state to another when heat is added or removed. Let's explore each type of change:</p>
+
+            <!-- SVG Animation: Melting Ice Cube -->
+            <div class="visual-container">
+                <div class="visual-header">❄️ Interactive: Watch Ice Melt</div>
+                <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Heat source (sun/flame) -->
+                    <circle cx="450" cy="50" r="30" fill="#ff6b35" opacity="0.8"/>
+                    <text x="450" y="58" font-size="24" text-anchor="middle">☀️</text>
+
+                    <!-- Heat arrows -->
+                    <path d="M 420 80 L 350 120" stroke="#ff6b35" stroke-width="2" marker-end="url(#arrowflame)" stroke-dasharray="5,5"/>
+                    <path d="M 430 85 L 370 130" stroke="#ff6b35" stroke-width="2" marker-end="url(#arrowflame)" stroke-dasharray="5,5"/>
+                    <path d="M 440 85 L 380 130" stroke="#ff6b35" stroke-width="2" marker-end="url(#arrowflame)" stroke-dasharray="5,5"/>
+
+                    <!-- Ice cube (solid state) -->
+                    <g id="iceCube">
+                        <rect class="ice-cube" x="150" y="120" width="80" height="80" rx="5" fill="#6DD5FA" stroke="#2196F3" stroke-width="2"/>
+                        <text x="190" y="165" font-size="14" font-weight="bold" text-anchor="middle" fill="white">ICE</text>
+                    </g>
+
+                    <!-- Transformation arrow -->
+                    <path d="M 240 160 L 310 160" stroke="#1565c0" stroke-width="3" marker-end="url(#arrowblue2)"/>
+                    <text x="275" y="150" font-size="12" font-weight="bold" text-anchor="middle" fill="#1565c0">+ Heat</text>
+
+                    <!-- Water (liquid state) -->
+                    <g id="waterPoolContainer">
+                        <ellipse cx="360" cy="180" rx="45" ry="20" fill="#2196F3" opacity="0.8"/>
+                        <text x="360" y="185" font-size="14" font-weight="bold" text-anchor="middle" fill="white">WATER</text>
+                    </g>
+
+                    <!-- Thermometer -->
+                    <rect x="80" y="240" width="15" height="50" fill="none" stroke="#666" stroke-width="2" rx="3"/>
+                    <circle cx="87.5" cy="300" r="8" fill="#ff6b35"/>
+                    <text x="110" y="280" font-size="12" fill="#666">Heat →</text>
+                    <text x="110" y="295" font-size="12" fill="#666">0°C to 100°C</text>
+
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrowflame" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#ff6b35"/>
+                        </marker>
+                        <marker id="arrowblue2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                            <path d="M0,0 L0,6 L9,3 z" fill="#1565c0"/>
+                        </marker>
+                    </defs>
+                </svg>
+                <p class="instruction-text">Watch as heat energy causes the solid ice cube to gradually transform into liquid water!</p>
+            </div>
 
             <h3>1. Melting (Solid → Liquid)</h3>
             <p><strong>Definition:</strong> Melting is when a solid changes into a liquid by adding heat.</p>

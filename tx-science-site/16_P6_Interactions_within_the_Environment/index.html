@@ -664,6 +664,117 @@
         .population-result.show {
             display: block;
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #0B465F;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .chain-builder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .organism-btn {
+            background: #F47D20;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        .organism-btn:hover {
+            background: #0B465F;
+            transform: translateY(-2px);
+        }
+
+        .chain-display {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #F47D20;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chain-item {
+            background: #F47D20;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .chain-arrow {
+            font-size: 1.5em;
+            color: #0B465F;
+            font-weight: bold;
+        }
+
+        .feedback-msg {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .feedback-success {
+            background: #c8e6c9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .feedback-error {
+            background: #ffccbc;
+            color: #d84315;
+            border-left: 4px solid #d84315;
+        }
+
+        @keyframes energyFlow {
+            0% { opacity: 0; offset-distance: 0%; }
+            50% { opacity: 1; }
+            100% { opacity: 0; offset-distance: 100%; }
+        }
+
+        .energy-dot {
+            fill: #F47D20;
+            animation: energyFlow 3s infinite;
+        }
     </style>
 </head>
 <body>
@@ -807,6 +918,87 @@
                 A <strong>food chain</strong> is a sequence showing how energy passes from one organism to another. It starts with a producer and shows the flow of energy through consumers to decomposers. The arrows in a food chain point in the direction of energy flow, not the direction of eating!
             </p>
 
+            <div class="visual-container">
+                <div class="visual-header">🔬 Simple Food Chain</div>
+                <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sun -->
+                    <circle cx="50" cy="50" r="30" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                    <text x="50" y="55" text-anchor="middle" font-weight="bold" font-size="12">SUN</text>
+
+                    <!-- Arrow from sun to plant -->
+                    <path d="M 80 50 L 120 50" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowFoodChain)"/>
+                    <text x="100" y="40" text-anchor="middle" font-size="11" fill="#F47D20">Energy</text>
+
+                    <!-- Grass -->
+                    <g>
+                        <rect x="140" y="30" width="70" height="40" rx="6" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                        <text x="175" y="57" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Grass</text>
+                        <text x="175" y="73" text-anchor="middle" font-size="9" fill="white">(Producer)</text>
+                    </g>
+
+                    <!-- Arrow -->
+                    <path d="M 210 50 L 250 50" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowFoodChain)"/>
+                    <text x="230" y="40" text-anchor="middle" font-size="11" fill="#F47D20">eaten by</text>
+
+                    <!-- Grasshopper -->
+                    <g>
+                        <rect x="270" y="30" width="70" height="40" rx="6" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="305" y="57" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Grasshopper</text>
+                        <text x="305" y="73" text-anchor="middle" font-size="9" fill="white">(Primary)</text>
+                    </g>
+
+                    <!-- Arrow -->
+                    <path d="M 340 50 L 380 50" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowFoodChain)"/>
+                    <text x="360" y="40" text-anchor="middle" font-size="11" fill="#F47D20">eaten by</text>
+
+                    <!-- Frog -->
+                    <g>
+                        <rect x="400" y="30" width="70" height="40" rx="6" fill="#1E3363" stroke="#0B465F" stroke-width="2"/>
+                        <text x="435" y="57" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Frog</text>
+                        <text x="435" y="73" text-anchor="middle" font-size="9" fill="white">(Secondary)</text>
+                    </g>
+
+                    <!-- Arrow -->
+                    <path d="M 470 50 L 510 50" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowFoodChain)"/>
+                    <text x="490" y="40" text-anchor="middle" font-size="11" fill="#F47D20">eaten by</text>
+
+                    <!-- Snake -->
+                    <g>
+                        <rect x="530" y="30" width="70" height="40" rx="6" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+                        <text x="565" y="57" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Snake</text>
+                        <text x="565" y="73" text-anchor="middle" font-size="9" fill="white">(Tertiary)</text>
+                    </g>
+
+                    <!-- Arrow -->
+                    <path d="M 600 50 L 640 50" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowFoodChain)"/>
+                    <text x="620" y="40" text-anchor="middle" font-size="11" fill="#F47D20">eaten by</text>
+
+                    <!-- Eagle -->
+                    <g>
+                        <rect x="660" y="30" width="70" height="40" rx="6" fill="#EF3740" stroke="#C00" stroke-width="2"/>
+                        <text x="695" y="57" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Eagle</text>
+                        <text x="695" y="73" text-anchor="middle" font-size="9" fill="white">(Apex)</text>
+                    </g>
+
+                    <!-- Energy loss indicator -->
+                    <g>
+                        <text x="50" y="140" font-size="11" font-weight="600" fill="#0B465F">Energy Levels:</text>
+                        <rect x="50" y="150" width="150" height="20" fill="#4CAF50"/>
+                        <text x="130" y="165" text-anchor="middle" font-size="10" fill="white" font-weight="600">100% (Grass)</text>
+                        <rect x="220" y="155" width="90" height="15" fill="#098EAF"/>
+                        <text x="265" y="167" text-anchor="middle" font-size="9" fill="white" font-weight="600">10%</text>
+                        <rect x="330" y="160" width="54" height="10" fill="#1E3363"/>
+                        <text x="357" y="168" text-anchor="middle" font-size="8" fill="white" font-weight="600">1%</text>
+                    </g>
+
+                    <defs>
+                        <marker id="arrowFoodChain" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
             <h4>How to Read and Draw a Food Chain</h4>
             <p>
                 In a food chain, the arrow (→) means "is eaten by" or "provides energy to". The energy flows FROM left TO right. Each organism depends on the organism(s) to its left for energy.
@@ -869,6 +1061,95 @@
             <p>
                 In reality, ecosystems are more complex than simple food chains. <strong>Food webs</strong> show multiple food chains interconnected, because most organisms eat more than one type of food, and are eaten by multiple predators. A food web gives a much more realistic picture of feeding relationships in an ecosystem.
             </p>
+
+            <div class="visual-container">
+                <div class="visual-header">🔬 Complex Food Web</div>
+                <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Producers (bottom) -->
+                    <g>
+                        <rect x="100" y="420" width="80" height="50" rx="6" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                        <text x="140" y="450" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Plants</text>
+
+                        <rect x="330" y="420" width="80" height="50" rx="6" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                        <text x="370" y="450" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Grass</text>
+
+                        <rect x="560" y="420" width="80" height="50" rx="6" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                        <text x="600" y="450" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Seeds</text>
+                    </g>
+
+                    <!-- Primary Consumers (middle) -->
+                    <g>
+                        <rect x="60" y="280" width="80" height="50" rx="6" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="100" y="310" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Insect</text>
+
+                        <rect x="260" y="280" width="80" height="50" rx="6" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="300" y="310" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Mouse</text>
+
+                        <rect x="460" y="280" width="80" height="50" rx="6" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="500" y="310" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Rabbit</text>
+                    </g>
+
+                    <!-- Secondary Consumers (upper-middle) -->
+                    <g>
+                        <rect x="160" y="140" width="80" height="50" rx="6" fill="#1E3363" stroke="#0B465F" stroke-width="2"/>
+                        <text x="200" y="170" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Bird</text>
+
+                        <rect x="360" y="140" width="80" height="50" rx="6" fill="#1E3363" stroke="#0B465F" stroke-width="2"/>
+                        <text x="400" y="170" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Snake</text>
+
+                        <rect x="560" y="140" width="80" height="50" rx="6" fill="#1E3363" stroke="#0B465F" stroke-width="2"/>
+                        <text x="600" y="170" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Fox</text>
+                    </g>
+
+                    <!-- Tertiary Consumer (top) -->
+                    <g>
+                        <rect x="360" y="20" width="80" height="50" rx="6" fill="#EF3740" stroke="#C00" stroke-width="2"/>
+                        <text x="400" y="50" text-anchor="middle" font-weight="bold" font-size="12" fill="white">Eagle</text>
+                    </g>
+
+                    <!-- Food Web Arrows -->
+                    <!-- Plants to Insect -->
+                    <path d="M 120 420 L 90 330" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Plants to Mouse -->
+                    <path d="M 180 420 L 280 330" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Grass to Mouse -->
+                    <path d="M 350 420 L 310 330" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Grass to Rabbit -->
+                    <path d="M 380 420 L 480 330" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Seeds to Bird -->
+                    <path d="M 570 420 L 210 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Seeds to Fox -->
+                    <path d="M 600 420 L 600 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+
+                    <!-- Insect to Bird -->
+                    <path d="M 120 280 L 180 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Insect to Snake -->
+                    <path d="M 130 280 L 370 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+
+                    <!-- Mouse to Bird -->
+                    <path d="M 280 280 L 220 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Mouse to Snake -->
+                    <path d="M 300 280 L 380 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Mouse to Fox -->
+                    <path d="M 320 280 L 570 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+
+                    <!-- Rabbit to Fox -->
+                    <path d="M 520 280 L 600 190" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+
+                    <!-- Bird to Eagle -->
+                    <path d="M 220 140 L 380 70" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Snake to Eagle -->
+                    <path d="M 400 140 L 400 70" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+                    <!-- Fox to Eagle -->
+                    <path d="M 580 140 L 420 70" stroke="#F47D20" stroke-width="2" marker-end="url(#arrowWebFd)"/>
+
+                    <defs>
+                        <marker id="arrowWebFd" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
 
             <h4>Why Food Webs Matter</h4>
             <ul>
@@ -1044,6 +1325,101 @@
 
             <div class="did-you-know">
                 <strong>Did You Know?</strong> Bees are responsible for pollinating about 75% of global food crops. If bee populations collapse due to habitat loss and pesticides, we lose a critical link in our food webs!
+            </div>
+        </section>
+
+        <!-- Food Chain Builder and Energy Flow -->
+        <section class="content-section">
+            <div class="visual-container">
+                <div class="visual-header">🎮 Try It Yourself: Food Chain Builder</div>
+                <p style="margin-bottom: 16px; color: #555;">Click organisms to build a food chain in correct order: Producer → Primary Consumer → Secondary Consumer → Tertiary Consumer</p>
+
+                <div class="chain-builder">
+                    <button class="organism-btn" onclick="addToChain('Plant', 'producer')">Plant (Producer)</button>
+                    <button class="organism-btn" onclick="addToChain('Grasshopper', 'primary')">Grasshopper (Primary)</button>
+                    <button class="organism-btn" onclick="addToChain('Mouse', 'primary')">Mouse (Primary)</button>
+                    <button class="organism-btn" onclick="addToChain('Bird', 'secondary')">Bird (Secondary)</button>
+                    <button class="organism-btn" onclick="addToChain('Snake', 'secondary')">Snake (Secondary)</button>
+                    <button class="organism-btn" onclick="addToChain('Fox', 'secondary')">Fox (Secondary)</button>
+                    <button class="organism-btn" onclick="addToChain('Eagle', 'tertiary')">Eagle (Tertiary)</button>
+                    <button class="organism-btn" style="background: #EF3740;" onclick="clearChain()">Clear Chain</button>
+                </div>
+
+                <div class="chain-display" id="chainDisplay">
+                    Click buttons to build a food chain...
+                </div>
+
+                <div class="feedback-msg" id="chainFeedback" style="display: none;"></div>
+            </div>
+
+            <div class="visual-container">
+                <div class="visual-header">⚡ Energy Flow Animation</div>
+                <p style="margin-bottom: 16px; color: #555;">Watch energy flow through a food chain from the sun to the top predator!</p>
+                <svg viewBox="0 0 800 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Sun -->
+                    <circle cx="80" cy="80" r="30" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                    <text x="80" y="85" text-anchor="middle" font-weight="bold" font-size="14">☀️</text>
+
+                    <!-- Sun to Plant arrow with animation -->
+                    <path d="M 110 80 L 160 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowEnergy)"/>
+                    <circle cx="140" cy="80" r="4" fill="#F47D20" class="energy-dot" style="animation: energyFlow 3s infinite;"/>
+
+                    <!-- Plant -->
+                    <g>
+                        <rect x="180" y="50" width="70" height="60" rx="6" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                        <text x="215" y="88" text-anchor="middle" font-weight="bold" font-size="13" fill="white">Plant</text>
+                    </g>
+
+                    <!-- Plant to Grasshopper arrow -->
+                    <path d="M 250 80 L 300 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowEnergy)"/>
+                    <circle cx="280" cy="80" r="4" fill="#F47D20" class="energy-dot" style="animation: energyFlow 3s infinite 0.5s;"/>
+
+                    <!-- Grasshopper -->
+                    <g>
+                        <rect x="320" y="50" width="70" height="60" rx="6" fill="#098EAF" stroke="#0B465F" stroke-width="2"/>
+                        <text x="355" y="88" text-anchor="middle" font-weight="bold" font-size="13" fill="white">Grasshop</text>
+                    </g>
+
+                    <!-- Grasshopper to Bird arrow -->
+                    <path d="M 390 80 L 440 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowEnergy)"/>
+                    <circle cx="420" cy="80" r="4" fill="#F47D20" class="energy-dot" style="animation: energyFlow 3s infinite 1s;"/>
+
+                    <!-- Bird -->
+                    <g>
+                        <rect x="460" y="50" width="70" height="60" rx="6" fill="#1E3363" stroke="#0B465F" stroke-width="2"/>
+                        <text x="495" y="88" text-anchor="middle" font-weight="bold" font-size="13" fill="white">Bird</text>
+                    </g>
+
+                    <!-- Bird to Eagle arrow -->
+                    <path d="M 530 80 L 580 80" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowEnergy)"/>
+                    <circle cx="560" cy="80" r="4" fill="#F47D20" class="energy-dot" style="animation: energyFlow 3s infinite 1.5s;"/>
+
+                    <!-- Eagle -->
+                    <g>
+                        <rect x="600" y="50" width="70" height="60" rx="6" fill="#EF3740" stroke="#C00" stroke-width="2"/>
+                        <text x="635" y="88" text-anchor="middle" font-weight="bold" font-size="13" fill="white">Eagle</text>
+                    </g>
+
+                    <!-- Energy loss boxes -->
+                    <text x="80" y="160" font-size="12" font-weight="600" fill="#0B465F">Energy at each level:</text>
+                    <rect x="80" y="175" width="120" height="20" fill="#4CAF50" stroke="#2E7D32" stroke-width="1"/>
+                    <text x="140" y="190" text-anchor="middle" font-size="11" fill="white" font-weight="600">100% (Plant)</text>
+
+                    <rect x="230" y="180" width="72" height="15" fill="#098EAF" stroke="#0B465F" stroke-width="1"/>
+                    <text x="266" y="191" text-anchor="middle" font-size="10" fill="white" font-weight="600">10%</text>
+
+                    <rect x="360" y="183" width="43" height="12" fill="#1E3363" stroke="#0B465F" stroke-width="1"/>
+                    <text x="381" y="191" text-anchor="middle" font-size="9" fill="white" font-weight="600">1%</text>
+
+                    <rect x="510" y="185" width="26" height="10" fill="#EF3740" stroke="#C00" stroke-width="1"/>
+                    <text x="523" y="191" text-anchor="middle" font-size="8" fill="white" font-weight="600">0.1%</text>
+
+                    <defs>
+                        <marker id="arrowEnergy" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                        </marker>
+                    </defs>
+                </svg>
             </div>
         </section>
 
@@ -1505,6 +1881,69 @@
 
         // Initialize on page load
         window.addEventListener('load', setupDragDrop);
+
+        // Food Chain Builder Functions
+        let foodChain = [];
+        let chainOrder = ['producer', 'primary', 'secondary', 'tertiary'];
+        let nextExpectedIndex = 0;
+
+        function addToChain(organism, type) {
+            const chainDisplay = document.getElementById('chainDisplay');
+            const feedback = document.getElementById('chainFeedback');
+
+            // Check if this is the correct next organism type
+            if (nextExpectedIndex >= chainOrder.length) {
+                feedback.style.display = 'block';
+                feedback.className = 'feedback-msg feedback-error';
+                feedback.innerHTML = '❌ Chain is already complete! Clear it to start over.';
+                return;
+            }
+
+            if (type !== chainOrder[nextExpectedIndex]) {
+                feedback.style.display = 'block';
+                feedback.className = 'feedback-msg feedback-error';
+                const expectedType = chainOrder[nextExpectedIndex];
+                feedback.innerHTML = '❌ Wrong order! Expected a ' + expectedType + ' consumer, not ' + type + '.';
+                return;
+            }
+
+            // Add organism to chain
+            foodChain.push({ organism: organism, type: type });
+            nextExpectedIndex++;
+
+            // Update display
+            if (foodChain.length === 1) {
+                chainDisplay.innerHTML = '';
+            }
+
+            let displayHTML = '';
+            for (let i = 0; i < foodChain.length; i++) {
+                displayHTML += '<div class="chain-item">' + foodChain[i].organism + '</div>';
+                if (i < foodChain.length - 1) {
+                    displayHTML += '<div class="chain-arrow">→</div>';
+                }
+            }
+            chainDisplay.innerHTML = displayHTML;
+
+            // Check if chain is complete (4 levels)
+            if (foodChain.length === 4) {
+                feedback.style.display = 'block';
+                feedback.className = 'feedback-msg feedback-success';
+                feedback.innerHTML = '✓ Perfect! You\'ve built a complete food chain! Energy flows from ' + foodChain[0].organism + ' all the way to ' + foodChain[3].organism + '.';
+            } else {
+                feedback.style.display = 'block';
+                feedback.className = 'feedback-msg feedback-success';
+                const nextType = chainOrder[nextExpectedIndex];
+                feedback.innerHTML = '✓ Good! Now click a ' + nextType + ' consumer to continue.';
+            }
+        }
+
+        function clearChain() {
+            foodChain = [];
+            nextExpectedIndex = 0;
+            document.getElementById('chainDisplay').innerHTML = 'Click buttons to build a food chain...';
+            document.getElementById('chainFeedback').style.display = 'none';
+        }
     </script>
 </body>
 </html>

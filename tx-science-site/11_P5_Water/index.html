@@ -627,7 +627,127 @@
         .content-section, .applet-section, .questions-section {
             animation: fadeIn 0.4s ease-out;
         }
-    </style>
+    
+        /* Visual Container Styles - Myko Education Theme */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #F47D20;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interactive-button {
+            background: #F47D20;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin: 8px 4px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-button:hover {
+            background: #0B465F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(11, 70, 95, 0.2);
+        }
+
+        .interactive-button:active {
+            transform: translateY(0);
+        }
+
+        .instruction-text {
+            font-size: 0.9rem;
+            color: #0B465F;
+            margin: 12px 0;
+            font-style: italic;
+            padding: 8px;
+            background: #f0f8ff;
+            border-left: 3px solid #098EAF;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* SVG Responsiveness */
+        .visual-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* Water Cycle Explorer */
+        .cycle-section {
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 4px solid #098EAF;
+        }
+        
+        .cycle-section:hover {
+            background: #f0f8ff;
+            transform: translateX(4px);
+        }
+        
+        .cycle-section.active {
+            background: #E3F2FD;
+            border-left-color: #F47D20;
+        }
+        
+        .cycle-section-content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .cycle-section-content.show {
+            display: block;
+        }
+        
+        /* Evaporation Animation */
+        @keyframes rise {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-300px); opacity: 0; }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-300px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        .water-particle {
+            animation: rise 3s ease-in-out infinite;
+        }
+        
+        .rain-particle {
+            animation: fall 3s ease-in-out infinite;
+        }
+</style>
 </head>
 <body>
     <div class="container">
@@ -689,6 +809,90 @@
         <div class="content-section">
             <h2>The Water Cycle</h2>
             <p>The water cycle, also called the hydrological cycle, is the continuous movement of water on, above, and below Earth's surface. It is one of the most important natural processes on our planet. The water cycle involves four main stages:</p>
+
+            <div class="visual-container">
+                <div class="visual-header">💧 The Water Cycle</div>
+                <svg viewBox="0 0 550 420" class="water-cycle-diagram">
+                    <!-- Background sky gradient -->
+                    <defs>
+                        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+                        </linearGradient>
+                        <marker id="arrowhead-water" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#098EAF"/>
+                        </marker>
+                    </defs>
+                    <rect width="550" height="420" fill="url(#sky)"/>
+                    
+                    <!-- Ocean -->
+                    <rect x="0" y="300" width="550" height="120" fill="#0066cc"/>
+                    <path d="M 0 300 Q 25 295 50 300 T 100 300 T 150 300 T 200 300 T 250 300 T 300 300 T 350 300 T 400 300 T 450 300 T 500 300 T 550 300" 
+                          stroke="#004499" stroke-width="2" fill="none"/>
+                    <text x="275" y="350" font-size="14" font-weight="bold" fill="white" text-anchor="middle">OCEAN</text>
+                    
+                    <!-- Sun -->
+                    <circle cx="500" cy="50" r="30" fill="#FFD700"/>
+                    <line x1="500" y1="10" x2="500" y2="-10" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="540" y1="50" x2="560" y2="50" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="530" y1="30" x2="545" y2="15" stroke="#FFD700" stroke-width="3"/>
+                    <line x1="530" y1="70" x2="545" y2="85" stroke="#FFD700" stroke-width="3"/>
+                    
+                    <!-- Evaporation arrows -->
+                    <path d="M 100 280 L 100 180" stroke="#098EAF" stroke-width="2" marker-end="url(#arrowhead-water)" stroke-dasharray="5,5"/>
+                    <path d="M 200 280 L 200 160" stroke="#098EAF" stroke-width="2" marker-end="url(#arrowhead-water)" stroke-dasharray="5,5"/>
+                    <path d="M 300 280 L 300 180" stroke="#098EAF" stroke-width="2" marker-end="url(#arrowhead-water)" stroke-dasharray="5,5"/>
+                    <text x="50" y="230" font-size="11" font-weight="bold" fill="#0B465F">EVAPORATION</text>
+                    
+                    <!-- Water vapour rising -->
+                    <circle cx="100" cy="250" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="105" cy="230" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="98" cy="210" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="203" cy="240" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="197" cy="200" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="302" cy="250" r="3" fill="#098EAF" opacity="0.6"/>
+                    <circle cx="297" cy="210" r="3" fill="#098EAF" opacity="0.6"/>
+                    
+                    <!-- Clouds -->
+                    <ellipse cx="150" cy="100" rx="50" ry="35" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+                    <ellipse cx="120" cy="110" rx="35" ry="30" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+                    <ellipse cx="180" cy="110" rx="40" ry="28" fill="#FFFFFF" stroke="#CCCCCC" stroke-width="1"/>
+                    
+                    <ellipse cx="400" cy="120" rx="45" ry="32" fill="#D3D3D3" stroke="#999999" stroke-width="1"/>
+                    <ellipse cx="370" cy="130" rx="35" ry="28" fill="#D3D3D3" stroke="#999999" stroke-width="1"/>
+                    <ellipse cx="430" cy="130" rx="40" ry="26" fill="#D3D3D3" stroke="#999999" stroke-width="1"/>
+                    
+                    <!-- Condensation label -->
+                    <text x="150" y="150" font-size="11" font-weight="bold" fill="#0B465F">CONDENSATION</text>
+                    
+                    <!-- Precipitation arrows and rain -->
+                    <path d="M 390 160 L 350 250" stroke="#0066cc" stroke-width="2.5" marker-end="url(#arrowhead-water)"/>
+                    <path d="M 410 160 L 400 250" stroke="#0066cc" stroke-width="2.5" marker-end="url(#arrowhead-water)"/>
+                    <path d="M 430 160 L 440 250" stroke="#0066cc" stroke-width="2.5" marker-end="url(#arrowhead-water)"/>
+                    <text x="420" y="200" font-size="11" font-weight="bold" fill="#0B465F">PRECIPITATION</text>
+                    
+                    <!-- Rain drops falling -->
+                    <line x1="340" y1="170" x2="335" y2="185" stroke="#0066cc" stroke-width="2"/>
+                    <line x1="360" y1="170" x2="355" y2="185" stroke="#0066cc" stroke-width="2"/>
+                    <line x1="380" y1="170" x2="375" y2="185" stroke="#0066cc" stroke-width="2"/>
+                    <line x1="400" y1="170" x2="395" y2="185" stroke="#0066cc" stroke-width="2"/>
+                    
+                    <!-- Mountains/Land -->
+                    <polygon points="250,250 350,120 450,250" fill="#8B7355" stroke="#654321" stroke-width="1"/>
+                    <polygon points="50,250 120,150 190,250" fill="#A0826D" stroke="#654321" stroke-width="1"/>
+                    
+                    <!-- Rivers flowing to ocean -->
+                    <path d="M 180 250 Q 150 270 100 300" stroke="#0066cc" stroke-width="3" fill="none"/>
+                    <path d="M 350 250 Q 280 270 200 300" stroke="#0066cc" stroke-width="3" fill="none"/>
+                    <text x="220" y="280" font-size="10" font-weight="bold" fill="#0B465F">COLLECTION</text>
+                    
+                    <!-- Labels -->
+                    <text x="150" y="65" font-size="12" font-weight="bold" fill="#0B465F" text-anchor="middle">COOL AIR</text>
+                    <text x="400" y="85" font-size="12" font-weight="bold" fill="#0B465F" text-anchor="middle">RAIN CLOUD</text>
+                </svg>
+                <p class="instruction-text">The water cycle is a continuous process: water evaporates from oceans, condenses into clouds, falls as rain on land, and flows back to the ocean!</p>
+            </div>
+
 
             <h3>Stage 1: Evaporation</h3>
             <p><strong>What happens:</strong> The sun's heat warms water in oceans, rivers, lakes, and other bodies of water. This heat energy causes the water molecules to move very fast. Eventually, some water molecules have enough energy to escape from the liquid water and become water vapour (a gas).</p>
@@ -804,10 +1008,127 @@
                 <strong>Key Concept: The Complete Cycle</strong>
                 <p>The water cycle is continuous and never stops. The same water has been cycling through evaporation, condensation, precipitation, and collection for billions of years. This water you drink today might have been drunk by dinosaurs millions of years ago!</p>
             </div>
-        </div>
+        
+
+
+            <div class="visual-container">
+                <div class="visual-header">🎮 Try It Yourself - Water Cycle Explorer</div>
+                <p class="instruction-text">Click on each part of the water cycle to learn more:</p>
+                
+                <div class="cycle-section" data-cycle="evaporation" onclick="showCycleInfo(this)">
+                    <strong>☀️ Evaporation</strong>
+                    <div class="cycle-section-content">
+                        Water from oceans, lakes, and rivers is heated by the sun. The water turns into water vapour (a gas) and rises into the atmosphere. Temperature increases evaporation.
+                    </div>
+                </div>
+                
+                <div class="cycle-section" data-cycle="transpiration" onclick="showCycleInfo(this)">
+                    <strong>🌿 Transpiration</strong>
+                    <div class="cycle-section-content">
+                        Plants also release water vapour from their leaves. This process is called transpiration. Together with evaporation, it's called evapotranspiration.
+                    </div>
+                </div>
+                
+                <div class="cycle-section" data-cycle="condensation" onclick="showCycleInfo(this)">
+                    <strong>☁️ Condensation</strong>
+                    <div class="cycle-section-content">
+                        As water vapour rises, it cools down in the upper atmosphere. When it cools enough, it condenses back into tiny liquid water droplets. Many droplets together form clouds.
+                    </div>
+                </div>
+                
+                <div class="cycle-section" data-cycle="precipitation" onclick="showCycleInfo(this)">
+                    <strong>🌧️ Precipitation</strong>
+                    <div class="cycle-section-content">
+                        Water droplets in clouds combine and become heavier. They fall to Earth as precipitation - rain, snow, sleet, or hail depending on temperature.
+                    </div>
+                </div>
+                
+                <div class="cycle-section" data-cycle="collection" onclick="showCycleInfo(this)">
+                    <strong>💧 Collection</strong>
+                    <div class="cycle-section-content">
+                        Water that falls on land flows into rivers and lakes, or seeps into the ground as groundwater. Eventually, all water flows back to the oceans, and the cycle continues.
+                    </div>
+                </div>
+                
+                <script>
+                function showCycleInfo(element) {
+                    // Remove active class from all sections
+                    document.querySelectorAll('.cycle-section').forEach(section => {
+                        section.classList.remove('active');
+                        section.querySelector('.cycle-section-content').classList.remove('show');
+                    });
+                    
+                    // Add active class to clicked section
+                    element.classList.add('active');
+                    element.querySelector('.cycle-section-content').classList.add('show');
+                }
+                
+                // Auto-show first section on page load
+                window.addEventListener('load', function() {
+                    const firstSection = document.querySelector('.cycle-section');
+                    if (firstSection) {
+                        firstSection.classList.add('active');
+                        firstSection.querySelector('.cycle-section-content').classList.add('show');
+                    }
+                });
+                </script>
+            </div>
+</div>
 
         <!-- Content Section 3: States of Water -->
         <div class="content-section">
+            
+            <div class="visual-container">
+                <div class="visual-header">💧 Water Properties</div>
+                <svg viewBox="0 0 550 300" class="water-properties-diagram">
+                    <!-- Background -->
+                    <rect width="550" height="300" fill="#f9f9f9"/>
+                    
+                    <!-- States of Water -->
+                    <!-- Solid (Ice) -->
+                    <rect x="20" y="80" width="140" height="140" fill="#E0F4FF" stroke="#0B465F" stroke-width="2" rx="8"/>
+                    <text x="90" y="35" font-size="13" font-weight="bold" fill="#0B465F" text-anchor="middle">SOLID (ICE)</text>
+                    <rect x="40" y="100" width="35" height="35" fill="#ADD8E6" stroke="#0066cc" stroke-width="1"/>
+                    <rect x="85" y="100" width="35" height="35" fill="#ADD8E6" stroke="#0066cc" stroke-width="1"/>
+                    <rect x="40" y="150" width="35" height="35" fill="#ADD8E6" stroke="#0066cc" stroke-width="1"/>
+                    <rect x="85" y="150" width="35" height="35" fill="#ADD8E6" stroke="#0066cc" stroke-width="1"/>
+                    <text x="90" y="205" font-size="11" fill="#333" text-anchor="middle">Molecules packed</text>
+                    <text x="90" y="220" font-size="11" fill="#333" text-anchor="middle">tightly in order</text>
+                    
+                    <!-- Liquid (Water) -->
+                    <rect x="205" y="80" width="140" height="140" fill="#E3F2FD" stroke="#0B465F" stroke-width="2" rx="8"/>
+                    <text x="275" y="35" font-size="13" font-weight="bold" fill="#0B465F" text-anchor="middle">LIQUID (WATER)</text>
+                    <circle cx="235" cy="120" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="255" cy="130" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="275" cy="115" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="295" cy="140" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="315" cy="125" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="245" cy="160" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="290" cy="170" r="4" fill="#0066cc" opacity="0.7"/>
+                    <circle cx="265" cy="155" r="4" fill="#0066cc" opacity="0.7"/>
+                    <text x="275" y="205" font-size="11" fill="#333" text-anchor="middle">Molecules can move</text>
+                    <text x="275" y="220" font-size="11" fill="#333" text-anchor="middle">freely around each other</text>
+                    
+                    <!-- Gas (Vapour) -->
+                    <rect x="390" y="80" width="140" height="140" fill="#FFF3E0" stroke="#0B465F" stroke-width="2" rx="8"/>
+                    <text x="460" y="35" font-size="13" font-weight="bold" fill="#0B465F" text-anchor="middle">GAS (VAPOUR)</text>
+                    <circle cx="415" cy="100" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <circle cx="440" cy="110" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <circle cx="425" cy="145" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <circle cx="450" cy="130" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <circle cx="475" cy="150" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <circle cx="410" cy="165" r="2.5" fill="#F47D20" opacity="0.6"/>
+                    <text x="460" y="205" font-size="11" fill="#333" text-anchor="middle">Molecules spread out</text>
+                    <text x="460" y="220" font-size="11" fill="#333" text-anchor="middle">and move very fast</text>
+                    
+                    <!-- Bottom section: Water's Importance -->
+                    <rect x="20" y="240" width="510" height="50" fill="#FFFACD" stroke="#F47D20" stroke-width="2" rx="6"/>
+                    <text x="275" y="260" font-size="12" font-weight="bold" fill="#0B465F" text-anchor="middle">Water as a Solvent: Water dissolves many substances</text>
+                    <text x="275" y="280" font-size="11" fill="#0B465F" text-anchor="middle">This makes it excellent for carrying nutrients in plants and dissolving minerals for living things</text>
+                </svg>
+                <p class="instruction-text">Water can exist in three states depending on temperature. As a liquid, water is unique because it can dissolve more substances than any other liquid!</p>
+            </div>
+
             <h2>Water in Three States</h2>
             <p>Water is special because it can exist in three different states of matter. You learned about states of matter in your P4 Science topic on Matter. Let's see how water demonstrates all three states:</p>
 

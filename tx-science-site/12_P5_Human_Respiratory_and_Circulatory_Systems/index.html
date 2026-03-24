@@ -511,7 +511,131 @@
                 padding: 0.7rem;
             }
         }
-    </style>
+    
+        /* Visual Container Styles - Myko Education Theme */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #F47D20;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .interactive-button {
+            background: #F47D20;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin: 8px 4px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-button:hover {
+            background: #0B465F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(11, 70, 95, 0.2);
+        }
+
+        .interactive-button:active {
+            transform: translateY(0);
+        }
+
+        .instruction-text {
+            font-size: 0.9rem;
+            color: #0B465F;
+            margin: 12px 0;
+            font-style: italic;
+            padding: 8px;
+            background: #f0f8ff;
+            border-left: 3px solid #098EAF;
+            border-radius: 4px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* SVG Responsiveness */
+        .visual-container svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* Breathing Simulator */
+        .breathing-simulator {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .lungs-container {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        
+        .lungs {
+            width: 120px;
+            height: 150px;
+            background: #FF6B9D;
+            border-radius: 60px;
+            margin: 0 10px;
+            transition: all 0.5s ease;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .lungs.expanded {
+            height: 180px;
+            width: 140px;
+            background: #ff4d7d;
+        }
+        
+        .diaphragm {
+            width: 140px;
+            height: 20px;
+            background: #0B465F;
+            border-radius: 10px 10px 0 0;
+            margin: 0 auto;
+            margin-top: 20px;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+        
+        .diaphragm.contracted {
+            transform: translateY(10px);
+        }
+        
+        /* Blood flow animation */
+        @keyframes bloodflow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(500px); }
+        }
+        
+        .blood-particle {
+            animation: bloodflow 3s linear infinite;
+        }
+</style>
 </head>
 <body>
     <!-- Hero Banner -->
@@ -532,6 +656,83 @@
             <div class="outcome-card">
                 <h3>LO2: How We Breathe</h3>
                 <p>Explain what happens during inhalation and exhalation, and how the diaphragm controls breathing.</p>
+
+
+            <div class="visual-container">
+                <div class="visual-header">🎮 Try It Yourself - Breathing Simulator</div>
+                <p class="instruction-text">Click the buttons to see your lungs expand and contract as you breathe:</p>
+                
+                <div class="breathing-simulator">
+                    <div class="lungs-container">
+                        <div class="lungs" id="lung-left"></div>
+                        <div class="lungs" id="lung-right"></div>
+                    </div>
+                    <div class="diaphragm" id="diaphragm"></div>
+                    
+                    <div style="margin-top: 30px;">
+                        <button class="interactive-button" onclick="inhale()">Inhale (Breathe In)</button>
+                        <button class="interactive-button" onclick="exhale()" style="background: #098EAF;">Exhale (Breathe Out)</button>
+                    </div>
+                    
+                    <div id="breathing-info" style="margin-top: 20px; padding: 15px; background: #f0f8ff; border-radius: 8px; border-left: 4px solid #F47D20; display: none;">
+                        <strong style="color: #0B465F;"></strong>
+                        <p style="margin-top: 8px; color: #333;"></p>
+                    </div>
+                </div>
+                
+                <script>
+                let isBreathing = false;
+                
+                function inhale() {
+                    if (isBreathing) return;
+                    isBreathing = true;
+                    
+                    const leftLung = document.getElementById('lung-left');
+                    const rightLung = document.getElementById('lung-right');
+                    const diaphragm = document.getElementById('diaphragm');
+                    const info = document.getElementById('breathing-info');
+                    
+                    // Expand lungs
+                    leftLung.classList.add('expanded');
+                    rightLung.classList.add('expanded');
+                    diaphragm.classList.add('contracted');
+                    
+                    // Show info
+                    info.style.display = 'block';
+                    info.querySelector('strong').textContent = '↑ Inhaling...';
+                    info.querySelector('p').textContent = 'Your diaphragm contracts and moves downward. Your intercostal muscles pull your ribs outward. This increases the space in your chest, and air flows into your lungs to fill the space!';
+                    
+                    setTimeout(() => {
+                        isBreathing = false;
+                    }, 1500);
+                }
+                
+                function exhale() {
+                    if (isBreathing) return;
+                    isBreathing = true;
+                    
+                    const leftLung = document.getElementById('lung-left');
+                    const rightLung = document.getElementById('lung-right');
+                    const diaphragm = document.getElementById('diaphragm');
+                    const info = document.getElementById('breathing-info');
+                    
+                    // Deflate lungs
+                    leftLung.classList.remove('expanded');
+                    rightLung.classList.remove('expanded');
+                    diaphragm.classList.remove('contracted');
+                    
+                    // Show info
+                    info.style.display = 'block';
+                    info.querySelector('strong').textContent = '↓ Exhaling...';
+                    info.querySelector('p').textContent = 'Your diaphragm relaxes and moves upward. Your ribs move inward. The space in your chest gets smaller, pushing stale air (containing carbon dioxide) out of your lungs.';
+                    
+                    setTimeout(() => {
+                        isBreathing = false;
+                    }, 1500);
+                }
+                </script>
+            </div>
+
             </div>
             <div class="outcome-card">
                 <h3>LO3: Circulatory System</h3>
@@ -559,7 +760,89 @@
             <div class="subsection">
                 <h3>Parts of the Respiratory System</h3>
 
-                <table>
+                
+            <div class="visual-container">
+                <div class="visual-header">🫁 The Respiratory System</div>
+                <svg viewBox="0 0 400 500" class="respiratory-diagram">
+                    <!-- Background -->
+                    <rect width="400" height="500" fill="#f9f9f9"/>
+                    
+                    <!-- Body outline -->
+                    <circle cx="200" cy="80" r="30" fill="#F5DEB3" stroke="#999" stroke-width="1"/>
+                    <rect x="140" y="110" width="120" height="150" fill="#FFE4C4" stroke="#999" stroke-width="1"/>
+                    <line x1="140" y1="180" x2="80" y2="250" stroke="#999" stroke-width="1"/>
+                    <line x1="260" y1="180" x2="320" y2="250" stroke="#999" stroke-width="1"/>
+                    
+                    <!-- Nose -->
+                    <circle cx="190" cy="70" r="5" fill="#FFB6C1"/>
+                    <circle cx="210" cy="70" r="5" fill="#FFB6C1"/>
+                    <text x="200" y="95" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Nose</text>
+                    
+                    <!-- Trachea/Windpipe -->
+                    <path d="M 195 110 L 190 140 L 190 160" stroke="#8B6F47" stroke-width="6" fill="none"/>
+                    <path d="M 205 110 L 210 140 L 210 160" stroke="#8B6F47" stroke-width="6" fill="none"/>
+                    <line x1="190" y1="120" x2="210" y2="120" stroke="#8B6F47" stroke-width="6"/>
+                    <line x1="190" y1="130" x2="210" y2="130" stroke="#8B6F47" stroke-width="6"/>
+                    <text x="220" y="140" font-size="11" font-weight="bold" fill="#333">Trachea</text>
+                    
+                    <!-- Bronchi -->
+                    <path d="M 190 160 L 160 200" stroke="#8B6F47" stroke-width="4" fill="none"/>
+                    <path d="M 210 160 L 240 200" stroke="#8B6F47" stroke-width="4" fill="none"/>
+                    <text x="120" y="180" font-size="10" font-weight="bold" fill="#333">Bronchi</text>
+                    
+                    <!-- Left Lung -->
+                    <ellipse cx="150" cy="280" rx="45" ry="80" fill="#FF6B9D" stroke="#c2185b" stroke-width="2"/>
+                    <!-- Bronchioles in left lung -->
+                    <path d="M 160 200 Q 155 220 150 260" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    <path d="M 160 200 Q 140 230 140 280" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    <path d="M 160 200 Q 150 240 160 300" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    
+                    <!-- Right Lung -->
+                    <ellipse cx="250" cy="280" rx="45" ry="80" fill="#FF6B9D" stroke="#c2185b" stroke-width="2"/>
+                    <!-- Bronchioles in right lung -->
+                    <path d="M 240 200 Q 245 220 250 260" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    <path d="M 240 200 Q 260 230 260 280" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    <path d="M 240 200 Q 250 240 240 300" stroke="#FF1493" stroke-width="1" fill="none"/>
+                    
+                    <!-- Alveoli clusters -->
+                    <g id="alveoli-left">
+                        <circle cx="135" cy="250" r="3" fill="#ff69b4"/>
+                        <circle cx="145" cy="255" r="3" fill="#ff69b4"/>
+                        <circle cx="140" cy="270" r="3" fill="#ff69b4"/>
+                        <circle cx="155" cy="265" r="3" fill="#ff69b4"/>
+                    </g>
+                    <g id="alveoli-right">
+                        <circle cx="265" cy="250" r="3" fill="#ff69b4"/>
+                        <circle cx="255" cy="255" r="3" fill="#ff69b4"/>
+                        <circle cx="260" cy="270" r="3" fill="#ff69b4"/>
+                        <circle cx="245" cy="265" r="3" fill="#ff69b4"/>
+                    </g>
+                    <text x="200" y="190" font-size="9" fill="#333" text-anchor="middle">Lungs</text>
+                    
+                    <!-- Diaphragm -->
+                    <ellipse cx="200" cy="380" rx="80" ry="15" fill="#0B465F" stroke="#000" stroke-width="2"/>
+                    <text x="200" y="410" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Diaphragm</text>
+                    
+                    <!-- Arrows showing airflow -->
+                    <path d="M 200 65 L 200 100" stroke="#0B465F" stroke-width="2" marker-end="url(#arrowhead-down)"/>
+                    <defs>
+                        <marker id="arrowhead-down" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#0B465F"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Alveoli closeup -->
+                    <rect x="280" y="100" width="110" height="100" fill="#fff9e6" stroke="#F47D20" stroke-width="2" rx="5"/>
+                    <text x="335" y="115" font-size="10" font-weight="bold" fill="#F47D20" text-anchor="middle">ALVEOLI DETAIL</text>
+                    <circle cx="310" cy="145" r="8" fill="#FFD1DC" stroke="#ff69b4" stroke-width="1"/>
+                    <circle cx="335" cy="150" r="8" fill="#FFD1DC" stroke="#ff69b4" stroke-width="1"/>
+                    <circle cx="320" cy="170" r="8" fill="#FFD1DC" stroke="#ff69b4" stroke-width="1"/>
+                    <text x="335" y="185" font-size="9" fill="#333" text-anchor="middle">Tiny air sacs</text>
+                </svg>
+                <p class="instruction-text">Air travels through the nose → trachea → bronchi → lungs → alveoli, where oxygen enters the blood!</p>
+            </div>
+
+            <table>
                     <thead>
                         <tr>
                             <th>Part</th>
@@ -679,7 +962,94 @@
             <div class="subsection">
                 <h3>Parts of the Circulatory System</h3>
 
-                <table>
+                
+            <div class="visual-container">
+                <div class="visual-header">❤️ Heart and Blood Circulation</div>
+                <svg viewBox="0 0 500 450" class="circulation-diagram">
+                    <!-- Background -->
+                    <rect width="500" height="450" fill="#f9f9f9"/>
+                    
+                    <!-- Title sections -->
+                    <text x="120" y="25" font-size="12" font-weight="bold" fill="#EF3740" text-anchor="middle">OXYGENATED BLOOD</text>
+                    <text x="380" y="25" font-size="12" font-weight="bold" fill="#0066cc" text-anchor="middle">DEOXYGENATED BLOOD</text>
+                    
+                    <!-- HEART -->
+                    <!-- Left ventricle (red) -->
+                    <ellipse cx="200" cy="220" rx="35" ry="50" fill="#EF3740" stroke="#c41c3b" stroke-width="2"/>
+                    <!-- Right ventricle (blue) -->
+                    <ellipse cx="300" cy="220" rx="35" ry="50" fill="#0099ff" stroke="#0066cc" stroke-width="2"/>
+                    <!-- Atria (smaller) -->
+                    <ellipse cx="200" cy="150" rx="25" ry="30" fill="#ff6b6b" stroke="#c41c3b" stroke-width="1.5"/>
+                    <ellipse cx="300" cy="150" rx="25" ry="30" fill="#6bbfff" stroke="#0066cc" stroke-width="1.5"/>
+                    
+                    <!-- Heart labels -->
+                    <text x="200" y="225" font-size="10" font-weight="bold" fill="white" text-anchor="middle">LV</text>
+                    <text x="300" y="225" font-size="10" font-weight="bold" fill="white" text-anchor="middle">RV</text>
+                    <text x="200" y="150" font-size="9" fill="white" text-anchor="middle">LA</text>
+                    <text x="300" y="150" font-size="9" fill="white" text-anchor="middle">RA</text>
+                    
+                    <!-- Valves -->
+                    <circle cx="200" cy="170" r="4" fill="#ff6b6b" stroke="#c41c3b" stroke-width="1"/>
+                    <circle cx="300" cy="170" r="4" fill="#6bbfff" stroke="#0066cc" stroke-width="1"/>
+                    
+                    <!-- LUNGS -->
+                    <!-- Left lung -->
+                    <ellipse cx="80" cy="150" rx="40" ry="60" fill="#FFB6C1" stroke="#FF69B4" stroke-width="2"/>
+                    <text x="80" y="155" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">LEFT</text>
+                    <text x="80" y="170" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">LUNG</text>
+                    
+                    <!-- Right lung -->
+                    <ellipse cx="420" cy="150" rx="40" ry="60" fill="#FFB6C1" stroke="#FF69B4" stroke-width="2"/>
+                    <text x="420" y="155" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">RIGHT</text>
+                    <text x="420" y="170" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">LUNG</text>
+                    
+                    <!-- BODY -->
+                    <rect x="200" y="340" width="100" height="60" fill="#E8D5C4" stroke="#999" stroke-width="2" rx="8"/>
+                    <text x="250" y="370" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">BODY CELLS</text>
+                    
+                    <!-- BLOOD FLOW PATHS -->
+                    <!-- Deoxygenated blood from body to right heart -->
+                    <path d="M 250 400 L 250 380 L 310 280" stroke="#0066cc" stroke-width="3" fill="none"/>
+                    <text x="320" y="340" font-size="10" fill="#0066cc">To lungs</text>
+                    
+                    <!-- Deoxygenated to oxygenated in lungs -->
+                    <path d="M 300 110 L 300 90 L 80 90 L 80 110" stroke="#0066cc" stroke-width="2.5" fill="none" stroke-dasharray="5,5"/>
+                    <path d="M 80 90 L 80 110" stroke="#EF3740" stroke-width="2.5" fill="none"/>
+                    <text x="40" y="100" font-size="9" fill="#333">Gas</text>
+                    <text x="40" y="112" font-size="9" fill="#333">Exchange</text>
+                    
+                    <!-- Oxygenated from lungs to left heart -->
+                    <path d="M 80 210 L 100 210 L 150 190" stroke="#EF3740" stroke-width="3" fill="none"/>
+                    <text x="95" y="235" font-size="10" fill="#EF3740">From lungs</text>
+                    
+                    <!-- Oxygenated from left heart to body -->
+                    <path d="M 200 280 L 200 300 L 200 340" stroke="#EF3740" stroke-width="3" fill="none"/>
+                    <text x="210" y="310" font-size="10" fill="#EF3740">To body</text>
+                    
+                    <!-- Right lung to right heart -->
+                    <path d="M 420 210 L 380 210 L 340 190" stroke="#0066cc" stroke-width="2.5" fill="none"/>
+                    
+                    <!-- Arrow markers -->
+                    <defs>
+                        <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#EF3740"/>
+                        </marker>
+                        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#0066cc"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Legend -->
+                    <rect x="20" y="410" width="460" height="35" fill="#fffacd" stroke="#F47D20" stroke-width="2" rx="5"/>
+                    <line x1="50" y1="425" x2="80" y2="425" stroke="#EF3740" stroke-width="3"/>
+                    <text x="90" y="430" font-size="11" fill="#333">Red = Oxygenated blood</text>
+                    <line x1="280" y1="425" x2="310" y2="425" stroke="#0066cc" stroke-width="3"/>
+                    <text x="320" y="430" font-size="11" fill="#333">Blue = Deoxygenated blood</text>
+                </svg>
+                <p class="instruction-text">The heart pumps oxygenated blood (red) to the body and deoxygenated blood (blue) to the lungs. This cycle repeats about 60-100 times every minute!</p>
+            </div>
+
+            <table>
                     <thead>
                         <tr>
                             <th>Part</th>

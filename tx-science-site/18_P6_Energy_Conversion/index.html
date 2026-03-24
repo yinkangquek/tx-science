@@ -549,6 +549,103 @@
         .mb-1 {
             margin-bottom: 1rem;
         }
+
+        /* Visual Container Styles */
+        .visual-container {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(11, 70, 95, 0.08);
+        }
+
+        .visual-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #0B465F;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .matcher-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .matcher-list {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #0B465F;
+        }
+
+        .matcher-list h4 {
+            color: #0B465F;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .matcher-item {
+            background: white;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid #F47D20;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .matcher-item:hover {
+            background: #FFF3E0;
+            transform: translateX(5px);
+        }
+
+        .matcher-item.matched {
+            background: #c8e6c9;
+            border-color: #2e7d32;
+            cursor: default;
+        }
+
+        .match-result {
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .match-correct {
+            background: #c8e6c9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .match-incorrect {
+            background: #ffccbc;
+            color: #d84315;
+            border-left: 4px solid #d84315;
+        }
+
+        @keyframes ballFall {
+            0% { transform: translateY(-100px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0; }
+        }
+
+        .falling-dot {
+            animation: ballFall 2s infinite;
+        }
     </style>
 </head>
 <body>
@@ -616,6 +713,74 @@
             <div class="note-subsection">
                 <h3>⚡ Forms of Energy</h3>
                 <p>Energy exists in six main forms. Each form is important in our everyday lives. Let's explore each one:</p>
+
+                <div class="visual-container">
+                    <div class="visual-header">🔬 Six Forms of Energy</div>
+                    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Light Energy -->
+                        <g>
+                            <circle cx="80" cy="80" r="35" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                            <line x1="80" y1="20" x2="80" y2="5" stroke="#FFD700" stroke-width="2"/>
+                            <line x1="80" y1="140" x2="80" y2="155" stroke="#FFD700" stroke-width="2"/>
+                            <line x1="20" y1="80" x2="5" y2="80" stroke="#FFD700" stroke-width="2"/>
+                            <line x1="140" y1="80" x2="155" y2="80" stroke="#FFD700" stroke-width="2"/>
+                            <text x="80" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Light</text>
+                        </g>
+
+                        <!-- Heat Energy -->
+                        <g>
+                            <circle cx="240" cy="80" r="35" fill="#FF6F00" stroke="#D84315" stroke-width="2"/>
+                            <text x="240" y="90" text-anchor="middle" font-size="24">🔥</text>
+                            <text x="240" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Heat</text>
+                        </g>
+
+                        <!-- Sound Energy -->
+                        <g>
+                            <circle cx="400" cy="80" r="35" fill="#9C27B0" stroke="#6A1B9A" stroke-width="2"/>
+                            <path d="M 400 50 Q 395 60 390 55" stroke="#FFF" stroke-width="2" fill="none"/>
+                            <path d="M 400 45 Q 390 60 380 50" stroke="#FFF" stroke-width="2" fill="none"/>
+                            <path d="M 400 60 Q 410 70 420 60" stroke="#FFF" stroke-width="2" fill="none"/>
+                            <text x="400" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Sound</text>
+                        </g>
+
+                        <!-- Kinetic Energy -->
+                        <g>
+                            <circle cx="560" cy="80" r="35" fill="#2196F3" stroke="#1565C0" stroke-width="2"/>
+                            <rect x="545" y="70" width="30" height="20" fill="#FFF" rx="2"/>
+                            <path d="M 575 80 L 590 80" stroke="#FFF" stroke-width="2" marker-end="url(#arrowKinetic)"/>
+                            <text x="560" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Kinetic</text>
+                        </g>
+
+                        <!-- Potential Energy -->
+                        <g>
+                            <circle cx="720" cy="80" r="35" fill="#4CAF50" stroke="#2E7D32" stroke-width="2"/>
+                            <rect x="710" y="55" width="20" height="30" fill="#FFF" stroke="#2E7D32" stroke-width="1"/>
+                            <line x1="700" y1="85" x2="740" y2="85" stroke="#2E7D32" stroke-width="2"/>
+                            <text x="720" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Potential</text>
+                        </g>
+
+                        <!-- Electrical Energy -->
+                        <g>
+                            <circle cx="880" cy="80" r="35" fill="#F47D20" stroke="#D84315" stroke-width="2"/>
+                            <path d="M 870 50 L 880 70 L 875 75 L 890 100" stroke="#FFF" stroke-width="2" fill="none"/>
+                            <text x="880" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0B465F">Electrical</text>
+                        </g>
+
+                        <!-- Examples below -->
+                        <text x="80" y="220" text-anchor="middle" font-size="10" fill="#555">Torch,<br/>Sun</text>
+                        <text x="240" y="220" text-anchor="middle" font-size="10" fill="#555">Fire,<br/>Kettle</text>
+                        <text x="400" y="220" text-anchor="middle" font-size="10" fill="#555">Music,<br/>Speech</text>
+                        <text x="560" y="220" text-anchor="middle" font-size="10" fill="#555">Running,<br/>Car</text>
+                        <text x="720" y="220" text-anchor="middle" font-size="10" fill="#555">Spring,<br/>Height</text>
+                        <text x="880" y="220" text-anchor="middle" font-size="10" fill="#555">Battery,<br/>Power</text>
+
+                        <defs>
+                            <marker id="arrowKinetic" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#FFF"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
 
                 <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">1. Light Energy</h4>
                 <p><strong>Light energy</strong> is energy that we can see. It travels in straight lines and allows us to see objects.</p>
@@ -706,6 +871,87 @@
                 <p>One of the most important ideas in science is that <strong>energy can be converted from one form to another</strong>. This happens constantly in nature and in everyday appliances.</p>
 
                 <p>When energy converts from one form to another, we often see multiple energy forms produced. Let's look at common examples:</p>
+
+                <div class="visual-container">
+                    <div class="visual-header">⚡ Energy Conversion Chain Example</div>
+                    <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Battery (Chemical) -->
+                        <g>
+                            <rect x="30" y="60" width="60" height="80" rx="4" fill="#EF3740" stroke="#C00" stroke-width="2"/>
+                            <rect x="40" y="50" width="40" height="10" fill="#333"/>
+                            <text x="60" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="white">Battery</text>
+                            <text x="60" y="125" text-anchor="middle" font-size="9" fill="white">(Chemical)</text>
+                        </g>
+
+                        <!-- Arrow 1 -->
+                        <path d="M 95 100 L 135 100" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowConv)"/>
+                        <text x="115" y="90" text-anchor="middle" font-size="10" fill="#F47D20" font-weight="600">Energy</text>
+
+                        <!-- Wire -->
+                        <g>
+                            <circle cx="155" cy="100" r="20" fill="#FFB300" stroke="#F47D20" stroke-width="2"/>
+                            <text x="155" y="105" text-anchor="middle" font-size="10" font-weight="600">Wire</text>
+                            <text x="155" y="125" text-anchor="middle" font-size="9" fill="#666">(Electrical)</text>
+                        </g>
+
+                        <!-- Arrow 2 -->
+                        <path d="M 180 100 L 220 100" stroke="#F47D20" stroke-width="3" marker-end="url(#arrowConv)"/>
+                        <text x="200" y="90" text-anchor="middle" font-size="10" fill="#F47D20" font-weight="600">Energy</text>
+
+                        <!-- Light Bulb -->
+                        <g>
+                            <circle cx="260" cy="100" r="20" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                            <path d="M 250 120 L 250 125 M 260 120 L 260 125 M 270 120 L 270 125" stroke="#666" stroke-width="1"/>
+                            <text x="260" y="130" text-anchor="middle" font-size="9" fill="#666">(Bulb)</text>
+                        </g>
+
+                        <!-- Arrow 3a (Light) -->
+                        <path d="M 285 75 L 330 30" stroke="#FFD700" stroke-width="3" marker-end="url(#arrowLight)"/>
+                        <text x="300" y="50" font-size="10" fill="#FFD700" font-weight="600">Light</text>
+
+                        <!-- Arrow 3b (Heat) -->
+                        <path d="M 285 120 L 330 160" stroke="#FF6F00" stroke-width="3" marker-end="url(#arrowHeat)"/>
+                        <text x="300" y="150" font-size="10" fill="#FF6F00" font-weight="600">Heat</text>
+
+                        <!-- Light output -->
+                        <g>
+                            <circle cx="360" cy="30" r="20" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                            <line x1="360" y1="5" x2="360" y2="0" stroke="#FFD700" stroke-width="2"/>
+                            <line x1="375" y1="30" x2="385" y2="30" stroke="#FFD700" stroke-width="2"/>
+                            <text x="360" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#0B465F">LIGHT</text>
+                        </g>
+
+                        <!-- Heat output -->
+                        <g>
+                            <circle cx="360" cy="160" r="20" fill="#FF6F00" stroke="#D84315" stroke-width="2"/>
+                            <text x="360" y="165" text-anchor="middle" font-size="18">🔥</text>
+                            <text x="360" y="185" text-anchor="middle" font-size="11" font-weight="600" fill="#0B465F">HEAT</text>
+                        </g>
+
+                        <!-- Law of conservation -->
+                        <text x="450" y="30" font-size="11" font-weight="600" fill="#0B465F">Total Energy: Constant</text>
+                        <text x="450" y="50" font-size="10" fill="#555">Chemical Energy from battery</text>
+                        <text x="450" y="65" font-size="10" fill="#555">= Light Energy + Heat Energy</text>
+
+                        <!-- Efficiency note -->
+                        <rect x="430" y="100" width="420" height="60" rx="4" fill="#FFF3E0" stroke="#F47D20" stroke-width="1"/>
+                        <text x="640" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#0B465F">Efficiency ≠ 100%</text>
+                        <text x="640" y="138" text-anchor="middle" font-size="10" fill="#555">Some energy is lost as heat in wires and elsewhere.</text>
+                        <text x="640" y="153" text-anchor="middle" font-size="10" fill="#555">That's why LED bulbs are better—they waste less energy as heat!</text>
+
+                        <defs>
+                            <marker id="arrowConv" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#F47D20"/>
+                            </marker>
+                            <marker id="arrowLight" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#FFD700"/>
+                            </marker>
+                            <marker id="arrowHeat" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#FF6F00"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
 
                 <h4 style="color: var(--pri-dark); margin-top: 1.5rem;">📌 Light Bulb: Electrical → Light + Heat</h4>
                 <div class="energy-flow">
@@ -834,8 +1080,100 @@
                 </ol>
                 <p>All the chemical energy from food was accounted for—as kinetic energy, heat, and sound!</p>
 
+                <div class="visual-container">
+                    <div class="visual-header">⚖️ Law of Conservation of Energy</div>
+                    <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ball at height -->
+                        <g>
+                            <text x="150" y="30" font-size="12" font-weight="600" fill="#0B465F" text-anchor="middle">BEFORE: At Top</text>
+                            <circle cx="150" cy="70" r="15" fill="#F47D20"/>
+                            <text x="150" y="73" text-anchor="middle" font-size="10" fill="white" font-weight="600">PE</text>
+                            <line x1="150" y1="90" x2="150" y2="120" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="150" y="140" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">Potential Energy</text>
+                            <text x="150" y="155" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">PE = 100%</text>
+                        </g>
+
+                        <!-- Arrow -->
+                        <path d="M 200 100 L 240 100" stroke="#0B465F" stroke-width="2" marker-end="url(#arrowConserve)"/>
+
+                        <!-- Ball falling -->
+                        <g>
+                            <text x="300" y="30" font-size="12" font-weight="600" fill="#0B465F" text-anchor="middle">DURING: Falling</text>
+                            <circle cx="280" cy="80" r="15" fill="#2196F3"/>
+                            <text x="280" y="83" text-anchor="middle" font-size="9" fill="white" font-weight="600">KE</text>
+                            <circle cx="320" cy="100" r="12" fill="#F47D20" opacity="0.6"/>
+                            <text x="320" y="103" text-anchor="middle" font-size="9" fill="white" font-weight="600">PE</text>
+                            <line x1="300" y1="120" x2="300" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="300" y="170" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">PE Converting to KE</text>
+                            <text x="300" y="185" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">Total = 100%</text>
+                        </g>
+
+                        <!-- Arrow -->
+                        <path d="M 350 100 L 390 100" stroke="#0B465F" stroke-width="2" marker-end="url(#arrowConserve)"/>
+
+                        <!-- Ball on ground -->
+                        <g>
+                            <text x="470" y="30" font-size="12" font-weight="600" fill="#0B465F" text-anchor="middle">AFTER: Impact</text>
+                            <circle cx="470" cy="70" r="15" fill="#FF6F00" opacity="0.8"/>
+                            <text x="470" y="73" text-anchor="middle" font-size="10" fill="white" font-weight="600">Heat</text>
+                            <path d="M 430 85 Q 435 80 440 85 Q 445 90 450 85" stroke="#1976d2" stroke-width="1" fill="none"/>
+                            <text x="470" y="110" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">+ Sound Energy</text>
+                            <line x1="470" y1="120" x2="470" y2="150" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+                            <text x="470" y="170" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">KE → Heat + Sound</text>
+                            <text x="470" y="185" text-anchor="middle" font-size="10" fill="#0B465F" font-weight="600">Total = 100%</text>
+                        </g>
+
+                        <!-- Total energy bar -->
+                        <g>
+                            <text x="50" y="230" font-size="12" font-weight="600" fill="#0B465F">Total Energy:</text>
+                            <rect x="250" y="215" width="600" height="30" rx="4" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+                            <text x="550" y="237" text-anchor="middle" font-size="14" font-weight="700" fill="#2E7D32">ALWAYS STAYS THE SAME = 100%</text>
+                        </g>
+
+                        <!-- Key point -->
+                        <rect x="50" y="260" width="800" height="18" fill="#FFF3E0" rx="2"/>
+                        <text x="450" y="273" text-anchor="middle" font-size="11" fill="#0B465F" font-weight="600">🔑 Energy never disappears—it transforms from one form to another!</text>
+
+                        <defs>
+                            <marker id="arrowConserve" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                <polygon points="0 0, 10 3, 0 6" fill="#0B465F"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
                 <div class="think-about">
                     <strong>Think About It:</strong> Why do we get tired after exercise? Because our bodies have converted chemical energy from food into kinetic energy (movement), heat energy, and sound energy. We've "used up" the available chemical energy!
+                </div>
+            </div>
+
+            <!-- Energy Conversion Matcher Interactive -->
+            <div class="note-subsection">
+                <div class="visual-container">
+                    <div class="visual-header">🎮 Try It Yourself: Energy Conversion Matcher</div>
+                    <p style="margin-bottom: 16px; color: #555;">Match each device on the left with its energy conversion on the right!</p>
+
+                    <div class="matcher-grid">
+                        <div class="matcher-list">
+                            <h4>⚙️ Devices</h4>
+                            <div class="matcher-item" onclick="selectDevice(this, 'fan')">🌀 Electric Fan</div>
+                            <div class="matcher-item" onclick="selectDevice(this, 'torch')">🔦 Torch/Flashlight</div>
+                            <div class="matcher-item" onclick="selectDevice(this, 'kettle')">🫖 Electric Kettle</div>
+                            <div class="matcher-item" onclick="selectDevice(this, 'solar')">☀️ Solar Panel</div>
+                            <div class="matcher-item" onclick="selectDevice(this, 'speaker')">🔊 Speaker</div>
+                        </div>
+
+                        <div class="matcher-list">
+                            <h4>⚡ Energy Conversions</h4>
+                            <div class="matcher-item" onclick="selectConversion(this, 'light-heat')">Electrical → Light + Heat</div>
+                            <div class="matcher-item" onclick="selectConversion(this, 'elec-kinetic-sound')">Electrical → Kinetic + Sound</div>
+                            <div class="matcher-item" onclick="selectConversion(this, 'elec-heat')">Electrical → Heat</div>
+                            <div class="matcher-item" onclick="selectConversion(this, 'light-elec')">Light → Electrical</div>
+                            <div class="matcher-item" onclick="selectConversion(this, 'elec-sound')">Electrical → Sound</div>
+                        </div>
+                    </div>
+
+                    <div class="match-result" id="matchResult" style="display: none;"></div>
                 </div>
             </div>
 
@@ -1347,6 +1685,77 @@
             const element = document.getElementById(id);
             if (element) {
                 element.classList.toggle('show');
+            }
+        }
+
+        // Energy Conversion Matcher Functions
+        const correctMatches = {
+            'fan': 'elec-kinetic-sound',
+            'torch': 'light-heat',
+            'kettle': 'elec-heat',
+            'solar': 'light-elec',
+            'speaker': 'elec-sound'
+        };
+
+        let selectedDevice = null;
+        let selectedConversion = null;
+
+        function selectDevice(element, device) {
+            // Clear previous selection
+            if (selectedDevice) {
+                selectedDevice.style.background = 'white';
+            }
+
+            // Select new device
+            selectedDevice = element;
+            selectedDevice.style.background = '#FFF3E0';
+            selectedDevice.dataset.selected = device;
+        }
+
+        function selectConversion(element, conversion) {
+            // Clear previous selection
+            if (selectedConversion) {
+                selectedConversion.style.background = 'white';
+            }
+
+            // Select new conversion
+            selectedConversion = element;
+            selectedConversion.style.background = '#FFF3E0';
+            selectedConversion.dataset.selected = conversion;
+
+            // Check if both are selected
+            if (selectedDevice && selectedConversion) {
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const device = selectedDevice.dataset.selected;
+            const conversion = selectedConversion.dataset.selected;
+            const resultDiv = document.getElementById('matchResult');
+
+            if (correctMatches[device] === conversion) {
+                resultDiv.className = 'match-result match-correct';
+                resultDiv.innerHTML = '✓ Correct! ' + selectedDevice.textContent + ' converts ' + selectedConversion.textContent;
+                resultDiv.style.display = 'block';
+
+                // Mark as matched
+                selectedDevice.classList.add('matched');
+                selectedDevice.onclick = null;
+                selectedConversion.classList.add('matched');
+                selectedConversion.onclick = null;
+            } else {
+                resultDiv.className = 'match-result match-incorrect';
+                resultDiv.innerHTML = '❌ Not quite right. Try again!';
+                resultDiv.style.display = 'block';
+
+                // Reset selections after a moment
+                setTimeout(() => {
+                    if (selectedDevice) selectedDevice.style.background = 'white';
+                    if (selectedConversion) selectedConversion.style.background = 'white';
+                    selectedDevice = null;
+                    selectedConversion = null;
+                }, 1000);
             }
         }
     </script>
